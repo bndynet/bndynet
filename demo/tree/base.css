@@ -1,0 +1,62 @@
+﻿body { margin: 0px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif; font-size: 11px; }
+input[type=text] { width: 260px; }
+
+.tree *, .ui-dialog * { background: url(images/ui-icons_2e83ff_256x240.png) no-repeat -10000px -100000px; }
+
+
+.highlight { background: #ffc; color: black; }
+.error { border: solid 1px #ff0000; }
+.required { background: #ffc; border: solid 1px #ff0000; }
+.modified { color: #0094ff; }
+.transferred { color: #ff0000; }
+.selected { background: #7d2104; color: white; }
+.hidden { display: none; }
+.btn { cursor: pointer; }
+.disabled { background: #cccccc; color: #888; }
+
+#header { height: 30px; padding: 10px; background: #0094ff; color: white; }
+	#header sup { font-size: 9px; top: -5px; position: relative; }
+	#header sub { font-size: 9px; margin: 0 0 0 -28px; position: relative; top: 3px; }
+	#header .title { float: left; font-size: 24px; }
+	#header .opt { float: right; padding-top: 5px; }
+		#header .opt .btn { border: none; background: #fff; }
+
+
+/* Tree */
+.tree .node { border-bottom: dotted 1px #0094ff; height: 26px; line-height: 26px; padding: 0px 5px; }
+.tree .new { font-weight: bold; }
+.tree .node .ico { float: left; display: block; text-align: right; margin-right: 5px; margin-top: 5px; height: 16px; width: 12px; cursor: pointer; }
+.tree .node .name { float: left; display: block; }
+.tree .node .node-child { clear: both; }
+.tree .node .opt { float: right; display: inline-block; text-align: right; }
+	.tree .node .opt .btn { float: right; display: block; padding: 0px 5px; }
+	.tree .node .opt .split { float: right; display: block; padding: 0px 5px; }
+
+
+/* Form */
+.frm { padding: 10px; background: #efefef; }
+	.frm .field { height: 26px; }
+		.frm .field .field-label { float: left; width: 60px; padding-top: 3px; }
+		.frm .field .field-input { float: left; width: 260px; }
+			.frm .field .field-input input { width: 240px; padding: 2px 5px; border-radius: 5px; border-width: 1px; }
+		.frm .field .field-btn { text-align: center; }
+	.frm .node { border-bottom: #cccccc dotted 1px; }
+
+.expand { background-position: -48px -16px; }
+.shrink { background-position: -32px -16px; }
+
+/* Rewrite the jquery ui */
+.ui-dialog { background: #7d2104; border: solid 1px #ccc; border-radius: 5px; box-shadow: 5px 5px 5px #aaa; }
+	.ui-dialog .ui-dialog-des { float: left; color: white; font-style: italic; width: 260px; height: 30px; overflow: hidden; text-align: left; }
+	.ui-dialog .ui-dialog-title { font-weight: bold; font-size: 16px; color: white; }
+	.ui-dialog button { height: 26px; line-height: 20px; }
+	.ui-dialog .ui-dialog-content { }
+	.ui-dialog .ui-dialog-titlebar { height: 26px; line-height: 26px; padding: 5px; }
+		.ui-dialog .ui-dialog-titlebar .ui-button-text { display: none; }
+		.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close { cursor: pointer; margin-top: 5px; width: 18px; height: 16px; border: none; background-position: -96px -128px; }
+	.ui-dialog .ui-dialog-buttonpane { height: 30px; line-height: 30px; padding: 5px; }
+	.ui-dialog .ui-dialog-buttonset { text-align: right; }
+	.ui-dialog .ui-dialog-titlebar-close { float: right; }
+	.ui-dialog .ui-dialog-buttonset .ui-button { margin-left: 16px; color: black; border: solid 1px #cccccc; background: white; }
+
+.frm #Nodes { border-bottom: solid 2px #ff6a00; margin-bottom: 10px; padding: 0px 0px 10px 5px; font-weight: bold; }
