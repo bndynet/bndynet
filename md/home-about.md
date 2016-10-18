@@ -1,9 +1,9 @@
 ﻿# About Me
 
-## Who am I
+## Who
 
 I'm Bendy, chinese name is Bing Zhang.
 
-## Where I am from
+## Where
 
 China
