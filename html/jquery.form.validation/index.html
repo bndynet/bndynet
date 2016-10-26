@@ -3,18 +3,18 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
+    <script src="../_lib_/jquery/jquery-1.12.4.min.js"></script>
 
-    <script src="components/jquery/jquery-1.12.4.min.js"></script>
-    <script src="components/jquery-validation/jquery.validate.js"></script>
-    <script src="components/jquery-validation/jquery.validate.messages_zh.js"></script>
+    <script src="../_lib_/jquery-validation/jquery.validate.js"></script>
+    <script src="../_lib_/jquery-validation/jquery.validate.messages_zh.js"></script>
 
-    <link href="components/bootstrap/v3.3.7/css/bootstrap.css" rel="stylesheet" />
-    <script src="components/bootstrap/v3.3.7/js/bootstrap.js"></script>
+    <link href="../_lib_/bootstrap/v3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <script src="../_lib_/bootstrap/v3.3.7/js/bootstrap.js"></script>
 
-    <link href="components/jquery-icheck/skins/all.css" rel="stylesheet" />
-    <script src="components/jquery-icheck/icheck.js"></script>
+    <link href="../_lib_/jquery-icheck/skins/all.css" rel="stylesheet" />
+    <script src="../_lib_/jquery-icheck/icheck.js"></script>
 
-    <link href="style.css" rel="stylesheet" />
+    <link href="../_css_/style.css" rel="stylesheet" />
 </head>
 <body>
     <div class="panel panel-default">
@@ -130,9 +130,14 @@
         </div>
     </div>
 
-    <script src="_init.js"></script>
+    <script src="js/_init.js"></script>
     <script>
         $(function () {
+            $('input[type=checkbox], input[type=radio]').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue',
+                increaseArea: '20%'
+            });
             $('#form1').validate();
             $('#form2').validate();
             $('#form3').validate();

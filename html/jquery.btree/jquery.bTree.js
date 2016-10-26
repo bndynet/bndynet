@@ -35,7 +35,7 @@
 
 			$.ajax({
 				url: options.url,
-                dataType: "json",
+                dataType: 'json',
 				success: function (data, event) {
 					$.bTree._render(that, options, data);
 

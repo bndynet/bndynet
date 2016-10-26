@@ -3,9 +3,9 @@
 <head>
     <title>Net.Bndy Tree Plugin - Javascript</title>
     <link href="base.css" rel="stylesheet" />
-    <script src="/html/components/jquery/jquery-1.12.4.min.js"></script>
-    <script src="/html/components/jquery-ui/jquery-ui.min.js"></script>
-    <script src="https://raw.githubusercontent.com/BndyNet/jslib/master/src/Tree/jquery.bTree.js"></script>
+    <script src="../_lib_/jquery/jquery-1.12.4.min.js"></script>
+    <script src="../_lib_/jquery-ui/jquery-ui.min.js"></script>
+    <script src="jquery.bTree.js"></script>
     <script type="text/javascript">
         function saveForm() {
             var s = '=PATH=\t\t\t\t\t\t\t\t=TEXT=\n';
@@ -77,7 +77,7 @@
 
             // Render Tree
             $('#Tree').bTree({
-                url: "treelist.json",
+                url: "../_data_/treelist.json",
                 buttons: {
                     '<i>Remove</i>': function (node) {
                         $(".ui-dialog-content").dialog('close');

@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "jquery.checkall/jquery.checkall.js",
+    "inputFile": "jquery.checkall/jquery.checkall.coffee"
+  },
+  {
+    "outputFile": "_css_/style.css",
+    "inputFile": "_css_/style.scss"
+  },
+  {
+    "outputFile": "_js_/_init.js",
+    "inputFile": "_js_/_init.coffee"
+  }
+]
