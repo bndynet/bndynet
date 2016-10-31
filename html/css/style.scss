@@ -1,9 +1,37 @@
-﻿$color-error: #ff6a00 !default;
+﻿@import "../lib/bootstrap/v3.3.7/assets/stylesheets/bootstrap/_variables.scss";
+
+$color-error: #ff6a00 !default;
 
 body {
     font-family: 'Microsoft YaHei', Inconsolata, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.padding {
+    padding: 15px;
+}
+
+.padding-lg {
+    padding: 30px;
+}
+
+.padding-sm {
+    padding: 5px;
+}
+
+.margin {
+    margin: 15px;
+}
+
+.margin-lg {
+    margin: 30px;
+}
+
+.margin-sm {
+    margin: 5px;
+}
+
+
+/* form */
 .form-group {
     position: relative;
 }
@@ -31,7 +59,7 @@ form {
 
             & + label {
                 &.error {
-                    color:  $color-error;
+                    color: $color-error;
                     position: absolute;
                     right: 0;
                     top: 0;
@@ -92,6 +120,20 @@ form {
                     }
                 }
             }
+        }
+    }
+}
+
+/* dialog */
+.layui-layer {
+    .layui-layer-btn {
+        .layui-layer-btn0 {
+            background-color: $brand-primary;
+            border-radius: $border-radius-small;
+        }
+
+        .layui-layer-btn1 {
+            border-radius: $border-radius-small;
         }
     }
 }

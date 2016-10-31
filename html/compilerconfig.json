@@ -4,11 +4,15 @@
     "inputFile": "jquery.checkall/jquery.checkall.coffee"
   },
   {
-    "outputFile": "_css_/style.css",
-    "inputFile": "_css_/style.scss"
+    "outputFile": "js/dialog.js",
+    "inputFile": "js/dialog.coffee"
   },
   {
-    "outputFile": "_js_/_init.js",
-    "inputFile": "_js_/_init.coffee"
+    "outputFile": "js/_init.js",
+    "inputFile": "js/_init.coffee"
+  },
+  {
+    "outputFile": "css/style.css",
+    "inputFile": "css/style.scss"
   }
 ]
