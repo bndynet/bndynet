@@ -3,7 +3,7 @@
 A plugin about Tree based on jQuery.
 [[Demo]](http://bndy.net/html/jquery.btree/index.html) &nbsp; [[Source Code]](https://github.com/BndyNet/jslib/blob/master/src/jquery.btree/jquery.bTree.js)
 
-## [Form Validation & UI](https://github.com/BndyNet/jslib)
+## Form Validation & UI
 
 ![](http://bndy.net/html/images/demo_form.png)
 
