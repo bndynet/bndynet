@@ -8,11 +8,11 @@
     "inputFile": "js/dialog.coffee"
   },
   {
-    "outputFile": "js/_init.js",
-    "inputFile": "js/_init.coffee"
-  },
-  {
     "outputFile": "css/style.css",
     "inputFile": "css/style.scss"
+  },
+  {
+    "outputFile": "js/init.js",
+    "inputFile": "js/init.coffee"
   }
 ]
