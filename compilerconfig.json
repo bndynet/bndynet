@@ -6,5 +6,9 @@
   {
     "outputFile": "html/_init.js",
     "inputFile": "html/_init.coffee"
+  },
+  {
+    "outputFile": "html/jquery.checkall/jquery.checkall.js",
+    "inputFile": "html/jquery.checkall/jquery.checkall.coffee"
   }
 ]
