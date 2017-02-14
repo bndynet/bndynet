@@ -1,8 +1,16 @@
 ﻿# Bndy.Net
 
-[About me](md/home-about.md)
+[My Repo](https://github.com/BndyNet)
 
-[Projects]()
+[bootstrap-more](https://raw.githubusercontent.com/BndyNet/bootstrap-more/master/README.md)
+[angular-more](https://raw.githubusercontent.com/BndyNet/angular-more/master/README.md)
+[jDialog](https://raw.githubusercontent.com/BndyNet/jDialog/master/README.md)
+[Web Framework](https://raw.githubusercontent.com/BndyNet/web-framework/master/README.md)
+
+[Python Library](https://raw.githubusercontent.com/BndyNet/pylib/master/README.md)
+[CSharp Library](https://raw.githubusercontent.com/BndyNet/lib/master/README.md)
+
+[Others]()
   
   * [JavaScript Libraries](https://github.com/BndyNet/jslib)
   * [CSharp Libraries](https://github.com/BndyNet/lib)
