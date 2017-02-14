@@ -1,46 +1,46 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Net.Bndy jquery.checkall - Javascript</title>
-	<meta charset="utf-8" />
-	<script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+    <title>Net.Bndy jquery.checkall - Javascript</title>
+    <meta charset="utf-8" />
+    <script src="../lib/jquery/jquery-1.12.4.min.js"></script>
 
-	<link href="../lib/bootstrap/v3.3.7/css/bootstrap.css" rel="stylesheet" />
-	<script src="../lib/bootstrap/v3.3.7/js/bootstrap.js"></script>
+    <link href="../lib/bootstrap/v3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/bootstrap/v3.3.7/js/bootstrap.js"></script>
 
-	<link href="../lib/jquery-icheck/skins/all.css" rel="stylesheet" />
-	<script src="../lib/jquery-icheck/icheck.js"></script>
-	<script src="jquery.checkall.js"></script>
+    <link href="../lib/jquery-icheck/skins/all.css" rel="stylesheet" />
+    <script src="../lib/jquery-icheck/icheck.js"></script>
+    <script src="jquery.checkall.js"></script>
 </head>
 <body>
-	<label>
-		<input type="checkbox" id="chkAll" /> All
-	</label>
-	<br />
-	<label>
-		<input type="checkbox" class="child" /> Checkbox 1
-	</label>
-	<label>
-		<input type="checkbox" class="child" /> Checkbox 2
-	</label>
-	<label>
-		<input type="checkbox" class="child" /> Checkbox 3
-	</label>
-	<hr />
-	<label>
-		<input type="checkbox" id="ichkAll" class="ichk" /> Inverse
-	</label>
-	<br />
-	<label>
-		<input type="checkbox" class="ichk ichild" id="c1" /> Checkbox 1
-	</label>
-	<label>
-		<input type="checkbox" class="ichk ichild" id="c2" /> Checkbox 2
-	</label>
-	<label>
-		<input type="checkbox" class="ichk ichild" id="c3" /> Checkbox 3
-	</label>
-	<script>
+    <label>
+        <input type="checkbox" id="chkAll" /> All
+    </label>
+    <br />
+    <label>
+        <input type="checkbox" class="child" /> Checkbox 1
+    </label>
+    <label>
+        <input type="checkbox" class="child" /> Checkbox 2
+    </label>
+    <label>
+        <input type="checkbox" class="child" /> Checkbox 3
+    </label>
+    <hr />
+    <label>
+        <input type="checkbox" id="ichkAll" class="ichk" /> Inverse
+    </label>
+    <br />
+    <label>
+        <input type="checkbox" class="ichk ichild" id="c1" /> Checkbox 1
+    </label>
+    <label>
+        <input type="checkbox" class="ichk ichild" id="c2" /> Checkbox 2
+    </label>
+    <label>
+        <input type="checkbox" class="ichk ichild" id="c3" /> Checkbox 3
+    </label>
+    <script>
 		$(function () {
 			$('.ichk').iCheck({
 				checkboxClass: 'icheckbox_minimal-blue',
@@ -54,6 +54,12 @@
 			        console.debug(checked ? 'Checked' : 'Unchecked');
 			    }
 			});
+			$('.child').checkChange('#chkAll', {
+			    end: function () {
+			        var checked = $(this).prop('checked');
+			        console.debug(checked ? 'Checked' : 'Unchecked');
+			    }
+			});
 			$('#ichkAll').icheckAll('.ichild', {
 				inverse: true,
 				end: function () {
@@ -62,6 +68,6 @@
 				}
 			});
 		});
-	</script>
+    </script>
 </body>
 </html>

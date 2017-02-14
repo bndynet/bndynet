@@ -30,6 +30,22 @@
                         $(this).prop "checked", !checked
                 end.bind(sender)() if end
                 
+        checkChange: (selector, options) ->
+                sender = $(this)
+                end  = if options then options.end else null
+                sender.click ->
+                    thisCheckValue = sender.is ":checked"
+                    if not thisCheckValue
+                        $(selector).prop "checked", thisCheckValue
+                    else
+                        allChecked = true
+                        sender.each ->
+                            checked = $(this).is ":checked"
+                            if not checked
+                                allChecked = false
+                        $(selector).prop "checked", allChecked
+                    end.bind(sender)() if end
+                               
         icheckAll: (selector, options) ->
             sender = $(this)
             withICheck = sender.parent().attr('class') and sender.parent().attr('class').indexOf("icheckbox_") >= 0

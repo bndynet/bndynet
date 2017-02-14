@@ -41,6 +41,31 @@
           }
         });
       },
+      checkChange: function(selector, options) {
+        var end, sender;
+        sender = $(this);
+        end = options ? options.end : null;
+        return sender.click(function() {
+          var allChecked, thisCheckValue;
+          thisCheckValue = sender.is(":checked");
+          if (!thisCheckValue) {
+            $(selector).prop("checked", thisCheckValue);
+          } else {
+            allChecked = true;
+            sender.each(function() {
+              var checked;
+              checked = $(this).is(":checked");
+              if (!checked) {
+                return allChecked = false;
+              }
+            });
+            $(selector).prop("checked", allChecked);
+          }
+          if (end) {
+            return end.bind(sender)();
+          }
+        });
+      },
       icheckAll: function(selector, options) {
         var end, inverse, sender, withICheck;
         sender = $(this);
