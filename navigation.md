@@ -1,6 +1,6 @@
 ﻿# Bndy.Net
 
-[My Repo](https://github.com/BndyNet)
+[My Repos](https://github.com/BndyNet)
 
 [bootstrap-more](https://raw.githubusercontent.com/BndyNet/bootstrap-more/master/README.md)
 [angular-more](https://raw.githubusercontent.com/BndyNet/angular-more/master/README.md)
