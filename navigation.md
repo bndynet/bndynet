@@ -1,14 +1,14 @@
 ﻿# Bndy.Net
 
-[My Repos](https://github.com/BndyNet)
+[My Repos](https://github.com/bndynet)
 
-[bootstrap-more](https://raw.githubusercontent.com/BndyNet/bootstrap-more/master/README.md)
-[angular-more](https://raw.githubusercontent.com/BndyNet/angular-more/master/README.md)
-[jDialog](https://raw.githubusercontent.com/BndyNet/jDialog/master/README.md)
-[Web Framework](https://raw.githubusercontent.com/BndyNet/web-framework/master/README.md)
+[bootstrap-more](https://github.com/bndynet/bootstrap-more)
+[angular-more](https://github.com/bndynet/angular-more)
+[jDialog](https://github.com/bndynet/jdialog)
+[Web Framework](https://github.com/bndynet/web-framework)
 
-[Python Library](https://raw.githubusercontent.com/BndyNet/pylib/master/README.md)
-[CSharp Library](https://raw.githubusercontent.com/BndyNet/lib/master/README.md)
+[Python Library](https://github.com/bndynet/pylib)
+[CSharp Library](https://github.com/bndynet/lib)
 
 [Others]()
   
