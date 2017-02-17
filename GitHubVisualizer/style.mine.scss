@@ -1,0 +1,56 @@
+#example {
+    display: none;
+}
+
+header {
+    #controls {
+        .steps {
+
+            & > li > label:first-child {
+                display: none;
+            }
+
+            .sub {
+                font-size: .85em;
+                font-family: Arial;
+
+                blockquote {
+                    font-family: Arial;
+                    padding: 5px 2px;
+                }
+            }
+
+            .first {
+                input#user,
+                input#user:hover,
+                input#user:focus {
+                    background-color: #50617F;
+                    border-color: transparent;
+                    color: white;
+                    text-transform: uppercase;
+                    width: 140px;
+                    box-shadow: none;
+
+                    &:hover {
+                        border-color: transparent;
+                    }
+                }
+
+                #showBtn {
+                    display: none;
+                }
+
+                .sub {
+                    blockquote {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    #userOAuth,
+    #misc {
+        display: none;
+    }
+}
