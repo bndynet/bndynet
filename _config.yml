@@ -21,7 +21,7 @@ credits: 'I am code Porter, but I produce code.<p>&copy; 2013-2017 Bndy.Net. Cod
 
 # Main author of the website
 # See > authors.yml
-author: phlow
+author: Bndy
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
@@ -142,9 +142,9 @@ defaults:
 #   ___/ / /___/ /_/ /
 #  /____/_____/\____/    Verify Website to Webmaster Tools
 
-google_author:             'https://plus.google.com/u/0/118311555303973066167'
-google_site_verification:  'Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ'
-bing_webmastertools_id:    '0FB4C028ABCF07C908C54386ABD2D97F'
+#google_author:             'https://plus.google.com/u/0/118311555303973066167'
+#google_site_verification:  'Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ'
+#bing_webmastertools_id:    '0FB4C028ABCF07C908C54386ABD2D97F'
 # yandex_site_verification:  ''
 # alexa_verify_id:           ''
 
@@ -191,9 +191,9 @@ og_type:                            'website'
 #  Open _data/socialmedia.yml to adjust the left and right topbar navigation
 #
 
-socialmedia:
-    twitter: phlow
-    facebook: phlow.media
+#socialmedia:
+#    twitter: phlow
+#    facebook: phlow.media
 
 
 #        ____  _
@@ -205,7 +205,7 @@ socialmedia:
 #
 # used in _includes/comments
 
-disqus_shortname: feelingresponsive
+disqus_shortname: bndynet
 
 
 #      _____
@@ -229,7 +229,7 @@ sass:
 #
 # used in _includes/footer_scripts
 
-google_analytics_tracking_id: UA-60112281-1
+#google_analytics_tracking_id: UA-60112281-1
 
 
 
