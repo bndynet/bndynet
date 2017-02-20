@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="920df1c3-ea6d-4d15-8696-fbe7eeeaa7d0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_accordion.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_alert-boxes.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_block-grid.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_breadcrumbs.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_button-groups.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_buttons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_clearing.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_dropdown-buttons.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_dropdown.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_flex-video.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_forms.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_global.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_grid.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_inline-lists.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_keystrokes.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_panels.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_reveal.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_side-nav.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_sub-nav.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_tables.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_thumbs.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_top-bar.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_type.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/737af4e3abe482e94d2a151c1b2f9608a9a9e854/_visibility.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_01_settings_colors.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_02_settings_typography.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_03_settings_mixins_media_queries.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_04_settings_global.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_05_normalize.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_06_typography.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_07_layout.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_09_elements.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_11_syntax-highlighting.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/.sass-cache/dac9282aeac5d820c92d174a659078d5f231ac61/_functions.scssc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_config.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_config_dev.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/authors.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/language.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/language_de.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/navigation.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/network.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/services.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_data/socialmedia.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/gallery.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/page_all_frontmatter.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/page_simple.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/page_with_image.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/page_with_table_of_contents.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/page_without_image.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/post_with_image.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/post_without_image.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_drafts/video.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/__INSTRUCTIONS.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_breadcrumb.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_comments.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_favicon.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_footer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_footer_scripts.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_frontpage-widget.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_google_search.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_head.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_improve_content.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_masthead.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_meta_information.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_navigation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_pagination.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/_sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/alert" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/gallery" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/list-collection" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/list-posts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/next-previous-post-in-category" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_includes/sitemap_collection.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/blog.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/compress.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/default.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/frontpage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/page-fullwidth.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/page.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/redirect.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/video.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_layouts/xml-style.xsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_posts/design/2014-07-09-post-left-sidebar.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_posts/design/2014-07-10-breadcrumb.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_posts/design/2014-07-10-page.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_01_settings_colors.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_02_settings_typography.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_03_settings_mixins_media_queries.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_04_settings_global.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_05_normalize.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_06_typography.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_07_layout.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_09_elements.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_10_asciidoc.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_11_syntax-highlighting.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/_functions.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_accordion.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_alert-boxes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_block-grid.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_breadcrumbs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_button-groups.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_buttons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_clearing.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_dropdown-buttons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_dropdown.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_flex-video.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_forms.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_global.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_grid.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_icon-bar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_inline-lists.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_joyride.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_keystrokes.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_labels.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_magellan.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_offcanvas.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_orbit.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_pagination.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_panels.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_pricing-tables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_progress-bars.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_range-slider.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_reveal.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_side-nav.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_split-buttons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_sub-nav.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_switches.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_tables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_tabs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_thumbs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_toolbar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_tooltips.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_top-bar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_type.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_sass/foundation-components/_visibility.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/css/atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/css/rss.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/css/styles_feeling_responsive.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/fontcustom.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont-preview.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/iconfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/archive.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/browser.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/camera.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/chat.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/check.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/chevron-down.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/chevron-left.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/chevron-right.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/chevron-up.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/circle-with-cross.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/circle-with-minus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/circle-with-plus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/code.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/cog.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/dropbox.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/edit.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/export.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/eye.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/facebook.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/feather.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/github.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/globe.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/heart-outlined.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/heart.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/home.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/instagram.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/lab-flask.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/leaf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/linkedin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/mail.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/message.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/mic.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/network.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/paper-plane.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/pinterest.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/price-tag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/rocket.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/rss.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/soundcloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/star-outlined.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/star.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/thumbs-down.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/thumbs-up.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/tree.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/tumblr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/twitter.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/upload-to-cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/video.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/vimeo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/warning.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/xing.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/fonts/svg-files-for-custom-font/youtube.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-114x114-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-120x120-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-144x144-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-152x152-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-180x180-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-72x72-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-76x76-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/apple-touch-icon-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/favicon-32x32.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/msapplication_tileimage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/img/touch-icon-192x192.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/js/javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/js/javascript.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/js/modernizr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/js/modernizr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/DO NOT CHANGE THESE FILES. USE -src- FOLDER.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/bigplay.fw.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/bigplay.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/bigplay.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls-ted.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls-wmp-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls-wmp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls.fw.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/controls.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/flashmediaelement-cdn.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/flashmediaelement-debug.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/flashmediaelement.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/jumpforward.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelement-and-player.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelement-and-player.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelement.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelementplayer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelementplayer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelementplayer.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mediaelementplayer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/mejs-skins.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/silverlightmediaelement.xap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/mediaelement_js/skipback.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/xslt/atom.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/assets/xslt/rss.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/atom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/blog/archive/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/blog/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/changelog/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/contact/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/design/breadcrumb/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/design/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/design/page/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/design/post-left-sidebar/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/documentation/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/feed.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/getting-started/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/headers/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/humans.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-1-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-2-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-3-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-4-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-5-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-6-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-7-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-8-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/gallery-example-8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header-bus-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header-bus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_drop.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_homepage_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_roadmap_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_roadmap_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_typewriter.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_2-970x.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/header_unsplash_leaf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/homepage_typography-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/homepage_typography.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/mediaplayer_js-home.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/mediaplayer_js-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/mediaplayer_js-title.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/pattern_concrete.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/presentation-feeling-responsive.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/promo-video-start.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/start-video-feeling-responsive-302x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/typewriter-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/unsplash_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/unsplash_brooklyn-bridge-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/unsplash_brooklyn-bridge_header.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/unsplash_eagle.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/video-feeling-responsive-1280x720.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/video-feeling-responsive-tutorial-frontpage.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_jcorneille.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_nixdorf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_phlow.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_schriefer.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_stilwandel.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/webdesign_screenshot_tarnkappe.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/widget-1-302x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/images/widget-github-303x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/info/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/redirect-page/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/roadmap/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/search/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/_site/sitemap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/css/atom.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/css/rss.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/css/styles_feeling_responsive.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/.fontcustom-manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/fontcustom.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont-preview.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/iconfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/.fontcustom-manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/archive.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/browser.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/camera.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/chat.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/check.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/chevron-down.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/chevron-left.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/chevron-right.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/chevron-up.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/circle-with-cross.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/circle-with-minus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/circle-with-plus.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/code.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/cog.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/dropbox.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/edit.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/export.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/eye.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/facebook.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/feather.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/github.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/globe.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/heart-outlined.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/heart.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/home.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/instagram.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/lab-flask.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/leaf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/linkedin.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/mail.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/message.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/mic.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/network.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/paper-plane.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/pinterest.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/price-tag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/rocket.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/rss.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/soundcloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/star-outlined.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/star.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/thumbs-down.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/thumbs-up.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/tree.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/tumblr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/twitter.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/upload-to-cloud.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/video.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/vimeo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/warning.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/xing.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/fonts/svg-files-for-custom-font/youtube.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-114x114-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-120x120-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-144x144-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-152x152-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-180x180-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-72x72-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-76x76-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/apple-touch-icon-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/favicon-32x32.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/msapplication_tileimage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/img/touch-icon-192x192.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/js/javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/js/javascript.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/js/modernizr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/js/modernizr.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/DO NOT CHANGE THESE FILES. USE -src- FOLDER.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/bigplay.fw.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/bigplay.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/bigplay.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls-ted.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls-wmp-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls-wmp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls.fw.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/controls.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/flashmediaelement-cdn.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/flashmediaelement-debug.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/flashmediaelement.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/jumpforward.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelement-and-player.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelement-and-player.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelement.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelement.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelementplayer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelementplayer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelementplayer.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mediaelementplayer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/mejs-skins.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/silverlightmediaelement.xap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/mediaelement_js/skipback.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/xslt/atom.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/assets/xslt/rss.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/blog/archive.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/blog/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-1-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-2-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-3-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-4-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-5-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-6-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-7-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-8-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/gallery-example-8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header-bus-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header-bus.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_drop.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_homepage_13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_roadmap_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_roadmap_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_typewriter.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_2-970x.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/header_unsplash_leaf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/homepage_typography-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/homepage_typography.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/mediaplayer_js-home.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/mediaplayer_js-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/mediaplayer_js-title.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/pattern_concrete.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/presentation-feeling-responsive.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/promo-video-start.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/start-video-feeling-responsive-302x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/typewriter-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/unsplash_9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/unsplash_brooklyn-bridge-thumb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/unsplash_brooklyn-bridge_header.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/unsplash_eagle.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/video-feeling-responsive-1280x720.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/video-feeling-responsive-tutorial-frontpage.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_jcorneille.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_nixdorf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_phlow.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_schriefer.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_stilwandel.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/webdesign_screenshot_tarnkappe.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/widget-1-302x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/images/widget-github-303x182.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/changelog.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/contact.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/design.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/documentation.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/getting-started.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/headers.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/info.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/404.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/atom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/feed.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/humans.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/index.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/pages-root-folder/sitemap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/redirected_page.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/roadmap.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ghp/pages/search.md" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_drafts/video.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>youtube</find>
+    </findStrings>
+    <dirStrings>
+      <dir>E:\doc\bndynet.github.io</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1053" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bndynet.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bndynet.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="920df1c3-ea6d-4d15-8696-fbe7eeeaa7d0" name="Default" comment="" />
+      <created>1487575961371</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1487575961371</updated>
+      <workItem from="1487575965903" duration="113000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="113000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1053" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32968238" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_drafts/video.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
