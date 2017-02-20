@@ -1,0 +1,12 @@
+- menu_name: "Resources"
+
+- name: "Template"
+  url: "http://phlow.github.io/feeling-responsive/"
+  class: ""
+  title: "Jekyll Template"
+
+- name: "Icons"
+  url: "http://entypo.com/"
+  class: "network-entypo"
+  title: "Icons by Daniel Bruce"
+

@@ -1,0 +1,34 @@
+- title: "Bndy.Net"
+  url: "/"
+  side: left
+
+- title: My Repos
+  url: "/GitHubVisualizer/#user=bndynet"
+  side: left
+
+- title: My Blog
+  url: "/blog/"
+  side: left
+  dropdown:
+  - title: "Blog Archive"
+    url: "/blog/archive/"
+
+- title: "Others"
+  url: ""
+  side: left
+  dropdown:
+  - title: "JavaScript Libraries"
+    url: "https://github.com/bndynet/jslib/"
+  - title: "CSharp Libraries"
+    url: "https://github.com/bndynet/lib"
+  - title: "TaskUI"
+    url: "https://github.com/bndynet/taskui"
+  - title: "Hosts for Windows"
+    url: "https://github.com/bndynet/syshostupdater"
+  - title: "CMS"
+    url: "https://github.com/bndynet/cms"
+
+
+- title: "Contact"
+  url: "/contact/"
+  side: right
