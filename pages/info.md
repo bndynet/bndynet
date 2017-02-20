@@ -5,7 +5,7 @@ subheadline: ""
 teaser: "I am code Porter, but I produce code."
 permalink: "/info/"
 header:
-    image_fullwidth: "header_drop.jpg"
+    image_fullwidth: "/images/header_default.jpg"
 ---
 
 
