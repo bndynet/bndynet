@@ -13,12 +13,23 @@
   - title: "Blog Archive"
     url: "/blog/archive/"
 
+- title: "My Projects"
+  url: ""
+  side: left
+  dropdown:
+  - title: "Web Framework"
+    url: "https://github.com/bndynet/web-framework"
+  - title: "Angular More"
+    url: "https://github.com/bndynet/angular-more"
+  - title: "Bootstrap More"
+    url: "https://github.com/bndynet/boostrap-more"
+
 - title: "Others"
   url: ""
   side: left
   dropdown:
   - title: "JavaScript Libraries"
-    url: "https://github.com/bndynet/jslib/"
+    url: "https://github.com/bndynet/jslib"
   - title: "CSharp Libraries"
     url: "https://github.com/bndynet/lib"
   - title: "TaskUI"
