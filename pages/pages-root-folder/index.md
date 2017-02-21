@@ -9,21 +9,21 @@ header:
   image_fullwidth: /images/header_home.jpg
 
 widget1:
-  title: "Web Framework"
+  title: "Default Theme"
   url: 'https://github.com/bndynet/web-framework'
   image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home.png'
-  text: 'A web framework with Admin template for building great Web sites and Web applications using C# fast and easily.'
+  text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily.'
 
 widget2:
-  title: "Web Framework"
+  title: "Horizontal Sidebar"
   url: 'https://github.com/bndynet/web-framework'
-  text: 'A web framework with Admin template for building great Web sites and Web applications using C# fast and easily.'
+  text: 'Add with-sidebar-horizontal class to body tag for setting the sidebar horizontal.'
   image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home-sidebar-horizontal.png'
 
 widget3:
-  title: "Web Framework"
+  title: "Light Header"
   url: 'https://github.com/bndynet/web-framework'
-  text: 'A web framework with Admin template for building great Web sites and Web applications using C# fast and easily.'
+  text: 'class: with-header-light'
   image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home-header-light.png'
 
 #
@@ -36,24 +36,16 @@ widget3:
 # to use the main color or success, alert or secondary.
 # To change colors see sass/_01_settings_colors.scss
 #
+
 callforaction:
   url: /GitHubVisualizer/#user=bndynet
-  text: View GitHub Projects Diagram ›
+  text: ""
   style: alert
 permalink: /index.html
+
 #
 # This is a nasty hack to make the navigation highlight
 # this page as active in the topbar navigation
 #
 homepage: true
 ---
-
-<div id="videoModal" class="reveal-modal large" data-reveal="">
-  <div class="flex-video widescreen vimeo" style="display: block;">
-    <iframe width="1280" height="720" src="/GitHubVisualizer/#user=bndynet" frameborder="0" allowfullscreen frameborder="0"></iframe>
-  </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-
-

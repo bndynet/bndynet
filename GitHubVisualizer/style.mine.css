@@ -35,3 +35,10 @@ header #userOAuth,
 header #misc {
   display: none; }
 
+/* Themes */
+body.simple {
+  background-image: none;
+  background-color: #334D5C; }
+  body.simple #controls {
+    display: none; }
+

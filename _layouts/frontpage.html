@@ -9,13 +9,18 @@ format: frontpage
     </div><!-- /.row -->
 </div><!-- /#header-home -->
 
+<div class="row t30">
+    <div class="small-12 columns">
+        <iframe src="/GitHubVisualizer/#user=bndynet&theme=simple" frameborder="0" allowfullscreen frameborder="0" style="width:100%;height:600px;margin:0px;"></iframe>
+    </div>
+</div>
 
 {% comment %}
 *
 * First check, if widget is empty or not by checking if there is a title
 *
 {% endcomment %}
-<div class="row t60">
+<div class="row t30">
 	{% if page.widget1.title %}
 		{% include _frontpage-widget.html widget=page.widget1 %}
 	{% endif %}
@@ -43,14 +48,6 @@ format: frontpage
 {% else %}
 {% capture url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
 {% endif %}
-{% if page.callforaction %}
-    <div class="row t60 b60">
-        <div class="small-12 text-center columns">
-            <a class="button large radius {{ page.callforaction.style }}" href="{{ url }}{{ page.callforaction.url }}"{% if page.callforaction.url contains 'http' %} target="_blank" {% endif %}>{{ page.callforaction.text }}</a>
-        </div><!-- /.small-12.columns -->
-    </div><!-- /.row -->
-{% endif %}
-
 
 
 {% comment %}
@@ -60,7 +57,7 @@ format: frontpage
 {% endcomment %}
 
 {% unless site.posts == empty %}
-    <div class="row t30 b20 homepage">
+    <div class="row b20 homepage">
         <div class="small-12 columns">
             {% for post in site.posts limit:1 %}
             {% if post.image.homepage %}
@@ -111,3 +108,5 @@ format: frontpage
 <div class="row">
     {{ content }}
 </div><!-- /.row -->
+
+

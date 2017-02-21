@@ -54,3 +54,15 @@ header {
         display: none;
     }
 }
+
+
+/* Themes */
+
+body.simple {
+    background-image: none;
+    background-color: #334D5C;
+
+    #controls {
+        display: none;
+    }
+}
