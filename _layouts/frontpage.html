@@ -9,9 +9,12 @@ format: frontpage
     </div><!-- /.row -->
 </div><!-- /#header-home -->
 
-<div class="row t30">
-    <div class="small-12 columns">
-        <iframe src="/GitHubVisualizer/#user=bndynet&theme=simple" frameborder="0" allowfullscreen frameborder="0" style="width:100%;height:600px;margin:0px;"></iframe>
+<div>
+    <div>
+        <iframe id="frontpageFrame" src="/GitHubVisualizer/#user=bndynet&theme=simple" frameborder="0" allowfullscreen frameborder="0" style="width:100%;margin:0px;"></iframe>
+        <script>
+            $("#frontpageFrame").height($(window).height() - 50);
+        </script>
     </div>
 </div>
 

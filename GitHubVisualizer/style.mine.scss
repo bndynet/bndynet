@@ -59,7 +59,9 @@ header {
 /* Themes */
 
 body.simple {
-    background-image: none;
+    background-image: url(resource/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #334D5C;
 
     #controls {
