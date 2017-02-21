@@ -2,3 +2,13 @@
   url: http://github.com/bndynet
   class: icon-github
   title: Code on GitHub
+
+- name: Visual Studio Team Services
+  url: https://bndy.visualstudio.com/
+  class: fa fa-windows
+  title: Visual Studio Team Services
+
+- name: WeChat
+  url: /images/wechat_qrcode.png
+  class: fa fa-wechat
+  title: Add as friend

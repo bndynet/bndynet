@@ -331,6 +331,10 @@ body.video cite { color: #fff; }
       background: $subfooter-bg;
       color: #fff;
     }
+    &.fa {
+      height: 36px;
+      line-height: 36px;
+    }
   }
 }
 
