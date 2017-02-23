@@ -365,3 +365,57 @@ body.video cite { color: #fff; }
 .pr5  { padding-right: 5px !important; }
 .pr10 { padding-right: 10px !important; }
 .pr20 { padding-right: 20px !important; }
+
+/* My CSS
+---------------------------------------------------------------------- */
+/* home page styles */
+.frontpage {
+  .top-bar {
+    background: url(/images/nav_home_bg.jpg) repeat;
+    .top-bar-section {
+      ul li {
+        background-color: transparent;
+
+        & > a {
+          color: #999;
+          background-color: transparent;
+
+          &:hover {
+            color: #fff;
+            background-color: rgba(0,0,0, 1);
+          }
+        }
+
+        &.has-dropdown>a:after {
+          border-top-color: rgba(226, 226, 226, 0.4);
+        }
+
+        &.active:not(.has-form) a:not(.button){
+          color: #fff;
+        }
+
+        &:not(.has-form) a:not(.button) {
+          background-color: transparent;
+        }
+
+        &:hover {
+          background-color: rgba(0,0,0,1);
+        }
+      }
+      .dropdown {
+        background-color: rgba(0,0,0, .9);
+
+        li:not(.has-form):not(.active) {
+          & > a:not(.button){
+            color: #999;
+            background-color: rgba(0,0,0, .9);
+          }
+          &:hover > a:not(.button){
+            color: #fff;
+            background-color: rgba(0,0,0, 1);
+          }
+        }
+      }
+    }
+  }
+}
