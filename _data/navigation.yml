@@ -5,6 +5,10 @@
 - title: My Repos
   url: "/GitHubVisualizer/#user=bndynet"
   side: left
+  
+- title: My Gists
+  url: "https://gist.github.com/bndynet"
+  side: left
 
 - title: My Blog
   url: "/blog/"
