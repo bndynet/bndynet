@@ -9,6 +9,10 @@
 - title: My Gists
   url: "https://gist.github.com/bndynet"
   side: left
+  
+- title: My NPM
+  url: "https://www.npmjs.com/org/bndynet"
+  side: left
 
 - title: My Blog
   url: "/blog/"
