@@ -19,6 +19,12 @@
 
 {% endcomment %}
       <ul class="right">
+        <li>
+          <form action="https://gist.github.com/search" target="_blank">
+            <input name="q" value="user:bndynet " style="border: none;padding: .3rem .5rem;">
+            <button style="height: inherit;">Search Gist</button>
+          </form>
+        </li>
         {% for link in site.data.navigation %}
 
               {% if link.url contains 'http' %}
