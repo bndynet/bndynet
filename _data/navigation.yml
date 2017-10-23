@@ -2,30 +2,30 @@
   url: "/"
   side: left
 
-- title: My Repos
+- title: Repos
   url: "https://github.com/bndynet"
   side: left
   
-- title: My Gists
+- title: Gists
   url: "https://gist.github.com/bndynet"
   side: left
   
-- title: My NPM
+- title: NPM
   url: "https://www.npmjs.com/org/bndynet"
   side: left
   
-- title: My Docker
+- title: Docker
   url: "https://hub.docker.com/r/bndynet/"
   side: left
 
-- title: My Blog
+- title: Blog
   url: "/blog/"
   side: left
   dropdown:
   - title: "Blog Archive"
     url: "/blog/archive/"
 
-- title: "My Projects"
+- title: "Projects"
   url: ""
   side: left
   dropdown:
