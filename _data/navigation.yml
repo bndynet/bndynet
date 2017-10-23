@@ -3,7 +3,7 @@
   side: left
 
 - title: My Repos
-  url: "/GitHubVisualizer/#user=bndynet"
+  url: "https://github.com/bndynet"
   side: left
   
 - title: My Gists
@@ -12,6 +12,10 @@
   
 - title: My NPM
   url: "https://www.npmjs.com/org/bndynet"
+  side: left
+  
+- title: My Docker
+  url: "https://hub.docker.com/r/bndynet/"
   side: left
 
 - title: My Blog
