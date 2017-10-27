@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "CI & CD in Docker"

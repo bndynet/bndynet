@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "OPTION method in CORS"

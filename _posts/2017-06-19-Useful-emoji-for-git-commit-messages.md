@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "Useful emoji for git commit messages"

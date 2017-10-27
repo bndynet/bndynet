@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "Install MariaDB on CentOS 7"

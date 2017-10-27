@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "Commit Message Style Guide"

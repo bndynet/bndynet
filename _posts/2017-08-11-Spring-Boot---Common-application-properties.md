@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title:  "Spring Boot - Common application properties"
