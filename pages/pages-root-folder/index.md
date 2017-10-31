@@ -9,22 +9,22 @@ header: no
   #image_fullwidth: /images/header_home.jpg
 
 widget1:
-  title: "Default Theme"
+  title: "Web Framework 4 .Net"
   url: 'https://github.com/bndynet/web-framework'
   image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home.png'
   text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily.'
 
 widget2:
-  title: "Horizontal Sidebar"
-  url: 'https://github.com/bndynet/web-framework'
-  text: 'Add with-sidebar-horizontal class to body tag for setting the sidebar horizontal.'
-  image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home-sidebar-horizontal.png'
+  title: "Web Framework 4 Java"
+  url: 'https://github.com/bndynet/web-framework-for-java'
+  text: 'A starter project with spring boot for AngularJS, AngularJs Material, Thymeleaf, RESTful API, MySQL, Redis and MongoDB.'
+  image: 'https://raw.githubusercontent.com/bndynet/web-framework-for-java/master/docs/img/home.png'
 
 widget3:
-  title: "Light Header"
-  url: 'https://github.com/bndynet/web-framework'
-  text: 'class: with-header-light'
-  image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home-header-light.png'
+  title: "Node Starter"
+  url: 'https://github.com/bndynet/node-starter'
+  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. Release v0.1 for express with ejs.'
+  image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
 
 #
 # Use the call for action to show a button on the frontpage

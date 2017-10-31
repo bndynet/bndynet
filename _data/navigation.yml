@@ -18,12 +18,9 @@
   url: "https://hub.docker.com/r/bndynet/"
   side: left
 
-- title: Blog
-  url: "/blog/"
+- title: Blogs
+  url: "/blog/archive"
   side: left
-  dropdown:
-  - title: "Blog Archive"
-    url: "/blog/archive/"
 
 - title: "Projects"
   url: ""
@@ -53,5 +50,5 @@
 
 
 - title: "About"
-  url: "/contact/"
+  url: "/about/"
   side: right
