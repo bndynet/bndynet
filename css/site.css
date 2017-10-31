@@ -16,3 +16,8 @@
     margin: 5px;
     padding-bottom: 5px;
 }
+
+.frontpage-widget a img {
+    border: 1px solid #dedede;
+    box-shadow: 2px 2px 2px #dedede;
+}

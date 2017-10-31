@@ -23,7 +23,7 @@ widget2:
 widget3:
   title: "Node Starter"
   url: 'https://github.com/bndynet/node-starter'
-  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. Release v0.1 for express with ejs.'
+  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
   image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
 
 #
