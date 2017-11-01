@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Angular Http"
+teaser: "Call multipal http requests"
 breadcrumb: true
 categories:
     - Gists

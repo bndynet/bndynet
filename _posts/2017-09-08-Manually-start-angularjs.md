@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Manually start angularjs"
+teaser: "```"
 breadcrumb: true
 categories:
     - Gists

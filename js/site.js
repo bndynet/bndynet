@@ -6,4 +6,11 @@ $(function () {
                 '<div style="clear: both;">%title% [<a href="%repoUrl%">%repo%</a>]</div>' +
                 '</div>'));
     });
+
+    $('.btn-search-gists').click(function() {
+        var k = $('.input-keywords-gists').val();
+        if (k) {
+            window.open('https://gist.github.com/search?q=user:bndynet ' + k);
+        }
+    });
 });

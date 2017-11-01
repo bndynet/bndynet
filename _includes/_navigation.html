@@ -20,8 +20,10 @@
 {% endcomment %}
       <ul class="right">
         <li>
-          <form action="https://gist.github.com/search" target="_blank">
-            <input name="q" value="user:bndynet " style="border: none; padding: .3rem .5rem; background: #293e4a; color: #ffffff;"><button style="font-size:.8rem; padding-left: 1rem; padding-right:1rem">SEARCH GIST</button>
+          <form>
+            <input type="text" class="input-keywords-gists" placeholder="Search Gists"><button type="button" class="btn-search-gists">
+              <i class="fa fa-search"></i>
+            </button>
           </form>
         </li>
         {% for link in site.data.navigation %}

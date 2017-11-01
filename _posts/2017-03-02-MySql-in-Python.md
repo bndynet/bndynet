@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "MySql in Python"
+teaser: "```shell"
 breadcrumb: true
 categories:
     - Gists

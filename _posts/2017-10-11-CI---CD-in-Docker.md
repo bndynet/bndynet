@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "CI & CD in Docker"
+teaser: "SETUP"
 breadcrumb: true
 categories:
     - Gists

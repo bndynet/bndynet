@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Build Commands"
+teaser: "Maven"
 breadcrumb: true
 categories:
     - Gists

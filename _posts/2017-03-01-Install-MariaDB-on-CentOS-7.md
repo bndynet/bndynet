@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Install MariaDB on CentOS 7"
+teaser: "Before You Begin"
 breadcrumb: true
 categories:
     - Gists

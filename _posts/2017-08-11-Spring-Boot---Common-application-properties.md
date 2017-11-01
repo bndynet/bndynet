@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Spring Boot - Common application properties"
+teaser: "==================================================================="
 breadcrumb: true
 categories:
     - Gists
@@ -41,7 +42,7 @@ logging.register-shutdown-hook=false # Register a shutdown hook for the logging 
 
 # AOP
 spring.aop.auto=true # Add @EnableAspectJAutoProxy.
-spring.aop.proxy-target-class
+spring.aop.proxy-target-class=
 
 <!--more-->
 

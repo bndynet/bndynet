@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Yarn and NPM"
+teaser: "Commands"
 breadcrumb: true
 categories:
     - Gists

@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Useful emoji for git commit messages"
+teaser: "Useful emoji for git commit messages"
 breadcrumb: true
 categories:
     - Gists

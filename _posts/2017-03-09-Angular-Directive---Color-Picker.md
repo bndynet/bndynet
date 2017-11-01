@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Angular Directive - Color Picker"
+teaser: "Requires"
 breadcrumb: true
 categories:
     - Gists

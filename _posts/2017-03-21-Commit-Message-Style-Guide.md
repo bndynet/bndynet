@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Commit Message Style Guide"
+teaser: "The Type"
 breadcrumb: true
 categories:
     - Gists

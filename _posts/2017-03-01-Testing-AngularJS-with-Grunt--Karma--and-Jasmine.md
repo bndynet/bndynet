@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Testing AngularJS with Grunt, Karma, and Jasmine"
+teaser: "Setup Environment"
 breadcrumb: true
 categories:
     - Gists

@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Hello World"
+teaser: "Node.js"
 breadcrumb: true
 categories:
     - Gists

@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Spring Boot Enabling CORS"
+teaser: "Enabling CORS"
 breadcrumb: true
 categories:
     - Gists
@@ -34,7 +35,7 @@ src/main/java/hello/GreetingController.java
     public Greeting greetingWithJavaconfig(@RequestParam(required=false, defaultValue="World") String name) {
         System.out.println("==== in greeting ====");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
-    
+    }
 
 <!--more-->
 

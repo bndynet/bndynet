@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "ngModel in custom component"
+teaser: "```typescript"
 breadcrumb: true
 categories:
     - Gists

@@ -1,12 +1,72 @@
+/* overwrite origin theme */
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+#up-to-top {
+    padding-top: 2rem;
+}
+
+.top-bar-section ul li {
+    background-color: transparent;
+}
+
+.top-bar-section ul li form {
+    margin-right: 1rem;
+}
+
+.top-bar form {
+    position: relative;
+}
+
+.top-bar form input {
+    width: 160px;
+    border-width: 0 0 2px 0;
+    padding: .3rem 30px .3rem .5rem;
+    background-color: transparent;
+    color: #333333;
+    outline: none;
+    box-shadow: 0 0 0 transparent;
+}
+
+.top-bar form input[type="text"]:focus {
+    background-color: transparent;
+    box-shadow: 0 0 0 transparent;
+    border-color: #A1D044;
+}
+
+.top-bar form button {
+    position: absolute;
+    top: 7px;
+    right: 0;
+    padding: 8px;
+    background-color: transparent;
+    color: #333333;
+    outline: none;
+}
+
+.frontpage .top-bar {
+    background: url(/images/nav_home_bg.jpg) repeat;
+}
+
+.frontpage .top-bar form input[type="text"] {
+    color: #ffffff;
+}
+
+.frontpage .top-bar form button {
+    color: #ffffff;
+}
+
+/* custome styles */
 #github-events {
     position: absolute;
-    top: 180px;
+    top: 120px;
+    padding-top: 60px;
     z-index: 0;
     color: white;
     right: 0;
     width: 306px;
     font-size: .75rem;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 120px);
     overflow: hidden;
     text-shadow: 1px 1px 1px black;
 }

@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Example for Angular Unit Test"
+teaser: "Example for Angular Unit Test"
 breadcrumb: true
 categories:
     - Gists
