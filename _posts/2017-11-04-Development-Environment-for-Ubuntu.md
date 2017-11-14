@@ -23,22 +23,36 @@ Steps to set up environments on Ubuntu for frontend development and backend deve
 1. *`vi ~/.bashrc` to add `export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node` under `export NVM_DIR="$HOME/.nvm"`*
 1. `nvm install <version>`
 1. `npm install -g cnpm --registry=https://registry.npm.taobao.org` or
-  ```
-  alias cnpm="npm --registry=https://registry.npm.taobao.org \
-  --cache=$HOME/.npm/.cache/cnpm \
-  --disturl=https://npm.taobao.org/dist \
-  --userconfig=$HOME/.cnpmrc"
 
-  # Or alias it in .bashrc or .zshrc
-  $ echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+    ```shell
+    alias cnpm="npm --registry=https://registry.npm.taobao.org \
     --cache=$HOME/.npm/.cache/cnpm \
     --disturl=https://npm.taobao.org/dist \
-    --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
-  ```
+    --userconfig=$HOME/.cnpmrc"
+
+    # Or alias it in .bashrc or .zshrc
+    $ echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+      --cache=$HOME/.npm/.cache/cnpm \
+      --disturl=https://npm.taobao.org/dist \
+      --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
+    ```
   
-  ## Install Docker
+## Install Docker
   
-  1. `sudo apt-get install docker.io`
+1. `sudo apt-get install docker.io`
+1. Use case: the China registry mirror
+
+    The URL of the registry mirror for China is registry.docker-cn.com. You can pull images from this mirror just like you do for other registries by specifying the full path, including the registry, in your docker pull command, for example:
+
+    `$ docker pull registry.docker-cn.com/library/ubuntu`
+
+    You can add "https://registry.docker-cn.com" to the registry-mirrors array in /etc/docker/daemon.json to pull from the China registry mirror by default.
+  
+      `{"registry-mirrors": ["https://registry.docker-cn.com"] }`
+
+    Save the file and reload Docker for the change to take effect.Or, you can configure the Docker daemon with the --registry-mirror startup parameter:
+
+    `$ dockerd --registry-mirror=https://registry.docker-cn.com`
 
 <!--more-->
 
