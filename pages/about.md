@@ -1,39 +1,39 @@
 ---
 layout: page
-title: "About"
+title: "Contributors"
 subheadline: ""
-teaser: "I am code Porter, but I produce code."
+teaser: "We are code Porters, but we produce code."
 permalink: "/about/"
 header:
     image_fullwidth: "/images/header_default.jpg"
 ---
 
-
-## My Projects
-
-* [Web Framework](https://github.com/bndynet/web-framework)
-* [Web Framework for Java](https://github.com/bndynet/web-framework-for-java)
-* [Python Library](https://github.com/bndynet/pylib)
-* [CSharp Library](https://github.com/bndynet/lib)
-* [node-starter](https://github.com/bndynet/node-starter)
-* [angular-more](https://github.com/bndynet/angular-more)
-* [ng-more](https://github.com/bndynet/ng-more)
-* [bootstrap-more](https://github.com/bndynet/bootstrap-more)
-* [jDialog](https://github.com/bndynet/jdialog)
-* Others
-  * [JavaScript Libraries](https://github.com/bndynet/jslib)
-  * [TaskUI](https://github.com/bndynet/TaskUI)
-  * [Hosts for Windows](https://github.com/bndynet/SysHostUpdater)
-  * [CMS](https://github.com/bndynet/CMS)
-
-## RESOURCES
-
-- [GitHub](https://github.com/bndynet)
-- [Docker](https://hub.docker.com/r/bndynet/)
-- [NPM](https://www.npmjs.com/org/bndynet)
-
-
-Email Address: [zb@bndy.net][1]
-
-[1]: mailto:zb@bndy.net
-
+<div class="page-about">
+  <div class="user-list">
+    <div class="item">
+      <img src="/images/contributors/bendy.png" title="Bendy Zhang" alt="Bendy Zhang" />
+      <div class="body">
+        <h4>Bendy Zhang <small>Bing Zhang</small></h4>
+        <p>
+          Focus on Java, .Net, Frontend, Database, CI and Docker
+          <br />
+          Email: <a href="mailto:zb@bndy.net">zb@bndy.net</a>
+        </p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/images/contributors/shelwin.png" title="Shelwin Su" alt="Shelwin Su" />
+      <div class="body">
+        <h4>Shelwin Su <small>Changhe Su, DBA</small></h4>
+        <p>Focus on Oracle, MySQL and Sql Server</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/images/contributors/allen.png" title="Allen Xu" alt="Allen Xu" />
+      <div class="body">
+        <h4>Allen Xu <small>Liming Xu</small></h4>
+        <p>Focus on Java and Frontend</p>
+      </div>
+    </div>
+  </div>
+</div>

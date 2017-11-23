@@ -8,7 +8,7 @@
 #                                                 /____/
 #
 # Title of your website
-title: 'Bndy.Net'
+title: 'Bendy Zhang (Bing Zhang) - Website'
 
 # The slogan describes your website and is used on homepage in <title> and other important places
 slogan: 'Bndy.Net'
@@ -111,7 +111,7 @@ defaults:
       show_meta: false 	# Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: Bendy Zhang  # Default author for pages
+      author: 'Bendy Zhang'  # Default author for pages
   -
     scope:
       path: ''
@@ -120,7 +120,7 @@ defaults:
       show_meta: true   # Show metadata for all posts
       # sidebar:        # Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: Bendy Zhang # Default author for posts
+      author: 'Bendy Zhang' # Default author for posts
 
 
 

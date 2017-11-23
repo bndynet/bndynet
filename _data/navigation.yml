@@ -26,17 +26,16 @@
   url: ""
   side: left
   dropdown:
-  - title: "Web Framework"
+  - title: "Web Framework for Java"
+    url: "https://github.com/bndynet/web-framework-for-java"
+  - title: "Web Framework for .Net"
     url: "https://github.com/bndynet/web-framework"
-  - title: "Angular More"
+  - title: "AngularJS"
     url: "https://github.com/bndynet/angular-more"
+  - title: "Angular 4+"
+    url: "https://github.com/bndynet/ng-more"
   - title: "Bootstrap More"
     url: "https://github.com/bndynet/boostrap-more"
-
-- title: "Others"
-  url: ""
-  side: left
-  dropdown:
   - title: "JavaScript Libraries"
     url: "https://github.com/bndynet/jslib"
   - title: "CSharp Libraries"
@@ -45,8 +44,6 @@
     url: "https://github.com/bndynet/taskui"
   - title: "Hosts for Windows"
     url: "https://github.com/bndynet/syshostupdater"
-  - title: "CMS"
-    url: "https://github.com/bndynet/cms"
 
 
 - title: "About"
