@@ -2,7 +2,7 @@
 layout: page
 title: "Contributors"
 subheadline: ""
-teaser: "We are code Porters, but we produce code."
+teaser: "We are code Porters, but we produce codes."
 permalink: "/about/"
 header:
     image_fullwidth: "/images/header_default.jpg"
@@ -33,6 +33,13 @@ header:
       <div class="body">
         <h4>Allen Xu <small>Liming Xu</small></h4>
         <p>Focus on Java and Frontend</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/images/contributors/jason.png" title="Jason Wei" alt="Jason Wei" />
+      <div class="body">
+        <h4>Jason Wei <small>Yi Wei</small></h4>
+        <p>Focus on .Net, Java and Frontend</p>
       </div>
     </div>
   </div>

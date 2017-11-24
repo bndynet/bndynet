@@ -17,7 +17,7 @@ slogan: 'Bndy.Net'
 description: 'This is my personal website, that is based on Jekyll template.'
 
 # The credits show up in the includes/_footer.html – It would be nice of you to leave a link to Phlow or Feeling Responsive as a thank you :)
-credits: 'I am code Porter, but I produce code.<p>&copy; 2013-2017 Bndy.Net. Code on Visual Studio Team Services and GitHub </p>'
+credits: 'I am code Porter, but I produce codes.<p>&copy; 2013-2017 Bndy.Net. Code on Visual Studio Team Services and GitHub </p>'
 
 # Main author of the website
 # See > authors.yml

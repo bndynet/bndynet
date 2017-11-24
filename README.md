@@ -8,6 +8,9 @@ Requres Ruby development environment with all headers and RubyGems installed (se
 # Install Jekyll and Bundler gems through RubyGems
 gem install jekyll bundler
 
+# Install packages
+bundle install
+
 # Build the site on the preview server
 bundle exec jekyll serve
 
