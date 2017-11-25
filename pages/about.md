@@ -42,5 +42,20 @@ header:
         <p>Focus on .Net, Java and Frontend</p>
       </div>
     </div>
+    <div class="item">
+      <img src="/images/contributors/talver.png" title="Talver Wu" alt="Talver Wu" />
+      <div class="body">
+        <h4>Talver Wu <small>Tao Wu, CTO</small></h4>
+        <p>Focus on Android and IOS</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/images/contributors/andy.png" title="Andy Wang" alt="Andy Wang" />
+      <div class="body">
+        <h4>Andy Wang <small>Chenglong Wang</small></h4>
+        <p>Focus on .Net, Java and Frontend</p>
+      </div>
+    </div>
+
   </div>
 </div>
