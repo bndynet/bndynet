@@ -25,7 +25,9 @@ header:
       <img src="/images/contributors/shelwin.png" title="Shelwin Su" alt="Shelwin Su" />
       <div class="body">
         <h4>Shelwin Su <small>Changhe Su, DBA</small></h4>
-        <p>Focus on Oracle, MySQL and Sql Server</p>
+        <p>Focus on Oracle, MySQL and Linux Ops</p>
+        <br />
+       Email: <a href="mailto:shelwinsu@icloud.com">shelwinsu@icloud.com</a>
       </div>
     </div>
     <div class="item">
