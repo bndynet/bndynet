@@ -60,6 +60,13 @@ header:
         <p>Focus on .Net, Java and Frontend</p>
       </div>
     </div>
+    <div class="item">
+      <img src="/images/contributors/jeff.png" title="Jeff Liu" alt="Jeff Liu" />
+      <div class="body">
+        <h4>Jeff Liu <small>Tao Liu</small></h4>
+        <p>Focus on Automated Testing and Performance Testing, Work at iFlytek</p>
+      </div>
+    </div>
 
   </div>
 </div>
