@@ -21,7 +21,7 @@
         } else {
             var code = location.href.match(/(?<=code=).*/g);
             if (code) {
-                alert('Your authorization code: ' + code);
+                $('h1').html('1. Authorization Code: ' + code + ', getting access token...');
 
                 $.post('http://localhost:9090/oauth/token', {
                     grant_type: 'authorization_code',
@@ -30,8 +30,8 @@
                     code: code[0],
                     redirect_uri: redirect_url
                 }, function (res) {
-                    console.debug(res);
                     var token = res.access_token;
+                    $('h1').html('1. Token: ' + token + ', getting your information...');
                     $.ajax({
                         method: 'GET',
                         url: 'http://localhost:9090/api/v1/core/users/me',
@@ -42,7 +42,7 @@
 
                         }
                     }).done(function (res) {
-                        alert('Your information: ' + JSON.stringify(res));
+                        $('h1').html('3. Your Information: ' + JSON.stringify(res));
                     });
                 });
             }
