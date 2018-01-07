@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>
+    OAuth - Index
+  </title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<body>
+<h1>
+  Authorizing...
+</h1>
+
+<script>
+    var client_id = "bndy.net";
+    var client_secret = "bndy.net_secret";
+    var redirect_url = "http://bndy.net/demo/oauth/index.html";
+    var scope = "all";
+    $(function () {
+        if (location.href.indexOf('code=') < 0 && location.href.indexOf('error=') < 0) {
+            location.href = 'http://localhost:9090/oauth/authorize?response_type=code&scope=' + scope + '&client_id=' + client_id + '&redirect_uri=' + redirect_url;
+        } else {
+            var code = location.href.match(/(?<=code=).*/g);
+            if (code) {
+                alert('Your authorization code: ' + code);
+
+                $.post('http://localhost:9090/oauth/token', {
+                    grant_type: 'authorization_code',
+                    client_id: client_id,
+                    client_secret: client_secret,
+                    code: code[0],
+                    redirect_uri: redirect_url
+                }, function (res) {
+                    console.debug(res);
+                    var token = res.access_token;
+                    $.ajax({
+                        method: 'GET',
+                        url: 'http://localhost:9090/api/v1/core/users/me',
+                        headers: {
+                            "authorization": 'Bearer ' + token
+                        },
+                        beforeSend: function () {
+
+                        }
+                    }).done(function (res) {
+                        alert('Your information: ' + JSON.stringify(res));
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
