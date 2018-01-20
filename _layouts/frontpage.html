@@ -115,7 +115,8 @@ format: frontpage
                 {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
             </p>
             {% endfor %}
-            <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">>{{ site.data.language.more }}</a>
+            <br />
+            <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{ site.data.language.more }}</a>
         </div>
 
         <div class="medium-4 columns">
