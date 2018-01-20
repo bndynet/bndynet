@@ -115,6 +115,7 @@ format: frontpage
                 {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
             </p>
             {% endfor %}
+            <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">>{{ site.data.language.more }}</a>
         </div>
 
         <div class="medium-4 columns">
@@ -142,6 +143,7 @@ format: frontpage
                 <a href="https://github.com/bndynet/jDialog" class="label blue" target="_blank">Repo</a>
                 <a href="http://bndy.net/jDialog/demo/" class="label yellow" target="_blank">Demo</a>
             </p>
+
         </div>
 
         <!-- <div class="medium-6 columns">
