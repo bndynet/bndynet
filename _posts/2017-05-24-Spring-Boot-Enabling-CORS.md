@@ -37,6 +37,7 @@ src/main/java/hello/GreetingController.java
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
+
 <!--more-->
 
 ## Other Post Formats
