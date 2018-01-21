@@ -107,41 +107,41 @@ format: frontpage
 
     <div class="row">
         <div class="medium-6 columns">
-            <h2>{{ site.data.language.new_blog_entries }}</h2>
+            <h2 style="margin-bottom:1rem;">{{ site.data.language.new_blog_entries }}</h2>
             {% for post in site.posts limit:5 %}
             {% if post.subheadline %}<p class="subheadline">{{ post.subheadline }}</p>{% endif %}
             <h4><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-            <p style="height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <p style="height: 1.5rem; overflow: hidden; margin-bottom:10px; text-overflow: ellipsis; white-space: nowrap;">
                 {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
             </p>
             {% endfor %}
         </div><!-- /.medium-5.columns -->
 
         <div class="medium-6 columns">
-            <h2>{{ site.data.language.my_resources}}</h2>
+            <h2 style="margin-bottom: 1rem;">{{ site.data.language.my_resources}}</h2>
             <h4>Jlib<small>- A Java Library</small></h4>
-            <p style="height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <p style="margin-bottom:10px; height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <a href="https://github.com/bndynet/Jlib" target="_blank">Repo</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="http://bndy.net/Jlib/" target="_blank">Documentation</a>
             </p>
 
             <h4>jslib <small>- Utils for jQuery, AngularJS, Lodash...</small></h4>
-            <p style="height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <p style="margin-bottom:10px; height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <a href="https://github.com/bndynet/jslib" target="_blank">Repo</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="http://bndy.net/jslib/docs" target="_blank">Documentation</a>
             </p>
             
             <h4>Pylib<small>- A Python Library</small></h4>
-            <p style="height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <p style="margin-bottom:10px; height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <a href="https://github.com/bndynet/Pylib" target="_blank">Repo</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="http://bndy.net/Pylib/docs" target="_blank">Documentation</a>
             </p>
 
             <h4>jDialog <small>- A Javascript Dialog</small></h4>
-            <p style="height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <p style="margin-bottom:10px; height: 1.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <a href="https://github.com/bndynet/jDialog" target="_blank">Repo</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="http://bndy.net/jDialog/demo/" target="_blank">Demo</a>
