@@ -1,115 +1,145 @@
 /* overwrite origin theme */
-h1, h2, h3, h4 {
-    margin-top: 0;
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
+
 #up-to-top {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 .top-bar-section ul li {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .top-bar-section ul li form {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .top-bar form {
-    position: relative;
+  position: relative;
 }
 
 .top-bar form input {
-    width: 160px;
-    border-width: 0 0 2px 0;
-    padding: .3rem 30px .3rem .5rem;
-    background-color: transparent;
-    color: #333333;
-    outline: none;
-    box-shadow: 0 0 0 transparent;
+  width: 160px;
+  border-width: 0 0 2px 0;
+  padding: .3rem 30px .3rem .5rem;
+  background-color: transparent;
+  color: #333333;
+  outline: none;
+  box-shadow: 0 0 0 transparent;
 }
 
 .top-bar form input[type="text"]:focus {
-    background-color: transparent;
-    box-shadow: 0 0 0 transparent;
-    border-color: #A1D044;
+  background-color: transparent;
+  box-shadow: 0 0 0 transparent;
+  border-color: #A1D044;
 }
 
 .top-bar form button {
-    position: absolute;
-    top: 7px;
-    right: 0;
-    padding: 8px;
-    background-color: transparent;
-    color: #333333;
-    outline: none;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 8px;
+  background-color: transparent;
+  color: #333333;
+  outline: none;
 }
 
 .frontpage .top-bar {
-    background: url(/images/nav_home_bg.jpg) repeat;
+  background: url(/images/nav_home_bg.jpg) repeat;
 }
 
 .frontpage .top-bar form input[type="text"] {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .frontpage .top-bar form button {
-    color: #ffffff;
+  color: #ffffff;
 }
 
+
 /* custome styles */
+
 #contributors {
-    position: absolute;
-    top: 100px;
-    left: 0;
+  position: absolute;
+  top: 100px;
+  left: 0;
 }
 
 #contributors img {
-    display: block;
-    width: 46px;
-    margin: 5px;
-    border-radius: 50% 50%;
-    transition: width .5s; 
+  display: block;
+  width: 46px;
+  margin: 5px;
+  border-radius: 50% 50%;
+  transition: width .5s;
 }
 
 #contributors img:hover {
-    width: 80px;
+  width: 80px;
 }
 
 #github-events {
-    position: absolute;
-    top: 120px;
-    padding-top: 60px;
-    z-index: 0;
-    color: white;
-    right: 0;
-    width: 306px;
-    font-size: .75rem;
-    height: calc(100vh - 120px);
-    overflow: hidden;
-    text-shadow: 1px 1px 1px black;
+  position: absolute;
+  top: 120px;
+  padding-top: 60px;
+  z-index: 0;
+  color: white;
+  right: 0;
+  width: 306px;
+  font-size: .75rem;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  text-shadow: 1px 1px 1px black;
 }
 
 #github-events .item {
-    border-bottom: dotted 1px #aaa;
-    margin: 5px;
-    padding-bottom: 5px;
+  border-bottom: dotted 1px #aaa;
+  margin: 5px;
+  padding-bottom: 5px;
 }
 
 .frontpage-widget a img {
-    border: 1px solid #dedede;
-    box-shadow: 2px 2px 2px #dedede;
+  border: 1px solid #dedede;
+  box-shadow: 2px 2px 2px #dedede;
+  height: 174px;
+  width: 100%;
 }
 
 .page-about .user-list .item {
-    min-height: 105px;
+  min-height: 105px;
 }
 
 .page-about .user-list img {
-    position: absolute;
-    width: 90px;
-    border-radius: 50%;
+  position: absolute;
+  width: 90px;
+  border-radius: 50%;
 }
 
 .page-about .user-list .body {
-    margin-left: 105px;
+  margin-left: 105px;
+}
+
+.one-line {
+  display: block;
+  margin-bottom: 10px;
+  height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label {
+  display: inline-block;
+  background-color: darkgreen;
+  color: #ffffff;
+  padding: 2px 5px;
+  font-size: .75rem;
+  font-weight: normal;
+  border-radius: 5px;
+  margin-right: 10px;
 }
