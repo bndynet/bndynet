@@ -18,10 +18,10 @@ widget2:
   title: "Web Framework 4 Java"
   url: 'https://github.com/bndynet/web-framework-for-java'
   text: 'A starter project with spring boot for AngularJS, AngularJs Material, Thymeleaf, RESTful API, MySQL, Redis and MongoDB.'
-  image: 'https://raw.githubusercontent.com/bndynet/web-framework-for-java/master/docs/img/home.png'
+  image: 'https://raw.githubusercontent.com/bndynet/web-framework-for-java/master/docs/img/admin-home.png'
 
 widget3:
-  title: "Node Starter"
+  title: "Node.js Web Application"
   url: 'https://github.com/bndynet/node-starter'
   text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
   image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
