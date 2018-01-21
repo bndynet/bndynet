@@ -106,7 +106,7 @@ format: frontpage
 
 
     <div class="row">
-        <div class="medium-6 columns">
+        <div class="medium-8 columns">
             <h2>{{ site.data.language.new_blog_entries }}</h2>
             {% for post in site.posts limit:5 %}
             {% if post.subheadline %}<p class="subheadline">{{ post.subheadline }}</p>{% endif %}
@@ -115,9 +115,9 @@ format: frontpage
                 {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
             </p>
             {% endfor %}
-        </div><!-- /.medium-5.columns -->
+        </div>
 
-        <div class="medium-6 columns">
+        <div class="medium-4 columns">
             <h2>{{ site.data.language.my_resources}}</h2>
             <h4>Jlib<small>- A Java Library</small></h4>
             <p class="one-line"></p>
