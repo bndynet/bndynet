@@ -111,7 +111,7 @@ format: frontpage
             {% for post in site.posts limit:5 %}
             {% if post.subheadline %}<p class="subheadline">{{ post.subheadline }}</p>{% endif %}
             <h4><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-            <p style="height: 1.5rem; overflow: hidden; margin-bottom:10px; text-overflow: ellipsis; white-space: nowrap;">
+            <p class="one-line">
                 {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
             </p>
             {% endfor %}
@@ -121,26 +121,26 @@ format: frontpage
             <h2>{{ site.data.language.my_resources}}</h2>
             <h4>Jlib<small>- A Java Library</small></h4>
             <p class="one-line"></p>
-                <a href="https://github.com/bndynet/Jlib" class="label" target="_blank">Repo</a>
-                <a href="http://bndy.net/Jlib/" class="label" target="_blank">Documentation</a>
+                <a href="https://github.com/bndynet/Jlib" class="label blue" target="_blank">Repo</a>
+                <a href="http://bndy.net/Jlib/" class="label green" target="_blank">Documentation</a>
             </p>
 
             <h4>jslib <small>- Utils for jQuery, AngularJS, Lodash...</small></h4>
             <p class="one-line">
-                <a href="https://github.com/bndynet/jslib" class="label" target="_blank">Repo</a>
-                <a href="http://bndy.net/jslib/docs" class="label" target="_blank">Documentation</a>
+                <a href="https://github.com/bndynet/jslib" class="label blue" target="_blank">Repo</a>
+                <a href="http://bndy.net/jslib/docs" class="label green" target="_blank">Documentation</a>
             </p>
             
             <h4>Pylib<small>- A Python Library</small></h4>
             <p class="one-line">
-                <a href="https://github.com/bndynet/Pylib" class="label" target="_blank">Repo</a>
-                <a href="http://bndy.net/Pylib/docs" class="label" target="_blank">Documentation</a>
+                <a href="https://github.com/bndynet/Pylib" class="label blue" target="_blank">Repo</a>
+                <a href="http://bndy.net/Pylib/docs" class="label green" target="_blank">Documentation</a>
             </p>
 
             <h4>jDialog <small>- A Javascript Dialog</small></h4>
             <p class="one-line">
-                <a href="https://github.com/bndynet/jDialog" class="label" target="_blank">Repo</a>
-                <a href="http://bndy.net/jDialog/demo/" class="label" target="_blank">Demo</a>
+                <a href="https://github.com/bndynet/jDialog" class="label blue" target="_blank">Repo</a>
+                <a href="http://bndy.net/jDialog/demo/" class="label yellow" target="_blank">Demo</a>
             </p>
         </div>
 

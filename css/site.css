@@ -135,11 +135,25 @@ h4 {
 
 .label {
   display: inline-block;
-  background-color: darkgreen;
   color: #ffffff;
   padding: 2px 5px;
   font-size: .75rem;
   font-weight: normal;
   border-radius: 5px;
   margin-right: 10px;
+}
+.label:hover {
+    color: #ffffff;
+}
+.label.green {
+    background-color: #5cb85c;
+}
+.label.red {
+    background-color: #d9534f;
+}
+.label.blue {
+    background-color: #337ab7;
+}
+.label.yellow {
+    background-color: #f0ad4e;
 }
