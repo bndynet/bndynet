@@ -42,7 +42,7 @@
 
                         }
                     }).done(function (res) {
-                        $('p').html('<br />3. Your Information: ' + JSON.stringify(res));
+                        $('p').append('<br />3. Your Information: ' + JSON.stringify(res));
                     });
                 });
             }
