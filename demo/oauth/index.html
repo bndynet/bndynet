@@ -6,9 +6,9 @@
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <body>
-<h1>
-  Authorizing...
-</h1>
+<p>
+=> Authorizing...
+</p>
 
 <script>
     var client_id = "bndy.net";
@@ -21,7 +21,7 @@
         } else {
             var code = location.href.match(/(?<=code=).*/g);
             if (code) {
-                $('h1').html('1. Authorization Code: ' + code + ', getting access token...');
+                $('p').append('<br />1. Authorization Code: ' + code + ', getting access token...');
 
                 $.post('http://localhost:9090/oauth/token', {
                     grant_type: 'authorization_code',
@@ -31,7 +31,7 @@
                     redirect_uri: redirect_url
                 }, function (res) {
                     var token = res.access_token;
-                    $('h1').html('1. Token: ' + token + ', getting your information...');
+                    $('p').append('<br />2. Token: ' + token + ', getting your information...');
                     $.ajax({
                         method: 'GET',
                         url: 'http://localhost:9090/api/v1/core/users/me',
@@ -42,7 +42,7 @@
 
                         }
                     }).done(function (res) {
-                        $('h1').html('3. Your Information: ' + JSON.stringify(res));
+                        $('p').html('<br />3. Your Information: ' + JSON.stringify(res));
                     });
                 });
             }
