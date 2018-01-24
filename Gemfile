@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.7.0"
+gem "jekyll", "~> 3.6.2"
 
 gem 'github-pages'
 
@@ -21,7 +21,7 @@ gem 'github-pages'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed", "~> 0.9.2"
   # i18n for jekyll
   gem "jekyll-polyglot"
 end
