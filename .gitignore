@@ -5,6 +5,4 @@
 /.sass-cache
 /.idea
 /.vs
-/bndynet.github.io.sln.GhostDoc.xml
-/Web.config
-/_site
+#/_site

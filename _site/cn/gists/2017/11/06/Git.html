@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cn">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="cn">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/gists/2017/11/06/Git.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/gists/2017/11/06/Git.html"/>
+
+
+    <title>BNDY.NET</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/cn/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+
+<li>
+    <a href="http://localhost:4000">
+        English
+    </a>
+</li>
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="搜索Gist...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="back-box">
+			<a href="/cn/blog/archive">
+				<i class="fa fa-chevron-left"></i>
+				返回
+			</a>
+		</div>
+		<article itemscope itemtype="http://schema.org/Article">
+			<div>
+				
+
+				<div itemprop="name">
+					<h1>
+                        Git
+                        
+                    </h1>
+				</div>
+            </div>
+
+
+            
+                
+			
+
+			<div itemprop="articleSection">
+			<p>Git Commands</p>
+
+<h2 id="useful-commands">Useful Commands</h2>
+
+<h3 id="commit-with-empty-message">Commit with empty message</h3>
+
+<ol>
+  <li><code class="highlighter-rouge">git config --global alias.nccommit "commit -a --allow-empty-message -m ''"</code></li>
+  <li><code class="highlighter-rouge">git nccommit</code></li>
+</ol>
+
+<h3 id="undoing-things">Undoing Things</h3>
+
+<ul>
+  <li>Overwrite commit
+    <ol>
+      <li><code class="highlighter-rouge">git commit -m 'initial commit'</code></li>
+      <li><code class="highlighter-rouge">git add .</code></li>
+      <li><code class="highlighter-rouge">git commit --amend</code></li>
+    </ol>
+  </li>
+  <li>
+    <p>Unstaging a Staged File</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="k">*</span>
+<span class="nv">$ </span>git status
+On branch master
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">"git reset HEAD &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+    renamed:    README.md -&gt; README
+    modified:   CONTRIBUTING.md
+</code></pre></div>    </div>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git reset HEAD CONTRIBUTING.md
+Unstaged changes after reset:
+M	CONTRIBUTING.md
+<span class="nv">$ </span>git status
+On branch master
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">"git reset HEAD &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+    renamed:    README.md -&gt; README
+
+Changes not staged <span class="k">for </span>commit:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="k">in </span>working directory<span class="o">)</span>
+
+    modified:   CONTRIBUTING.md
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Unmodifying a Modified File</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Changes not staged <span class="k">for </span>commit:
+<span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="k">in </span>working directory<span class="o">)</span>
+
+  modified:   CONTRIBUTING.md
+</code></pre></div>    </div>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--</span> CONTRIBUTING.md
+<span class="nv">$ </span>git status
+On branch master
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">"git reset HEAD &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+  renamed:    README.md -&gt; README
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>View all logs</p>
+
+    <p><code class="highlighter-rouge">git reflog</code></p>
+  </li>
+</ul>
+
+<h3 id="push-changes-to-new-branch">Push changes to new branch</h3>
+
+<ol>
+  <li><code class="highlighter-rouge">git checkout -b newBranch</code></li>
+  <li><code class="highlighter-rouge">git push -u origin newBranch</code>  // -u is short for <code class="highlighter-rouge">--set-upstream</code></li>
+</ol>
+
+<h3 id="common-alias">Common Alias</h3>
+
+<ul>
+  <li>git config –global alias.s “status”</li>
+  <li>git config –global alias.a “!git add . &amp;&amp; git status”</li>
+  <li>git config –global alias.au “!git add -u . &amp;&amp; git status”</li>
+  <li>git config –global alias.aa “!git add . &amp;&amp; git add -u . &amp;&amp; git status”</li>
+  <li>git config –global alias.c “commit”</li>
+  <li>git conf</li>
+</ul>
+
+<!--more-->
+
+<h2 class="t60" id="other-post-formats">Other Post Formats</h2>
+
+<ul class="side-nav">
+
+  
+
+    
+
+  
+</ul>
+
+
+			</div>
+		</article>
+	</div>
+</div>
+    </div>
+  </div>
+  <footer>
+    版本所有 &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndy.net/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>

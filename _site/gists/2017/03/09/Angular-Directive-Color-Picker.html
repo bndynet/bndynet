@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="en">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/gists/2017/03/09/Angular-Directive-Color-Picker.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/gists/2017/03/09/Angular-Directive-Color-Picker.html"/>
+
+
+    <title>BNDY.NET</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+<li>
+    <a href="http://localhost:4000/cn"> 中文 </a>
+</li>
+
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="Search Gists...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="back-box">
+			<a href="/blog/archive">
+				<i class="fa fa-chevron-left"></i>
+				Back
+			</a>
+		</div>
+		<article itemscope itemtype="http://schema.org/Article">
+			<div>
+				
+
+				<div itemprop="name">
+					<h1>
+                        Angular Directive - Color Picker
+                        
+                    </h1>
+				</div>
+            </div>
+
+
+            
+                
+			
+
+			<div itemprop="articleSection">
+			<h2 id="requires">Requires</h2>
+
+<ul>
+  <li>bootstrap</li>
+</ul>
+
+<h2 id="code">Code</h2>
+
+<div class="language-coffee highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"use strict"</span>
+<span class="c1">###!</span>
+<span class="c1"># @param {object} ng-colors - e.x. [{key: 1, value: "#ff0000", description: "", css: "flag"}, ...]</span>
+<span class="c1"># @param {object} ng-model - type of key</span>
+<span class="c1"># @param {function} ng-change - fn(color)</span>
+<span class="c1"># </span>
+<span class="c1"># @example</span>
+<span class="c1">#   &lt;bn-ui-colorpicker ng-colors="[{}, {}, ...]" ng-model="model" ng-change="changeColor(color)"&gt;&lt;/bn-ui-colorpicker&gt;</span>
+<span class="c1">###</span>
+<span class="nx">angular</span><span class="p">.</span><span class="na">module</span> <span class="s">"bn.ui.colorpicker"</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="p">.</span><span class="na">directive</span> <span class="s">"bnUiColorpicker"</span><span class="p">,</span> 
+    <span class="o">-&gt;</span>
+        <span class="na">restrict</span><span class="o">:</span> <span class="s">"E"</span>
+        <span class="na">scope</span><span class="o">:</span> <span class="na">ngColors</span><span class="o">:</span> <span class="s">"=ngColors"</span><span class="p">,</span> <span class="na">ngModel</span><span class="o">:</span> <span class="s">"=ngModel"</span><span class="p">,</span> <span class="na">onChange</span><span class="o">:</span> <span class="s">"&amp;ngChange"</span>
+        <span class="na">template</span><span class="o">:</span> <span class="s">'''
+&lt;div class="bn-ui-colorpicker dropdown"&gt;
+    &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"&gt;
+        &lt;span class="empty" style="width: 1em; height: 1em; display: inline-block; vertical-align: text-top; border: solid 1px #dedede;" ng-show="ngModel == null || typeof(ngModel) == 'undefined'"&gt;&lt;/span&gt;
+        &lt;span style="width: 1em; height: 1em; display: inline-block; vertical-align: text-top;" ng-style="{'background-color': color.value}" ng-class="color.css" ng-show="color.key == ngModel" ng-repeat="color in ngColors" title=""&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li ng-repeat="color in ngColors"&gt;
+            &lt;a role="button" ng-click="onChange({color: color})"&gt;
+                &lt;span style="width: 1em; height: 1em; display: inline-block; vertical-align: text-top;" ng-class="color.css" ng-style="{'background-color': color.value}"&gt;&lt;/span&gt;
+                &lt;span ng-bind="color.description"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+'''</span>
+</code></pre></div></div>
+
+<!--more-->
+
+<h2 class="t60" id="other-post-formats">Other Post Formats</h2>
+
+<ul class="side-nav">
+
+  
+
+    
+
+  
+</ul>
+
+
+			</div>
+		</article>
+	</div>
+</div>
+    </div>
+  </div>
+  <footer>
+    Copyright &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndy.net/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>
