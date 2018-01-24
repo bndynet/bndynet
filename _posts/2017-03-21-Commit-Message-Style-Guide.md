@@ -25,8 +25,3 @@ Subjects should be no greater than 50 characters, should begin with a capital le
 
 Use an imperative tone to describe what a commit does, rather than what it did. For example, use change; not changed or changes.
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

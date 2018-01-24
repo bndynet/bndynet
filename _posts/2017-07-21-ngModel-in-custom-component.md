@@ -81,8 +81,3 @@ export class CustomInputComponent implements ControlValueAccessor {
 ```
 
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

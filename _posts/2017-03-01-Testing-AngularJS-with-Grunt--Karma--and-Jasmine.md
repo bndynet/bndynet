@@ -44,8 +44,3 @@ grunt.loadNpmTasks "grunt-karma"
 grunt.registerTask "test", ["karma"]
 ```
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

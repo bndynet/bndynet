@@ -28,8 +28,3 @@ If you are in China, use taobao mirror.
 1. `cnpm install yarn tyarn -g --registry=https://registry.npm.taobao.org`
 1. `tyarn add [package]`
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

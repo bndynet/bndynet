@@ -79,8 +79,3 @@ public class Application {
     @CacheResult(cacheName = "default")
     @RequestMapping(value = "/", method = RequestMethod.GET)
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

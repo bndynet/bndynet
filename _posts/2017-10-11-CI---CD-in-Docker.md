@@ -46,8 +46,3 @@ author: Bendy Zhang
   > $ 
  
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

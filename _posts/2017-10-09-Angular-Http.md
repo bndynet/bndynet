@@ -60,8 +60,3 @@ chain.then(function() {
 ```
 $q.when is used to kick off the chain with a resolved promise.
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

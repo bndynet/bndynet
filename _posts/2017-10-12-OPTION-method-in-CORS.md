@@ -38,8 +38,3 @@ If the OPTIONS response doesn’t include those headers, then the browser will s
 
 The server in the question is responding to the OPTIONS requ
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

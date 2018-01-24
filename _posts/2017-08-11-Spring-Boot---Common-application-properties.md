@@ -42,10 +42,5 @@ logging.register-shutdown-hook=false # Register a shutdown hook for the logging 
 
 # AOP
 spring.aop.auto=true # Add @EnableAspectJAutoProxy.
-spring.aop.proxy-target-cla
+spring.aop.proxy-target-class=t
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/_site/" rel="alternate" type="text/html" /><updated>2018-01-24T20:11:08+08:00</updated><id>http://localhost:4000/_site/</id><title type="html">BNDY.NET</title><author><name>Bendy Zhang</name></author><entry><title type="html">OAuth</title><link href="http://localhost:4000/_site/gists/2017/12/20/OAuth.html" rel="alternate" type="text/html" title="OAuth" /><published>2017-12-20T00:00:00+08:00</published><updated>2017-12-20T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/12/20/OAuth</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/12/20/OAuth.html">&lt;p&gt;OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://bndy.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bndy.net/" rel="alternate" type="text/html" /><updated>2018-01-24T20:49:13+08:00</updated><id>http://bndy.net/</id><title type="html">BNDY.NET</title><author><name>Bendy Zhang</name></author><entry><title type="html">OAuth</title><link href="http://bndy.net/gists/2017/12/20/OAuth.html" rel="alternate" type="text/html" title="OAuth" /><published>2017-12-20T00:00:00+08:00</published><updated>2017-12-20T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/20/OAuth</id><content type="html" xml:base="http://bndy.net/gists/2017/12/20/OAuth.html">&lt;p&gt;OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.&lt;/p&gt;
 
 &lt;h2 id=&quot;oauth-20-authorization&quot;&gt;OAuth 2.0 Authorization&lt;/h2&gt;
 
@@ -14,20 +14,7 @@
 
 &lt;p&gt;Whenever the client application requests access to resources stored on that same resource server, the client application needs to authenticate itself by sending along the client ID and the client secret to the autorhization server.&lt;/p&gt;
 
-&lt;p&gt;During the registration the client also registers a redirect URI. This redirect URI is used when a resource owner grants authorization to the client application. When a resource owner has successfully authorized the client application via the authorization server, the resource owner is redirected back to the client application, to the redirect U&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.</summary></entry><entry><title type="html">Override AngularJS Filters</title><link href="http://localhost:4000/_site/gists/2017/12/15/Override-AngularJS-Filters.html" rel="alternate" type="text/html" title="Override AngularJS Filters" /><published>2017-12-15T00:00:00+08:00</published><updated>2017-12-15T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/12/15/Override-AngularJS-Filters</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/12/15/Override-AngularJS-Filters.html">&lt;p&gt;How to override angularjs existing fitlers?&lt;/p&gt;
+&lt;p&gt;During the registration the client also registers a redirect URI. This redirect URI is used when a resource owner grants authorization to the client application. When a resource owner has successfully authorized the client application via the authorization server, the resource owner is redirected back to the client application, to the redirect UR&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.</summary></entry><entry><title type="html">Override AngularJS Filters</title><link href="http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters.html" rel="alternate" type="text/html" title="Override AngularJS Filters" /><published>2017-12-15T00:00:00+08:00</published><updated>2017-12-15T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters</id><content type="html" xml:base="http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters.html">&lt;p&gt;How to override angularjs existing fitlers?&lt;/p&gt;
 
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 
@@ -47,20 +34,7 @@
     &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">How to override angularjs existing fitlers?</summary></entry><entry><title type="html">spring-boot-ehcache</title><link href="http://localhost:4000/_site/gists/2017/12/12/spring-boot-ehcache.html" rel="alternate" type="text/html" title="spring-boot-ehcache" /><published>2017-12-12T00:00:00+08:00</published><updated>2017-12-12T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/12/12/spring-boot-ehcache</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/12/12/spring-boot-ehcache.html">&lt;p&gt;Using ehcache 3 in spring boot&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">How to override angularjs existing fitlers?</summary></entry><entry><title type="html">spring-boot-ehcache</title><link href="http://bndy.net/gists/2017/12/12/spring-boot-ehcache.html" rel="alternate" type="text/html" title="spring-boot-ehcache" /><published>2017-12-12T00:00:00+08:00</published><updated>2017-12-12T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/12/spring-boot-ehcache</id><content type="html" xml:base="http://bndy.net/gists/2017/12/12/spring-boot-ehcache.html">&lt;p&gt;Using ehcache 3 in spring boot&lt;/p&gt;
 
 &lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
 
@@ -126,20 +100,7 @@
 
 &lt;p&gt;```java
     @CacheResult(cacheName = “default”)
-    @RequestMapping(value = “/”, method = RequestMethod.GET)&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Using ehcache 3 in spring boot</summary></entry><entry><title type="html">SSH</title><link href="http://localhost:4000/_site/gists/2017/12/05/SSH.html" rel="alternate" type="text/html" title="SSH" /><published>2017-12-05T00:00:00+08:00</published><updated>2017-12-05T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/12/05/SSH</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/12/05/SSH.html">&lt;p&gt;Useful Commands&lt;/p&gt;
+    @RequestMapping(value = “/”, method = RequestMethod.GET)&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Using ehcache 3 in spring boot</summary></entry><entry><title type="html">SSH</title><link href="http://bndy.net/gists/2017/12/05/SSH.html" rel="alternate" type="text/html" title="SSH" /><published>2017-12-05T00:00:00+08:00</published><updated>2017-12-05T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/05/SSH</id><content type="html" xml:base="http://bndy.net/gists/2017/12/05/SSH.html">&lt;p&gt;Useful Commands&lt;/p&gt;
 
 &lt;h4 id=&quot;generating-a-new-ssh-key&quot;&gt;Generating a new SSH key&lt;/h4&gt;
 
@@ -164,20 +125,7 @@ Host github-joyce
 HostName github.com
 IdentityFile ~/.ssh/id_rsa_joyce
 User joyce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Useful Commands</summary></entry><entry><title type="html">.Net Core on Linux, macOS</title><link href="http://localhost:4000/_site/gists/2017/11/08/Net-Core-on-Linux-macOS.html" rel="alternate" type="text/html" title=".Net Core on Linux, macOS" /><published>2017-11-08T00:00:00+08:00</published><updated>2017-11-08T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/11/08/-Net-Core-on-Linux--macOS</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/11/08/Net-Core-on-Linux-macOS.html">&lt;p&gt;Start .net core app on Ubuntu, Debian, CentOS and macOS&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Useful Commands</summary></entry><entry><title type="html">.Net Core on Linux, macOS</title><link href="http://bndy.net/gists/2017/11/08/Net-Core-on-Linux-macOS.html" rel="alternate" type="text/html" title=".Net Core on Linux, macOS" /><published>2017-11-08T00:00:00+08:00</published><updated>2017-11-08T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/08/-Net-Core-on-Linux--macOS</id><content type="html" xml:base="http://bndy.net/gists/2017/11/08/Net-Core-on-Linux-macOS.html">&lt;p&gt;Start .net core app on Ubuntu, Debian, CentOS and macOS&lt;/p&gt;
 
 &lt;h2 id=&quot;ubuntu&quot;&gt;Ubuntu&lt;/h2&gt;
 
@@ -243,21 +191,8 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 //Debian 9
 sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'
 //Debian 8
-sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main&quot; &amp;gt; /etc/apt/sources.list.d/do
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Start .net core app on Ubuntu, Debian, CentOS and macOS</summary></entry><entry><title type="html">Git</title><link href="http://localhost:4000/_site/gists/2017/11/06/Git.html" rel="alternate" type="text/html" title="Git" /><published>2017-11-06T00:00:00+08:00</published><updated>2017-11-06T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/11/06/Git</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/11/06/Git.html">&lt;p&gt;Git Commands&lt;/p&gt;
+sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main&quot; &amp;gt; /etc/apt/sources.list.d/dotn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Start .net core app on Ubuntu, Debian, CentOS and macOS</summary></entry><entry><title type="html">Git</title><link href="http://bndy.net/gists/2017/11/06/Git.html" rel="alternate" type="text/html" title="Git" /><published>2017-11-06T00:00:00+08:00</published><updated>2017-11-06T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/06/Git</id><content type="html" xml:base="http://bndy.net/gists/2017/11/06/Git.html">&lt;p&gt;Git Commands&lt;/p&gt;
 
 &lt;h2 id=&quot;useful-commands&quot;&gt;Useful Commands&lt;/h2&gt;
 
@@ -349,21 +284,8 @@ Changes to be committed:
   &lt;li&gt;git config –global alias.au “!git add -u . &amp;amp;&amp;amp; git status”&lt;/li&gt;
   &lt;li&gt;git config –global alias.aa “!git add . &amp;amp;&amp;amp; git add -u . &amp;amp;&amp;amp; git status”&lt;/li&gt;
   &lt;li&gt;git config –global alias.c “commit”&lt;/li&gt;
-  &lt;li&gt;git conf&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Git Commands Useful Commands Commit with empty message</summary></entry><entry><title type="html">Development Environment for Ubuntu</title><link href="http://localhost:4000/_site/gists/2017/11/04/Development-Environment-for-Ubuntu.html" rel="alternate" type="text/html" title="Development Environment for Ubuntu" /><published>2017-11-04T00:00:00+08:00</published><updated>2017-11-04T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/11/04/Development-Environment-for-Ubuntu</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/11/04/Development-Environment-for-Ubuntu.html">&lt;p&gt;Steps to set up environments on Ubuntu for frontend development and backend development.&lt;/p&gt;
+  &lt;li&gt;git confi&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Git Commands Useful Commands Commit with empty message</summary></entry><entry><title type="html">Development Environment for Ubuntu</title><link href="http://bndy.net/gists/2017/11/04/Development-Environment-for-Ubuntu.html" rel="alternate" type="text/html" title="Development Environment for Ubuntu" /><published>2017-11-04T00:00:00+08:00</published><updated>2017-11-04T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/04/Development-Environment-for-Ubuntu</id><content type="html" xml:base="http://bndy.net/gists/2017/11/04/Development-Environment-for-Ubuntu.html">&lt;p&gt;Steps to set up environments on Ubuntu for frontend development and backend development.&lt;/p&gt;
 
 &lt;h2 id=&quot;install-git&quot;&gt;Install Git&lt;/h2&gt;
 
@@ -416,20 +338,7 @@ Changes to be committed:
 
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ dockerd --registry-mirror=https://registry.docker-cn.com&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Steps to set up environments on Ubuntu for frontend development and backend development.</summary></entry><entry><title type="html">Database Languages</title><link href="http://localhost:4000/_site/gists/2017/11/01/Database-Languages.html" rel="alternate" type="text/html" title="Database Languages" /><published>2017-11-01T00:00:00+08:00</published><updated>2017-11-01T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/11/01/Database-Languages</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/11/01/Database-Languages.html">&lt;p&gt;CRUD(Create, read, update and delete) for MySQL, SqlServer, Oracle and MongoDB&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Steps to set up environments on Ubuntu for frontend development and backend development.</summary></entry><entry><title type="html">Database Languages</title><link href="http://bndy.net/gists/2017/11/01/Database-Languages.html" rel="alternate" type="text/html" title="Database Languages" /><published>2017-11-01T00:00:00+08:00</published><updated>2017-11-01T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/01/Database-Languages</id><content type="html" xml:base="http://bndy.net/gists/2017/11/01/Database-Languages.html">&lt;p&gt;CRUD(Create, read, update and delete) for MySQL, SqlServer, Oracle and MongoDB&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -465,26 +374,13 @@ Changes to be committed:
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MongoDB&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;&lt;/strong&gt; db.tablename.insert([{}, {}]) //insert({}) &lt;br /&gt; &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt;&lt;/strong&gt; db.tablename.find({“size”: { $gt: 10,  $lte: 20 } }&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;&lt;/strong&gt; db.tablename.insert([{}, {}]) //insert({}) &lt;br /&gt; &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt;&lt;/strong&gt; db.tablename.find({“size”: { $gt: 10,  $lte: 20 } } ).&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">CRUD(Create, read, update and delete) for MySQL, SqlServer, Oracle and MongoDB</summary></entry><entry><title type="html">JavaScript Promise</title><link href="http://localhost:4000/_site/gists/2017/10/31/JavaScript-Promise.html" rel="alternate" type="text/html" title="JavaScript Promise" /><published>2017-10-31T00:00:00+08:00</published><updated>2017-10-31T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/10/31/JavaScript-Promise</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/10/31/JavaScript-Promise.html">&lt;p&gt;The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.&lt;/p&gt;
+&lt;/table&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">CRUD(Create, read, update and delete) for MySQL, SqlServer, Oracle and MongoDB</summary></entry><entry><title type="html">JavaScript Promise</title><link href="http://bndy.net/gists/2017/10/31/JavaScript-Promise.html" rel="alternate" type="text/html" title="JavaScript Promise" /><published>2017-10-31T00:00:00+08:00</published><updated>2017-10-31T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/10/31/JavaScript-Promise</id><content type="html" xml:base="http://bndy.net/gists/2017/10/31/JavaScript-Promise.html">&lt;p&gt;The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.&lt;/p&gt;
 
 &lt;h2 id=&quot;syntax&quot;&gt;Syntax&lt;/h2&gt;
 
@@ -522,20 +418,7 @@ A pending promise can either be fulfilled with a value, or rejected with a reaso
 // this will be counted as if the iterable passed is empty, so it gets fulfilled
 var p = Promise.all([1,2,3]);
 // this will be counted as if the iterable passed contains only the resolved promise with value “444”, so it gets fulfilled
-var p2 = Promise.all([1,&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.</summary></entry><entry><title type="html">Node.js</title><link href="http://localhost:4000/_site/gists/2017/10/28/Node-js.html" rel="alternate" type="text/html" title="Node.js" /><published>2017-10-28T00:00:00+08:00</published><updated>2017-10-28T00:00:00+08:00</updated><id>http://localhost:4000/_site/gists/2017/10/28/Node-js</id><content type="html" xml:base="http://localhost:4000/_site/gists/2017/10/28/Node-js.html">&lt;p&gt;&lt;a href=&quot;#install-nodejs&quot;&gt;Install Node.js&lt;/a&gt;, &lt;a href=&quot;#install-nvm&quot;&gt;Install NVM&lt;/a&gt;&lt;/p&gt;
+var p2 = Promise.all([1,2&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.</summary></entry><entry><title type="html">Node.js</title><link href="http://bndy.net/gists/2017/10/28/Node-js.html" rel="alternate" type="text/html" title="Node.js" /><published>2017-10-28T00:00:00+08:00</published><updated>2017-10-28T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/10/28/Node-js</id><content type="html" xml:base="http://bndy.net/gists/2017/10/28/Node-js.html">&lt;p&gt;&lt;a href=&quot;#install-nodejs&quot;&gt;Install Node.js&lt;/a&gt;, &lt;a href=&quot;#install-nvm&quot;&gt;Install NVM&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;install&quot;&gt;Install&lt;/h1&gt;
 
@@ -570,17 +453,4 @@ sudo apt-get install -y nodejs
   &lt;li&gt;nvm use [version]&lt;/li&gt;
   &lt;li&gt;nvm alias default [version]         // Set default node version on a shell&lt;/li&gt;
   &lt;li&gt;nvm ls, nvm ls-remote&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 class=&quot;t60&quot; id=&quot;other-post-formats&quot;&gt;Other Post Formats&lt;/h2&gt;
-
-&lt;ul class=&quot;side-nav&quot;&gt;
-
-  
-
-    
-
-  
 &lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Install Node.js, Install NVM</summary></entry></feed>

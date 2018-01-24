@@ -44,8 +44,3 @@ app.listen(3000, function () {
 })
 ```
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

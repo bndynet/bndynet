@@ -24,8 +24,3 @@ author: Bendy Zhang
 
 -- `npm run build`
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

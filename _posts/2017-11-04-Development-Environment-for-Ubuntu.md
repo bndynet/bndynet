@@ -54,8 +54,3 @@ Steps to set up environments on Ubuntu for frontend development and backend deve
 
     `$ dockerd --registry-mirror=https://registry.docker-cn.com`
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}

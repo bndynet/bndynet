@@ -37,8 +37,3 @@ The following is a possible scheme to use:
 | :pray: | experimental | `:pray:` |
 | :recycle: | dead code removal | `:recycle:` |
 
-<!--more-->
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}
