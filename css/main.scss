@@ -1,0 +1,240 @@
+---
+---
+
+@charset "utf-8";
+// Example Defaults
+// $base-font-family: Helvetica, Arial, sans-serif;
+// $base-font-size:   16px;
+// $small-font-size:  $base-font-size * 0.875;
+// $base-line-height: 1.5;
+// $spacing-unit:     30px;
+// $text-color:       #111;
+// $background-color: #fdfdfd;
+// $brand-color:      #2a7ae2;
+// $grey-color:       #828282;
+// $grey-color-light: lighten($grey-color, 40%);
+// $grey-color-dark:  darken($grey-color, 25%);
+// // Width of the content area
+// $content-width:    800px;
+// $on-palm:          600px;
+// $on-laptop:        800px;
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+// variables.less
+$theme-primary: #F05F40;
+$theme-dark: #222;
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import "../_sass/_mixins.scss";
+@import "../_sass/_base.scss";
+// my styles
+body {
+  background-image: url(/img/nav_home_bg.jpg);
+  background-repeat: repeat-x;
+}
+p {
+  hyphens: auto;
+  font-size: 13px;
+  line-height: 2.2rem;
+}
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+*:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  header .header-content .header-content-inner {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.content-wrapper {
+  padding-top: 50px;
+  min-height: calc(100vh - 50px);
+
+  article {
+    margin: 50px 0;
+  }
+}
+
+.bg-primary {
+  a {
+    color: #ffffff;
+  }
+}
+.navbar-default {
+  border-color: transparent;
+
+  .nav {
+    img {
+      height: 24px;
+    }
+    & > li > a {
+      &.icon {
+        padding: 10px 15px;
+        margin-top: 3px;
+        &:hover {
+          background-color: $theme-primary;
+          i {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
+
+#searchForm {
+  position: relative;
+  margin-top: 10px;
+  input {
+    border: none;
+    border-bottom: solid 2px #888888;
+    background-color: transparent;
+    padding: 5px 20px 2px 5px;
+
+    &:focus {
+      border-color: $theme-primary;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    border: none;
+    background-color: transparent;
+    color: #888888;
+  }
+}
+
+#contributors {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  img {
+    display: block;
+    width: 46px;
+    margin: 5px;
+    border-radius: 50% 50%;
+    transition: width .5s;
+    &:hover {
+      width: 80px;
+    }
+  }
+}
+#github {
+  padding-top: 50px;
+}
+#github-events {
+  position: absolute;
+  top: 120px;
+  padding-top: 60px;
+  z-index: 0;
+  color: white;
+  right: 0;
+  width: 306px;
+  font-size: 1rem;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  text-shadow: 1px 1px 1px black;
+  .item {
+    border-bottom: dotted 1px #aaa;
+    margin: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+#about {
+  .animated {
+    display: inline-block;
+    animation-delay: 2s;
+  }
+  [toggle-css=fadeInUp] {
+    display: none;
+  }
+  img.avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  a.item {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    min-width: 100px;
+    border-radius: 5px;
+    &:hover {
+      text-decoration: none;
+      background-color: $theme-primary;
+    }
+    img {
+      height: 30px;
+    }
+    i,
+    h4 {
+      color: #ffffff;
+    }
+  }
+}
+
+footer {
+  background: #313131;
+  color: #7E7E7E;
+  padding: 15px;
+  text-align: center;
+}
+
+.back-box {
+  position: fixed;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  background-color: #ffffff;
+}
+
+.one-line {
+  display: block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.widget {
+  img {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #dedede;
+    box-shadow: 2px 2px 2px #dedede;
+  }
+}
+
+.resume-table {
+  label {
+    display: inline-block;
+    min-width: 120px;
+    &:after {
+      content: ":";
+    }
+  }
+
+  &.cn {
+    label {
+      min-width: 80px;
+    }
+  }
+}

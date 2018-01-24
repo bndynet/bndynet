@@ -1,0 +1,37 @@
+items:
+  - name: Jlib
+    title: A Java Library
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/Jlib
+      - text: Documentation
+        css: info
+        url: http://bndy.net/Jlib/
+  - name: jslib
+    title: Utils for jQuery, AngularJS, Lodash...
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/jslib
+      - text: Documentation
+        css: info
+        url: http://bndy.net/jslib/docs/
+  - name: Pylib
+    title: A Python Library
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/Pylib
+      - text: Documentation
+        css: info
+        url: http://bndy.net/Pylib/docs/
+  - name: jDialog
+    title: A Javascript Dialog
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/jDialog
+      - text: Demo
+        css: warning
+        url: http://bndy.net/jDialog/demo/

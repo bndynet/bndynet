@@ -1,0 +1,45 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                {{ site.name }}
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                {% for nav in site.data.navigations %}
+                <li>
+                    <a href="{{ nav.url }}" class="page-scroll" onclick="{{ nav.js }}">{{ nav.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% for item in site.data.about.items %}
+                <li>
+                    <a class="icon" href="{{item.url}}" target="_blank">
+                        {% if item.icon contains "http:" or item.icon contains "https:" %}
+                            <img src="{{ item.icon }}" title="{{ item.name }}" />
+                        {% else %}
+                            <i class="fa fa-2x {{ item.icon }}" title="{{ item.name }}"></i>
+                        {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
+                {% include _i18n-link.html %}
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="{{ site.data.language.search_gists }}">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>

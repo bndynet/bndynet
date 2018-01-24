@@ -1,0 +1,20 @@
+title: 嗨，我叫张兵
+img: /img/contributors/bendy.png
+text: >-
+ 欢迎访问我的个人网站，我一直致力于Java，.Net, 前端和数据库的开发工作, 同时对持续集成和交付等软件过程及项目管理有着浓厚的兴趣。
+items:
+  - name: My Dockers
+    icon: https://www.docker.com/favicon/favicon-32x32.png
+    url: https://hub.docker.com/r/bndynet/
+  - name: NPM Packages
+    icon: https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png
+    url: https://www.npmjs.com/org/bndynet
+  - name: Maven
+    icon: http://maven.apache.org/images/maven-logo-black-on-white.png
+    url: https://www.mvnrepository.com/artifact/net.bndy
+  - name: Microsoft VSTS
+    icon: fa fa-windows
+    url: https://bndy.visualstudio.com/
+  - name: GitHub
+    icon: fa fa-github
+    url: http://github.com/bndynet

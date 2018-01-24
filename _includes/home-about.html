@@ -1,0 +1,27 @@
+<header id="about">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <img class="avatar" src="{{ site.data.about.img }}" />
+            <h1>{{ site.data.about.title }}</h1>
+            <hr>
+            <p>{{ site.data.about.text }}</p>
+            <a href="https://github.com/bndynet" class="btn btn-primary btn-xl page-scroll">
+                <i class="fa fa-github"></i>
+                My Github
+            </a>
+        </div>
+
+        <div class="row">
+            {% for item in site.data.about.items %}
+            <a href="{{item.url}}" class="item">
+                {% if item.icon contains "http:" or item.icon contains "https:" %}
+                    <img src="{{ item.icon }}" class="wow bounceIn" data-wow-delay=".1s" />
+                {% else %}
+                    <i class="wow bounceIn fa fa-3x {{ item.icon }}" data-wow-delay=".1s"></i>
+                {% endif %}
+                <h4>{{ item.name }}</h4>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</header>

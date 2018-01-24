@@ -1,0 +1,14 @@
+title: I am code Porter, but I produce codes.
+text: Code on Visual Studio Team Services and GitHub
+items:
+  - name: Facebook
+    url: https://www.facebook.com/bendy.zhang 
+    icon: fa fa-facebook-official
+
+  - name: WeChat
+    url: /img/wechat_qrcode.png
+    icon: fa fa-wechat
+
+  - name: Email
+    url: mailto:zb@bndy.net
+    icon: fa fa-envelope-o 

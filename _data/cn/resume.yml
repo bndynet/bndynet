@@ -1,0 +1,12 @@
+name: 姓名
+name_val: 张兵
+en_name: 英文名
+en_name_val: Bendy Zhang
+bir: 出生日期
+bir_val: 1984-12
+gender: 性别
+gender_val: 男
+homepage: 个人主页
+homepage_val: http://bndy.net
+email: 邮箱
+email_val: zb@bndy.net
