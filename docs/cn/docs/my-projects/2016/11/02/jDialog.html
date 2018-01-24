@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="en">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/my-projects/2016/11/02/jDialog.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/my-projects/2016/11/02/jDialog.html"/>
+
+
+    <title>BNDY.NET</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+<li>
+    <a href="http://localhost:4000/cn"> 中文 </a>
+</li>
+
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="Search Gists...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="back-box">
+			<a href="/blog/archive">
+				<i class="fa fa-chevron-left"></i>
+				Back
+			</a>
+		</div>
+		<article itemscope itemtype="http://schema.org/Article">
+			<div>
+				
+
+				<div itemprop="name">
+					<h1>
+                        jDialog
+                        <small class="subheadline">JavaScript</small>
+                    </h1>
+				</div>
+            </div>
+
+
+            
+                
+                <p class="teaser" itemprop="description">
+                    A javascript framework for browser dialogs and notifications
+                </p>
+                
+			
+
+			<div itemprop="articleSection">
+			<h2 id="dependencies">Dependencies</h2>
+
+<p>Requires:</p>
+<ul>
+  <li>jQuery</li>
+  <li><a href="https://github.com/sentsin/layer">layer</a></li>
+  <li><a href="https://github.com/alertifyjs/alertify.js">alertifyjs</a></li>
+</ul>
+
+<h2 id="quick-start">Quick start</h2>
+
+<ul>
+  <li>
+    <p>Clone the repo</p>
+
+    <p><code class="highlighter-rouge">git clone https://github.com/bndynet/jdialog.git</code></p>
+  </li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Latest compiled and minified CSS --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"dist/jdialog.min.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!-- Latest compiled and minified JavaScript --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/jdialog.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">dialog</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">fnYes</span><span class="p">,</span> <span class="nx">fnCancel</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">fnYes</span><span class="p">,</span> <span class="nx">formType</span><span class="p">);</span>
+
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">tip</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">selector</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">size</span><span class="p">);</span>     <span class="c1">//size: [600, 460], ["50%", "50%"]</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">iframe</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">fnClose</span><span class="p">);</span> <span class="c1">//fnClose: function(dialogResult)</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">loaded</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">selectorContent</span><span class="p">);</span>   <span class="c1">//selectorContent: e.g. "No Data" </span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">dialogResult</span><span class="p">);</span>
+<span class="nx">dialog</span><span class="p">.</span><span class="nx">closeAll</span><span class="p">(</span><span class="nx">dialogResult</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="options">options</h4>
+
+<p>Default Options</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">title</span><span class="p">:</span><span class="w"> </span><span class="s2">"jDialog v2"</span><span class="p">,</span><span class="w">
+</span><span class="err">shade</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="s2">"#000"</span><span class="p">],</span><span class="w">
+</span><span class="err">shadeClose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="err">shift</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="err">maxmin</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">fix</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">btn</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"OK"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Cancel"</span><span class="p">],</span><span class="w">
+</span><span class="err">closeBtn</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">tips</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">'#f</span><span class="mi">0</span><span class="err">ad</span><span class="mi">4</span><span class="err">e'</span><span class="p">],</span><span class="w">
+</span><span class="err">tipsTime</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+</span><span class="err">loadingIcon</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="err">loadingShade</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="s2">"#fff"</span><span class="p">],</span><span class="w">
+</span><span class="err">useAlertify</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="err">wait</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">        </span><span class="err">//seconds</span><span class="w">
+</span><span class="err">logPosition</span><span class="p">:</span><span class="w"> </span><span class="s2">"bottom right"</span><span class="p">,</span><span class="w">
+</span><span class="err">closeLogOnClick</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></code></pre></div></div>
+
+<!--more-->
+
+<h2 class="t60" id="other-post-formats">Other Post Formats</h2>
+
+<ul class="side-nav">
+
+  
+
+    
+
+  
+</ul>
+
+
+			</div>
+		</article>
+	</div>
+</div>
+    </div>
+  </div>
+  <footer>
+    Copyright &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndy.net/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>

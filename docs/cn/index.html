@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cn">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="cn">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/"/>
+
+
+    <title>BNDY.NET</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+                    <a href="#github" class="page-scroll" onclick="">最新动态</a>
+                </li>
+                
+                <li>
+                    <a href="#projects" class="page-scroll" onclick="">我的项目</a>
+                </li>
+                
+                <li>
+                    <a href="#blog" class="page-scroll" onclick="">我的博客</a>
+                </li>
+                
+                <li>
+                    <a href="#about" class="page-scroll" onclick="$('#about-animate-1').addClass($('#about-animate-1').attr('toggle-css'));$('#about-animate-2').show().addClass($('#about-animate-2').attr('toggle-css'));setTimeout(function(){ $('#about-animate-1').hide();}, 2500);">关于本人</a>
+                </li>
+                
+                <li>
+                    <a href="#contact" class="page-scroll" onclick="">联系方式</a>
+                </li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+
+<li>
+    <a href="http://localhost:4000">
+        English
+    </a>
+</li>
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="搜索Gist...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <!-- <div id="contributors">
+    
+    
+        <img src="/img/contributors/bendy.png" title="Bing Zhang" alt="Bing Zhang" />
+    
+    
+    
+        <img src="/img/contributors/shelwin.png" title="Changhe Su" alt="Changhe Su" />
+    
+    
+    
+        <img src="/img/contributors/allen.png" title="Liming Xu" alt="Liming Xu" />
+    
+    
+    
+        <img src="/img/contributors/jason.png" title="Yi Wei" alt="Yi Wei" />
+    
+    
+    
+        <img src="/img/contributors/talver.png" title="Tao Wu" alt="Tao Wu" />
+    
+    
+    
+        <img src="/img/contributors/andy.png" title="Chenglong Wang" alt="Chenglong Wang" />
+    
+    
+    
+        <img src="/img/contributors/jeff.png" title="Tao Liu" alt="Tao Liu" />
+    
+    
+</div> -->
+  <div id="github-events"></div>
+<div id="github">
+    <iframe id="frontpageFrame" src="/GitHubVisualizer/#user=bndynet&theme=simple" frameborder="0" allowfullscreen frameborder="0"
+        style="width:100%;margin:0px;"></iframe>
+</div>
+  <section id="projects">
+    <div class="container">
+        <div class="row">
+             
+            <div class="col-md-4 widget">
+                <a href="https://github.com/bndynet/web-framework">
+                    <img src="https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home.png" />
+                </a>
+                <h2>Web Framework 4 .Net</h2>
+                <p>The Web Framework is a project for building great Web sites and Web applications using C# fast and easily. Frontend is using AngularJS and Bootstarp.</p>
+                <p>
+                    <a class="button tiny radius" href="https://github.com/bndynet/web-framework">
+                        更多 ›
+                    </a>
+                </p>
+            </div>
+            
+            <div class="col-md-4 widget">
+                <a href="https://github.com/bndynet/web-framework-for-java">
+                    <img src="https://raw.githubusercontent.com/bndynet/web-framework-for-java/master/docs/img/admin-home.png" />
+                </a>
+                <h2>Web Framework 4 Java</h2>
+                <p>A starter project with spring boot for AngularJS, AngularJs Material, Thymeleaf, RESTful API, MySQL, Redis and MongoDB.</p>
+                <p>
+                    <a class="button tiny radius" href="https://github.com/bndynet/web-framework-for-java">
+                        更多 ›
+                    </a>
+                </p>
+            </div>
+            
+            <div class="col-md-4 widget">
+                <a href="https://github.com/bndynet/node-starter">
+                    <img src="https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png" />
+                </a>
+                <h2>Node.js Web Application</h2>
+                <p>A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.</p>
+                <p>
+                    <a class="button tiny radius" href="https://github.com/bndynet/node-starter">
+                        更多 ›
+                    </a>
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+  <header id="about">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <img class="avatar" src="/img/contributors/bendy.png" />
+            <h1>嗨，我叫张兵</h1>
+            <hr>
+            <p>欢迎访问我的个人网站，我一直致力于Java，.Net, 前端和数据库的开发工作, 同时对持续集成和交付等软件过程及项目管理有着浓厚的兴趣。</p>
+            <a href="https://github.com/bndynet" class="btn btn-primary btn-xl page-scroll">
+                <i class="fa fa-github"></i>
+                My Github
+            </a>
+        </div>
+
+        <div class="row">
+            
+            <a href="https://hub.docker.com/r/bndynet/" class="item">
+                
+                    <img src="https://www.docker.com/favicon/favicon-32x32.png" class="wow bounceIn" data-wow-delay=".1s" />
+                
+                <h4>My Dockers</h4>
+            </a>
+            
+            <a href="https://www.npmjs.com/org/bndynet" class="item">
+                
+                    <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" class="wow bounceIn" data-wow-delay=".1s" />
+                
+                <h4>NPM Packages</h4>
+            </a>
+            
+            <a href="https://www.mvnrepository.com/artifact/net.bndy" class="item">
+                
+                    <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" class="wow bounceIn" data-wow-delay=".1s" />
+                
+                <h4>Maven</h4>
+            </a>
+            
+            <a href="https://bndy.visualstudio.com/" class="item">
+                
+                    <i class="wow bounceIn fa fa-3x fa fa-windows" data-wow-delay=".1s"></i>
+                
+                <h4>Microsoft VSTS</h4>
+            </a>
+            
+            <a href="http://github.com/bndynet" class="item">
+                
+                    <i class="wow bounceIn fa fa-3x fa fa-github" data-wow-delay=".1s"></i>
+                
+                <h4>GitHub</h4>
+            </a>
+            
+        </div>
+    </div>
+</header>
+
+  <section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>最近博客</h2>
+                 
+                <h4>
+                    <a href="http://localhost:4000/_site/cn/gists/2017/12/20/OAuth.html">OAuth</a>
+                </h4>
+                <p class="one-line">
+                    OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.
+                </p>
+                 
+                <h4>
+                    <a href="http://localhost:4000/_site/cn/gists/2017/12/15/Override-AngularJS-Filters.html">Override AngularJS Filters</a>
+                </h4>
+                <p class="one-line">
+                    How to override angularjs existing fitlers?
+                </p>
+                 
+                <h4>
+                    <a href="http://localhost:4000/_site/cn/gists/2017/12/12/spring-boot-ehcache.html">spring-boot-ehcache</a>
+                </h4>
+                <p class="one-line">
+                    Using ehcache 3 in spring boot
+                </p>
+                 
+                <h4>
+                    <a href="http://localhost:4000/_site/cn/gists/2017/12/05/SSH.html">SSH</a>
+                </h4>
+                <p class="one-line">
+                    Useful Commands
+                </p>
+                 
+                <h4>
+                    <a href="http://localhost:4000/_site/cn/gists/2017/11/08/Net-Core-on-Linux-macOS.html">.Net Core on Linux, macOS</a>
+                </h4>
+                <p class="one-line">
+                    Start .net core app on Ubuntu, Debian, CentOS and macOS
+                </p>
+                
+                <br />
+                <a href="http://localhost:4000/_site/cn/blog/archive/">更多 ›</a>
+            </div>
+
+            <div class="col-md-4">
+                <h2>类库组件</h2>
+                
+                <h4>
+                    Jlib
+                    <small>- Java常用工具类库</small>
+                </h4>
+                <p class="one-line">
+                    
+                    <a href="https://github.com/bndynet/Jlib" class="label label-primary" target="_blank">源码</a>
+                    
+                    <a href="http://bndy.net/Jlib/" class="label label-info" target="_blank">文档</a>
+                    
+                </p>
+                
+                <h4>
+                    jslib
+                    <small>- 扩展jQuery,AngularJS, Lodash</small>
+                </h4>
+                <p class="one-line">
+                    
+                    <a href="https://github.com/bndynet/jslib" class="label label-primary" target="_blank">源码</a>
+                    
+                    <a href="http://bndy.net/jslib/docs/" class="label label-info" target="_blank">文档</a>
+                    
+                </p>
+                
+                <h4>
+                    Pylib
+                    <small>- Python类库</small>
+                </h4>
+                <p class="one-line">
+                    
+                    <a href="https://github.com/bndynet/Pylib" class="label label-primary" target="_blank">源码</a>
+                    
+                    <a href="http://bndy.net/Pylib/docs/" class="label label-info" target="_blank">文档</a>
+                    
+                </p>
+                
+                <h4>
+                    jDialog
+                    <small>- Javascript对话框</small>
+                </h4>
+                <p class="one-line">
+                    
+                    <a href="https://github.com/bndynet/jDialog" class="label label-primary" target="_blank">源码</a>
+                    
+                    <a href="http://bndy.net/jDialog/demo/" class="label label-warning" target="_blank">演示</a>
+                    
+                </p>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+  <section class="bg-primary" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">
+                    联系方式
+                </h2>
+                <p>
+                    如果技术方面的需要交流，欢迎使用电子邮件联系我。
+                </p> 
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            
+            
+            <div class="col-lg-4 text-center">
+                <a href="https://www.facebook.com/bendy.zhang">
+                    <i class="fa fa-facebook-official fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p>脸书</p>
+                </a>
+            </div>
+            
+            <div class="col-lg-4 text-center">
+                <a href="/img/wechat_qrcode.png">
+                    <i class="fa fa-wechat fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p>微信</p>
+                </a>
+            </div>
+            
+            <div class="col-lg-4 text-center">
+                <a href="mailto:zb@bndy.net">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p>邮箱</p>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+  <footer>
+    版本所有 &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndy.net/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>

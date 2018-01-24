@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="cn">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="cn">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/gists/2017/11/08/Net-Core-on-Linux-macOS.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/gists/2017/11/08/Net-Core-on-Linux-macOS.html"/>
+
+
+    <title>BNDY.NET</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://www.npmjs.com/static/images/touch-icons/mstile-144x144.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+
+<li>
+    <a href="http://localhost:4000">
+        English
+    </a>
+</li>
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="搜索Gist...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="back-box">
+			<a href="/blog/archive">
+				<i class="fa fa-chevron-left"></i>
+				返回
+			</a>
+		</div>
+		<article itemscope itemtype="http://schema.org/Article">
+			<div>
+				
+
+				<div itemprop="name">
+					<h1>
+                        .Net Core on Linux, macOS
+                        
+                    </h1>
+				</div>
+            </div>
+
+
+            
+                
+			
+
+			<div itemprop="articleSection">
+			<p>Start .net core app on Ubuntu, Debian, CentOS and macOS</p>
+
+<h2 id="ubuntu">Ubuntu</h2>
+
+<ol>
+  <li>
+    <p>Register the trusted Microsoft signature key and Microsoft Product feed:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl https://packages.microsoft.com/keys/microsoft.asc | gpg <span class="nt">--dearmor</span> <span class="o">&gt;</span> microsoft.gpg
+ <span class="nb">sudo </span>mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+</code></pre></div>    </div>
+
+    <p>Microsoft Product feed</p>
+
+    <ul>
+      <li>
+        <p>Ubuntu 17.10</p>
+
+        <p><code class="highlighter-rouge">sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" &gt; /etc/apt/sources.list.d/dotnetdev.list'</code></p>
+      </li>
+      <li>
+        <p>Ubuntu 17.04</p>
+
+        <p><code class="highlighter-rouge">sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" &gt; /etc/apt/sources.list.d/dotnetdev.list'</code></p>
+      </li>
+      <li>
+        <p>Ubuntu 16.04 / Linux Mint 18</p>
+      </li>
+    </ul>
+
+    <p><code class="highlighter-rouge">sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" &gt; /etc/apt/sources.list.d/dotnetdev.list'</code></p>
+
+    <ul>
+      <li>
+        <p>Ubuntu 14.04 / Linux Mint 17</p>
+
+        <p><code class="highlighter-rouge">sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" &gt; /etc/apt/sources.list.d/dotnetdev.list'</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Install SDK and Run App</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get update
+ <span class="nb">sudo </span>apt-get install dotnet-sdk-2.0.2
+
+ dotnet new console <span class="nt">-o</span> myApp
+ <span class="nb">cd </span>myApp
+
+ dotnet run
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="debian">Debian</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```shell
+sudo apt-get update
+sudo apt-get install curl libunwind8 gettext apt-transport-https
+
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+
+//Debian 9
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" &gt; /etc/apt/sources.list.d/dotnetdev.list'
+//Debian 8
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main" &gt; /etc/apt/sources.list.d/do
+</code></pre></div></div>
+
+<!--more-->
+
+<h2 class="t60" id="other-post-formats">Other Post Formats</h2>
+
+<ul class="side-nav">
+
+  
+
+    
+
+  
+</ul>
+
+
+			</div>
+		</article>
+	</div>
+</div>
+    </div>
+  </div>
+  <footer>
+    版本所有 &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndy.net/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>
