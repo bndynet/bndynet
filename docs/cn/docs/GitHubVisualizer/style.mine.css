@@ -1,14 +1,54 @@
+body {
+  background-image: url(resource/background.jpg);
+  background-repeat: no-repeat;
+  background-color: #334D5C;
+}
+
+body #layers {
+  background-color: transparent;
+}
+
 #example {
-  display: none; }
+  display: none;
+}
+
+header #controls {
+  display: none;
+}
 
 header #controls .steps > li > label:first-child {
-  display: none; }
+  display: none;
+}
+
+header #controls .steps > li:before {
+  border-width: 18px;
+  top: 0;
+  right: -36px;
+}
+
+header #controls .steps > li:after {
+  border-width: 19px;
+  top: -1px;
+  right: -39px;
+}
+
+header #controls .steps > li .btn {
+  height: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
+
 header #controls .steps .sub {
   font-size: .85em;
-  font-family: Arial; }
-  header #controls .steps .sub blockquote {
-    font-family: Arial;
-    padding: 5px 2px; }
+  font-family: Arial;
+}
+
+header #controls .steps .sub blockquote {
+  font-family: Arial;
+  padding: 5px 2px;
+}
+
 header #controls .steps .first input#user,
 header #controls .steps .first input#user:hover,
 header #controls .steps .first input#user:focus {
@@ -17,27 +57,30 @@ header #controls .steps .first input#user:focus {
   color: white;
   text-transform: uppercase;
   width: 140px;
-  box-shadow: none; }
-  header #controls .steps .first input#user:hover,
-  header #controls .steps .first input#user:hover:hover,
-  header #controls .steps .first input#user:focus:hover {
-    border-color: transparent; }
+  box-shadow: none;
+}
+
+header #controls .steps .first input#user:hover,
+header #controls .steps .first input#user:hover:hover,
+header #controls .steps .first input#user:focus:hover {
+  border-color: transparent;
+}
+
 header #controls .steps .first #showBtn {
-  display: none; }
+  display: none;
+}
+
 header #controls .steps .first .sub blockquote {
-  display: none; }
+  display: none;
+}
+
 header #userOAuth,
 header #misc {
-  display: none; }
+  display: none;
+}
 
 /* Themes */
-body.simple {
-  background-image: url(resource/background.jpg);
-  background-repeat: no-repeat;
-  background-color: #334D5C; }
-  body.simple #layers {
-    background-color: transparent; }
-  body.simple #controls {
-    display: none; }
-
+body.advance header #controls {
+  display: block;
+}
 /*# sourceMappingURL=style.mine.css.map */

@@ -12,16 +12,18 @@
     <script src="js/cookies.js"></script>
 
     <script type="text/javascript">
+        var host = '127.0.0.1:5500'; //'bndy.net';
+        var entry =  'http://127.0.0.1:5500/'; //'http://bndy.net/GitHubVisualizer/';
         (function() {
             var ss = location.search;
             var ind = ss ? ss.indexOf('code=') : -1;
             console.log(document.referrer);
-            if (location.host == "artzub.com") {
-                setCookie('referrer', document.referrer || location.host == "artzub.com" ? "http://ghv.artzub.com/" : location.href, {
-                    domain : '.artzub.com',
+            if (location.host == host) {
+                setCookie('referrer', document.referrer || location.host == host ? entry : location.href, {
+                    domain : '.' + host,
                     path : '/'
                 });
-                location.replace(location.href.replace(/\/artzub\.com\/ghv/, "/ghv.artzub.com"));
+                location.replace(entry);
             }
             else if (ind > -1) {
                 var params = {};
@@ -47,14 +49,14 @@
                 if (!ref || ref.replace(/\s+$/, '').replace(/^\s+/, '').length < 1)
                     ref = document.referrer;
                 setCookie('referrer',  ref, {
-                    domain : '.artzub.com',
+                    domain : '.' + host,
                     path : '/'
                 });
 
                 ind = location.href
                     .replace(location.hash, location.hash.replace("#", "&"))
                     .replace(ss, ss.replace(/^\?/, "#"));
-                location.replace(ind.replace(/(.com)\/\//, "$1/"));
+                location.replace(ind);
             }
         })();
     </script>
@@ -749,7 +751,7 @@
 <script>
     var hash = location.hash;
     var matched = hash.match(/theme=(\w+)/);
-    if(matched.length > 1){
+    if(matched && matched.length > 1){
         var theme = matched[1];
         var body = document.getElementsByTagName("body")[0];
         body.setAttribute("class", body.getAttribute("class") + " " + theme);
