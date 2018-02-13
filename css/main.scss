@@ -49,6 +49,11 @@ a {
 *:focus {
   outline: none;
 }
+article {
+  img {
+    max-width: 100%;
+  }
+}
 
 @media (min-width: 768px) {
   header .header-content .header-content-inner {

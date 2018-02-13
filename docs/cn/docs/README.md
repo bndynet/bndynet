@@ -16,3 +16,5 @@ jekyll serve
 
 # Now browse to http://localhost:4000
 ```
+
+NOTE: use `jekyll build` for publishing
