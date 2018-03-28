@@ -36,5 +36,5 @@ src/main/java/hello/GreetingController.java
         System.out.println("==== in greeting ====");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
-
+src/
 

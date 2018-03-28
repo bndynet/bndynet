@@ -47,5 +47,5 @@ Promise.all([p1, p2, p3]).then(values => {
 // this will be counted as if the iterable passed is empty, so it gets fulfilled
 var p = Promise.all([1,2,3]);
 // this will be counted as if the iterable passed contains only the resolved promise with value "444", so it gets fulfilled
-var p2 = Promise.all([1,2
+var p2 = Promise.all([1,2,3
 

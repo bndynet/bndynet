@@ -78,4 +78,5 @@ public class Application {
 ```java
     @CacheResult(cacheName = "default")
     @RequestMapping(value = "/", method = RequestMethod.GET)
+ 
 
