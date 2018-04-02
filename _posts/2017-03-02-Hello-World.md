@@ -1,12 +1,14 @@
 ---
 layout: page
 title:  "Hello World"
-teaser: "Node.js"
+teaser: "Hello World for All Programming Languages"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
+
+Hello World for All Programming Languages
 
 ## Node.js
 

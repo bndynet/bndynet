@@ -1,12 +1,14 @@
 ---
 layout: page
 title:  "Commit Message Style Guide"
-teaser: "The Type"
+teaser: "Recommendation for Git Commit Message"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
+
+Recommendation for Git Commit Message
 
 ## The Type
 The type is contained within the title and can be one of these types:

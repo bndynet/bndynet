@@ -36,5 +36,12 @@ Access-Control-Allow-Methods: POST
 Access-Control-Allow-Headers: Content-Type, Authorization
 If the OPTIONS response doesn’t include those headers, then the browser will stop right there and never even attempt to send the POST request. Also, the HTTP status code for the response must be a 2xx—typically 200 or 204. If it’s any other status code, the browser will stop right there.
 
-The server in the question is responding to the OPTIONS reques
+The server in the question is responding to the OPTIONS request with a 501 status code, which apparently means it’s trying to indicate it doesn’t implement support for OPTIONS requests. Other servers typically respond with a 405 “Method not allowed” status code in this case.
+
+So you’re never going to be able to make POST requests directly to that server from your frontend JavaScript code if the server responds to that OPTIONS request with a 405 or 501 or anything other than a 200 or 204 or if doesn’t respond with those necessary response headers.
+
+#### The way to avoid triggering a preflight for the case in the question would be:
+
+- if the server didn’t require an Authorization request header but instead (for example) relied on authentication data embedded in the body of the POST request or as a query parameter
+- if the server didn’t require the POST body to have a Content-Type: application/json media type but instead accepted the POST body as application/x-www-form-urlencoded with a parameter named json (or whatever) whose value is the JSON data
 

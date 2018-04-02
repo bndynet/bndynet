@@ -36,5 +36,16 @@ src/main/java/hello/GreetingController.java
         System.out.println("==== in greeting ====");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
-src/
+src/main/java/hello/Application.java
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:9000");
+            }
+        };
+    }
+You can easily change any properties (like the allowedOrigins one in the example), as well as only apply this CORS configuration to a specific path pattern. Global and controller level CORS configurations can also be combined.
 

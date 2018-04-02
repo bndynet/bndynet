@@ -1,12 +1,14 @@
 ---
 layout: page
 title:  "Manually start angularjs"
-teaser: "```"
+teaser: "How to start angularjs App manually?"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
+
+How to start angularjs App manually?
 
 ```
 (function() {

@@ -78,5 +78,18 @@ public class Application {
 ```java
     @CacheResult(cacheName = "default")
     @RequestMapping(value = "/", method = RequestMethod.GET)
- 
+    public Object lang(@RequestParam(name = "lang") String lang) {
+        return "";
+    }
+```
+
+
+## MISC
+
+| SPRING |JSR-107|
+|--------|-------|
+| @Cacheable | @CacheResult |
+| @CachePut |	@CachePut |
+| @CacheEvict |	@CacheRemove |
+| @CacheEvict(allEntries=true) |	@CacheRemoveAll |
 

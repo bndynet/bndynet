@@ -1,35 +1,37 @@
 ---
 layout: page
 title:  "Spring Boot Starter Project"
-teaser: "Two Java Files"
+teaser: "How to Build Spring Boot Starter Project"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
 
+How to Build Spring Boot Starter Project
+
 ## Two Java Files 
 
 ```java
-@ConfigurationProperties(prefix = "spring.hello")
-public class HelloServiceAutoConfigurationProperties {
+@ConfigurationProperties(prefix = "spring.ftsi")
+public class IndexServiceAutoConfigurationProperties {
 
 }
 
 @Configuration
 @EnableConfigurationProperties(IndexServiceAutoConfigurationProperties.class)
-@ConditionalOnClass(HelloService.class)
-@ConditionalOnProperty(prefix = "spring.hello", name = "enabled", matchIfMissing = true)
-public class HelloServiceAutoConfiguration {
+@ConditionalOnClass(IndexService.class)
+@ConditionalOnProperty(prefix = "spring.ftsi", name = "enabled", matchIfMissing = true)
+public class IndexServiceAutoConfiguration {
 
     @Autowired
-    private HelloServiceAutoConfigurationProperties properties;
+    private IndexServiceAutoConfigurationProperties properties;
 
     @Bean
-    @ConditionalOnMissingBean(HelloService.class)
-    public HelloService helloService() {
-        // propreties from application.yml
-        return new HelloService();
+    @ConditionalOnMissingBean(IndexService.class)
+    public IndexService indexService() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        IndexService service = new IndexService();
+        return service;
     }
 }
 ```
@@ -38,7 +40,7 @@ public class HelloServiceAutoConfiguration {
 
 ```
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-package.HelloServiceAutoConfiguration
+net.bndy.ftsi.starter.IndexServiceAutoConfiguration
 ```
 
 ## Usage
@@ -47,7 +49,7 @@ package.HelloServiceAutoConfiguration
 
 ```yml
 spring:
-  hello:
+  ftsi:
     property1: ...
     property2: ...
 
@@ -59,12 +61,12 @@ spring:
 @SpringBootApplication
 public class Application {
 
-  @Autowried
-  HelloService helloService;
+	@Autowried
+  	IndexService indexService;
   
-  public static void main(String[] args) {
+  	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-	}
+  	}
 }
 ```
 

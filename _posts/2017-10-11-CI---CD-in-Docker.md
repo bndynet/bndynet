@@ -1,20 +1,22 @@
 ---
 layout: page
 title:  "CI & CD in Docker"
-teaser: "SETUP"
+teaser: "Jenkins in Docker"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
 
-# SETUP
+Jenkins in Docker
 
-## Docker
+## SETUP
 
-### [Install Docker](https://docs.docker.com/engine/installation/#supported-platforms)
+### Docker
 
-### [Deploy a registry server](https://docs.docker.com/registry/deploying/)
+#### [Install Docker](https://docs.docker.com/engine/installation/#supported-platforms)
+
+#### [Deploy a registry server](https://docs.docker.com/registry/deploying/)
   
   > $ docker run -d -p 5000:5000 --restart=always --name registry registry:2
   
@@ -34,7 +36,7 @@ author: Bendy Zhang
   
   **[Run an externally-accessible registry](https://docs.docker.com/registry/deploying/#run-an-externally-accessible-registry)**
 
-## [Jenkins](https://hub.docker.com/_/jenkins/)
+### [Jenkins](https://hub.docker.com/_/jenkins/)
 
   > $ docker pull jenkins
   

@@ -1,12 +1,14 @@
 ---
 layout: page
 title:  "Angular Directive - Color Picker"
-teaser: "Requires"
+teaser: "Color Picker Directive for AngularJS"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
+
+Color Picker Directive for AngularJS
 
 ## Requires
 

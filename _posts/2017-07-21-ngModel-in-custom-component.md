@@ -1,12 +1,14 @@
 ---
 layout: page
 title:  "ngModel in custom component"
-teaser: "```typescript"
+teaser: "How to use ngModel in Angular Component?"
 breadcrumb: true
 categories:
     - Gists
 author: Bendy Zhang
 ---
+
+How to use ngModel in Angular Component?
 
 ```typescript
 import { Component, forwardRef } from '@angular/core';
