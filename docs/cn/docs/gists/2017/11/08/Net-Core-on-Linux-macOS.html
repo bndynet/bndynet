@@ -218,8 +218,56 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 //Debian 9
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" &gt; /etc/apt/sources.list.d/dotnetdev.list'
 //Debian 8
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main" &gt; /etc/apt/sources.list.d/dotne
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main" &gt; /etc/apt/sources.list.d/dotnetdev.list'
+
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.2
+
+dotnet new console -o myApp
+cd myApp
+
+dotnet run
+```
 </code></pre></div></div>
+
+<h2 id="centos">CentOS</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>rpm <span class="nt">--import</span> https://packages.microsoft.com/keys/microsoft.asc
+<span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl= https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" &gt; /etc/yum.repos.d/dotnetdev.repo'</span>
+
+<span class="nb">sudo </span>yum update
+<span class="nb">sudo </span>yum install libunwind libicu
+<span class="nb">sudo </span>yum install dotnet-sdk-2.0.2
+
+dotnet new console <span class="nt">-o</span> myApp
+<span class="nb">cd </span>myApp
+
+dotnet run
+</code></pre></div></div>
+
+<h2 id="macos">macOS</h2>
+
+<ol>
+  <li>
+    <p>Install <a href="https://download.microsoft.com/download/7/3/A/73A3E4DC-F019-47D1-9951-0453676E059B/dotnet-sdk-2.0.2-osx-gs-x64.pkg">.NET SDK</a></p>
+  </li>
+  <li>
+    <p>Run App</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dotnet new console <span class="nt">-o</span> myApp
+ <span class="nb">cd </span>myApp
+ dotnet run
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">dotnet clean</code> - Clean build outputs.</li>
+  <li><code class="highlighter-rouge">dotnet test</code> - Runs tests using a test runner.</li>
+  <li><code class="highlighter-rouge">dotnet build</code> - Builds a .NET Core application.</li>
+  <li><code class="highlighter-rouge">dotnet publish</code> - Publishes a .NET framework-dependent or self-contained application.</li>
+</ul>
 
 
 			</div>

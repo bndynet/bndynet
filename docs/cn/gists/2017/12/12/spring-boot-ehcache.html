@@ -218,9 +218,41 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>```java
-    @CacheResult(cacheName = “default”)
-    @RequestMapping(value = “/”, method = RequestMethod.GET)</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@CacheResult</span><span class="o">(</span><span class="n">cacheName</span> <span class="o">=</span> <span class="s">"default"</span><span class="o">)</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">lang</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"lang"</span><span class="o">)</span> <span class="n">String</span> <span class="n">lang</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="misc">MISC</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>SPRING</th>
+      <th>JSR-107</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@Cacheable</td>
+      <td>@CacheResult</td>
+    </tr>
+    <tr>
+      <td>@CachePut</td>
+      <td>@CachePut</td>
+    </tr>
+    <tr>
+      <td>@CacheEvict</td>
+      <td>@CacheRemove</td>
+    </tr>
+    <tr>
+      <td>@CacheEvict(allEntries=true)</td>
+      <td>@CacheRemoveAll</td>
+    </tr>
+  </tbody>
+</table>
 
 
 			</div>

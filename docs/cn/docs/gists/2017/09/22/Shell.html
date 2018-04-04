@@ -149,14 +149,12 @@
 
             
                 
-                <p class="teaser" itemprop="description">
-                    ```shell
-                </p>
-                
 			
 
 			<div itemprop="articleSection">
-			<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+			<p>Useful Syntax in Shell</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 
 <span class="c">#. ./header.sh</span>
 <span class="c">#source ./header.sh</span>
@@ -276,7 +274,93 @@ FILE exists and is a symbolic link (same as -h)</p>
 FILE exists and is owned by the effective user ID</p>
 
 <p>-p FILE
-FILE exists</p>
+FILE exists and is a named pipe</p>
+
+<p>-r FILE
+FILE exists and read permission is granted</p>
+
+<p>-s FILE
+FILE exists and has a size greater than zero</p>
+
+<p>-S FILE
+FILE exists and is a socket</p>
+
+<p>-t FD<br />
+file descriptor FD is opened on a terminal</p>
+
+<p>-u FILE
+FILE exists and its set-user-ID bit is set</p>
+
+<p>-w FILE
+FILE exists and write permission is granted</p>
+
+<p>-x FILE
+FILE exists and execute (or search) permission is granted</p>
+
+<h3 id="syntax">syntax</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> operator FileName <span class="o">]</span>
+<span class="k">then
+     </span><span class="nb">echo</span> <span class="s2">"FileName - Found, take some action here"</span>
+<span class="k">else
+   </span><span class="nb">echo</span> <span class="s2">"FileName - Not found, take some action here"</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h3 id="date">DATE</h3>
+
+<p><strong>date.sh</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">DAY</span><span class="o">=</span><span class="sb">`</span>date <span class="s1">'+%m'</span><span class="sb">`</span>
+<span class="nv">HOUR</span><span class="o">=</span><span class="sb">`</span>date <span class="s1">'+%H'</span><span class="sb">`</span>
+<span class="nv">HAS_ARGS</span><span class="o">=</span><span class="nb">false
+</span><span class="nv">SERVER</span><span class="o">=</span><span class="s2">"&lt;date server&gt;"</span>
+
+usage<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">echo</span> <span class="s2">"USAGE(Example): setDate -d 10 -h 23"</span>
+	<span class="nb">echo</span> <span class="s2">"sync date from </span><span class="k">${</span><span class="nv">SERVER</span><span class="k">}</span><span class="s2">..."</span>
+	ntpdate <span class="k">${</span><span class="nv">SERVER</span><span class="k">}</span>
+	<span class="nb">echo</span> <span class="s2">"done."</span>
+	<span class="nb">exit </span>1<span class="p">;</span>
+<span class="o">}</span>
+
+<span class="k">while </span><span class="nb">getopts </span>d:h: o<span class="p">;</span> <span class="k">do
+	case</span> <span class="s2">"</span><span class="nv">$o</span><span class="s2">"</span> <span class="k">in
+		</span>d<span class="p">)</span>
+			<span class="nv">DAY</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+			<span class="nv">HAS_ARGS</span><span class="o">=</span><span class="nb">true</span>
+			<span class="p">;;</span>
+		h<span class="p">)</span>
+			<span class="nv">HOUR</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+			<span class="nv">HAS_ARGS</span><span class="o">=</span><span class="nb">true</span>
+			<span class="p">;;</span>
+	<span class="k">esac</span>
+<span class="k">done
+
+</span><span class="nb">shift</span> <span class="nv">$OPTIND</span><span class="nt">-1</span>
+
+<span class="k">if</span> <span class="o">!(</span><span class="k">${</span><span class="nv">HAS_ARGS</span><span class="k">}</span><span class="o">)</span><span class="p">;</span> <span class="k">then
+	</span>usage
+<span class="k">else
+	</span><span class="nb">echo</span> <span class="s2">"current date: "</span><span class="sb">`</span>date<span class="sb">`</span>
+	<span class="nv">d1</span><span class="o">=</span><span class="sb">`</span>date <span class="s1">'+%m'</span><span class="sb">`</span>
+	<span class="nv">d2</span><span class="o">=</span><span class="sb">`</span>date <span class="s1">'+%M%Y'</span><span class="sb">`</span>
+	<span class="nv">d</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">d1</span><span class="k">}${</span><span class="nv">DAY</span><span class="k">}${</span><span class="nv">HOUR</span><span class="k">}${</span><span class="nv">d2</span><span class="k">}</span><span class="s2">"</span>
+	<span class="nb">echo</span> <span class="s2">"set date to </span><span class="k">${</span><span class="nv">d</span><span class="k">}</span><span class="s2">..."</span>
+	date <span class="nv">$d</span>
+	<span class="nb">echo</span> <span class="s2">"current date: "</span><span class="sb">`</span>date<span class="sb">`</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./date.sh -d &lt;day&gt; [-h &lt;hour&gt;]
+./date.sh   // sync date with &lt;date server&gt;
+</code></pre></div></div>
+
+<h3 id="scp">SCP</h3>
+
+<p><code class="highlighter-rouge">scp &lt;file to copy&gt; root@&lt;ip&gt;:/&lt;dest folder&gt;</code></p>
 
 
 			</div>

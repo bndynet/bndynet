@@ -170,6 +170,244 @@
 
 <p>During the registration the client also registers a redirect URI. This redirect URI is used when a resource owner grants authorization to the client application. When a resource owner has successfully authorized the client application via the authorization server, the resource owner is redirected back to the client application, to the redirect URI.</p>
 
+<h3 id="authorization-grant">Authorization Grant</h3>
+
+<p>The authorization grant is given to a client application by the resource owner, in cooperation with the authorization server associated with the resource server.</p>
+
+<p>The OAuth 2.0 specification lists four different types of authorization grants. Each type has different security characteristics. The authorization grant types are:</p>
+
+<ul>
+  <li>Authorization Code</li>
+  <li>Implicit</li>
+  <li>Resource Owner Password Credentials</li>
+  <li>Client Credentials
+Each of these authorization grant types is covered in the following sections.</li>
+</ul>
+
+<h3 id="authorization-code">Authorization Code</h3>
+
+<p><img src="https://techannotation.files.wordpress.com/2015/06/oauth2-0-authorization-code.png" alt="" /></p>
+
+<p>An authorization grant using an authorization code works like this (the numbers correspond to the steps shown in the diagram below the description):</p>
+
+<p>1) The resource owner (user) accesses the client application.</p>
+
+<p>2) The client application tells the user to login to the client application via an authorization server (e.g. Facebook, Twitter, Google etc.).</p>
+
+<p>3) To login via the authorizaion server, the user is redirected to the authorization server by the client application. The client application sends its client ID along to the authorization server, so the authorization server knows which application is trying to access the protected resources.</p>
+
+<p>4) The user logs in via the authorization server. After successful login the user is asked if she wants to grant access to her resources to the client application. If the user accepts, the user is redirected back to the client application.</p>
+
+<p>5) When redirected back to the client application, the authorization server sends the user to a specific redirect URI, which the client application has registered with the authorization server ahead of time. Along with the redirection, the authorization server sends an authorization code, representing the authorization.</p>
+
+<p>6) When the redirect URI in the client application is accessed, the client application connects directly to the authorization server. The client application sends the authorization code along with its own client ID and and client secret.</p>
+
+<p>7) If the authorization server can accept these values, the authorization server sends back an access token.</p>
+
+<p>10) The client application can now use the access token to request resources from the resource server. The access token serves as both authentication of the client, resource owner (user) and authorization to access the resources.</p>
+
+<p>Here is a diagram illustrating the authorization process when using authorization code to authorize a client application:</p>
+
+<p><img src="http://tutorials.jenkov.com/images/oauth2/authorization-auth-code.png" alt="" /></p>
+
+<h3 id="implicit">Implicit</h3>
+
+<p>An implicit authorization grant is similar to an authorization code grant, except the access token is returned to the client application already after the user has finished the authorization. The access token is thus returned when the user agent is redirected to the redirect URI.</p>
+
+<p>This of course means that the access token is accessible in the user agent, or native application participating in the implicit authorization grant. The access token is not stored securely on a web server.</p>
+
+<p>Furthermore, the client application can only send its client ID to the authorization server. If the client were to send its client secret too, the client secret would have to be stored in the user agent or native application too. That would make it vulnerable to hacking.</p>
+
+<p>Implicit authorization grant is mostly used in a user agent or native client application. The user agent or native application would receive the access token from the authorization server.</p>
+
+<p>Here is an illustration of implicit authorization grant:</p>
+
+<p><img src="http://tutorials.jenkov.com/images/oauth2/authorization-implicit.png" alt="" /></p>
+
+<h3 id="resource-owner-password-credentials">Resource Owner Password Credentials</h3>
+
+<p>The resource owner password credentials authorization grant method works by giving the client application access to the resource owners credentials. For instance, a user could type his Twitter user name and password (credentials) into the client application. The client application could then use the user name and password to access resources in Twitter.</p>
+
+<p>Using the resource owner password credentials requires a lot of trust in the client application. You do not want to type your credentials into an application you suspect might abuse it.</p>
+
+<p>The resource owner password credentials would normally be used by user agent client applications, or native client applications.</p>
+
+<h3 id="client-credentials">Client Credentials</h3>
+
+<p>Client credential authorization is for the situations where the client application needs to access resources or call functions in the resource server, which are not related to a specific resource owner (e.g. user). For instance, obtaining a list of venues from Foursquare. This does not necessary have anything to do with a specific Foursquare user.</p>
+
+<h2 id="oauth-20-endpoints">OAuth 2.0 Endpoints</h2>
+
+<p>OAuth 2.0 defines a set of endpoints. An endpoint is typically a URI on a web server. For instance, the address of a Java servlet, JSP page, PHP page, ASP.NET page etc.</p>
+
+<p>The endpoints defined are:</p>
+
+<ul>
+  <li>Authorization Endpoint</li>
+  <li>Token Endpoint</li>
+  <li>Redirection Endpoint</li>
+</ul>
+
+<p>The authorization endpoint and token endpoint are both located on the authorization server. The redirection endpoint is located in the client application. Each of these endpoints are covered below.</p>
+
+<p>The endpoints are illustrated in this diagram:</p>
+
+<p><img src="http://tutorials.jenkov.com/images/oauth2/endpoints.png" alt="OAuth 2.0 Endpoints" /></p>
+
+<p>The OAuth 2.0 specification does not describe how the URI of these endpoints are found or documented. That is up to each implementer to decide. Most sites will have a subsite for developers documenting these endpoints.</p>
+
+<h3 id="authorization-endpoint">Authorization Endpoint</h3>
+
+<p>The authorization endpoint is the endpoint on the authorization server where the resource owner logs in, and grants authorization to the client application.</p>
+
+<h3 id="token-endpoint">Token Endpoint</h3>
+
+<p>The token endpoint is the endpoint on the authorization server where the client application exchanges the authorization code, client ID and client secret, for an access token.</p>
+
+<h3 id="redirect-endpoint">Redirect Endpoint</h3>
+
+<p>The redirect endpoint is the endpoint in the client application where the resource owner is redirected to, after having granted authorization at the authorization endpoint.</p>
+
+<h2 id="oauth-20-requests-and-responses">OAuth 2.0 Requests and Responses</h2>
+
+<p>When the client application requests authorization and access tokens it sends HTTP requests to the authorization server, to its authorization and token endpoints. What request and response is sent forth and back depends on the authorization grant type. Remember, the four grant types are:</p>
+
+<ul>
+  <li>Authorization Code Grant (authorization_code)</li>
+  <li>Implicit Grant  (implicit)</li>
+  <li>Resource Owner Password Credentials Grant (password)</li>
+  <li>Client Credentials Grant  (client_credentials)</li>
+</ul>
+
+<p>The request and response of each of these authorization grant types is explained in more detail in the following, separate texts.</p>
+
+<p>The information presented in the following texts is, however, mostly a summary. In order to get all the details of what it all means, you may have to consult the OAuth 2.0 specification, or the documentation of the system (Facebook, Twitter, Foursquare etc.) you are trying to integrate with.</p>
+
+<h2 id="oauth-20-authorization-code-requests-and-responses">OAuth 2.0 Authorization Code Requests and Responses</h2>
+
+<p>The authorization code grant consists of 2 requests and 2 responses in total. An authorization request + response, and a token request + response.</p>
+
+<h3 id="authorization-request">Authorization Request</h3>
+
+<p>The authorization request is sent to the authorization endpoint to obtain an authorization code. Here are the parameters used in the request:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>response_type</td>
+      <td>Required. Must be set to code</td>
+    </tr>
+    <tr>
+      <td>client_id</td>
+      <td>Required. The client identifier as assigned by the authorization server, when the client was registered.</td>
+    </tr>
+    <tr>
+      <td>redirect_uri</td>
+      <td>Optional. The redirect URI registered by the client.</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>Optional. The possible scope of the request.</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Optional (recommended). Any client state that needs to be passed on to the client request URI.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authorization-response">Authorization Response</h3>
+
+<p>The authorization response contains the authorization code needed to obtain an access token. Here are the parameters included in the response:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>Required. The authorization code.</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Required, if present in request. The same value as sent by the client in the state parameter, if any.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authorization-error-response">Authorization Error Response</h3>
+
+<p>If an error occurs during authorization, two situations can occur.</p>
+
+<p>The first is, that the client is not authenticated or recognized. For instance, a wrong redirect URI was sent in the request. In that case the authorization server must not redirect the resource owner to the redirect URI. Instead it should inform the resource owner of the error.</p>
+
+<p>The second situation is that client is authenticated correctly, but that something else failed. In that case the following error response is sent to the client, included in the redirect URI:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td>Required. Must be one of a set of predefined error codes. See the specification for the codes and their meaning.</td>
+    </tr>
+    <tr>
+      <td>error_description</td>
+      <td>Optional. A human-readable UTF-8 encoded text describing the error. Intended for a developer, not an end user.</td>
+    </tr>
+    <tr>
+      <td>error_uri</td>
+      <td>Optional. A URI pointing to a human-readable web page with information about the error.</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Required, if present in authorization request. The same value as sent in the state parameter in the request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="token-request">Token Request</h3>
+
+<p>Once an authorization code is obtained, the client can use that code to obtain an access token. Here is the access token request parameters:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td>Required. The client application’s id.</td>
+    </tr>
+    <tr>
+      <td>client_secret</td>
+      <td>Required. The client application’s client secret .</td>
+    </tr>
+    <tr>
+      <td>grant_type</td>
+      <td>Required. Must be set to authorization_code .</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>Required. The authorization code received by the authorization server.</td>
+    </tr>
+    <tr>
+      <td>redirect_uri</td>
+      <td>Required, if the request URI was included in the authorization request. Must be identical then.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="token-response">Token Response</h3>
+
+<p>The response to the access token request is a JSON string containing the access token plus some more information:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ "access_token"  : "...",
+  "token_type"    : "...",
+  "expires_in"    : "...",
+  "refresh_token" : "...",
+}
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">access_token</code> property is the access token as assigned by the authorization server.</p>
+
+<p>The <code class="highlighter-rouge">token_type</code> property is a type of token assigned by the authorization server.</p>
+
+<p>The <code class="highlighter-rouge">expires_in</code> property is a number of seconds after which the access token expires, and is no longer valid. Expiration of access tokens is optional.</p>
+
+<p>The <code class="highlighter-rouge">refresh_token</code> property contains a refresh token in case the access token can expire. The refresh token is used to obtain a new access token once the one returned in this response is no longer valid.</p>
+
 
 			</div>
 		</article>

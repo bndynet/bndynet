@@ -188,11 +188,111 @@ A pending promise can either be fulfilled with a value, or rejected with a reaso
 <span class="p">});</span>
 </code></pre></div></div>
 
-<p>```javascript
-// this will be counted as if the iterable passed is empty, so it gets fulfilled
-var p = Promise.all([1,2,3]);
-// this will be counted as if the iterable passed contains only the resolved promise with value “444”, so it gets fulfilled
-var p2 = Promise.all([1,2,3</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// this will be counted as if the iterable passed is empty, so it gets fulfilled</span>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
+<span class="c1">// this will be counted as if the iterable passed contains only the resolved promise with value "444", so it gets fulfilled</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">444</span><span class="p">)]);</span>
+<span class="c1">// this will be counted as if the iterable passed contains only the rejected promise with value "555", so it gets rejected</span>
+<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="mi">555</span><span class="p">)]);</span>
+
+<span class="c1">// using setTimeout we can execute code after the stack is empty</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p3</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// logs</span>
+<span class="c1">// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: Array[3] }</span>
+<span class="c1">// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: Array[4] }</span>
+<span class="c1">// Promise { &lt;state&gt;: "rejected", &lt;reason&gt;: 555 }</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// we are passing as argument an array of promises that are already resolved,</span>
+<span class="c1">// to trigger Promise.all as soon as possible</span>
+<span class="kd">var</span> <span class="nx">resolvedPromisesArray</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">33</span><span class="p">),</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">44</span><span class="p">)];</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">resolvedPromisesArray</span><span class="p">);</span>
+<span class="c1">// immediately logging the value of p</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+
+<span class="c1">// using setTimeout we can execute code after the stack is empty</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the stack is now empty'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// logs, in order:</span>
+<span class="c1">// Promise { &lt;state&gt;: "pending" } </span>
+<span class="c1">// the stack is now empty</span>
+<span class="c1">// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: Array[2] }</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">mixedPromisesArray</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">33</span><span class="p">),</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="mi">44</span><span class="p">)];</span>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">mixedPromisesArray</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the stack is now empty'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// logs</span>
+<span class="c1">// Promise { &lt;state&gt;: "pending" } </span>
+<span class="c1">// the stack is now empty</span>
+<span class="c1">// Promise { &lt;state&gt;: "rejected", &lt;reason&gt;: 44 }</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([]);</span> <span class="c1">// will be immediately resolved</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="mi">1337</span><span class="p">,</span> <span class="s2">"hi"</span><span class="p">]);</span> <span class="c1">// non-promise values will be ignored, but the evaluation will be done asynchronously</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">)</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the stack is now empty'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// logs</span>
+<span class="c1">// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: Array[0] }</span>
+<span class="c1">// Promise { &lt;state&gt;: "pending" }</span>
+<span class="c1">// the stack is now empty</span>
+<span class="c1">// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: Array[2] }</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'one'</span><span class="p">);</span> 
+<span class="p">});</span> 
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">);</span> 
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="s1">'three'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">p4</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="s1">'four'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">p5</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">reject</span><span class="p">(</span><span class="s1">'reject'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">,</span> <span class="nx">p5</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>
+<span class="p">},</span> <span class="nx">reason</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="c1">//From console:</span>
+<span class="c1">//"reject"</span>
+
+<span class="c1">//You can also use .catch</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">,</span> <span class="nx">p5</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">reason</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="c1">//From console: </span>
+<span class="c1">//"reject"</span>
+</code></pre></div></div>
 
 
 			</div>

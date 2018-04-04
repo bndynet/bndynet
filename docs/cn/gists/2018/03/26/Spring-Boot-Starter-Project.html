@@ -154,27 +154,29 @@
 			
 
 			<div itemprop="articleSection">
-			<h2 id="two-java-files">Two Java Files</h2>
+			<p>How to Build Spring Boot Starter Project</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"spring.hello"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloServiceAutoConfigurationProperties</span> <span class="o">{</span>
+<h2 id="two-java-files">Two Java Files</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"spring.ftsi"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexServiceAutoConfigurationProperties</span> <span class="o">{</span>
 
 <span class="o">}</span>
 
 <span class="nd">@Configuration</span>
 <span class="nd">@EnableConfigurationProperties</span><span class="o">(</span><span class="n">IndexServiceAutoConfigurationProperties</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="nd">@ConditionalOnClass</span><span class="o">(</span><span class="n">HelloService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="nd">@ConditionalOnProperty</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"spring.hello"</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"enabled"</span><span class="o">,</span> <span class="n">matchIfMissing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloServiceAutoConfiguration</span> <span class="o">{</span>
+<span class="nd">@ConditionalOnClass</span><span class="o">(</span><span class="n">IndexService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ConditionalOnProperty</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"spring.ftsi"</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"enabled"</span><span class="o">,</span> <span class="n">matchIfMissing</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexServiceAutoConfiguration</span> <span class="o">{</span>
 
     <span class="nd">@Autowired</span>
-    <span class="kd">private</span> <span class="n">HelloServiceAutoConfigurationProperties</span> <span class="n">properties</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">IndexServiceAutoConfigurationProperties</span> <span class="n">properties</span><span class="o">;</span>
 
     <span class="nd">@Bean</span>
-    <span class="nd">@ConditionalOnMissingBean</span><span class="o">(</span><span class="n">HelloService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">HelloService</span> <span class="nf">helloService</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// propreties from application.yml</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nf">HelloService</span><span class="o">();</span>
+    <span class="nd">@ConditionalOnMissingBean</span><span class="o">(</span><span class="n">IndexService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">IndexService</span> <span class="nf">indexService</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">ClassNotFoundException</span><span class="o">,</span> <span class="n">IllegalAccessException</span><span class="o">,</span> <span class="n">InstantiationException</span> <span class="o">{</span>
+        <span class="n">IndexService</span> <span class="n">service</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IndexService</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">service</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -182,7 +184,7 @@
 <h2 id="file-srcmainresourcesmeta-infspringfactories">File: /src/main/resources/META-INF/spring.factories</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-package.HelloServiceAutoConfiguration
+net.bndy.ftsi.starter.IndexServiceAutoConfiguration
 </code></pre></div></div>
 
 <h2 id="usage">Usage</h2>
@@ -190,7 +192,7 @@ package.HelloServiceAutoConfiguration
 <p><strong>application.yml</strong></p>
 
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
-  <span class="na">hello</span><span class="pi">:</span>
+  <span class="na">ftsi</span><span class="pi">:</span>
     <span class="na">property1</span><span class="pi">:</span> <span class="s">...</span>
     <span class="na">property2</span><span class="pi">:</span> <span class="s">...</span>
 
@@ -201,12 +203,12 @@ package.HelloServiceAutoConfiguration
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootApplication</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
 
-  <span class="nd">@Autowried</span>
-  <span class="n">HelloService</span> <span class="n">helloService</span><span class="o">;</span>
+	<span class="nd">@Autowried</span>
+  	<span class="n">IndexService</span> <span class="n">indexService</span><span class="o">;</span>
   
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
-	<span class="o">}</span>
+  	<span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 

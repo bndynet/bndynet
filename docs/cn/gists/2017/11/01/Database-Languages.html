@@ -190,10 +190,10 @@
     </tr>
     <tr>
       <td>MongoDB</td>
-      <td><strong><code class="highlighter-rouge">C</code></strong> db.tablename.insert([{}, {}]) //insert({}) <br /> <strong><code class="highlighter-rouge">R</code></strong> db.tablename.find({“size”: { $gt: 10,  $lte: 20 } } ).</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td><strong><code class="highlighter-rouge">C</code></strong> db.tablename.insert([{}, {}]) //insert({}) <br /> <strong><code class="highlighter-rouge">R</code></strong> db.tablename.find({“size”: { $gt: 10,  $lte: 20 } } ).limit(10).skip(10) <br /> <strong><code class="highlighter-rouge">U</code></strong> db.tablename.update({id: “XXXX”},{$set: {name: “bndy”}},{upsert:true}) <br /> <strong><code class="highlighter-rouge">U</code></strong> db.tablename.update({ “size”: {$lt:15}, “name”: “bndy” }, { $set : { age: 100}})  <br /> <strong><code class="highlighter-rouge">D</code></strong> db.tablename.remove({“size”:{$lt:10}, “name”: “bndy”})</td>
+      <td>mongodump -h <hostname><:port> -d dbname -o dbdirectory</:port></hostname></td>
+      <td>mongorestore -h <hostname><:port> -d dbname <path></path></:port></hostname></td>
+      <td><code class="highlighter-rouge">$eq</code> <code class="highlighter-rouge">$in</code> <code class="highlighter-rouge">$ne</code> <code class="highlighter-rouge">$nin</code></td>
     </tr>
   </tbody>
 </table>
