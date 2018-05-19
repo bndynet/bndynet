@@ -1,4 +1,588 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://bndy.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bndy.net/" rel="alternate" type="text/html" /><updated>2018-04-04T23:12:34+08:00</updated><id>http://bndy.net/</id><title type="html">BNDY.NET</title><author><name>Bendy Zhang</name></author><entry><title type="html">JVM - Java virtual machine</title><link href="http://bndy.net/gists/2018/04/04/JVM-Java-virtual-machine.html" rel="alternate" type="text/html" title="JVM - Java virtual machine" /><published>2018-04-04T00:00:00+08:00</published><updated>2018-04-04T00:00:00+08:00</updated><id>http://bndy.net/gists/2018/04/04/JVM---Java-virtual-machine</id><content type="html" xml:base="http://bndy.net/gists/2018/04/04/JVM-Java-virtual-machine.html">&lt;p&gt;A &lt;strong&gt;Java virtual machine (JVM)&lt;/strong&gt; is an abstract computing machine that enables a computer to run a Java program. There are three notions of the JVM: specification, implementation, and instance. The specification is a document that formally describes what is required of a JVM implementation. Having a single specification ensures all implementations are interoperable. A JVM implementation is a computer program that meets the requirements of the JVM specification. An instance of a JVM is an implementation running in a process that executes a computer program compiled into Java bytecode.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-05-18T19:16:50+08:00</updated><id>http://localhost:4000/</id><title type="html">BNDY.NET</title><author><name>Bendy Zhang</name></author><entry><title type="html">Oracle Knowledge</title><link href="http://localhost:4000/gists/2018/05/17/oracle.html" rel="alternate" type="text/html" title="Oracle Knowledge" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/oracle</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/oracle.html">&lt;p&gt;Records complex knowledge about Oralce.&lt;/p&gt;
+
+&lt;h1 id=&quot;oracle&quot;&gt;Oracle&lt;/h1&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Records complex knowledge about Oralce.</summary></entry><entry><title type="html">MySQL Knowledge</title><link href="http://localhost:4000/gists/2018/05/17/mysql.html" rel="alternate" type="text/html" title="MySQL Knowledge" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/mysql</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/mysql.html">&lt;p&gt;Records complex knowledge about MySQL&lt;/p&gt;
+
+&lt;h1 id=&quot;mysql&quot;&gt;MySQL&lt;/h1&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Records complex knowledge about MySQL</summary></entry><entry><title type="html">Markdown</title><link href="http://localhost:4000/gists/2018/05/17/markdown.html" rel="alternate" type="text/html" title="Markdown" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/markdown</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/markdown.html">&lt;p&gt;Complex Markdown Syntax&lt;/p&gt;
+
+&lt;h1 id=&quot;markdown-syntax&quot;&gt;Markdown Syntax&lt;/h1&gt;
+
+&lt;h2 id=&quot;add-tables&quot;&gt;Add Tables&lt;/h2&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;supported-lanaguges&quot;&gt;Supported Lanaguges&lt;/h2&gt;
+
+&lt;p&gt;| Language | Keyword |
+| ——– | ——- |
+| Bash |   bash
+| C#  |  csharp
+| Clojure|    clojure
+| C++  |  cpp
+| CSS |   css
+| CoffeeScript |    coffeescript
+| CMake |   cmake
+| HTML  |  html
+| HTTP  |  http
+| Java  |  java
+| JavaScript |    javascript
+| JSON  |  json
+| Markdown   | markdown
+| Objective C|    objectivec
+| Perl   | perl
+| PHP   | php
+| Python |    python
+| Ruby |   ruby
+| R  |  r
+| SQL |   sql
+| Scala |   scala
+| Vala |   vala
+| XML |   xml
+~&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Complex Markdown Syntax</summary></entry><entry><title type="html">JavaScript Knowledge</title><link href="http://localhost:4000/gists/2018/05/17/javascript.html" rel="alternate" type="text/html" title="JavaScript Knowledge" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/javascript</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/javascript.html">&lt;p&gt;Records complex knowledge about JavaScript programming language.&lt;/p&gt;
+
+&lt;h1 id=&quot;javascript&quot;&gt;JavaScript&lt;/h1&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Records complex knowledge about JavaScript programming language.</summary></entry><entry><title type="html">Java Knowledge</title><link href="http://localhost:4000/gists/2018/05/17/java.html" rel="alternate" type="text/html" title="Java Knowledge" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/java</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/java.html">&lt;p&gt;Records complex knowledge about Java programming language.&lt;/p&gt;
+
+&lt;h1 id=&quot;java&quot;&gt;Java&lt;/h1&gt;
+
+&lt;p&gt;Placeholder&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Records complex knowledge about Java programming language.</summary></entry><entry><title type="html">CentOS</title><link href="http://localhost:4000/gists/2018/05/17/centos.html" rel="alternate" type="text/html" title="CentOS" /><published>2018-05-17T00:00:00+08:00</published><updated>2018-05-17T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/17/centos</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/17/centos.html">&lt;h1 id=&quot;centos&quot;&gt;CentOS&lt;/h1&gt;
+
+&lt;h2 id=&quot;automated-tasks---cron&quot;&gt;Automated Tasks - Cron&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;CONNECT VIA SSH AND UPDATE THE SYSTEM SOFTWARE&lt;/p&gt;
+
+    &lt;p&gt;First of all, connect to your Linux VPS via SSH and update all your system software to the latest version available. You can use the following command to do that:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;VERIFY IF CRONIE PACKAGE IS INSTALLED&lt;/p&gt;
+
+    &lt;p&gt;To automate the system tasks, or better known as jobs under Linux, you can use an utility called Cron. Using Cron you can run scripts automatically within a specified period of time, create backup of your databases or other important files, monitor the services running on your server and many other things. To use the Cron utility, you need to install the cronie package on your system. It should be already installed on your server. To confirm, issue the following command:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo rpm -q cronie
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;INSTALL CRONIE PACKAGE&lt;/p&gt;
+
+    &lt;p&gt;If it is not installed, you can use yum to install it. Yum is a package manager which you can use to install and manage software on CentOS 7. Run the command below:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo yum install cronie
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CHECK IF  CROND SERVICE IS RUNNING&lt;/p&gt;
+
+    &lt;p&gt;The cron jobs are picked by the crond service. To check whether the crond service is running on your CentOS VPS, you can use the following command:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo systemctl status crond.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CONFIGURE CRON JOBS&lt;/p&gt;
+
+    &lt;p&gt;To configure cron jobs you need to modify the /etc/crontab file. Please note that it can only be modified by the root user. To check the current configuration, you can use the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo cat /etc/crontab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;The output should be similar to the one below:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;SHELL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/bin/bash
+ &lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/sbin:/bin:/usr/sbin:/usr/bin
+ &lt;span class=&quot;nv&quot;&gt;MAILTO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
+
+ &lt;span class=&quot;c&quot;&gt;# For details see man 4 crontabs&lt;/span&gt;
+
+ &lt;span class=&quot;c&quot;&gt;# Example of job definition:&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# .---------------- minute (0 - 59)&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# |  .------------- hour (0 - 23)&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# |  |  .---------- day of month (1 - 31)&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# |  |  |  |  |&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# *  *  *  *  * user-name  command to be executed&lt;/span&gt;
+ 37 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root run-parts /etc/cron.hourly
+ 23 5 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root run-parts /etc/cron.daily
+ 19 3 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; 0 root run-parts /etc/cron.weekly
+ 23 0 6 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; root run-parts /etc/cron.monthly
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Specific users can create cron jobs too. The cron jobs for specific users are located in /var/spool/cron/username. When you create cron jobs for specific users you do not need to specify the username in the cron job. Therefore the syntax will be like the one below:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; minute hour day month day_of_week command
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RESTART THE CROND SERVICE&lt;/p&gt;
+
+    &lt;p&gt;After you make the changes restart the crond service using the command below:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo systemctl restart crond.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;For more information you can check the man pages:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; man cron
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;and&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; man crontab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">CentOS</summary></entry><entry><title type="html">MySQL on CentOS</title><link href="http://localhost:4000/gists/2018/05/08/MySQL-on-CentOS.html" rel="alternate" type="text/html" title="MySQL on CentOS" /><published>2018-05-08T00:00:00+08:00</published><updated>2018-05-08T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/08/MySQL%20on%20CentOS</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/08/MySQL-on-CentOS.html">&lt;p&gt;Introduce how to operate MySQL on CentOS.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; &lt;strong&gt;rpm&lt;/strong&gt; from http://dev.mysql.com/downloads/repo/yum/.&lt;/li&gt;
+  &lt;li&gt;Install release package (Example):
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Select Version&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum repolist all | grep mysql  
+ sudo yum-config-manager --disable mysql80-community  
+ sudo yum-config-manager --enable mysql57-community  
+ yum repolist enabled | grep mysql  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install &amp;amp; Config MySQL
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum install mysql-community-server  
+ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start mysqld.service  
+ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;mysqld.service   // as service at start  
+ &lt;span class=&quot;nb&quot;&gt;sudo grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'temporary password'&lt;/span&gt; /var/log/mysqld.log  
+ mysql &lt;span class=&quot;nt&quot;&gt;-uroot&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;  
+ MYSQL &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ALTER USER &lt;span class=&quot;s1&quot;&gt;'root'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt; IDENTIFIED BY &lt;span class=&quot;s1&quot;&gt;'NewPassword!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;remote-access&quot;&gt;Remote Access&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UPDATE user SET Host='%' WHERE User='root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Firewall&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;firewall-cmd &lt;span class=&quot;nt&quot;&gt;--add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3306/tcp
+firewall-cmd &lt;span class=&quot;nt&quot;&gt;--permanent&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3306/tcp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;misc&quot;&gt;MISC&lt;/h2&gt;
+
+&lt;p&gt;https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Introduce how to operate MySQL on CentOS.</summary></entry><entry><title type="html">Tomcat on CentOS</title><link href="http://localhost:4000/gists/2018/05/07/Tomcat-on-CentOS.html" rel="alternate" type="text/html" title="Tomcat on CentOS" /><published>2018-05-07T00:00:00+08:00</published><updated>2018-05-07T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/05/07/Tomcat%20on%20CentOS</id><content type="html" xml:base="http://localhost:4000/gists/2018/05/07/Tomcat-on-CentOS.html">&lt;p&gt;Installation and Configuration on CentOS&lt;/p&gt;
+
+&lt;h2 id=&quot;requirement&quot;&gt;Requirement&lt;/h2&gt;
+&lt;p&gt;Open a terminal and switch to root user.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su -
+yum install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; java-1.8.0 wget
+java &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;create-tomcat-service-account&quot;&gt;Create Tomcat Service Account&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;groupadd tomcat
+useradd &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; tomcat &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /opt/tomcat &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/nologin tomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;download--setup-apache-tomcat&quot;&gt;Download &amp;amp; Setup Apache Tomcat&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.20/bin/apache-tomcat-8.5.20.tar.gz
+tar -zxvf apache-tomcat-*.tar.gz
+mv apache-tomcat-8.5.20/* /opt/tomcat/
+chown -R tomcat:tomcat /opt/tomcat/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;set-environment-variables&quot;&gt;Set Environment Variables&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /opt/tomcat/bin/setenv.sh
+chmod 777 /opt/tomcat/bin/setenv.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export variableName=value
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;systemd&quot;&gt;Systemd&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/systemd/system/tomcat.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add below information to Tomcat systemd service file.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
+Description=Apache Tomcat 8.x Web Application Container
+Wants=network.target
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.141-1.b16.el7_3.x86_64/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1G -Djava.net.preferIPv4Stack=true'
+Environment='JAVA_OPTS=-Djava.awt.headless=true'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+SuccessExitStatus=143
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Reload systemd daemon.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl daemon-reload
+systemctl start tomcat
+systemctl status tomcat
+systemctl enable tomcat   //Enable the auto start of Tomcat service on system start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;verify-apache-tomcat&quot;&gt;Verify Apache Tomcat&lt;/h2&gt;
+&lt;p&gt;By default, Tomcat runs on port no 8080. Use netstat command to check whether the service is listening on port 8080 or not.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netstat &lt;span class=&quot;nt&quot;&gt;-antup&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tcp6       0      0 :::8080                 :::*                    LISTEN      2428/java
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;firewall&quot;&gt;Firewall&lt;/h2&gt;
+
+&lt;p&gt;You may need to allow port 8080 in the firewall so that we can access Tomcat from external networks.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;firewall-cmd &lt;span class=&quot;nt&quot;&gt;--permanent&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8080/tcp
+firewall-cmd &lt;span class=&quot;nt&quot;&gt;--reload&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Installation and Configuration on CentOS</summary></entry><entry><title type="html">JS: AngularJS Directive Attribute Binding Explanation</title><link href="http://localhost:4000/gists/2018/04/16/angularjs_directive_attribute_explanation.html" rel="alternate" type="text/html" title="JS: AngularJS Directive Attribute Binding Explanation" /><published>2018-04-16T00:00:00+08:00</published><updated>2018-04-16T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/04/16/angularjs_directive_attribute_explanation</id><content type="html" xml:base="http://localhost:4000/gists/2018/04/16/angularjs_directive_attribute_explanation.html">&lt;h1 id=&quot;angularjs-directive-attribute-binding-explanation&quot;&gt;AngularJS Directive Attribute Binding Explanation&lt;/h1&gt;
+
+&lt;p&gt;When using directives, you often need to pass parameters to the directive. This can be done in several ways.
+The first 3 can be used whether scope is true or false. This is still a WIP, so validate for yourself.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Raw Attribute Strings&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;some string&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;another string&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Observing Interpolated Strings (Also Watches for Changes)&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;another string&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//literal string &quot;&quot;, no interpolation&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//literally &quot;another string&quot;&lt;/span&gt;
+	
+             &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$observe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'myDirective'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	
+             &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$observe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'anotherParam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Observing Expression Strings (Also watches for changes)&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modelObject&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modelObject.obj&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//literally &quot;modelObject.obj&quot;&lt;/span&gt;
+			
+             &lt;span class=&quot;c1&quot;&gt;//modelObject is a scope property of the parent/current scope&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//modelObject.obj is also a scope property of the parent/current scope&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//if you tried to use $observe, you would get the literal expression &quot;modelObject&quot; and &quot;modelObject.obj&quot;, because there's nothing to interpolate&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Evaluating Object Expressions&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{ param: 34, param2: 'cool' }&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;another string&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	
+             &lt;span class=&quot;c1&quot;&gt;//this is designed for directive configuration if there's a alot of configuration parameters&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//one can combine this with interpolation, if the configuration is a JSON string&lt;/span&gt;
+             &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//can also fallback as a string&lt;/span&gt;
+             &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Isolate Scope One Way String Binding (Parent changes affect child, child changes does not affect parent)&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;somestring&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;stringParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@'&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	
+             &lt;span class=&quot;c1&quot;&gt;//the '@' binding automatically interpolates the &quot;&quot; if they exist in the attributes&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//interpolated string&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//interpolated string&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//literal string&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//IMPORTANT: if scope.some.string was not defined on the parent scope, then '@' interpolates it into an EMPTY string, it is still a STRING type&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//if the DOM attribute was not defined, scope.property would returned undefined&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//if the strings are not yet processed when this directive runs&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//this means they are interpolated, but perhaps the true value has not arrived, such as content from AJAX&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//see: http://stackoverflow.com/a/14907826/582917&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$observe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'myDirective'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$observe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'anotherParam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//the $watch method also works because the '@' binding already does the interpolation&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//see: http://stackoverflow.com/a/12976630/582917 &amp;amp; http://stackoverflow.com/a/17224886/582917&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//this only works because it's in an isolate scope, therefore myDirective is part of the scope&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'myDirective'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//the difference between $observe and $watch in this context, is that $observe reruns the interpolation (from the literal attribute value) and watches the value change, whereas the $watch relies on the '@' interpolation and parent binding and simply watches the value change in this current isolated scope&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//this means if want to react to the value change coming from this directive, you'll need to use $watch, otherwise if you only want to react to parent changes, you may use $observe&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//multivalue value watching, only possible with $watch&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//make sure to assign an object outside of the scope&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//if you decide to return an object &quot;return { }&quot;, a new object reference would be created&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//inside the watch, and thus trigger another watch, resulting in digest errors&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//MAKE SURE TO DO DEEP WATCH!&lt;/span&gt;
+             &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiValues&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;multiValues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                 &lt;span class=&quot;nx&quot;&gt;multiValues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiValues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Isolate Scope Two Way Object Binding (Parent changes affect child and child changes affect parent)&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modelObject&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{ thisWill: 'result in digest errors' }&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//use =? for optionality&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'='&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	
+             &lt;span class=&quot;c1&quot;&gt;//modelObject needs to be defined on the parent scope or you can use &quot;=?&quot; for optionality&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//this will be the parent/current scope's value, it's not the literal string&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//this will result in digest errors: http://stackoverflow.com/q/13594732/582917&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//so don't use object expressions with '='&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//IMPORTANT: if scope.modelObject was not defined on the parent scope, then '=' interpolates it into an UNDEFINED type, this works for child objects as well like scope.modelObject.childObject&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//if the DOM attribute was not defined, scope.property would returned undefined&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//the $watch method works when the model values have not yet been processed by the time this directive runs&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$watch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'myDirective'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+                     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//$observe is useless here, as there is no interpolation whatsoever, the $watch will react to changes from both parent scope and current scope, furthermore any change to the value here, changes the parent value as well&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//=? is required if you want to assign values to the current isolated scope property, but the DOM attribute or parent scope property was never defined, checking if it exists or logging its current value won't result in an error&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Isolate Scope Object &amp;amp; Object Literal Expression Binding&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{ param: 34, param2: 'cool' }&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parentScopeObject&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;amp;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;amp;'&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	
+             &lt;span class=&quot;c1&quot;&gt;//this will return the actual object from the object expression!&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//this will return the actual object from the parent scope, if it exists of course!&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//and no &quot;parentScopeObject&quot; is not a function, it's an object&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Isolate Scope Function Expression Binding&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parentScopeFunction(funcParam, secondParam)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;lt;button ng-click=&quot;myDirective({funcParam: '&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blah&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;', secondParam: '&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blah&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'})&quot;&amp;gt;It can be executed from inside the DOM too!&amp;lt;/button&amp;gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;na&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;amp;'&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			
+             &lt;span class=&quot;c1&quot;&gt;//IMPORTANT: if scope.parentScopeFunction was not defined on the parent scope, then '&amp;amp;' interpolates it into a NOOP function, it is still a FUNCTION type&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//if the DOM attribute was not defined, scope.property would also still return a noop function&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//if it's defined as something other than a function, an error occurs!&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//parameters passed into the bound function expression must be in the form of an object map&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                     &lt;span class=&quot;na&quot;&gt;funcParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'This is the value that is going to be passed in as the funcParam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                     &lt;span class=&quot;na&quot;&gt;secondParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'This is another param!'&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Non-Isolate Scope Function Expression Binding&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parentScopeFunction(funcParam)&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parentScopeFunction2()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;	
+ &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;directiveFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//see this: &lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//http://stackoverflow.com/questions/17583004/call-an-angularjs-controller-function-from-a-directive-without-isolated-scope&lt;/span&gt;
+             &lt;span class=&quot;c1&quot;&gt;//http://stackoverflow.com/questions/14858682/angularjs-directive-with-isolate-scope-do-i-really-have-to-call-parent-everyw&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//apply and eval&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+                 &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherFunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+             &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+             &lt;span class=&quot;c1&quot;&gt;//apply only&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anotherFunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				
+             &lt;span class=&quot;c1&quot;&gt;//$parse method, this allows parameters to be passed&lt;/span&gt;
+             &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;invoker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myDirective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;invoker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;funcParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'example value'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">AngularJS Directive Attribute Binding Explanation</summary></entry><entry><title type="html">JVM - Java virtual machine</title><link href="http://localhost:4000/gists/2018/04/04/jvm.html" rel="alternate" type="text/html" title="JVM - Java virtual machine" /><published>2018-04-04T00:00:00+08:00</published><updated>2018-04-04T00:00:00+08:00</updated><id>http://localhost:4000/gists/2018/04/04/jvm</id><content type="html" xml:base="http://localhost:4000/gists/2018/04/04/jvm.html">&lt;p&gt;A &lt;strong&gt;Java virtual machine (JVM)&lt;/strong&gt; is an abstract computing machine that enables a computer to run a Java program. There are three notions of the JVM: specification, implementation, and instance. The specification is a document that formally describes what is required of a JVM implementation. Having a single specification ensures all implementations are interoperable. A JVM implementation is a computer program that meets the requirements of the JVM specification. An instance of a JVM is an implementation running in a process that executes a computer program compiled into Java bytecode.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Java Runtime Environment (JRE)&lt;/strong&gt; is a software package that contains what is required to run a Java program. It includes a Java Virtual Machine implementation together with an implementation of the Java Class Library. The Oracle Corporation, which owns the Java trademark, distributes a Java Runtime environment with their Java Virtual Machine called HotSpot.&lt;/p&gt;
 
@@ -94,1093 +678,4 @@ Heap area :Information of all objects is stored in heap area. There is also one 
 
 &lt;h3 id=&quot;native-method-libraries&quot;&gt;Native Method Libraries&lt;/h3&gt;
 
-&lt;p&gt;It is a collection of the Native Libraries(C, C++) which are required by the Execution Engine.&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">A Java virtual machine (JVM) is an abstract computing machine that enables a computer to run a Java program. There are three notions of the JVM: specification, implementation, and instance. The specification is a document that formally describes what is required of a JVM implementation. Having a single specification ensures all implementations are interoperable. A JVM implementation is a computer program that meets the requirements of the JVM specification. An instance of a JVM is an implementation running in a process that executes a computer program compiled into Java bytecode.</summary></entry><entry><title type="html">AOP - Aspect-oriented programming</title><link href="http://bndy.net/gists/2018/04/04/AOP-Aspect-oriented-programming.html" rel="alternate" type="text/html" title="AOP - Aspect-oriented programming" /><published>2018-04-04T00:00:00+08:00</published><updated>2018-04-04T00:00:00+08:00</updated><id>http://bndy.net/gists/2018/04/04/AOP---Aspect-oriented-programming</id><content type="html" xml:base="http://bndy.net/gists/2018/04/04/AOP-Aspect-oriented-programming.html">&lt;p&gt;In computing, aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. 
-It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification,
-such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code,
-core to the functionality. AOP forms a basis for aspect-oriented software development.&lt;/p&gt;
-
-&lt;h2 id=&quot;define-an-aspect-by-using-aspect-annotations---which-is-natively-understood-by-spring&quot;&gt;Define an Aspect by using @Aspect annotations - which is natively understood by Spring:&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.ProceedingJoinPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.After&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Aspect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.aspectj.lang.annotation.Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.slf4j.Logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.slf4j.LoggerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@Aspect&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuditAspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LoggerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AuditAspect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* net.bndy.service.*.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;serviceMethods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;// Intercept all calls to methods annotated with @PerLog&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// @Pointcut(&quot;execution(@net.bndy.annotations.PerfLog * *.*(..))&quot;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;performanceTargets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PerLog&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Pass annotation to AOP advices&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@annotation(perLog)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argNames&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;perfLog&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;performanceTargets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PerLog&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;// Using annotations and parameters in AOP advices&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.byteslounge.spring.aop.PointcutDefinition.serviceLayer() &amp;amp;&amp;amp; args(account,..) &amp;amp;&amp;amp; @annotation(auditable)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Auditable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Audit account access: &quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAccountNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;. Audit destination: &quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;// If the first parameter is of the JoinPoint, ProceedingJoinPoint, or JoinPoint.StaticPart type, you may leave out the name of the parameter from the value of the &quot;argNames&quot; attribute. For example, if you modify the preceding advice to receive the join point object, the &quot;argNames&quot; attribute need not include it:&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.xyz.lib.Pointcuts.anyPublicMethod() &amp;amp;&amp;amp; target(bean) &amp;amp;&amp;amp; @annotation(auditable)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argNames&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bean,auditable&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;audit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Auditable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;AuditCode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auditable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// ... use code, bean, and jp&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;serviceMethods()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;beforeMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methodName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSignature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;before method:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methodName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Around&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;serviceMethods()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aroundMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ProceedingJoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nanoTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// execute target method&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nanoTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s took %d ns&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSignature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;RuntimeException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-     
-    &lt;span class=&quot;c1&quot;&gt;// Always run if method completed&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@After&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;serviceMethods()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;afterMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;after method&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;// Run when the method returns normally.&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@AfterReturning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* net.bndy.service.*.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;returning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;afterReturningMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;// Run if an exception has benn thrown in method&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@AfterThrowing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* net.bndy.service.*.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;throwing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;e&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;afterThorwingMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JoinPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NullPointerException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;pointcut&quot;&gt;@Pointcut&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//                   Any return type | package          | class | method | any type and number of arguments&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(*                 net.bndy.service . *.      *(       ..                                  ))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* net.bndy.service.*.*(.. ))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// examples&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;within(*..*Test)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                   &lt;span class=&quot;c1&quot;&gt;// support for sub packages is provided with &quot;..&quot;&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;within(net.bndy.service..*Test)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// ends with Test inside the &quot;net.bndy.service&quot; package&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!within(net.bndy.service..*Test)&quot;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// expects that ends with Test inside the &quot;net.bndy.service&quot; package&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(void *..service.Service+.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// all methods in the Service class or a subtype of it&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!withincode(@org.junit.Test * *(..))&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;//Finds all statements that’s not inside a method marked with @Test&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// other Pointcuts&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//execution(void Point.setX(int))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//call(void Point.setX(int))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//handler(ArrayOutOfBoundsException)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//this(SomeType)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//target(SomeType)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//within(MyClass)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//cflow(call(void Test.main()))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//call(* *(..)) &amp;amp;&amp;amp; (within(Line) || within(Point))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//execution(!static * *(..))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//execution(public !static * *(..))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;why-to-use-argnames&quot;&gt;Why to use argNames&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aspectTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;in aspectTest:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;a:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;,b:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Pointcut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* bean.HelloApi.aspectTest(..)) &amp;amp;&amp;amp; args(a1,b2)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argNames&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a1,b2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pointcut1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){}&lt;/span&gt;
-    
-&lt;span class=&quot;nd&quot;&gt;@Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pointcut1(a,b)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argNames&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a,b&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;beforecase1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1 a:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; b:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// NOTE: a and p locations&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pointcut1(a,b)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argNames&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;b,a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;beforecase2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2 a:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; b:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;HelloApi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;helloapi1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beanFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;helloapi1&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HelloApi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;helloapi1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;aspectTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1 a:a b:b
-2 a:b b:a
-in aspectTest:a:a,b:b
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">In computing, aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification, such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, core to the functionality. AOP forms a basis for aspect-oriented software development.</summary></entry><entry><title type="html">Spring Boot Starter Project</title><link href="http://bndy.net/gists/2018/03/26/Spring-Boot-Starter-Project.html" rel="alternate" type="text/html" title="Spring Boot Starter Project" /><published>2018-03-26T00:00:00+08:00</published><updated>2018-03-26T00:00:00+08:00</updated><id>http://bndy.net/gists/2018/03/26/Spring-Boot-Starter-Project</id><content type="html" xml:base="http://bndy.net/gists/2018/03/26/Spring-Boot-Starter-Project.html">&lt;p&gt;How to Build Spring Boot Starter Project&lt;/p&gt;
-
-&lt;h2 id=&quot;two-java-files&quot;&gt;Two Java Files&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@ConfigurationProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;spring.ftsi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IndexServiceAutoConfigurationProperties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@EnableConfigurationProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IndexServiceAutoConfigurationProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@ConditionalOnClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@ConditionalOnProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;spring.ftsi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;enabled&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matchIfMissing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IndexServiceAutoConfiguration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IndexServiceAutoConfigurationProperties&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@ConditionalOnMissingBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;indexService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ClassNotFoundException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IllegalAccessException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InstantiationException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;file-srcmainresourcesmeta-infspringfactories&quot;&gt;File: /src/main/resources/META-INF/spring.factories&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-net.bndy.ftsi.starter.IndexServiceAutoConfiguration
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;application.yml&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;ftsi&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;property1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;property2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;java&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;nd&quot;&gt;@Autowried&lt;/span&gt;
-  	&lt;span class=&quot;n&quot;&gt;IndexService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;indexService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  
-  	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">How to Build Spring Boot Starter Project</summary></entry><entry><title type="html">Publishing Repo to Maven Central</title><link href="http://bndy.net/gists/2018/01/30/Publishing-Repo-to-Maven-Central.html" rel="alternate" type="text/html" title="Publishing Repo to Maven Central" /><published>2018-01-30T00:00:00+08:00</published><updated>2018-01-30T00:00:00+08:00</updated><id>http://bndy.net/gists/2018/01/30/Publishing-Repo-to-Maven-Central</id><content type="html" xml:base="http://bndy.net/gists/2018/01/30/Publishing-Repo-to-Maven-Central.html">&lt;p&gt;Deploy repo to Maven Central with gradle and maven.&lt;/p&gt;
-
-&lt;h2 id=&quot;create-an-account-on-osssonatypeorg&quot;&gt;Create an account on oss.sonatype.org&lt;/h2&gt;
-
-&lt;p&gt;Create an account and create an ISSUE about Repo. And waiting approved.&lt;/p&gt;
-
-&lt;h2 id=&quot;generate-and-share-a-pgp-signature&quot;&gt;Generate and share a PGP signature&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Installing GnuPG&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`gpg --version`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Generating a Key Pair and Sharing Key&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```
-gpg --generate-key
-gpg --list-keys --keyid-format short
-gpg --list-secret-keys --keyid-format short
-gpg --keyserver hkp://pool.sks-keyservers.net --send-keys &amp;lt;pubkeyid&amp;gt;
-// gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys &amp;lt;pubkeyid&amp;gt;
-```
-Delete Key or Sub Key
-```
-gpg2 --edit-key A6BAB25
-gpg&amp;gt; 1 
-gpg&amp;gt; save
-gpg&amp;gt; key 2
-gpg&amp;gt; delkey
-```
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;local-gpg&quot;&gt;Local GPG&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.gradle/gradle.properties&lt;/code&gt; with following content:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  signing.keyId=&amp;lt;pubkeyid&amp;gt;
-  signing.password=&amp;lt;passwordGPG&amp;gt;
-  // For new version GPG, secring.gpg does not be used.
-  // But you can still use `gpg --export-secret-keys &amp;gt;~/.gnupg/secring.gpg` to generate
-  // On windows, you can use `C:/Users/&amp;lt;yourname&amp;gt;/.gnupg/secring.gpg` instead.
-  signing.secretKeyRingFile=/Users/&amp;lt;yourname&amp;gt;/.gnupg/secring.gpg 
-  
-  ossrhUsername=&amp;lt;name for oss.sonatype.org&amp;gt;
-  ossrhPassword=&amp;lt;password for oss.sonatype.org&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;project-configuration&quot;&gt;Project Configuration&lt;/h2&gt;
-
-&lt;p&gt;build.gradle example:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  group 'net.bndy'
-  version '1.0'
-
-  apply plugin: 'java'
-  apply plugin: 'maven'
-  apply plugin: 'signing'
-
-
-  sourceCompatibility = 1.8
-
-  repositories {
-      mavenCentral()
-  }
-
-  dependencies {
-      testCompile group: 'junit', name: 'junit', version: '4.12'
-      compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.3'
-      compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.3'
-      compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
-      compile group: 'javax.mail', name: 'javax.mail-api', version: '1.6.0'
-      compile group: 'org.apache.directory.studio', name: 'org.apache.commons.io', version: '2.4'
-      compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
-  }
-
-  task javadocJar(type: Jar) {
-      classifier = 'javadoc'
-      from javadoc
-  }
-
-  task sourcesJar(type: Jar) {
-      classifier = 'sources'
-      from sourceSets.main.allSource
-  }
-
-  artifacts {
-      archives javadocJar, sourcesJar
-  }
-
-  signing {
-      sign configurations.archives
-  }
-
-  uploadArchives {
-      repositories {
-          mavenDeployer {
-              beforeDeployment { MavenDeployment deployment -&amp;gt; signing.signPom(deployment) }
-
-              repository(url: &quot;https://oss.sonatype.org/service/local/staging/deploy/maven2/&quot;) {
-                  authentication(userName: ossrhUsername, password: ossrhPassword)
-              }
-
-              snapshotRepository(url: &quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;) {
-                  authentication(userName: ossrhUsername, password: ossrhPassword)
-              }
-
-              pom.project {
-                  name 'Jlib'
-                  packaging 'jar'
-
-                  // optionally artifactId can be defined here
-                  description 'A Java Library'
-                  url 'https://github.com/bndynet/Jlib'
-
-                  scm {
-                      url 'https://github.com/bndynet/Jlib'
-                      connection 'scm:git:git://github.com/bndynet/Jlib.git'
-                      developerConnection 'scm:git:git@github.com:bndynet/Jlib.git'
-                  }
-
-                  licenses {
-                      license {
-                          name 'The Apache License, Version 2.0'
-                          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                      }
-                  }
-
-                  developers {
-                      developer {
-                          id 'bndynet'
-                          name 'Bendy Zhang'
-                          email 'zb@bndy.net'
-                          url 'http://bndy.net'
-                      }
-                  }
-              }
-          }
-      }
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;deployment&quot;&gt;Deployment&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gradle uploadArchives&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Go to &lt;code class=&quot;highlighter-rouge&quot;&gt;https://oss.sonatype.org/#stagingRepositories&lt;/code&gt; to close your repo. If closed successfully, you can release it. Otherwise, drop it and regradle it again.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Deploy repo to Maven Central with gradle and maven.</summary></entry><entry><title type="html">OAuth</title><link href="http://bndy.net/gists/2017/12/20/OAuth.html" rel="alternate" type="text/html" title="OAuth" /><published>2017-12-20T00:00:00+08:00</published><updated>2017-12-20T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/20/OAuth</id><content type="html" xml:base="http://bndy.net/gists/2017/12/20/OAuth.html">&lt;p&gt;OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.&lt;/p&gt;
-
-&lt;h2 id=&quot;oauth-20-authorization&quot;&gt;OAuth 2.0 Authorization&lt;/h2&gt;
-
-&lt;p&gt;When a client applications wants access to the resources of a resource owner, hosted on a resource server, the client application must first obtain an authorization grant. This text explains how such an application grant is obtained.&lt;/p&gt;
-
-&lt;h3 id=&quot;client-id-client-secret-and-redirect-uri&quot;&gt;Client ID, Client Secret and Redirect URI&lt;/h3&gt;
-
-&lt;p&gt;Before a client application can request access to resources on a resource server, the client application must first register with the authorization server associated with the resource server.&lt;/p&gt;
-
-&lt;p&gt;The registration is typically a one-time task. Once registered, the registration remains valid, unless the client app registration is revoked.&lt;/p&gt;
-
-&lt;p&gt;At registration the client application is assigned a client ID and a client secret (password) by the authorization server. The client ID and secret is unique to the client application on that authorization server. If a client application registers with multiple authorization servers (e.g. both Facebook, Twitter and Google), each authorization server will issue its own unique client ID to the client application.&lt;/p&gt;
-
-&lt;p&gt;Whenever the client application requests access to resources stored on that same resource server, the client application needs to authenticate itself by sending along the client ID and the client secret to the autorhization server.&lt;/p&gt;
-
-&lt;p&gt;During the registration the client also registers a redirect URI. This redirect URI is used when a resource owner grants authorization to the client application. When a resource owner has successfully authorized the client application via the authorization server, the resource owner is redirected back to the client application, to the redirect URI.&lt;/p&gt;
-
-&lt;h3 id=&quot;authorization-grant&quot;&gt;Authorization Grant&lt;/h3&gt;
-
-&lt;p&gt;The authorization grant is given to a client application by the resource owner, in cooperation with the authorization server associated with the resource server.&lt;/p&gt;
-
-&lt;p&gt;The OAuth 2.0 specification lists four different types of authorization grants. Each type has different security characteristics. The authorization grant types are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authorization Code&lt;/li&gt;
-  &lt;li&gt;Implicit&lt;/li&gt;
-  &lt;li&gt;Resource Owner Password Credentials&lt;/li&gt;
-  &lt;li&gt;Client Credentials
-Each of these authorization grant types is covered in the following sections.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;authorization-code&quot;&gt;Authorization Code&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://techannotation.files.wordpress.com/2015/06/oauth2-0-authorization-code.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;An authorization grant using an authorization code works like this (the numbers correspond to the steps shown in the diagram below the description):&lt;/p&gt;
-
-&lt;p&gt;1) The resource owner (user) accesses the client application.&lt;/p&gt;
-
-&lt;p&gt;2) The client application tells the user to login to the client application via an authorization server (e.g. Facebook, Twitter, Google etc.).&lt;/p&gt;
-
-&lt;p&gt;3) To login via the authorizaion server, the user is redirected to the authorization server by the client application. The client application sends its client ID along to the authorization server, so the authorization server knows which application is trying to access the protected resources.&lt;/p&gt;
-
-&lt;p&gt;4) The user logs in via the authorization server. After successful login the user is asked if she wants to grant access to her resources to the client application. If the user accepts, the user is redirected back to the client application.&lt;/p&gt;
-
-&lt;p&gt;5) When redirected back to the client application, the authorization server sends the user to a specific redirect URI, which the client application has registered with the authorization server ahead of time. Along with the redirection, the authorization server sends an authorization code, representing the authorization.&lt;/p&gt;
-
-&lt;p&gt;6) When the redirect URI in the client application is accessed, the client application connects directly to the authorization server. The client application sends the authorization code along with its own client ID and and client secret.&lt;/p&gt;
-
-&lt;p&gt;7) If the authorization server can accept these values, the authorization server sends back an access token.&lt;/p&gt;
-
-&lt;p&gt;10) The client application can now use the access token to request resources from the resource server. The access token serves as both authentication of the client, resource owner (user) and authorization to access the resources.&lt;/p&gt;
-
-&lt;p&gt;Here is a diagram illustrating the authorization process when using authorization code to authorize a client application:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://tutorials.jenkov.com/images/oauth2/authorization-auth-code.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;implicit&quot;&gt;Implicit&lt;/h3&gt;
-
-&lt;p&gt;An implicit authorization grant is similar to an authorization code grant, except the access token is returned to the client application already after the user has finished the authorization. The access token is thus returned when the user agent is redirected to the redirect URI.&lt;/p&gt;
-
-&lt;p&gt;This of course means that the access token is accessible in the user agent, or native application participating in the implicit authorization grant. The access token is not stored securely on a web server.&lt;/p&gt;
-
-&lt;p&gt;Furthermore, the client application can only send its client ID to the authorization server. If the client were to send its client secret too, the client secret would have to be stored in the user agent or native application too. That would make it vulnerable to hacking.&lt;/p&gt;
-
-&lt;p&gt;Implicit authorization grant is mostly used in a user agent or native client application. The user agent or native application would receive the access token from the authorization server.&lt;/p&gt;
-
-&lt;p&gt;Here is an illustration of implicit authorization grant:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://tutorials.jenkov.com/images/oauth2/authorization-implicit.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;resource-owner-password-credentials&quot;&gt;Resource Owner Password Credentials&lt;/h3&gt;
-
-&lt;p&gt;The resource owner password credentials authorization grant method works by giving the client application access to the resource owners credentials. For instance, a user could type his Twitter user name and password (credentials) into the client application. The client application could then use the user name and password to access resources in Twitter.&lt;/p&gt;
-
-&lt;p&gt;Using the resource owner password credentials requires a lot of trust in the client application. You do not want to type your credentials into an application you suspect might abuse it.&lt;/p&gt;
-
-&lt;p&gt;The resource owner password credentials would normally be used by user agent client applications, or native client applications.&lt;/p&gt;
-
-&lt;h3 id=&quot;client-credentials&quot;&gt;Client Credentials&lt;/h3&gt;
-
-&lt;p&gt;Client credential authorization is for the situations where the client application needs to access resources or call functions in the resource server, which are not related to a specific resource owner (e.g. user). For instance, obtaining a list of venues from Foursquare. This does not necessary have anything to do with a specific Foursquare user.&lt;/p&gt;
-
-&lt;h2 id=&quot;oauth-20-endpoints&quot;&gt;OAuth 2.0 Endpoints&lt;/h2&gt;
-
-&lt;p&gt;OAuth 2.0 defines a set of endpoints. An endpoint is typically a URI on a web server. For instance, the address of a Java servlet, JSP page, PHP page, ASP.NET page etc.&lt;/p&gt;
-
-&lt;p&gt;The endpoints defined are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authorization Endpoint&lt;/li&gt;
-  &lt;li&gt;Token Endpoint&lt;/li&gt;
-  &lt;li&gt;Redirection Endpoint&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The authorization endpoint and token endpoint are both located on the authorization server. The redirection endpoint is located in the client application. Each of these endpoints are covered below.&lt;/p&gt;
-
-&lt;p&gt;The endpoints are illustrated in this diagram:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://tutorials.jenkov.com/images/oauth2/endpoints.png&quot; alt=&quot;OAuth 2.0 Endpoints&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The OAuth 2.0 specification does not describe how the URI of these endpoints are found or documented. That is up to each implementer to decide. Most sites will have a subsite for developers documenting these endpoints.&lt;/p&gt;
-
-&lt;h3 id=&quot;authorization-endpoint&quot;&gt;Authorization Endpoint&lt;/h3&gt;
-
-&lt;p&gt;The authorization endpoint is the endpoint on the authorization server where the resource owner logs in, and grants authorization to the client application.&lt;/p&gt;
-
-&lt;h3 id=&quot;token-endpoint&quot;&gt;Token Endpoint&lt;/h3&gt;
-
-&lt;p&gt;The token endpoint is the endpoint on the authorization server where the client application exchanges the authorization code, client ID and client secret, for an access token.&lt;/p&gt;
-
-&lt;h3 id=&quot;redirect-endpoint&quot;&gt;Redirect Endpoint&lt;/h3&gt;
-
-&lt;p&gt;The redirect endpoint is the endpoint in the client application where the resource owner is redirected to, after having granted authorization at the authorization endpoint.&lt;/p&gt;
-
-&lt;h2 id=&quot;oauth-20-requests-and-responses&quot;&gt;OAuth 2.0 Requests and Responses&lt;/h2&gt;
-
-&lt;p&gt;When the client application requests authorization and access tokens it sends HTTP requests to the authorization server, to its authorization and token endpoints. What request and response is sent forth and back depends on the authorization grant type. Remember, the four grant types are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Authorization Code Grant (authorization_code)&lt;/li&gt;
-  &lt;li&gt;Implicit Grant  (implicit)&lt;/li&gt;
-  &lt;li&gt;Resource Owner Password Credentials Grant (password)&lt;/li&gt;
-  &lt;li&gt;Client Credentials Grant  (client_credentials)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The request and response of each of these authorization grant types is explained in more detail in the following, separate texts.&lt;/p&gt;
-
-&lt;p&gt;The information presented in the following texts is, however, mostly a summary. In order to get all the details of what it all means, you may have to consult the OAuth 2.0 specification, or the documentation of the system (Facebook, Twitter, Foursquare etc.) you are trying to integrate with.&lt;/p&gt;
-
-&lt;h2 id=&quot;oauth-20-authorization-code-requests-and-responses&quot;&gt;OAuth 2.0 Authorization Code Requests and Responses&lt;/h2&gt;
-
-&lt;p&gt;The authorization code grant consists of 2 requests and 2 responses in total. An authorization request + response, and a token request + response.&lt;/p&gt;
-
-&lt;h3 id=&quot;authorization-request&quot;&gt;Authorization Request&lt;/h3&gt;
-
-&lt;p&gt;The authorization request is sent to the authorization endpoint to obtain an authorization code. Here are the parameters used in the request:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;response_type&lt;/td&gt;
-      &lt;td&gt;Required. Must be set to code&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;client_id&lt;/td&gt;
-      &lt;td&gt;Required. The client identifier as assigned by the authorization server, when the client was registered.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;redirect_uri&lt;/td&gt;
-      &lt;td&gt;Optional. The redirect URI registered by the client.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;scope&lt;/td&gt;
-      &lt;td&gt;Optional. The possible scope of the request.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;state&lt;/td&gt;
-      &lt;td&gt;Optional (recommended). Any client state that needs to be passed on to the client request URI.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;authorization-response&quot;&gt;Authorization Response&lt;/h3&gt;
-
-&lt;p&gt;The authorization response contains the authorization code needed to obtain an access token. Here are the parameters included in the response:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;code&lt;/td&gt;
-      &lt;td&gt;Required. The authorization code.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;state&lt;/td&gt;
-      &lt;td&gt;Required, if present in request. The same value as sent by the client in the state parameter, if any.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;authorization-error-response&quot;&gt;Authorization Error Response&lt;/h3&gt;
-
-&lt;p&gt;If an error occurs during authorization, two situations can occur.&lt;/p&gt;
-
-&lt;p&gt;The first is, that the client is not authenticated or recognized. For instance, a wrong redirect URI was sent in the request. In that case the authorization server must not redirect the resource owner to the redirect URI. Instead it should inform the resource owner of the error.&lt;/p&gt;
-
-&lt;p&gt;The second situation is that client is authenticated correctly, but that something else failed. In that case the following error response is sent to the client, included in the redirect URI:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;error&lt;/td&gt;
-      &lt;td&gt;Required. Must be one of a set of predefined error codes. See the specification for the codes and their meaning.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;error_description&lt;/td&gt;
-      &lt;td&gt;Optional. A human-readable UTF-8 encoded text describing the error. Intended for a developer, not an end user.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;error_uri&lt;/td&gt;
-      &lt;td&gt;Optional. A URI pointing to a human-readable web page with information about the error.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;state&lt;/td&gt;
-      &lt;td&gt;Required, if present in authorization request. The same value as sent in the state parameter in the request.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;token-request&quot;&gt;Token Request&lt;/h3&gt;
-
-&lt;p&gt;Once an authorization code is obtained, the client can use that code to obtain an access token. Here is the access token request parameters:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;client_id&lt;/td&gt;
-      &lt;td&gt;Required. The client application’s id.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;client_secret&lt;/td&gt;
-      &lt;td&gt;Required. The client application’s client secret .&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;grant_type&lt;/td&gt;
-      &lt;td&gt;Required. Must be set to authorization_code .&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;code&lt;/td&gt;
-      &lt;td&gt;Required. The authorization code received by the authorization server.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;redirect_uri&lt;/td&gt;
-      &lt;td&gt;Required, if the request URI was included in the authorization request. Must be identical then.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;token-response&quot;&gt;Token Response&lt;/h3&gt;
-
-&lt;p&gt;The response to the access token request is a JSON string containing the access token plus some more information:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{ &quot;access_token&quot;  : &quot;...&quot;,
-  &quot;token_type&quot;    : &quot;...&quot;,
-  &quot;expires_in&quot;    : &quot;...&quot;,
-  &quot;refresh_token&quot; : &quot;...&quot;,
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt; property is the access token as assigned by the authorization server.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt; property is a type of token assigned by the authorization server.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt; property is a number of seconds after which the access token expires, and is no longer valid. Expiration of access tokens is optional.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;refresh_token&lt;/code&gt; property contains a refresh token in case the access token can expire. The refresh token is used to obtain a new access token once the one returned in this response is no longer valid.&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">OAuth 2.0 is an open authorization protocol which enables applications to access each others data. For instance, a game application can access a users data in the Facebook application, or a location based application can access the user data of the Foursquare application etc.</summary></entry><entry><title type="html">Override AngularJS Filters</title><link href="http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters.html" rel="alternate" type="text/html" title="Override AngularJS Filters" /><published>2017-12-15T00:00:00+08:00</published><updated>2017-12-15T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters</id><content type="html" xml:base="http://bndy.net/gists/2017/12/15/Override-AngularJS-Filters.html">&lt;p&gt;How to override angularjs existing fitlers?&lt;/p&gt;
-
-&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[])&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'$provide'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$provide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- &lt;span class=&quot;err&quot;&gt; &lt;/span&gt; &lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// For example: dateFilter&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$provide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;decorator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'filternameFilter'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'$delegate'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$delegate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;srcFilter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$delegate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;srcFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// NOTE:&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//  The arguments is an object formatted like {0: key, 1: args, ...}, not array.&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//  So you can get the first parameter by arguments[0] and so on.&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// TODO: here to change the result&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">How to override angularjs existing fitlers?</summary></entry><entry><title type="html">spring-boot-ehcache</title><link href="http://bndy.net/gists/2017/12/12/spring-boot-ehcache.html" rel="alternate" type="text/html" title="spring-boot-ehcache" /><published>2017-12-12T00:00:00+08:00</published><updated>2017-12-12T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/12/spring-boot-ehcache</id><content type="html" xml:base="http://bndy.net/gists/2017/12/12/spring-boot-ehcache.html">&lt;p&gt;Using ehcache 3 in spring boot&lt;/p&gt;
-
-&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
-
-&lt;h3 id=&quot;configuration&quot;&gt;Configuration&lt;/h3&gt;
-
-&lt;p&gt;ehcache.xml&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;config&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http://www.w3.org/2001/XMLSchema-instance'&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http://www.ehcache.org/v3'&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;xmlns:jsr107=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http://www.ehcache.org/v3/jsr107'&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-        http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd
-        http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;service&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;jsr107:defaults&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;default-template=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxEntriesOnHeapCache&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;enable-management=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;enable-statistics=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;jsr107:cache&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;default&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;template=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byRefTemplate&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;jsr107:cache&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byRefCache&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;template=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byRefTemplate&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;nt&quot;&gt;&amp;lt;jsr107:cache&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byValCache&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;template=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byValueTemplate&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/jsr107:defaults&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/service&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;cache&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alias=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;default&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uses-template=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxEntriesOnHeapCache&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/cache&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;cache-template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxEntriesOnHeapCache&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;heap&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;unit=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entries&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;2000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/heap&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cache-template&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;cache-template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byRefTemplate&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;key-type&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;copier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.ehcache.impl.copy.IdentityCopier&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;java.lang.Long&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;value-type&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;copier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.ehcache.impl.copy.IdentityCopier&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;java.lang.String&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;heap&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;unit=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entries&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;2000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/heap&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cache-template&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;cache-template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;byValueTemplate&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;key-type&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;copier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.ehcache.impl.copy.SerializingCopier&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;java.lang.Long&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;value-type&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;copier=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.ehcache.impl.copy.SerializingCopier&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;java.lang.String&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value-type&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;heap&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;unit=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entries&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;2000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/heap&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cache-template&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/config&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;application.yml&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;spring&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;jcache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;classpath:config/ehcache.xml&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;annotation&quot;&gt;Annotation&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@EnableCaching&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nd&quot;&gt;@CacheResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cacheName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;default&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;lang&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;misc&quot;&gt;MISC&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SPRING&lt;/th&gt;
-      &lt;th&gt;JSR-107&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;@Cacheable&lt;/td&gt;
-      &lt;td&gt;@CacheResult&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;@CachePut&lt;/td&gt;
-      &lt;td&gt;@CachePut&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;@CacheEvict&lt;/td&gt;
-      &lt;td&gt;@CacheRemove&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;@CacheEvict(allEntries=true)&lt;/td&gt;
-      &lt;td&gt;@CacheRemoveAll&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Using ehcache 3 in spring boot</summary></entry><entry><title type="html">SSH</title><link href="http://bndy.net/gists/2017/12/05/SSH.html" rel="alternate" type="text/html" title="SSH" /><published>2017-12-05T00:00:00+08:00</published><updated>2017-12-05T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/12/05/SSH</id><content type="html" xml:base="http://bndy.net/gists/2017/12/05/SSH.html">&lt;p&gt;Useful Commands&lt;/p&gt;
-
-&lt;h4 id=&quot;generating-a-new-ssh-key&quot;&gt;Generating a new SSH key&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;ssh-agent&quot;&gt;ssh-agent&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add -K ~/.ssh/id_rsa&lt;/code&gt;  add to ssh-agent&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add -D&lt;/code&gt;  delete all cached keys&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add -l&lt;/code&gt;  check your saved keys&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;multiple-ssh-keys&quot;&gt;Multiple SSH Keys&lt;/h4&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt; Example:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host github-bendy
-HostName github.com
-IdentityFile ~/.ssh/id_rsa_bendy
-User Bendy
-
-Host github-joyce
-HostName github.com
-IdentityFile ~/.ssh/id_rsa_joyce
-User joyce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Useful Commands</summary></entry><entry><title type="html">.Net Core on Linux, macOS</title><link href="http://bndy.net/gists/2017/11/08/Net-Core-on-Linux-macOS.html" rel="alternate" type="text/html" title=".Net Core on Linux, macOS" /><published>2017-11-08T00:00:00+08:00</published><updated>2017-11-08T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/08/-Net-Core-on-Linux--macOS</id><content type="html" xml:base="http://bndy.net/gists/2017/11/08/Net-Core-on-Linux-macOS.html">&lt;p&gt;Start .net core app on Ubuntu, Debian, CentOS and macOS&lt;/p&gt;
-
-&lt;h2 id=&quot;ubuntu&quot;&gt;Ubuntu&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Register the trusted Microsoft signature key and Microsoft Product feed:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; curl https://packages.microsoft.com/keys/microsoft.asc | gpg &lt;span class=&quot;nt&quot;&gt;--dearmor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; microsoft.gpg
- &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Microsoft Product feed&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Ubuntu 17.10&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Ubuntu 17.04&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Ubuntu 16.04 / Linux Mint 18&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'&lt;/code&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Ubuntu 14.04 / Linux Mint 17&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Install SDK and Run App&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
- &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install dotnet-sdk-2.0.2
-
- dotnet new console &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; myApp
- &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myApp
-
- dotnet run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;debian&quot;&gt;Debian&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```shell
-sudo apt-get update
-sudo apt-get install curl libunwind8 gettext apt-transport-https
-
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &amp;gt; microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-
-//Debian 9
-sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'
-//Debian 8
-sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main&quot; &amp;gt; /etc/apt/sources.list.d/dotnetdev.list'
-
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-
-dotnet new console -o myApp
-cd myApp
-
-dotnet run
-```
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;centos&quot;&gt;CentOS&lt;/h2&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;rpm &lt;span class=&quot;nt&quot;&gt;--import&lt;/span&gt; https://packages.microsoft.com/keys/microsoft.asc
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'echo -e &quot;[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl= https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc&quot; &amp;gt; /etc/yum.repos.d/dotnetdev.repo'&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum install libunwind libicu
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;yum install dotnet-sdk-2.0.2
-
-dotnet new console &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; myApp
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myApp
-
-dotnet run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;macos&quot;&gt;macOS&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Install &lt;a href=&quot;https://download.microsoft.com/download/7/3/A/73A3E4DC-F019-47D1-9951-0453676E059B/dotnet-sdk-2.0.2-osx-gs-x64.pkg&quot;&gt;.NET SDK&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run App&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; dotnet new console &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; myApp
- &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myApp
- dotnet run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;commands&quot;&gt;Commands&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet clean&lt;/code&gt; - Clean build outputs.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet test&lt;/code&gt; - Runs tests using a test runner.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet build&lt;/code&gt; - Builds a .NET Core application.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet publish&lt;/code&gt; - Publishes a .NET framework-dependent or self-contained application.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Start .net core app on Ubuntu, Debian, CentOS and macOS</summary></entry><entry><title type="html">Git</title><link href="http://bndy.net/gists/2017/11/06/Git.html" rel="alternate" type="text/html" title="Git" /><published>2017-11-06T00:00:00+08:00</published><updated>2017-11-06T00:00:00+08:00</updated><id>http://bndy.net/gists/2017/11/06/Git</id><content type="html" xml:base="http://bndy.net/gists/2017/11/06/Git.html">&lt;p&gt;Git Commands&lt;/p&gt;
-
-&lt;h2 id=&quot;useful-commands&quot;&gt;Useful Commands&lt;/h2&gt;
-
-&lt;h3 id=&quot;commit-with-empty-message&quot;&gt;Commit with empty message&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git config --global alias.nccommit &quot;commit -a --allow-empty-message -m ''&quot;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git nccommit&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;undoing-things&quot;&gt;Undoing Things&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Overwrite commit
-    &lt;ol&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m 'initial commit'&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit --amend&lt;/code&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Unstaging a Staged File&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git status
-On branch master
-Changes to be committed:
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to unstage&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-    renamed:    README.md -&amp;gt; README
-    modified:   CONTRIBUTING.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset HEAD CONTRIBUTING.md
-Unstaged changes after reset:
-M	CONTRIBUTING.md
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git status
-On branch master
-Changes to be committed:
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to unstage&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-    renamed:    README.md -&amp;gt; README
-
-Changes not staged &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;commit:
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git add &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to update what will be committed&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to discard changes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;working directory&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-    modified:   CONTRIBUTING.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Unmodifying a Modified File&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Changes not staged &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;commit:
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git add &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to update what will be committed&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to discard changes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;working directory&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-  modified:   CONTRIBUTING.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; CONTRIBUTING.md
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git status
-On branch master
-Changes to be committed:
-  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to unstage&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-  renamed:    README.md -&amp;gt; README
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;View all logs&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git reflog&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;push-changes-to-new-branch&quot;&gt;Push changes to new branch&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b newBranch&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin newBranch&lt;/code&gt;  // -u is short for &lt;code class=&quot;highlighter-rouge&quot;&gt;--set-upstream&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;stash-usage&quot;&gt;Stash Usage&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash  // stash current changes
-git stash pop  // pop last stash and remove from history
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash save 'message'  // stash current changes with message
-git stash list // show all stashes
-git stash apply &amp;lt;id&amp;gt;  // apply &amp;lt;id&amp;gt; stash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;common-alias&quot;&gt;Common Alias&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;git config –global alias.s “status”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.a “!git add . &amp;amp;&amp;amp; git status”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.au “!git add -u . &amp;amp;&amp;amp; git status”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.aa “!git add . &amp;amp;&amp;amp; git add -u . &amp;amp;&amp;amp; git status”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.c “commit”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.cm “commit -m”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.ca “commit –amend”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.ac “!git add . &amp;amp;&amp;amp; git commit”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.acm “!git add . &amp;amp;&amp;amp; git commit -m”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.l “log –graph –all –pretty=format:’%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.ll “log –stat –abbrev-commit”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.lg “log –color –graph –pretty=format:’%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)&amp;lt;%an&amp;gt;%Creset’ –abbrev-commit –date=relative”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.llg ‘log –color –graph –pretty=format:’%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an &amp;lt;%ae&amp;gt;%Creset %C(bold green)%cr (%ci)’ –abbrev-commit”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.d “diff”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.master “checkout master”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.spull “svn rebase”&lt;/li&gt;
-  &lt;li&gt;git config –global alias.spush “svn dcommit”&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;git config –global alias.alias “!git config –list&lt;/td&gt;
-          &lt;td&gt;grep ‘alias.’&lt;/td&gt;
-          &lt;td&gt;sed ‘s/alias.([^=]&lt;em&gt;)=(.&lt;/em&gt;)/\1\     =&amp;gt; \2/’&lt;/td&gt;
-          &lt;td&gt;sort”&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;workflow-with-git-fork-branching-commits-and-pull-request&quot;&gt;Workflow with Git: Fork, Branching, Commits, and Pull Request&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Fork a repo.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Clone the forked project to your local machine:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git clone git@github.com:USERNAME/&amp;lt;forked_repo&amp;gt;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Configure remotes:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git remote add upstream git://github.com/&amp;lt;origin_repo&amp;gt;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Create a branch for new feature:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git checkout -b my-new-branch&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Develop on my-new-branch branch only, but Do not merge my-new-branch branch to the your master (as it should stay equal to upstream master)!!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Commit changes to my-new-branch branch:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; $ git add .
- $ git commit -m &quot;commit message&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Push branch to GitHub, to allow your mentor to review your code:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push origin my-new-branch&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Repeat steps 5-7 till development is complete.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Fetch upstream changes that were done by other contributors:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git fetch upstream&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Update local master:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git checkout master
-$ git pull upstream master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;ATTENTION: any time you lost of track of your code – launch “gitk —all” in source folder, UI application come up that will show all branches and history in pretty view, explanation.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Rebase my-new-branch branch on top of the upstream master:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git checkout my-new-branch
-$ git rebase master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the process of the rebase, it may discover conflicts. In that case it will stop and allow you to fix the conflicts. After fixing conflicts, use &lt;code class=&quot;highlighter-rouge&quot;&gt;git add .&lt;/code&gt; to update the index with those contents, and then just run:&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git rebase --continue&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Push branch to GitHub (with all your final changes and actual code):&lt;/p&gt;
-
-    &lt;p&gt;We forcing changes to your issue branch(our sand box) is not common branch, and rebasing means recreation of commits so no way to push without force. NEVER force to common branch.&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push origin my-new-branch --force&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Created build for testing and send it to any mentor for testing.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Only after all testing is done – Send a Pull Request.&lt;/p&gt;
-
-    &lt;p&gt;Attention: Please recheck that in your pull request you send only your changes, and no other changes!!
-Check it by command:
-git diff my-new-branch upstream/master&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;submodule&quot;&gt;submodule&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  git submodule add submodule-repo path
-  git submodule update --init --recursive
-  git rm submodule-name
-  git rm submodule-name --cached
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">Git Commands Useful Commands Commit with empty message</summary></entry></feed>
+&lt;p&gt;It is a collection of the Native Libraries(C, C++) which are required by the Execution Engine.&lt;/p&gt;</content><author><name>Bendy Zhang</name></author><summary type="html">A Java virtual machine (JVM) is an abstract computing machine that enables a computer to run a Java program. There are three notions of the JVM: specification, implementation, and instance. The specification is a document that formally describes what is required of a JVM implementation. Having a single specification ensures all implementations are interoperable. A JVM implementation is a computer program that meets the requirements of the JVM specification. An instance of a JVM is an implementation running in a process that executes a computer program compiled into Java bytecode.</summary></entry></feed>

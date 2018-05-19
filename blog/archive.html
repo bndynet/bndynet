@@ -10,12 +10,10 @@ permalink: "blog/archive/"
 			{% assign counter = 1 %}
 			{% for post in site.posts limit:1000 %}
 			<dd class="accordion-navigation">
-			<a href="#panel{{ counter }}"><span class="iconfont"></span> 
 				<h2>
 					{{ post.title }}
 					{% if post.subheadline %} <small>{{ post.subheadline }}</small> {% endif %}
 				</h2>
-			</a>
 				<div id="panel{{ counter }}" class="content">
 					{% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% elsif post.teaser %}{{ post.teaser | strip_html | escape }}{% endif %}
 					<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="Read {{ post.title | escape_once }}">

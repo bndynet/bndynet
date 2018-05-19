@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BNDY.NET</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Bendy Zhang">
+    <meta http-equiv="Content-Language" content="en">
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/gists/2018/05/17/centos.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/gists/2018/05/17/centos.html"/>
+
+    <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>CentOS | BNDY.NET</title>
+<meta property="og:title" content="CentOS" />
+<meta name="author" content="Bendy Zhang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CentOS" />
+<meta property="og:description" content="CentOS" />
+<link rel="canonical" href="http://localhost:4000/gists/2018/05/17/centos.html" />
+<meta property="og:url" content="http://localhost:4000/gists/2018/05/17/centos.html" />
+<meta property="og:site_name" content="BNDY.NET" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-17T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/gists/2018/05/17/centos.html"},"author":{"@type":"Person","name":"Bendy Zhang"},"url":"http://localhost:4000/gists/2018/05/17/centos.html","description":"CentOS","name":null,"publisher":null,"@type":"BlogPosting","headline":"CentOS","dateModified":"2018-05-17T00:00:00+08:00","datePublished":"2018-05-17T00:00:00+08:00","sameAs":null,"image":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93843808-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-93843808-1');
+    </script>
+</head>
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                BNDY.NET
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a class="icon" href="https://hub.docker.com/r/bndynet/" target="_blank">
+                        
+                            <img src="https://www.docker.com/favicon/favicon-32x32.png" title="My Dockers" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.npmjs.com/org/bndynet" target="_blank">
+                        
+                            <img src="https://static.npmjs.com/58a19602036db1daee0d7863c94673a4.png" title="NPM Packages" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://www.mvnrepository.com/artifact/net.bndy" target="_blank">
+                        
+                            <img src="http://maven.apache.org/images/maven-logo-black-on-white.png" title="Maven" />
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="https://bndy.visualstudio.com/" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-windows" title="Microsoft VSTS"></i>
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="icon" href="http://github.com/bndynet" target="_blank">
+                        
+                            <i class="fa fa-2x fa fa-github" title="GitHub"></i>
+                        
+                    </a>
+                </li>
+                
+                
+<li>
+    <a href="http://localhost:4000/cn"> 中文 </a>
+</li>
+
+
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right">
+                <input type="text" class="input-keywords-gists" placeholder="Search Gists...">
+                <button type="submit" class="btn-search-gists"> 
+                    <i class="fa fa-search"></i> 
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+  <div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="back-box">
+			<a href="/blog/archive">
+				<i class="fa fa-chevron-left"></i>
+				Back
+			</a>
+		</div>
+		<article itemscope itemtype="http://schema.org/Article">
+			<div>
+				
+
+				<div itemprop="name">
+					<h1 style="margin-bottom: 3rem; margin-top: 0;">
+						<span style="font-size: 36px;">
+							CentOS
+							
+						</span>
+                    </h1>
+				</div>
+            </div>
+
+
+            
+
+			<div itemprop="articleSection">
+			<h1 id="centos">CentOS</h1>
+
+<h2 id="automated-tasks---cron">Automated Tasks - Cron</h2>
+
+<ol>
+  <li>
+    <p>CONNECT VIA SSH AND UPDATE THE SYSTEM SOFTWARE</p>
+
+    <p>First of all, connect to your Linux VPS via SSH and update all your system software to the latest version available. You can use the following command to do that:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>yum update
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>VERIFY IF CRONIE PACKAGE IS INSTALLED</p>
+
+    <p>To automate the system tasks, or better known as jobs under Linux, you can use an utility called Cron. Using Cron you can run scripts automatically within a specified period of time, create backup of your databases or other important files, monitor the services running on your server and many other things. To use the Cron utility, you need to install the cronie package on your system. It should be already installed on your server. To confirm, issue the following command:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo rpm -q cronie
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>INSTALL CRONIE PACKAGE</p>
+
+    <p>If it is not installed, you can use yum to install it. Yum is a package manager which you can use to install and manage software on CentOS 7. Run the command below:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo yum install cronie
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>CHECK IF  CROND SERVICE IS RUNNING</p>
+
+    <p>The cron jobs are picked by the crond service. To check whether the crond service is running on your CentOS VPS, you can use the following command:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo systemctl status crond.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>CONFIGURE CRON JOBS</p>
+
+    <p>To configure cron jobs you need to modify the /etc/crontab file. Please note that it can only be modified by the root user. To check the current configuration, you can use the following command:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo cat /etc/crontab
+</code></pre></div>    </div>
+    <p>The output should be similar to the one below:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+ <span class="nv">PATH</span><span class="o">=</span>/sbin:/bin:/usr/sbin:/usr/bin
+ <span class="nv">MAILTO</span><span class="o">=</span>root
+
+ <span class="c"># For details see man 4 crontabs</span>
+
+ <span class="c"># Example of job definition:</span>
+ <span class="c"># .---------------- minute (0 - 59)</span>
+ <span class="c"># |  .------------- hour (0 - 23)</span>
+ <span class="c"># |  |  .---------- day of month (1 - 31)</span>
+ <span class="c"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+ <span class="c"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+ <span class="c"># |  |  |  |  |</span>
+ <span class="c"># *  *  *  *  * user-name  command to be executed</span>
+ 37 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> root run-parts /etc/cron.hourly
+ 23 5 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> root run-parts /etc/cron.daily
+ 19 3 <span class="k">*</span> <span class="k">*</span> 0 root run-parts /etc/cron.weekly
+ 23 0 6 <span class="k">*</span> <span class="k">*</span> root run-parts /etc/cron.monthly
+</code></pre></div>    </div>
+
+    <p>Specific users can create cron jobs too. The cron jobs for specific users are located in /var/spool/cron/username. When you create cron jobs for specific users you do not need to specify the username in the cron job. Therefore the syntax will be like the one below:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> minute hour day month day_of_week command
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>RESTART THE CROND SERVICE</p>
+
+    <p>After you make the changes restart the crond service using the command below:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo systemctl restart crond.service
+</code></pre></div>    </div>
+    <p>For more information you can check the man pages:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> man cron
+</code></pre></div>    </div>
+    <p>and</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> man crontab
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+
+			</div>
+		</article>
+	</div>
+</div>
+    </div>
+  </div>
+  <footer>
+    Copyright &copy; 2013-2017 BNDY.NET
+</footer>
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.fittext.js"></script>
+<script src="/js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/creative.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> 
+<script src="http://bndynet.github.io/github.js/dist/github.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+
+</html>

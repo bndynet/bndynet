@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <title>BNDY.NET</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="cn">
@@ -10,11 +10,25 @@
     <meta name="description" content="">
     <meta name="author" content="Bendy Zhang">
     <meta http-equiv="Content-Language" content="cn">
-<link rel="alternate" hreflang="en" href=" http://bndy.net/gists/2017/11/06/Git.html"/>
-<link rel="alternate" hreflang="cn" href="http://bndy.net/cn/gists/2017/11/06/Git.html"/>
+<link rel="alternate" hreflang="en" href=" http://localhost:4000/gists/2017/11/06/Git.html"/>
+<link rel="alternate" hreflang="cn" href="http://localhost:4000/cn/gists/2017/11/06/Git.html"/>
 
+    <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Git | BNDY.NET</title>
+<meta property="og:title" content="Git" />
+<meta name="author" content="Bendy Zhang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here to list some useful Git commands and use cases." />
+<meta property="og:description" content="Here to list some useful Git commands and use cases." />
+<link rel="canonical" href="http://localhost:4000/cn/gists/2017/11/06/Git.html" />
+<meta property="og:url" content="http://localhost:4000/gists/2017/11/06/Git.html" />
+<meta property="og:site_name" content="BNDY.NET" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-06T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/gists/2017/11/06/Git.html"},"author":{"@type":"Person","name":"Bendy Zhang"},"url":"http://localhost:4000/gists/2017/11/06/Git.html","description":"Here to list some useful Git commands and use cases.","name":null,"publisher":null,"@type":"BlogPosting","headline":"Git","dateModified":"2017-11-06T00:00:00+08:00","datePublished":"2017-11-06T00:00:00+08:00","sameAs":null,"image":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <title>BNDY.NET</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
@@ -47,7 +61,6 @@
     gtag('config', 'UA-93843808-1');
     </script>
 </head>
-
 
 <body id="page-top">
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -110,7 +123,7 @@
                 
 
 <li>
-    <a href="http://bndy.net">
+    <a href="http://localhost:4000">
         English
     </a>
 </li>
@@ -141,9 +154,11 @@
 				
 
 				<div itemprop="name">
-					<h1>
-                        Git
-                        
+					<h1 style="margin-bottom: 3rem; margin-top: 0;">
+						<span style="font-size: 36px;">
+							Git
+							
+						</span>
                     </h1>
 				</div>
             </div>
@@ -154,18 +169,18 @@
 			
 
 			<div itemprop="articleSection">
-			<p>Git Commands</p>
+			<p>Here to list some useful Git commands and use cases.</p>
 
-<h2 id="useful-commands">Useful Commands</h2>
+<h1 id="git">Git</h1>
 
-<h3 id="commit-with-empty-message">Commit with empty message</h3>
+<h2 id="commit-with-empty-message">Commit with empty message</h2>
 
 <ol>
   <li><code class="highlighter-rouge">git config --global alias.nccommit "commit -a --allow-empty-message -m ''"</code></li>
   <li><code class="highlighter-rouge">git nccommit</code></li>
 </ol>
 
-<h3 id="undoing-things">Undoing Things</h3>
+<h2 id="undoing-things">Undoing Things</h2>
 
 <ul>
   <li>Overwrite commit
@@ -178,7 +193,7 @@
   <li>
     <p>Unstaging a Staged File</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="k">*</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="k">*</span>
 <span class="nv">$ </span>git status
 On branch master
 Changes to be committed:
@@ -188,7 +203,7 @@ Changes to be committed:
     modified:   CONTRIBUTING.md
 </code></pre></div>    </div>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git reset HEAD CONTRIBUTING.md
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git reset HEAD CONTRIBUTING.md
 Unstaged changes after reset:
 M	CONTRIBUTING.md
 <span class="nv">$ </span>git status
@@ -208,14 +223,14 @@ Changes not staged <span class="k">for </span>commit:
   <li>
     <p>Unmodifying a Modified File</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Changes not staged <span class="k">for </span>commit:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Changes not staged <span class="k">for </span>commit:
 <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
 <span class="o">(</span>use <span class="s2">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="k">in </span>working directory<span class="o">)</span>
 
   modified:   CONTRIBUTING.md
 </code></pre></div>    </div>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--</span> CONTRIBUTING.md
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--</span> CONTRIBUTING.md
 <span class="nv">$ </span>git status
 On branch master
 Changes to be committed:
@@ -231,14 +246,20 @@ Changes to be committed:
   </li>
 </ul>
 
-<h3 id="push-changes-to-new-branch">Push changes to new branch</h3>
+<h2 id="push-changes-to-new-branch">Push changes to new branch</h2>
 
 <ol>
   <li><code class="highlighter-rouge">git checkout -b newBranch</code></li>
   <li><code class="highlighter-rouge">git push -u origin newBranch</code>  // -u is short for <code class="highlighter-rouge">--set-upstream</code></li>
 </ol>
 
-<h3 id="stash-usage">Stash Usage</h3>
+<h2 id="new-branch-from-remote">New branch from remote</h2>
+
+<ol>
+  <li><code class="highlighter-rouge">git checkout -b localBranch origin/remote_branch</code></li>
+</ol>
+
+<h2 id="stash-usage">Stash Usage</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash  // stash current changes
 git stash pop  // pop last stash and remove from history
@@ -249,41 +270,29 @@ git stash list // show all stashes
 git stash apply &lt;id&gt;  // apply &lt;id&gt; stash
 </code></pre></div></div>
 
-<h3 id="common-alias">Common Alias</h3>
+<h2 id="common-alias">Common Alias</h2>
 
-<ul>
-  <li>git config –global alias.s “status”</li>
-  <li>git config –global alias.a “!git add . &amp;&amp; git status”</li>
-  <li>git config –global alias.au “!git add -u . &amp;&amp; git status”</li>
-  <li>git config –global alias.aa “!git add . &amp;&amp; git add -u . &amp;&amp; git status”</li>
-  <li>git config –global alias.c “commit”</li>
-  <li>git config –global alias.cm “commit -m”</li>
-  <li>git config –global alias.ca “commit –amend”</li>
-  <li>git config –global alias.ac “!git add . &amp;&amp; git commit”</li>
-  <li>git config –global alias.acm “!git add . &amp;&amp; git commit -m”</li>
-  <li>git config –global alias.l “log –graph –all –pretty=format:’%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset”</li>
-  <li>git config –global alias.ll “log –stat –abbrev-commit”</li>
-  <li>git config –global alias.lg “log –color –graph –pretty=format:’%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit –date=relative”</li>
-  <li>git config –global alias.llg ‘log –color –graph –pretty=format:’%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an &lt;%ae&gt;%Creset %C(bold green)%cr (%ci)’ –abbrev-commit”</li>
-  <li>git config –global alias.d “diff”</li>
-  <li>git config –global alias.master “checkout master”</li>
-  <li>git config –global alias.spull “svn rebase”</li>
-  <li>git config –global alias.spush “svn dcommit”</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>git config –global alias.alias “!git config –list</td>
-          <td>grep ‘alias.’</td>
-          <td>sed ‘s/alias.([^=]<em>)=(.</em>)/\1\     =&gt; \2/’</td>
-          <td>sort”</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-</ul>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global alias.s "status"
+git config --global alias.a "!git add . &amp;&amp; git status"
+git config --global alias.au "!git add -u . &amp;&amp; git status"
+git config --global alias.aa "!git add . &amp;&amp; git add -u . &amp;&amp; git status"
+git config --global alias.c "commit"
+git config --global alias.cm "commit -m"
+git config --global alias.ca "commit --amend"
+git config --global alias.ac "!git add . &amp;&amp; git commit"
+git config --global alias.acm "!git add . &amp;&amp; git commit -m"
+git config --global alias.l "log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset"
+git config --global alias.ll "log --stat --abbrev-commit"
+git config --global alias.lg "log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"
+git config --global alias.llg 'log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an &lt;%ae&gt;%Creset %C(bold green)%cr (%ci)' --abbrev-commit"
+git config --global alias.d "diff"
+git config --global alias.master "checkout master"
+git config --global alias.spull "svn rebase"
+git config --global alias.spush "svn dcommit"
+git config --global alias.alias "!git config --list | grep 'alias\.' | sed 's/alias\.\([^=]*\)=\(.*\)/\1\     =&gt; \2/' | sort"
+</code></pre></div></div>
 
-<h3 id="workflow-with-git-fork-branching-commits-and-pull-request">Workflow with Git: Fork, Branching, Commits, and Pull Request</h3>
+<h2 id="workflow-with-git-fork-branching-commits-and-pull-request">Workflow with Git: Fork, Branching, Commits, and Pull Request</h2>
 
 <ol>
   <li>
@@ -333,12 +342,9 @@ git stash apply &lt;id&gt;  // apply &lt;id&gt; stash
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout master
 $ git pull upstream master
 </code></pre></div>    </div>
+
+    <p>ATTENTION: any time you lost of track of your code – launch “gitk —all” in source folder, UI application come up that will show all branches and history in pretty view, explanation.</p>
   </li>
-</ol>
-
-<p>ATTENTION: any time you lost of track of your code – launch “gitk —all” in source folder, UI application come up that will show all branches and history in pretty view, explanation.</p>
-
-<ol>
   <li>
     <p>Rebase my-new-branch branch on top of the upstream master:</p>
 
@@ -370,7 +376,7 @@ git diff my-new-branch upstream/master</p>
   </li>
 </ol>
 
-<h3 id="submodule">submodule</h3>
+<h2 id="submodule">Submodule</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git submodule add submodule-repo path
   git submodule update --init --recursive

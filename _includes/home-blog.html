@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h2>{{ site.data.language.new_blog_entries }}</h2>
-                {% for post in site.posts limit:5 %} {% if post.subheadline %}
+                {% for post in site.posts limit:6 %} {% if post.subheadline %}
                 <p class="subheadline">{{ post.subheadline }}</p>{% endif %}
                 <h4>
                     <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -21,8 +21,8 @@
                 <h2>{{ site.data.language.library }}</h2>
                 {% for item in site.data.library.items %}
                 <h4>
-                    {{ item.name }}
-                    <small>- {{ item.title }}</small>
+                    {{ item.name }}{% if item.title %}
+                    <small>- {{ item.title }}</small>{% endif %}
                 </h4>
                 <p class="one-line">
                     {% for link in item.links %}
@@ -30,6 +30,8 @@
                     {% endfor %}
                 </p>
                 {% endfor %}
+                <br />
+                <a href="https://github.com/bndynet?tab=repositories" target="_blank">{{ site.data.language.more }}</a>
             </div>
 
         </div>

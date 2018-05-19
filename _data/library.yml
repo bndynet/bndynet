@@ -1,6 +1,6 @@
 items:
-  - name: Jlib
-    title: A Java Library
+  - name: Java Library
+    title: Common Utils
     links:
       - text: Repo
         css:  primary
@@ -8,6 +8,24 @@ items:
       - text: Documentation
         css: info
         url: https://bndynet.github.io/Jlib/javadoc/
+  - name: Full Text Search
+    title: An interface based on Apache Lucene
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/ftsi
+  - name: Cache
+    title: Supports Java, Memcache and Redis
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/cache
+  - name: Configuration Utils
+    title: Operations for .xml, .propreties and .yml
+    links:
+      - text: Repo
+        css:  primary
+        url: https://github.com/bndynet/ConfigurationManager
   - name: jslib
     title: Utils for jQuery, AngularJS, Lodash...
     links:
@@ -26,12 +44,3 @@ items:
       - text: Documentation
         css: info
         url: #
-  - name: jDialog
-    title: A Javascript Dialog
-    links:
-      - text: Repo
-        css:  primary
-        url: https://github.com/bndynet/jDialog
-      - text: Demo
-        css: warning
-        url: https://bndynet.github.io/jDialog/demo/

@@ -1,6 +1,5 @@
 items:
-  - name: Jlib
-    title: Java常用工具类库
+  - name: Java常用工具类库
     links:
       - text: 源码
         css:  primary
@@ -8,7 +7,25 @@ items:
       - text: 文档
         css: info
         url: https://bndynet.github.io/Jlib/javadoc/
-  - name: jslib
+  - name: 全文索引
+    title: 基于Apache Lucene的接口
+    links:
+      - text: 源码 
+        css:  primary
+        url: https://github.com/bndynet/ftsi
+  - name: 缓存
+    title: 支持Java, Memcache和Redis
+    links:
+      - text: 源码
+        css:  primary
+        url: https://github.com/bndynet/cache
+  - name: 配置管理工具
+    title: 支持.xml, .propreties和.yml配置文件
+    links:
+      - text: 源码
+        css:  primary
+        url: https://github.com/bndynet/ConfigurationManager
+  - name: JavaScript库
     title: 扩展jQuery,AngularJS, Lodash
     links:
       - text: 源码
@@ -17,21 +34,8 @@ items:
       - text: 文档
         css: info
         url: https://bndynet.github.io/jslib/docs/
-  - name: Pylib
-    title: Python类库
+  - name: Python类库
     links:
       - text: 源码
         css:  primary
         url: https://github.com/bndynet/Pylib
-      - text: 文档
-        css: info
-        url: #
-  - name: jDialog
-    title: Javascript对话框
-    links:
-      - text: 源码
-        css:  primary
-        url: https://github.com/bndynet/jDialog
-      - text: 演示
-        css: warning
-        url: https://bndynet.github.io/jDialog/demo/
