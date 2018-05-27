@@ -1,10 +1,10 @@
 <html>
 <head>
   <title>
-    OAuth - Index
+    OAuth
   </title>
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/jquery.js"></script>
 <body>
 <p>
 => Authorizing...
@@ -17,7 +17,7 @@
     var scope = "all";
     $(function () {
         if (location.href.indexOf('code=') < 0 && location.href.indexOf('error=') < 0) {
-            location.href = 'http://localhost:9090/oauth/authorize?response_type=code&scope=' + scope + '&client_id=' + client_id + '&redirect_uri=' + redirect_url;
+            location.href = 'http://demo.bndy.net/wf/oauth/authorize?response_type=code&scope=' + scope + '&client_id=' + client_id + '&redirect_uri=' + redirect_url;
         } else {
             var code = location.href.match(/(?<=code=).*/g);
             if (code) {
