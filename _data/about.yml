@@ -3,6 +3,9 @@ img: /img/contributors/bendy.png
 text: >-
  Hi, my name is Bing Zhang, I always focus on Java, .Net, Frontend, Database, CI and Docker.
 items:
+  - name: My Wiki
+    icon: http://icons.iconarchive.com/icons/stalker018/mmii-flat-vol-3/128/wikipedia-icon.png
+    url: http://wiki.bndy.net
   - name: My Dockers
     icon: https://www.docker.com/favicon/favicon-32x32.png
     url: https://hub.docker.com/r/bndynet/
