@@ -2,10 +2,6 @@
   url: "#github"
   side: left
 
-- title: 我的百科
-  url: "http://wiki.bndy.net"
-  side: left
-
 - title: 我的项目
   url: "#projects"
   side: left
