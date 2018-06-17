@@ -1,6 +1,6 @@
 - title: "Web Framework 4 .Net"
   url: 'https://github.com/bndynet/web-framework'
-  image: 'https://raw.githubusercontent.com/BndyNet/web-framework/master/screenshots/home.png'
+  image: 'https://raw.githubusercontent.com/bndyNet/web-framework/master/screenshots/home.png'
   text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily. Frontend is using AngularJS and Bootstarp.'
 
 - title: "Web Framework 4 Java"
@@ -12,3 +12,9 @@
   url: 'https://github.com/bndynet/node-starter'
   text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
   image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
+
+- title: "Dashboard for GitHub"
+  url: 'https://github.com/bndynet/github-dashboard'
+  text: ''
+  image: 'http://bndynet.github.io/github-dashboard/images/gh-dashboard.png'
+  

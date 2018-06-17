@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row">
             {% assign item_size = site.data.projects | size %} {% for item in site.data.projects %}
-            <div class="col-md-{{ 12 | divided_by: item_size }} widget">
+            <!-- one line: col-md-{{ 12 | divided_by: item_size }}  -->
+            <div class="col-md-4 widget">
                 <a href="{{ item.url }}">
                     <img src="{{ item.image}}" />
                 </a>
