@@ -4,7 +4,7 @@ text: >-
  欢迎访问我的个人网站，我一直致力于Java，.Net, 前端和数据库的开发工作, 同时对持续集成和交付等软件过程及项目管理有着浓厚的兴趣。
 items:
   - name: My Wiki
-    icon: http://icons.iconarchive.com/icons/stalker018/mmii-flat-vol-3/128/wikipedia-icon.png
+    icon: https://en.wikipedia.org/static/images/project-logos/enwiki-2x.png
     url: http://wiki.bndy.net
   - name: My Dockers
     icon: https://www.docker.com/favicon/favicon-32x32.png
@@ -13,11 +13,11 @@ items:
     icon: https://static.npmjs.com/58a19602036db1daee0d7863c94673a4.png
     url: https://www.npmjs.com/org/bndynet
   - name: Maven
-    icon: http://maven.apache.org/images/maven-logo-black-on-white.png
+    icon: https://maven.apache.org/images/maven-logo-black-on-white.png
     url: https://www.mvnrepository.com/artifact/net.bndy
   - name: Microsoft VSTS
     icon: fa fa-windows
     url: https://bndy.visualstudio.com/
   - name: GitHub
     icon: fa fa-github
-    url: http://github.com/bndynet
+    url: https://github.com/bndynet

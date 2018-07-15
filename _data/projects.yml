@@ -16,5 +16,5 @@
 - title: "Dashboard for GitHub"
   url: 'https://github.com/bndynet/github-dashboard'
   text: 'A simple dashboard for GitHub. It is a starter project of React, TypeScript and Webpack.'
-  image: 'http://bndynet.github.io/github-dashboard/images/gh-dashboard.png'
+  image: 'https://bndynet.github.io/github-dashboard/images/gh-dashboard.png'
   
