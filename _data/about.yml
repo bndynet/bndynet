@@ -4,7 +4,7 @@ text: >-
  Hi, my name is Bing Zhang, I always focus on Java, .Net, Frontend, Database, CI and Docker.
 items:
   - name: My Wiki
-    icon: https://en.wikipedia.org/static/images/project-logos/enwiki-2x.png
+    icon: https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png
     url: http://wiki.bndy.net
   - name: My Dockers
     icon: https://www.docker.com/favicon/favicon-32x32.png
