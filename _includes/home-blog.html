@@ -1,39 +1,25 @@
 <section id="blog">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <h2>{{ site.data.language.new_blog_entries }}</h2>
-                {% for post in site.posts limit:6 %} {% if post.subheadline %}
-                <p class="subheadline">{{ post.subheadline }}</p>{% endif %}
-                <h4>
-                    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                </h4>
-                <p class="one-line">
-                    {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html
-                    | escape }}{% endif %}
-                </p>
-                {% endfor %}
-                <br />
-                <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{ site.data.language.more }}</a>
-            </div>
-
-            <div class="col-md-4">
-                <h2>{{ site.data.language.library }}</h2>
-                {% for item in site.data.library.items %}
-                <h4>
-                    {{ item.name }}{% if item.title %}
-                    <small>- {{ item.title }}</small>{% endif %}
-                </h4>
-                <p class="one-line">
-                    {% for link in item.links %}
-                    <a href="{{ link.url }}" class="label label-{{ link.css }}" target="_blank">{{ link.text }}</a>
-                    {% endfor %}
-                </p>
-                {% endfor %}
-                <br />
-                <a href="https://github.com/bndynet?tab=repositories" target="_blank">{{ site.data.language.more }}</a>
-            </div>
-
+            <h2>
+                {{ site.data.language.new_blog_entries }}
+                <small class="pull-right">
+                    <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{ site.data.language.more }}</a>
+                </small>
+            </h2>
+            {% for post in site.posts limit:12 %}
+                <div class="col-md-6">
+                    {% if post.subheadline %}
+                    <p class="subheadline">{{ post.subheadline }}</p>{% endif %}
+                    <h4>
+                        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    </h4>
+                    <p class="one-line">
+                        {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html
+                        | escape }}{% endif %}
+                    </p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>

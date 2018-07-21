@@ -15,8 +15,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-name: BNDY.NET
-title: BNDY.NET
+name: BNDY-NET
+title: BNDY-NET · Bendy's Personal Website
 author: Bendy Zhang
 email: zb@bndy.net
 

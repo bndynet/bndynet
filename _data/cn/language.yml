@@ -2,7 +2,7 @@ cn: "中文"
 en: "English"
 err404: "): 糟糕 :("
 err404_des: "您所浏览的页面未能找到，<a href='/'>返回首页</a>"
-copyright: 版本所有 &copy; 2013-2017 BNDY.NET
+copyright: 版本所有 &copy; 2013-2017 BNDY-NET
 
 more: 更多 ›
 read_more: 更多 &nbsp;›
@@ -12,6 +12,5 @@ blog_archive: 博客列表
 blog: 博客
 new_blog_entries: 最近博客
 
-library: 类库组件
 search_gists: 搜索Gist...
 resume: 我的履历

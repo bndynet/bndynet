@@ -2,7 +2,7 @@ cn: "中文"
 en: "English"
 err404: "Page not found :("
 err404_des: "The requested page could not be found."
-copyright: Copyright &copy; 2013-2017 BNDY.NET
+copyright: Copyright &copy; 2013-2017 BNDY-NET
 
 back: "Back"
 more: "More ›"
@@ -12,6 +12,5 @@ blog_archive: "Blog Archive"
 blog: "Blog"
 new_blog_entries: "New Blog Articles"
 
-library: "My Library"
 search_gists: "Search Gists..."
 resume: "My Resume"

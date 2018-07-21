@@ -151,16 +151,15 @@ article {
 }
 #github-events {
   position: absolute;
-  top: 120px;
-  padding-top: 60px;
+  top: 180px;
   z-index: 0;
-  color: white;
+  color: #dddddd;
   right: 0;
   width: 306px;
   font-size: 1rem;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 185px);
   overflow: hidden;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px #333;
   .item {
     border-bottom: dotted 1px #aaa;
     margin: 5px;
@@ -230,11 +229,24 @@ footer {
 }
 
 .widget {
-  img {
+  & > a {
+    display: block;
+    text-align: center;
     width: 100%;
     height: 200px;
     border: 1px solid #dedede;
     box-shadow: 2px 2px 2px #dedede;
+    overflow: hidden;
+
+    &:hover {
+      border-color: $theme-primary;
+      box-shadow: 2px 2px 5px $theme-primary;
+    }
+
+    & > img {
+      max-width: 100%;
+      height: 200px;
+    }
   }
 }
 
@@ -250,6 +262,22 @@ footer {
   &.cn {
     label {
       min-width: 80px;
+    }
+  }
+}
+
+.label {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 12px;
+  margin-bottom: 0.5em;
+
+  &.label-outline {
+    border: 1px solid #dddddd;
+    color: #333;
+    &:hover {
+      background-color: $theme-primary;
+      border-color: $theme-primary;
     }
   }
 }

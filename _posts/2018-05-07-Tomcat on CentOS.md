@@ -13,7 +13,7 @@ Installation and Configuration on CentOS
 ## Requirement
 Open a terminal and switch to root user.
 
-```shell
+```bash
 su -
 yum install -y java-1.8.0 wget
 java -version
@@ -37,7 +37,7 @@ chown -R tomcat:tomcat /opt/tomcat/
 
 ## Set Environment Variables
 
-```shell
+```bash
 mkdir /opt/tomcat/bin/setenv.sh
 chmod 777 /opt/tomcat/bin/setenv.sh
 ```
@@ -95,7 +95,7 @@ systemctl enable tomcat   //Enable the auto start of Tomcat service on system st
 
 ## Verify Apache Tomcat
 By default, Tomcat runs on port no 8080. Use netstat command to check whether the service is listening on port 8080 or not.
-```shell
+```bash
 netstat -antup | grep 8080
 ```
 Output:
@@ -107,8 +107,16 @@ tcp6       0      0 :::8080                 :::*                    LISTEN      
 
 You may need to allow port 8080 in the firewall so that we can access Tomcat from external networks.
 
-```shell
+```bash
 firewall-cmd --permanent --add-port=8080/tcp
 firewall-cmd --reload
 ```
+
+If you want to run tomcat at port 80, the easy way is:
+
+```bash
+firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080
+```
+
+NOTE: below 1024 ports need to run under ROOT user. If your tomcat run as non-root, you can use above to redirect 80 to 8080.
 
