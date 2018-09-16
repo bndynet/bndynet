@@ -5,7 +5,7 @@
             <!-- one line: col-md-{{ 12 | divided_by: item_size }}  -->
             <div class="col-md-4 widget">
                 <a href="{{ item.url }}">
-                    <img src="{{ item.image}}" />
+                    <img src="{{ item.image }}" style="{{ item.imageCss }}"/>
                 </a>
                 <h2>{{ item.title }}</h2>
                 <p>{{ item.text }}</p>
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Other Projects</h1>
+                <h1>More Projects</h1>
                 <hr />
                 <h2>For Java</h2>
                 <p>

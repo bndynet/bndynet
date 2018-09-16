@@ -16,4 +16,9 @@ $(function () {
         var k = $('.input-keywords-gists').val();
         window.open('https://gist.github.com/search?q=user:bndynet ' + k);
     });
+
+    // highlightjs
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
 });

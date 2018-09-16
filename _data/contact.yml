@@ -5,6 +5,10 @@ items:
     url: https://www.facebook.com/bendy.zhang 
     icon: fa fa-facebook-official
 
+  - name: Twitter
+    url: https://twitter.com/bndynet
+    icon: fa fa-twitter-square
+
   - name: WeChat
     url: /img/wechat_qrcode.png
     icon: fa fa-wechat

@@ -4,10 +4,6 @@ body {
     width: 100%;
 }
 
-body {
-    @include serif-font;
-}
-
 hr {
     border-color: $theme-primary;
     border-width: 3px;
@@ -33,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-    @include sans-serif-font;
+    font-weight: normal;
 }
 
 p {
@@ -72,11 +68,9 @@ aside {
 .navbar-default {
     background-color: white;
     border-color: rgba($theme-dark, .5);
-    @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
         color: $theme-primary;
-        @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
@@ -246,7 +240,6 @@ header {
             transform: translateY(-50%);
             .project-category,
             .project-name {
-                @include sans-serif-font;
                 padding: 0 15px;
             }
             .project-category {
@@ -304,7 +297,6 @@ header {
 }
 
 .btn {
-    @include sans-serif-font;
     border: none;
     border-radius: 300px;
     font-weight: 700;
