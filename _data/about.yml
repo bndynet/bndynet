@@ -21,3 +21,6 @@ items:
   - name: GitHub
     icon: fa fa-github
     url: https://github.com/bndynet
+  - name: Stack Overflow
+    icon: fa fa-stack-overflow
+    url: https://stackoverflow.com/users/10189619/bendy-zhang
