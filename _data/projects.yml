@@ -21,7 +21,7 @@
 - title: "Bbootstrap"
   url: 'https://bndynet.github.io/bbootstrap/'
   text: 'Enhancement integrated useful components and based on bootstrap 4 for best UI.'
-  image: 'https://raw.githubusercontent.com/bndynet/bbootstrap/master/docs/images/home.png'
+  image: 'https://raw.githubusercontent.com/bndynet/bbootstrap/master/screenshots/home.png'
 
 - title: "Spring Cloud"
   url: 'https://github.com/bndynet/spring-cloud-starter'
