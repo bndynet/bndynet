@@ -1,6 +1,6 @@
 - title: "Web Framework 4 .Net"
   url: 'https://github.com/bndynet/web-framework'
-  image: 'https://raw.githubusercontent.com/bndyNet/web-framework/master/screenshots/home.png'
+  image: 'https://raw.githubusercontent.com/bndynet/web-framework/master/screenshots/home.png'
   text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily. Frontend is using AngularJS and Bootstarp.'
 
 - title: "Web Framework 4 Java"
@@ -21,12 +21,17 @@
 - title: "Bbootstrap"
   url: 'https://bndynet.github.io/bbootstrap/'
   text: 'Enhancement integrated useful components and based on bootstrap 4 for best UI.'
-  image: 'https://getbootstrap.com/docs/4.1/assets/img/bootstrap-stack.png'
+  image: 'https://raw.githubusercontent.com/bndynet/bbootstrap/master/screenshots/home.png'
 
 - title: "Spring Cloud"
   url: 'https://github.com/bndynet/spring-cloud-starter'
   text: 'Starter project for spring cloud implemented Single Sign On service.'
   image: 'https://spring.io/img/homepage/icon-spring-cloud.svg'
-  imageCss: 'margin-top: 2rem;'
+  imageCss: 'padding: 2rem;'
+
+- title: "Admin for React"
+  url: 'https://admin-react.bndy.net'
+  text: 'A starter admin template with React, React Redux, Material UI and TypeScript that packages using Webpack and integrates a minimal project structure.'
+  image: 'https://raw.githubusercontent.com/bndynet/admin-template-for-react/master/docs/images/admin-home.png'
   
   
