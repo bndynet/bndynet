@@ -1,17 +1,17 @@
-- title: "Web Framework 4 .Net"
-  url: 'https://github.com/bndynet/web-framework'
-  image: 'https://raw.githubusercontent.com/bndynet/web-framework/master/screenshots/home.png'
-  text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily. Frontend is using AngularJS and Bootstarp.'
-
 - title: "Web Framework 4 Java"
   url: 'https://github.com/bndynet/web-framework-for-java'
   text: 'A starter project with spring boot for AngularJS, AngularJs Material, Thymeleaf, RESTful API, MySQL, Redis and MongoDB.'
   image: 'https://raw.githubusercontent.com/bndynet/web-framework-for-java/master/docs/img/admin-home.png'
 
-- title: "Node.js Web Application"
-  url: 'https://github.com/bndynet/node-starter'
-  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
-  image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
+- title: "Web Framework 4 .Net"
+  url: 'https://github.com/bndynet/web-framework'
+  image: 'https://raw.githubusercontent.com/bndynet/web-framework/master/screenshots/home.png'
+  text: 'The Web Framework is a project for building great Web sites and Web applications using C# fast and easily. Frontend is using AngularJS and Bootstarp.'
+
+- title: "Admin for React"
+  url: 'https://admin-react.bndy.net'
+  text: 'A starter admin template with React, React Redux, Material UI and TypeScript that packages using Webpack and integrates a minimal project structure.'
+  image: 'https://raw.githubusercontent.com/bndynet/admin-template-for-react/master/docs/images/admin-home.png'
 
 - title: "Dashboard for GitHub"
   url: 'http://gh-dashboard.bndy.net/'
@@ -23,19 +23,24 @@
   text: 'Enhancement integrated useful components and based on bootstrap 4 for best UI.'
   image: 'https://raw.githubusercontent.com/bndynet/bbootstrap/master/screenshots/home.png'
 
-- title: "Spring Cloud"
-  url: 'https://github.com/bndynet/spring-cloud-starter'
-  text: 'Starter project for spring cloud implemented Single Sign On service.'
-  image: 'https://spring.io/img/homepage/icon-spring-cloud.svg'
-  imageCss: 'padding: 2rem;'
+- title: "Node.js Web Application"
+  url: 'https://github.com/bndynet/node-starter'
+  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
+  image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
 
-- title: "Admin for React"
-  url: 'https://admin-react.bndy.net'
-  text: 'A starter admin template with React, React Redux, Material UI and TypeScript that packages using Webpack and integrates a minimal project structure.'
-  image: 'https://raw.githubusercontent.com/bndynet/admin-template-for-react/master/docs/images/admin-home.png'
-  
+- title: "Android Starter Project"
+  url: 'https://github.com/bndynet/android-starter'
+  text: 'A starter project for Android with useful UI components(like table, splash screen...), HTTP utils, Database utils and custom UI for using barcode scanner.'
+  image: 'https://www.famouslogos.net/images/android-logo.jpg'
+  imageCss: 'width: 260px;'
+
 - title: "GitHub Gist"
   url: 'https://gh-gist.bndy.net'
   text: 'A tool to provide another way to manage your GitHub gists with builtin Markdown Editor.'
   image: 'https://geekytheory.com/wp-content/uploads/2015/02/gist_github.jpg'
-  
+
+- title: "Spring Cloud Starter"
+  url: 'https://github.com/bndynet/spring-cloud-starter'
+  text: 'A starter project for spring cloud implemented Single Sign On service and OAuth service.'
+  image: 'https://spring.io/img/homepage/icon-spring-cloud.svg'
+  imageCss: 'padding: 5rem;'
