@@ -17,6 +17,7 @@
                     <p class="one-line">
                         {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html
                         | escape }}{% endif %}
+                        &nbsp;
                     </p>
                 </div>
             {% endfor %}
