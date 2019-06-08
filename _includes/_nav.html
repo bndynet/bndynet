@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menus">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
                 <img src="https://static.bndy.net/images/logo.png" style="height: 50px;" title="{{ site.name }}" />
             </a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div id="menus" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 {% for nav in site.data.navigations %}
                 <li>

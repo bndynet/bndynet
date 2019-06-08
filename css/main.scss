@@ -138,6 +138,18 @@ article {
   }
 }
 
+@media (max-width: 768px) {
+  #searchForm {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  #searchForm {
+    display: none;
+  }
+}
+
 #contributors {
   position: absolute;
   top: 100px;
@@ -236,7 +248,7 @@ footer {
 }
 
 .widget {
-  height: 350px;
+  max-height: 350px;
   & > a {
     display: block;
     text-align: center;

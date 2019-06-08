@@ -1,25 +1,32 @@
 <section id="blog">
     <div class="container">
+        <h2>
+            {{ site.data.language.new_blog_entries }}
+            <small class="pull-right">
+                <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{
+                    site.data.language.more
+                }}</a>
+            </small>
+        </h2>
         <div class="row">
-            <h2>
-                {{ site.data.language.new_blog_entries }}
-                <small class="pull-right">
-                    <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{ site.data.language.more }}</a>
-                </small>
-            </h2>
             {% for post in site.posts limit:12 %}
-                <div class="col-md-6">
-                    {% if post.subheadline %}
-                    <p class="subheadline">{{ post.subheadline }}</p>{% endif %}
-                    <h4>
-                        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                    </h4>
-                    <p class="one-line">
-                        {% if post.meta_description %}{{ post.meta_description | strip_html | escape }}{% else post.teaser %}{{ post.teaser | strip_html
-                        | escape }}{% endif %}
-                        &nbsp;
-                    </p>
-                </div>
+            <div class="col-md-6">
+                {% if post.subheadline %}
+                <p class="subheadline">{{ post.subheadline }}</p>
+                {% endif %}
+                <h4>
+                    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{
+                        post.title
+                    }}</a>
+                </h4>
+                <p class="one-line">
+                    {% if post.meta_description %}{{
+                        post.meta_description | strip_html | escape
+                    }}{% else post.teaser %}{{
+                        post.teaser | strip_html | escape
+                    }}{% endif %} &nbsp;
+                </p>
+            </div>
             {% endfor %}
         </div>
     </div>
