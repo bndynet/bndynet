@@ -18,3 +18,9 @@ jekyll serve
 ```
 
 NOTE: use `jekyll build` for publishing
+
+Issues:
+
+- You have already activated <pkg> <version>, but your Gemfile requires <pkg> <version>
+
+  Fix: `bundle clean --force` to remove every system gem not in this bundle
