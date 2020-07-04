@@ -132,7 +132,7 @@ GEM
       jekyll (~> 3.3)
     jekyll-remote-theme (0.2.3)
       jekyll (~> 3.5)
-      rubyzip (>= 1.2.1, < 2.0)
+      rubyzip (~> 1.2)
       typhoeus (>= 0.7, < 2.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
