@@ -9,7 +9,7 @@ $(function () {
         }
         $('#github-events').html(
             github.render(events, '<div class="item">' +
-                '<div><div style="float:left">%action%</div> <div style="float:right">%date%</div> </div> ' +
+                '<div><div style="float:left">%action%</div></div> ' +
                 '<div style="clear: both;">[<a href="%repoUrl%">%repo%</a>] %title% </div>' +
                 '</div>'));
     });
