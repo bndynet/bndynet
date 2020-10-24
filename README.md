@@ -25,5 +25,5 @@
 
 <p>
 <img align="center" width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bndynet&theme=radical&layout=compact&hide=html,css" />
-<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api?username=bndynet&&show_icons=true&theme=radical&line_height=37&count_private=true&hide=contribs" alt="Bendy's GitHub Stats" />
+<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api?username=bndynet&&show_icons=true&theme=radical&line_height=29.5&count_private=true&hide=contribs" alt="Bendy's GitHub Stats" />
 </p>
