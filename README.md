@@ -19,8 +19,7 @@
 <img align="center" width="46.5%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=web-framework-for-java&theme=radical" />
 <img align="center" width="50%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=admin-template-for-react&theme=radical" />
 </p>
-<br />
-<br />
+
 
 ### 🙈 statistics
 
