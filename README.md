@@ -14,13 +14,16 @@
 
 
 ### 👀 Active Repo
-<p>
-<img align="left" width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=web-framework-for-java&theme=radical" />
-<img align="right" width="47%" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=admin-template-for-react&theme=radical" />
-</p>
 
+<p style="height:168px">
+<img align="left" width="47%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=web-framework-for-java&theme=radical" />
+<img align="right" width="47%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=admin-template-for-react&theme=radical" />
+</p>
+<br />
+<br />
 
 ### 🙈 statistics
+
 <p>
 <img align="left" width="47%" src="https://github-readme-stats.vercel.app/api?username=bndynet&&show_icons=true&theme=radical&line_height=27&v=5&count_private=true" alt="Bendy's GitHub Stats" />
 <img align="right" width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bndynet&theme=radical&layout=compact&hide=html,css" />
