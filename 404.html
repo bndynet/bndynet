@@ -1,4 +1,5 @@
 ---
+permalink: /404.html
 layout: default
 ---
 
@@ -18,13 +19,7 @@ layout: default
 
 <div class="container">
   <h1>404</h1>
-  <p><strong>{{ site.data.language.err404 }}</strong></p>
-  <p>{{ site.data.language.err404_des }}</p>
+
+  <p><strong>Page not found :(</strong></p>
+  <p>The requested page could not be found.</p>
 </div>
-<script>
-  if (location.href.indexOf('404.html') < 0) {
-    if (location.href.indexOf('/cn/') > 0) {
-      location.href = '/cn/404.html';
-    }
-  }
-</script>
