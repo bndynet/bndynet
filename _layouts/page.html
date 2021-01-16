@@ -1,55 +1,63 @@
 ---
 layout: default
-format: post
 ---
+
+{% include assets-origin.html %}
+
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<div class="back-box">
-			<a href="/blog/archive">
-				<i class="fa fa-chevron-left"></i>
-				{{ site.data.language.back }}
-			</a>
-		</div>
-		<article itemscope itemtype="http://schema.org/Article">
-			<div>
-				{% if page.image.title %}
-				<figure>
-					<img src="{{ site.urlimg }}{{ page.image.title }}" width="970" alt="{{ page.title | escape_once }}" itemprop="image">
 
-					{% if page.image.caption_url and page.image.caption %}
-					<figcaption class="text-right">
-						<a href="{{ page.image.caption_url }}">{{ page.image.caption }}</a>
-					</figcaption>
-					{% elsif page.image.caption %}
-					<figcaption class="text-right">
-						{{ page.image.caption }}
-					</figcaption>
-					{% endif %}
-				</figure>
-				{% endif %}
+  <!-- core -->
+  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4">
+    <div class="post pl-1 pr-1 pl-md-2 pr-md-2">
 
-				<div itemprop="name">
-					<h1 style="margin: 24px 0 2rem 0;">
-						<span>
-							{{ page.title }}
-							{% if page.subheadline %}<small class="subheadline">{{ page.subheadline }}</small>{% endif %}
-						</span>
-                    </h1>
-				</div>
-            </div>
+    {% capture _content %}
+      {% if layout.refactor or page.layout == 'page' %}
+        {% include refactor-content.html content=content %}
+      {% else %}
+        {{ content }}
+      {% endif %}
+    {% endcapture %}
 
+    {% if page.layout == 'page' or page.collection == 'tabs' %}
+      {% assign tab_key = page.title | downcase %}
+      {% assign title = site.data.locales[site.lang].tabs[tab_key] | default: page.title %}
+      <h1 class="dynamic-title">
+        {{ title }}
+      </h1>
+      <div class="post-content">
+        {{ _content }}
+      </div>
+    {% else %}
+      {{ _content }}
+    {% endif %}
 
-            {% if page.teaser != page.title %}
-                {% unless content contains page.teaser %}
-                <p class="teaser" itemprop="description">
-                    {{ page.teaser }}
-                </p>
-                {% endunless %}
-			{% endif %}
+    </div>
+  </div> <!-- #core-wrapper -->
 
-			<div itemprop="articleSection">
-			{{ content }}
-			</div>
-		</article>
-	</div>
+  <!-- panel -->
+  <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted">
+
+    <div class="access">
+      {% include update-list.html %}
+      {% include trending-tags.html %}
+    </div>
+
+    {% for _include in layout.panel_includes %}
+      {% assign _include_path = _include | append: '.html' %}
+      {% include {{ _include_path }} %}
+    {% endfor %}
+  </div>
+
 </div>
+
+<!-- tail -->
+{% if layout.tail_includes %}
+<div class="row">
+  <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4 mt-5">
+    {% for _include in layout.tail_includes %}
+      {% assign _include_path = _include | append: '.html' %}
+      {% include {{ _include_path }} %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
