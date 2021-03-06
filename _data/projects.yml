@@ -31,16 +31,16 @@
 - title: "Android Starter Project"
   url: 'https://github.com/bndynet/android-starter'
   text: 'A starter project for Android with useful UI components(like table, splash screen...), HTTP utils, Database utils and custom UI for using barcode scanner.'
-  image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3652293281,1121250120&fm=26&gp=0.jpg'
+  image: 'https://th.bing.com/th/id/R.22bec9984f8753eb4067350a4b4c2574?rik=I%2fGeQLRoty2PXQ&riu=http%3a%2f%2fwww.thetop10s.net%2fwp-content%2fuploads%2f2013%2f07%2fandroid.jpg&ehk=vaM7j9BpVLZGWKD4NRDcIyUVjb6ynu8SwI8uJicsFq8%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1'
   imageCss: 'width: 260px;'
 
 - title: "GitHub Gist"
   url: 'https://gh-gist.bndy.net'
   text: 'A tool to provide another way to manage your GitHub gists with builtin Markdown Editor.'
-  image: 'https://geekytheory.com/wp-content/uploads/2015/02/gist_github.jpg'
+  image: 'https://th.bing.com/th/id/OIP.e3lN67Qt9WbOpujEJywgGwHaEo?pid=ImgDet&rs=1'
 
 - title: "Spring Cloud Starter"
   url: 'https://github.com/bndynet/spring-cloud-starter'
   text: 'A starter project for spring cloud implemented Single Sign On service and OAuth service.'
-  image: 'https://spring.io/img/homepage/icon-spring-cloud.svg'
-  imageCss: 'padding: 5rem;'
+  image: 'https://spring.io/images/cloud-diagram-1a4cad7294b4452864b5ff57175dd983.svg'
+  imageCss: 'height: inherit;'

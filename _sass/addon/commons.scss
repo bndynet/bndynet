@@ -1565,29 +1565,14 @@ $sidebar-display: "sidebar-display";
       margin-top: 4rem;
       margin-bottom: 1rem;
 
-      &.text-center {
-        text-align: left !important;
-      }
-
-      %profile-ml {
-        margin-left: 4.5rem;
-      }
-
       #avatar {
-        @extend %profile-ml;
-
         > a {
           width: 8.2rem;
           height: 8.2rem;
-
-          &.mx-auto {
-            margin-left: 0 !important;
-          }
         }
       }
 
       .site-title {
-        @extend %profile-ml;
 
         margin-top: 0.4rem;
 
@@ -1598,16 +1583,12 @@ $sidebar-display: "sidebar-display";
       }
 
       .site-subtitle {
-        @extend %profile-ml;
-
         word-spacing: 0;
         margin-top: 0;
       }
     } /* .profile-wrapper (min-width: 1650px) */
 
     ul {
-      padding-left: 2.5rem;
-
       > li:last-child {
         > a {
           position: static;
@@ -1632,7 +1613,6 @@ $sidebar-display: "sidebar-display";
     }
 
     .sidebar-bottom {
-      padding-left: 3.5rem;
       width: 100%;
 
       $icon-block-size: 2rem;

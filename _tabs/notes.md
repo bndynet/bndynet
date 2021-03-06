@@ -1,5 +1,5 @@
 ---
 layout: notes 
 icon: fas fa-solid fa-book
-order: 20
+order: 10
 ---

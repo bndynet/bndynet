@@ -1,5 +1,5 @@
 ---
 layout: projects
 icon: fas fa-rocket
-order: 10
+order: 50
 ---
