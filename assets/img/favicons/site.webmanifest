@@ -10,9 +10,9 @@ layout: compress
   "description": "{{ site.description }}",
   "icons": [
     {
-      "src": "{{ favicon_path }}/apple-touch-icon-180x180.png",
+      "src": "https://static.bndy.net/images/logo.svg",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/svg+xml"
     }],
   "start_url": "{{ '/index.html' | relative_url }}",
   "theme_color": "#2a1e6b",
