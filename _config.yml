@@ -135,9 +135,6 @@ collections:
   tabs:
     output: true
     sort_by: order
-  notes:
-    output: true
-    sort_by: order
 
 defaults:
   - scope:
@@ -160,13 +157,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: ''
-      type: notes           # see `site.collections`
-    values:
-      layout: post
-      toc: true
-      permalink: /notes/:title/
   - scope:
       path: assets/img/favicons
     values:
@@ -200,12 +190,10 @@ exclude:
   - package*.json
 
 jekyll-archives:
-  enabled: [categories, tags, notes-category]
+  enabled: [categories, tags]
   layouts:
     category: category
     tag: tag
-    collections-category: collections-category
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-    notes-category: /collections-categories/:name/
