@@ -16,24 +16,24 @@ webfonts: https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:w
 # Libraries
 
 jquery:
-  js: https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+  js: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js
 
 bootstrap:
-  css: https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css
-  js: https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js
+  css: https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css
+  js: https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js
 
 bootstrap-toc:
   css: https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css
   js: https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js
 
 fontawesome:
-  css: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css
+  css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css
 
 search:
-  js: https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js
+  js: https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.9.2/simple-jekyll-search.min.js
 
 mermaid:
-  js: https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.min.js
+  js: https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.2.2/mermaid.min.js
 
 dayjs:
   js:
@@ -46,14 +46,14 @@ countup:
   js: https://cdn.jsdelivr.net/npm/countup.js@1.9.3/dist/countUp.min.js
 
 magnific-popup:
-  css: https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css
-  js: https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js
+  css: https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css
+  js: https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js
 
 lozad:
-  js: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
+  js: https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js
 
 clipboard:
-  js: https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
+  js: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js
 
 polyfill:
   js: https://polyfill.io/v3/polyfill.min.js?features=es6
