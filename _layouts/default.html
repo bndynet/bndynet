@@ -20,20 +20,18 @@ layout: compress
 
   <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
 
-    {% include sidebar.html %}
-
-    {% include topbar.html %}
+    {% include _nav.html %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
-      <div id="main" class="container pl-xl-4 pr-xl-4">
-        {{ content }}
-      </div>
+      {{ content }}
+      <!-- <div id="main" class="container-fluid p-0">
+      </div> -->
 
       {% include search-results.html %}
 
     </div> <!-- #main-wrapper -->
 
-    {% include footer.html %}
+    {% include _footer.html %}
 
     {% if page.mermaid %}
       {% include mermaid.html %}
@@ -65,7 +63,6 @@ layout: compress
     {% include search-loader.html %}
 
     {% include js-selector.html %}
-
   </body>
 
 </html>

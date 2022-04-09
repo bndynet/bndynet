@@ -1,0 +1,21 @@
+<nav id="mainNavbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="https://static.bndy.net/images/logo_fill.svg" style="height: 29px;" title="{{ site.name }}" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto navbar-nav-scroll">
+        {% for nav in site.data.navigations %}
+        <li class="nav-item">
+            <a href="{{ nav.url }}" class="nav-link" onclick="{{ nav.js }}">{{ nav.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </nav>

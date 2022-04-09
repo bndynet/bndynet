@@ -2,12 +2,6 @@
  * The SCSS variables
  */
 
-/* sidebar */
-
-$sidebar-width: 260px !default;        /* the basic width */
-$sidebar-width-small: 210px !default;  /* screen width: >= 850px, <= 1199px (iPad landscape) */
-$sidebar-width-large: 300px !default;  /* screen width: >= 1650px */
-
 /* tabs of sidebar */
 
 $tab-count: 5 !default;   /* backward compatible (version <= 4.0.2) */

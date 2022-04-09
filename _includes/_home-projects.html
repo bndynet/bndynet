@@ -1,0 +1,65 @@
+<section id="projects">
+    <div class="container">
+        <div class="row">
+            {% assign item_size = site.data.projects | size %} {% for item in site.data.projects %}
+            <!-- one line: col-md-{{ 12 | divided_by: item_size }}  -->
+            <div class="col-md-4 widget">
+                <a href="{{ item.url }}">
+                    <img src="{{ item.image }}" style="{{ item.imageCss }}"/>
+                </a>
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.text }}</p>
+                <!-- <p>
+                    <a class="button tiny radius" href="{{ item.url }}">
+                        {{ site.data.language.more }}
+                    </a>
+                </p> -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div style="background-color: #F3F4F9; padding: 30px 0 50px 0; margin: 30px 0;">
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/bndynet/bndy.net/master/docs/Workflow.png" style="width: 100%">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>More Projects</h1>
+                <hr />
+                <h2>For Java</h2>
+                <p>
+                    <a class="label label-outline" href="https://github.com/bndynet/Jlib" target="_blank">Java Library</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/ConfigurationManager" target="_blank">Configuration Management</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/cache" target="_blank">Cache</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/aspect-permission" target="_blank">Aspect Permission</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/ftsi" target="_blank">Full Text Search</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/spring-boot-starter-ftsi" target="_blank">Spring Boot Starter for Full Text Search</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/web-framework-for-java" target="_blank">Web Framework</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/spring-cloud-starter" target="_blank">Spring Cloud</a>
+                </p>
+                <h3>For Frontend</h3>
+                <p>
+                    <a class="label label-outline" href="https://github.com/bndynet/jslib" target="_blank">JavaScript Library</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/jDialog" target="_blank">Dialog</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/bootstrap-more" target="_blank">Extensions for Bootstrap 3.x</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/bbootstrap" target="_blank">Extensions for Bootstrap 4.x</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/angular-more" target="_blank">Extensions for AngularJS 1.x</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/ng-more" target="_blank">Extensions for Angular 4</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/frontend" target="_blank">Starter for TypeScript + Angular 4</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/node-starter" target="_blank">Node.js Application</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/github-dashboard" target="_blank">Dashboard for GitHub</a>
+                </p>
+                <h3>Misc</h3>
+                <p>
+                    <a class="label label-outline" href="https://github.com/bndynet/lib" target="_blank">Library for .Net</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/web-framework" target="_blank">Web Framework for .Net</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/Pylib" target="_blank">Python Library</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/selenium-starter" target="_blank">Starter for Selenium</a>
+                    <a class="label label-outline" href="https://github.com/bndynet/docker.jenkins" target="_blank">Docker for Jenkins with Frontend, Java and .Net Building</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

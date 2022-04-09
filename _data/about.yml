@@ -1,0 +1,23 @@
+title: Hello World!  I am B<span id="about-animate-1" class="animated" toggle-css="fadeOutDown">e</span>ndy.<span id="about-animate-2" class="animated" toggle-css="fadeInUp">Net</span>
+img: https://avatars.githubusercontent.com/u/3853678?v=4
+text: >-
+ Hi, my name is Bing Zhang, I always focus on Java, .Net, Frontend, Database, CI and Docker.
+items:
+  - name: Dockers
+    icon: fab fa-docker
+    url: https://hub.docker.com/r/bndynet/
+  - name: NPM Packages
+    icon: fab fa-npm
+    url: https://www.npmjs.com/org/bndynet
+  - name: Maven
+    icon: fas fa-archive
+    url: https://www.mvnrepository.com/artifact/net.bndy
+  - name: Microsoft VSTS
+    icon: fab fa-microsoft
+    url: https://bndy.visualstudio.com/
+  - name: GitHub
+    icon: fab fa-github
+    url: https://github.com/bndynet
+  - name: Stack Overflow
+    icon: fab fa-stack-overflow
+    url: https://stackoverflow.com/users/10189619/bendy-zhang
