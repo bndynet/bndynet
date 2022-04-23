@@ -134,36 +134,5 @@
 
       {% assign group_index = group_index | plus: 1 %} {% endif %} {% endfor %}
     </div>
-
-    <!-- posts -->
-    <h2>
-      {{ site.data.language.new_blog_entries }} (moved to my
-      <a href="http://b.bndy.net" target="_blank">blog site</a>)
-      <small class="pull-right">
-        <!-- <a href="{{ site.url }}{{ site.baseurl }}/blog/archive/">{{
-                    site.data.language.more
-                }}</a> -->
-        <a href="http://blog.bndy.net">{{ site.data.language.more }}</a>
-      </small>
-    </h2>
-    <div class="row">
-      {% for post in site.posts limit:12 %}
-      <div class="col-md-6">
-        {% if post.subheadline %}
-        <p class="subheadline">{{ post.subheadline }}</p>
-        {% endif %}
-        <h4>
-          <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"
-            >{{ post.title }}</a
-          >
-        </h4>
-        <p class="one-line">
-          {% if post.meta_description %}{{ post.meta_description | strip_html |
-          escape }}{% else post.teaser %}{{ post.teaser | strip_html | escape
-          }}{% endif %} &nbsp;
-        </p>
-      </div>
-      {% endfor %}
-    </div>
   </div>
 </section>
