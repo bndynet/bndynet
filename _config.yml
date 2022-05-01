@@ -132,9 +132,9 @@ kramdown:
       start_line: 1
 
 collections:
-  tabs:
+  pages:
     output: true
-    sort_by: order
+    permalink: /:path/
 
 defaults:
   - scope:
@@ -151,12 +151,6 @@ defaults:
       path: _drafts
     values:
       comments: false
-  - scope:
-      path: ''
-      type: tabs             # see `site.collections`
-    values:
-      layout: page
-      permalink: /:title/
   - scope:
       path: assets/img/favicons
     values:
@@ -192,10 +186,8 @@ exclude:
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
-    categories: categories
     category: category
     tag: tag
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-    categories: /categories/

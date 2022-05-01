@@ -7,14 +7,12 @@ layout:
   category: 分类
   tag: 标签
 
-# The tabs of sidebar
-tabs:
+pages:
   # format: <filename_without_extension>: <value>
   home: 首页
   categories: 分类
   tags: 标签
   archives: 归档
-  about: 关于
 
 # the text displayed in the search bar & search results
 search:

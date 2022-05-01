@@ -15,7 +15,7 @@ layout: default
     
         {% if paths.size == 0 or page.layout == 'home' %}
           <!-- index page -->
-          <li class="breadcrumb-item active" aria-current="page">{{ site.data.locales[site.lang].tabs.home | capitalize }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ site.data.locales[site.lang].pages.home | capitalize }}</li>
     
         {% else %}
     
@@ -24,7 +24,7 @@ layout: default
             {% if forloop.first %}
             <li class="breadcrumb-item">
               <a href="{{ '/' | relative_url }}">
-              {{ site.data.locales[site.lang].tabs.home | capitalize }}
+              {{ site.data.locales[site.lang].pages.home | capitalize }}
               </a>
             </li>
 
@@ -38,8 +38,8 @@ layout: default
     
             {% elsif forloop.last %}
     
-              {% if page.collection == 'tabs' %}
-              <li class="breadcrumb-item active" aria-current="page">{{ site.data.locales[site.lang].tabs[item] | default: page.title }}</li>
+              {% if page.collection == 'pages' %}
+              <li class="breadcrumb-item active" aria-current="page">{{ site.data.locales[site.lang].pages[item] | default: page.title }}</li>
               {% else %}
               <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
               {% endif %}
@@ -48,7 +48,7 @@ layout: default
               
               <li class="breadcrumb-item">
                 <a href="{{ item | relative_url }}">
-                  {{ site.data.locales[site.lang].tabs[item] | default: page.title }}
+                  {{ site.data.locales[site.lang].pages[item] | default: page.title }}
                 </a>
               </li>
             {% endif %}
@@ -71,9 +71,9 @@ layout: default
         {% endif %}
       {% endcapture %}
 
-      {% if page.layout == 'page' or page.collection == 'tabs' %}
+      {% if page.layout == 'page' or page.collection == 'pages' %}
         {% assign tab_key = page.title | downcase %}
-        {% assign title = site.data.locales[site.lang].tabs[tab_key] | default: page.title %}
+        {% assign title = site.data.locales[site.lang].pages[tab_key] | default: page.title %}
         <h1 class="dynamic-title">
           {{ title }}
         </h1>

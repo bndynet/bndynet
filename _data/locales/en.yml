@@ -7,15 +7,12 @@ layout:
   category: Category
   tag: Tag
 
-# The tabs of sidebar
-tabs:
+pages:
   # format: <filename_without_extension>: <value>
   home: Home
-  projects: Projects
   categories: Categories
   tags: Tags
   archives: Archives
-  about: About
 
 # the text displayed in the search bar & search results
 search:
