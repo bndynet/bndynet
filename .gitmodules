@@ -1,3 +1,3 @@
 [submodule "GitHubVisualizer"]
 	path = GitHubVisualizer
-	url = git@github.com:bndynet/GitHubVisualizer.git
+	url = https://github.com/bndynet/GitHubVisualizer.git
