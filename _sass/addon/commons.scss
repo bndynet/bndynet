@@ -857,8 +857,10 @@ $sidebar-display: "sidebar-display";
 }
 
 #search-result-wrapper {
+  position: fixed;
+  background-color: #ffffff;
+  height: calc(100vh - 120px);
   display: none;
-  height: 100%;
   width: 100%;
   overflow: auto;
 
