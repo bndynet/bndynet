@@ -38,18 +38,33 @@ on:
 
 
 ```shell
-name: Trigger Action on a CRON Schedule
+name: Sync Notion pages to posts
 
 on:
   schedule:
-    # Runs "At 11:00 on every day-of-week from Monday through Friday"
-    - cron: '0 11 * * 1-5'
+    # Runs "At 20:00 on every day-of-week"
+    - cron: '0 20 * * *'
     
 jobs:
-  build:
-    name: Trigger Code Checkout
+  # Build job
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate posts
+        uses: bndynet/github-action-notion@v1
+        with:
+          notion-token: ${{ secrets.NOTION_TOKEN}}
+          root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
+
+      - name: Commit posts
+        uses: EndBug/add-and-commit@v9  # https://github.com/marketplace/actions/add-commit
+        with:
+          add: '_posts'
+          message: Sync Notion pages to posts by GitHub Actions
+          committer_name: Bendy Zhang
+          committer_email: email@your.com
 ```
 
