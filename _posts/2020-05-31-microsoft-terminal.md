@@ -1,7 +1,7 @@
 ---
 title: Microsoft Terminal
-categories: [Tools]
-tags: [Tools]
+categories: [Tools ]
+tags: [Tools ]
 ---
 
 [https://www.notion.so/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f](https://www.notion.so/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f)

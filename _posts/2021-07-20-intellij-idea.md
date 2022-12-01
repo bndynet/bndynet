@@ -1,7 +1,7 @@
 ---
 title: IntelliJ IDEA
-categories: [Tools]
-tags: [Tools]
+categories: [Tools ]
+tags: [Tools ]
 ---
 
 [https://www.notion.so/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a](https://www.notion.so/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a)
