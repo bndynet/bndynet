@@ -6,7 +6,7 @@
     `------'  `--'  `--' `-------'    `--'   '--' `--'  `--' `------'    `--'
 </pre>
 
-## Hello World
+## Hello World!
 
 I am [Bendy Zhang](https://bndy.net), a passionate Full Stack Web Developer from China.
 
@@ -45,14 +45,18 @@ I am [Bendy Zhang](https://bndy.net), a passionate Full Stack Web Developer from
 
 ### Active Repo
 
-<div style="height:168px">
-<img align="center" width="46.5%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=web-framework-for-java&hide_border=true" />
-<img align="center" width="50%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=admin-template-for-react&hide_border=true" />
+<div>
+<a href="https://github.com/bndynet/web-framework-for-java">
+<img align="center" width="46.5%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=web-framework-for-java&hide_border=true&theme=transparent&card_width=350" />
+</a>
+<a href="https://github.com/bndynet/admin-template-for-react">
+<img align="center" width="50%" height="168px" src="https://github-readme-stats.vercel.app/api/pin/?username=bndynet&repo=admin-template-for-react&hide_border=true&theme=transparent&card_width=350" />
+</a>
 </div>
 
 ### Statistics
 
 <div>
-<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bndynet&hide_border=true&layout=compact&langs_count=6&hide=html,css" />
-<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api?username=bndynet&&show_icons=true&hide_border=true&line_height=30.3&count_private=true&hide=contribs" alt="Bendy's GitHub Stats" />
+<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=bndynet&hide_border=true&layout=compact&theme=transparent&langs_count=6&hide=html,css&card_width=350" />
+<img align="center" width="47%" src="https://github-readme-stats.vercel.app/api?username=bndynet&&show_icons=true&hide_border=true&theme=transparent&line_height=30.3&count_private=true&hide=contribs&card_width=400" alt="Bendy's GitHub Stats" />
 </div>
