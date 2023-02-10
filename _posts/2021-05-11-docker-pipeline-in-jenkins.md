@@ -1,7 +1,7 @@
 ---
 title: Docker pipeline in Jenkins
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [CI and CD,CI and CD]
+tags: [CI and CD,CI and CD]
 ---
 
 [https://www.notion.so/Docker-pipeline-in-Jenkins-4f3dcdce9b2e4859a74f75550a2de892](https://www.notion.so/Docker-pipeline-in-Jenkins-4f3dcdce9b2e4859a74f75550a2de892)

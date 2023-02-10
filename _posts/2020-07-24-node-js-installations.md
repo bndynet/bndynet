@@ -1,7 +1,7 @@
 ---
 title: Node.js Installations
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [CI and CD,CI and CD]
+tags: [CI and CD,CI and CD]
 ---
 
 [https://www.notion.so/Node-js-Installations-5f60b844b7814b7cb5413147c27f8fa8](https://www.notion.so/Node-js-Installations-5f60b844b7814b7cb5413147c27f8fa8)

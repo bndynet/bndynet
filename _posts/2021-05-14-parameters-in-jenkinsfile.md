@@ -1,7 +1,7 @@
 ---
 title: Parameters in Jenkinsfile
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [CI and CD,CI and CD]
+tags: [CI and CD,CI and CD]
 ---
 
 [https://www.notion.so/Parameters-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb](https://www.notion.so/Parameters-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)
