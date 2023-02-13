@@ -1,7 +1,7 @@
 ---
 title: Jenkins Startup Script to set the System Properties
-categories: [CI and CD,CI and CD]
-tags: [CI and CD,CI and CD]
+categories: [CI and CD]
+tags: [CI and CD]
 ---
 
 [https://www.notion.so/Jenkins-Startup-Script-to-set-the-System-Properties-d090c097d99c4e199fb87edad5907c36](https://www.notion.so/Jenkins-Startup-Script-to-set-the-System-Properties-d090c097d99c4e199fb87edad5907c36)
@@ -48,7 +48,7 @@ _<Jenkins-server-URL>/restart_ **or** _<Jenkins-server-URL>/safeRestart_
 **Step 5:**
 
 
-Check the logs after Jenkins restart: Manage Jenkins → System LogYou can see while server is starting, its executing the startup-properties.groovy script which is inside init.groovy.d directory.
+Check the logs after Jenkins restart: Manage Jenkins → System Log. You can see while server is starting, its executing the startup-properties.groovy script which is inside init.groovy.d directory.
 
 
 ![](https://miro.medium.com/max/1400/1*kjzZCxTixWCYsQbIcfRkzA.png)

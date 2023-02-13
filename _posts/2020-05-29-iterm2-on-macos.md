@@ -58,6 +58,12 @@ Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel9k/powerlevel9k"`.
 Powerlevel9k offers a whole lot more, best is to [check out these user made configs yourself](https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config).
 
 
+**Note that P9k had a substantial impact on CLI UX, and its legacy is now continued by P10k.**
+
+
+[https://github.com/romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+
 ## Install a patched font
 
 

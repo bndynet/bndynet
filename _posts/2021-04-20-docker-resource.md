@@ -1,7 +1,7 @@
 ---
 title: Docker Resource
-categories: [CI and CD,CI and CD]
-tags: [CI and CD,CI and CD]
+categories: [CI and CD]
+tags: [CI and CD]
 ---
 
 [https://www.notion.so/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39](https://www.notion.so/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39)

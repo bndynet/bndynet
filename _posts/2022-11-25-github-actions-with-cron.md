@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions with CRON
-categories: [CI and CD,CI and CD]
-tags: [CI and CD,CI and CD]
+categories: [CI and CD]
+tags: [CI and CD]
 ---
 
 [https://www.notion.so/GitHub-Actions-with-CRON-07bb3aca648f407a91d8ecbcecdfa59d](https://www.notion.so/GitHub-Actions-with-CRON-07bb3aca648f407a91d8ecbcecdfa59d)
