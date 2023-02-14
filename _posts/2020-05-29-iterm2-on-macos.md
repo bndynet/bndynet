@@ -43,19 +43,7 @@ sh -c “$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools
 When the installation is done, edit `~/.zshrc` and set `ZSH_THEME="agnoster"`
 
 
-## Powerlevel9k
-
-
-If you prefer the Powerlevel9k look with added info such as exit codes and timestamps on the right, run:
-
-
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-
-Then edit your `~/.zshrc` and set `ZSH_THEME="powerlevel9k/powerlevel9k"`.
-
-
-Powerlevel9k offers a whole lot more, best is to [check out these user made configs yourself](https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config).
+## Powerlevel10k
 
 
 **Note that P9k had a substantial impact on CLI UX, and its legacy is now continued by P10k.**
@@ -64,16 +52,19 @@ Powerlevel9k offers a whole lot more, best is to [check out these user made conf
 [https://github.com/romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 
-## Install a patched font
+## Fonts with icon
 
 
-Open the downloaded font and press “Install Font”.
+Patched Fonts: [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 
 Set this font in iTerm2 (14px is my personal preference) (iTerm → Preferences → Profiles → Text → Change Font).
 
 
 Restart iTerm2 for all changes to take effect.
+
+
+The font [**SourceCodePro+Powerline+Awesome+Regular**](https://github.com/Falkor/dotfiles/tree/master/fonts) will be better to show the icons include git.
 
 
 # Further tweaking
