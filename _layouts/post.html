@@ -12,19 +12,7 @@ tail_includes:
 <h1 data-toc-skip>{{ page.title }}</h1>
 
 <div class="post-meta text-muted">
-    <!-- published date -->
-    <span style="display: none;">
-      {{ site.data.locales[site.lang].post.posted }}
-      {% include datetime.html date=page.date tooltip=true %}
-    </span>
 
-    <!-- lastmod date -->
-    {% if page.last_modified_at %}
-    <span>
-      {{ site.data.locales[site.lang].post.updated }}
-      {% include datetime.html date=page.last_modified_at tooltip=true %}
-    </span>
-    {% endif %}
 
   {% if page.image.path %}
     {% capture bg %}
@@ -55,26 +43,42 @@ tail_includes:
   {% endif %}
 
   <div class="d-flex justify-content-between">
-    <!-- author(s) -->
     <span>
+      <!-- published date -->
+      <span>
+        {{ site.data.locales[site.lang].post.posted }}
+        {% include datetime.html date=page.date tooltip=true %}
+      </span>
+
+      <!-- lastmod date -->
+      {% if page.last_modified_at %}
+      <span style="display: none;">
+        {{ site.data.locales[site.lang].post.updated }}
+        {% include datetime.html date=page.last_modified_at tooltip=true %}
+      </span>
+      {% endif %}
+
+      <!-- author(s) -->
       {% if page.author %}
         {% assign authors = page.author %}
       {% elsif page.authors %}
         {% assign authors = page.authors %}
       {% endif %}
 
-      {{ site.data.locales[site.lang].post.written_by }}
+      <span>
+        {{ site.data.locales[site.lang].post.written_by }}
 
-      <em>
-      {% if authors %}
-        {% for author in authors %}
-          <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-          {% unless forloop.last %}</em>, <em>{% endunless %}
-        {% endfor %}
-      {% else %}
-        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
-      {% endif %}
-      </em>
+        <em>
+        {% if authors %}
+          {% for author in authors %}
+            <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+            {% unless forloop.last %}</em>, <em>{% endunless %}
+          {% endfor %}
+        {% else %}
+          <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
+        {% endif %}
+        </em>
+      </span>
     </span>
 
     <div>
