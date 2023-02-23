@@ -18,6 +18,7 @@ jobs:
         with:
           notion-token: ${{ secrets.NOTION_TOKEN}}
           root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
+          cleanup-before: true
 
       - name: Commit posts
         uses: EndBug/add-and-commit@v9  # https://github.com/marketplace/actions/add-commit
