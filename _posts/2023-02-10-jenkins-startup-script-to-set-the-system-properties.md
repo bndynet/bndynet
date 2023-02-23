@@ -26,13 +26,17 @@ import jenkins.model.Jenkins
 import java.util.logging.LogManager
 
 /* Jenkins home directory */
-def jenkinsHome = Jenkins.instance.getRootDir().absolutePathdef logger = LogManager.getLogManager().getLogger("")
+def jenkinsHome = Jenkins.instance.getRootDir().absolutePath
+def logger = LogManager.getLogManager().getLogger("")
 
 /* Replace the Key and value with the values you want to set.*/
 /* System.setProperty(key, value)*/
-System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox; default-src 'self';")logger.info("Jenkins Startup Script: Successfully updated the system properties value forhudson.model.DirectoryBrowserSupport.CSP .Script location : ${jenkinsHome}/init.groovy.d ")
-
+System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox; default-src 'self';")
+logger.info("Jenkins Startup Script: Successfully updated the system properties value forhudson.model.DirectoryBrowserSupport.CSP .Script location : ${jenkinsHome}/init.groovy.d ")
 ```
+
+
+Visit [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html?is-external=true#setProperty(java.lang.String,java.lang.String)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html?is-external=true#setProperty(java.lang.String,java.lang.String)) to see how to use setProperty.
 
 
 **Step 4:**
@@ -56,4 +60,7 @@ Check the logs after Jenkins restart: Manage Jenkins → System Log. You can see
 - Check the System Properties, you will see the required key and values.
 
 > Now every time server is restarted the script will run and set the system properties for you. You don’t need to worry for setting these system properties manually every time server restart.
+
+
+[https://wiki.jenkins-ci.org/display/JENKINS/Features-controlled-by-system-properties.html](https://wiki.jenkins-ci.org/display/JENKINS/Features-controlled-by-system-properties.html)
 
