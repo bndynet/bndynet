@@ -31,8 +31,8 @@ def logger = LogManager.getLogManager().getLogger("")
 
 /* Replace the Key and value with the values you want to set.*/
 /* System.setProperty(key, value)*/
-System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox; default-src 'self';")
-logger.info("Jenkins Startup Script: Successfully updated the system properties value forhudson.model.DirectoryBrowserSupport.CSP .Script location : ${jenkinsHome}/init.groovy.d ")
+System.setProperty("hudson.model.WorkspaceCleanupThread.disabled", "true")
+logger.info("Jenkins Startup Script: Successfully updated the system properties. Script location: ${jenkinsHome}/init.groovy.d")
 ```
 
 
@@ -57,7 +57,14 @@ Check the logs after Jenkins restart: Manage Jenkins → System Log. You can see
 
 ![](https://miro.medium.com/max/1400/1*kjzZCxTixWCYsQbIcfRkzA.png)
 
-- Check the System Properties, you will see the required key and values.
+
+For example, run the below scripts in Script Console to check the System Properties, you will see the required key and values.
+
+
+```groovy
+println(System.getProperty("hudson.model.WorkspaceCleanupThread.disabled"))
+```
+
 
 > Now every time server is restarted the script will run and set the system properties for you. You don’t need to worry for setting these system properties manually every time server restart.
 
