@@ -46,6 +46,20 @@ docker push bndynet/image-name:1.0
 ```
 
 
+## Change the port for the existing container
+
+
+You can change the port mapping by directly editing the `hostconfig.json` file at `/var/lib/docker/containers/[hash_of_the_container]/hostconfig.json` or `/var/snap/docker/common/var-lib-docker/containers/[hash_of_the_container]/hostconfig.json`, I believe, if You installed Docker as a snap.
+
+
+You can determine the [hash_of_the_container] via the `docker inspect <container_name>` command and the value of the "Id" field is the hash.
+
+1. Stop the container (`docker stop <container_name>`).
+2. Stop docker service (per Tacsiazuma's comment)
+3. Change the file.
+4. Restart your docker engine (to flush/clear config caches).
+5. Start the container (`docker start <container_name>`).
+
 ## Example:
 
 
