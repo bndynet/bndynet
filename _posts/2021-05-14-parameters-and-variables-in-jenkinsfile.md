@@ -1,13 +1,21 @@
 ---
-title: Parameters in Jenkinsfile
+title: Parameters and Variables in Jenkinsfile
 categories: [CI and CD]
 tags: [CI and CD]
 ---
 
-[https://www.notion.so/Parameters-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb](https://www.notion.so/Parameters-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)
+[https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb](https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)
 
 
 ```shell
+import groovy.transform.Field
+
+@Field def globalV = ""
+
+def myFunc() {
+		echo "${globalV}"    // The @Field is required for this variable in definition
+}
+
 node {
 	stage('Start') {
 		echo 'Testing..'
