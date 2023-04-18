@@ -13,7 +13,7 @@ import groovy.transform.Field
 @Field def globalV = ""
 
 def myFunc() {
-		echo "${globalV}"    // The @Field is required for this variable in definition
+  echo "${globalV}"    // The @Field is required for this variable in definition
 }
 
 node {

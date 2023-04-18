@@ -31,15 +31,22 @@ node {
       stage("Source code") {
         //git branch: Git_Branch, credentialsId: Cred_ID, url: Git_Url
       }
-      stage('Install packages') {
+      stage('Prepare') {
+				sh """
+					echo "================================"
+					printenv | sort
+					echo "================================"
+				"""
         sh 'npm i'
       }
-      stage('Checks') {
-        // TODO
+      stage('Build') {
+				withEnv(['my_name=bing']) {
+					// TODO
+					sh 'Hi ${my_name}.'
+				}
       }
       stage('Test') {
         if (params.Skip_Test != true) {
-          // TODO
           echo 'do test'
         } else {
           echo 'Skip test'
