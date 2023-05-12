@@ -37,3 +37,16 @@ println(hudson.util.Secret.decrypt("{HASHxxxxx=}"))
 println(hudson.util.Secret.fromString("{HASHxxxxx=}").getPlainText())
 ```
 
+
+## Trigger build by url
+
+
+```shell
+# Run when the anonymous user has the build permission
+curl http://127.0.0.1:8080/job/Trigger_Remote_Demo/build?token=My-token
+# Send request with credentials
+curl -u username:api_token http://127.0.0.1:8080/job/Trigger_Remote_Demo/build
+# Build with Parameter
+curl -u username:api_token http://127.0.0.1:8080/job/Trigger_Remote_Demo/buildWithParameters?para1=val1&para2=val2
+```
+
