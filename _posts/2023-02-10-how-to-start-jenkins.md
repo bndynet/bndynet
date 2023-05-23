@@ -1,10 +1,13 @@
 ---
-title: Jenkins Startup Script to set the System Properties
+title: How to Start Jenkins
 categories: [CI and CD]
 tags: [CI and CD]
 ---
 
-[https://www.notion.so/Jenkins-Startup-Script-to-set-the-System-Properties-d090c097d99c4e199fb87edad5907c36](https://www.notion.so/Jenkins-Startup-Script-to-set-the-System-Properties-d090c097d99c4e199fb87edad5907c36)
+[https://www.notion.so/How-to-Start-Jenkins-d090c097d99c4e199fb87edad5907c36](https://www.notion.so/How-to-Start-Jenkins-d090c097d99c4e199fb87edad5907c36)
+
+
+## S**tartup script to set the System Properties**
 
 
 **Step 1:**
@@ -70,4 +73,21 @@ println(System.getProperty("hudson.model.WorkspaceCleanupThread.disabled"))
 
 
 [https://wiki.jenkins-ci.org/display/JENKINS/Features-controlled-by-system-properties.html](https://wiki.jenkins-ci.org/display/JENKINS/Features-controlled-by-system-properties.html)
+
+
+## Start  docker container with system properties
+
+
+[link_preview](https://github.com/bndynet/docker.jenkins)
+
+
+```shell
+docker run --name my-jenkins -p 8080:8080 -p 50000:50000 -v /your/jenkins_home:/var/jenkins_home \
+  -d \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --env JAVA_OPTS="-Dhudson.model.WorkspaceCleanupThread.disabled=\"true\"" \
+  --restart unless-stopped \
+  --user root \
+  bndynet/jenkins
+```
 
