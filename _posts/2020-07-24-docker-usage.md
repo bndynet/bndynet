@@ -46,6 +46,19 @@ docker push bndynet/image-name:1.0
 ```
 
 
+## Networking
+
+
+[bookmark](https://docs.docker.com/network/)
+
+
+```shell
+# bridge: The default network driver
+# host: use the host’s networking directly
+docker --network bridge|host|overlay|ipvlan
+```
+
+
 ## Change the port for the existing container
 
 
