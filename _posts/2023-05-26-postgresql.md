@@ -99,7 +99,7 @@ postgres=# SELECT 1;
 	```
 
 
-### **Prepare PostgreSQL standalone for SSL authentication**
+## **Prepare PostgreSQL standalone for SSL authentication**
 
 1. Edit the postgresql.conf file to activate SSL:
 
