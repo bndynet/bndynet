@@ -1,10 +1,10 @@
 ---
-title: nodejs
+title: nodejs and npm
 categories: [Tools ]
 tags: [Tools ]
 ---
 
-[https://www.notion.so/nodejs-5f60b844b7814b7cb5413147c27f8fa8](https://www.notion.so/nodejs-5f60b844b7814b7cb5413147c27f8fa8)
+[https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8](https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8)
 
 
 ## Installation on CentOS 7
@@ -80,5 +80,44 @@ npm start --prefix subapp   # run `start` in subapp folder
 # publish your package to npmjs
 npm adduser
 npm publish
+```
+
+
+## Test package locally
+
+
+Run the following commands to generate a package.
+
+
+```shell
+npm run build
+cd ./dist
+npm pack --pack-destination ~
+```
+
+
+Above will output a file.
+
+
+```shell
+~/your-package-1.0.0.tgz
+```
+
+
+Install this package on your other project.
+
+
+```shell
+"dependencies": {
+  "your-package": "file:~/your-package-1.0.0.tgz"
+}
+```
+
+
+and then install.
+
+
+```shell
+npm install
 ```
 
