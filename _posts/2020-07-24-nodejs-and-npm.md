@@ -86,13 +86,12 @@ npm publish
 ## Test package locally
 
 
-Run the following commands to generate a package.
+Run the following commands to generate a package. 
 
 
 ```shell
 npm run build
-cd ./dist
-npm pack --pack-destination ~
+npm pack --pack-destination ~    # it will pack all files under `files` section in package.json file
 ```
 
 
