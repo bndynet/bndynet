@@ -1,11 +1,23 @@
 ---
-title: GitHub Actions with CRON
+title: GitHub Actions 
 categories: [CI and CD]
 tags: [CI and CD]
 ---
 
-[https://www.notion.so/GitHub-Actions-with-CRON-07bb3aca648f407a91d8ecbcecdfa59d](https://www.notion.so/GitHub-Actions-with-CRON-07bb3aca648f407a91d8ecbcecdfa59d)
+[https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d](https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d)
 
+
+## Context in Workflow
+
+
+More contexts at [https://docs.github.com/en/actions/learn-github-actions/contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
+
+- Url for repo, for example: [https://github.com/bndynet/bndynet](https://github.com/bndynet/bndynet)
+`${{ github.server_url }}/${{ github.repository }}`
+- Url for pull request
+`${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.pull_request.number }}`
+- Url for issue
+`${{ github.server_url }}/${{ github.repository }}/issues/${{ github.event.issue.number }}`
 
 ## About CRON
 
@@ -23,7 +35,7 @@ tags: [CI and CD]
 ```
 
 
-## Examples
+### Examples
 
 
 ```shell
