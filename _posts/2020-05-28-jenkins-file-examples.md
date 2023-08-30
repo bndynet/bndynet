@@ -27,7 +27,7 @@ node {
   cleanWs()
 
   try {
-    docker.image('node:14').inside {
+    docker.image('node:14').inside('--network host') {
       stage("Source code") {
         //git branch: Git_Branch, credentialsId: Cred_ID, url: Git_Url
       }
