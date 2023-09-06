@@ -13,20 +13,10 @@
   text: 'A starter admin template with React, React Redux, Material UI and TypeScript that packages using Webpack and integrates a minimal project structure.'
   image: 'https://raw.githubusercontent.com/bndynet/admin-template-for-react/master/docs/images/admin-home.png'
 
-- title: "Dashboard for GitHub"
-  url: 'http://gh-dashboard.bndy.net/'
-  text: 'A simple dashboard for GitHub. It is a starter project of React, TypeScript and Webpack.'
-  image: 'https://bndynet.github.io/github-dashboard/images/gh-dashboard.png'
-
 - title: "Bbootstrap"
   url: 'https://bndynet.github.io/bbootstrap/'
   text: 'Enhancement integrated useful components and based on bootstrap 4 for best UI.'
   image: 'https://raw.githubusercontent.com/bndynet/bbootstrap/master/screenshots/home.png'
-
-- title: "Node.js Web Application"
-  url: 'https://github.com/bndynet/node-starter'
-  text: 'A starter project of NodeJS for TypeScript with Pug(Jade) and mongoDB. Integrated Jest testing. v0.1 for express with ejs.'
-  image: 'https://raw.githubusercontent.com/bndynet/node-starter/master/docs/img/home.png'
 
 - title: "Android Starter Project"
   url: 'https://github.com/bndynet/android-starter'
@@ -34,13 +24,8 @@
   image: 'https://th.bing.com/th/id/R.22bec9984f8753eb4067350a4b4c2574?rik=I%2fGeQLRoty2PXQ&riu=http%3a%2f%2fwww.thetop10s.net%2fwp-content%2fuploads%2f2013%2f07%2fandroid.jpg&ehk=vaM7j9BpVLZGWKD4NRDcIyUVjb6ynu8SwI8uJicsFq8%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1'
   imageCss: 'width: 260px;'
 
-- title: "GitHub Gist"
-  url: 'https://gh-gist.bndy.net'
-  text: 'A tool to provide another way to manage your GitHub gists with builtin Markdown Editor.'
-  image: 'https://th.bing.com/th/id/OIP.e3lN67Qt9WbOpujEJywgGwHaEo?pid=ImgDet&rs=1'
-
 - title: "Spring Cloud Starter"
   url: 'https://github.com/bndynet/spring-cloud-starter'
   text: 'A starter project for spring cloud implemented Single Sign On service and OAuth service.'
-  image: 'https://spring.io/images/cloud-diagram-1a4cad7294b4452864b5ff57175dd983.svg'
+  image: '/assets/img/spring-cloud.png'
   imageCss: 'height: inherit;'

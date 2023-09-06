@@ -1054,6 +1054,7 @@ $sidebar-display: "sidebar-display";
   background-color: var(--main-bg);
   position: relative;
   min-height: calc(100vh - #{$footer-height});
+  overflow-x: hidden;
 
   @include pl-pr(0);
 }
