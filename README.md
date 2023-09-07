@@ -10,6 +10,9 @@
 
 I am [Bendy Zhang](https://bndy.net), a passionate Full Stack Web Developer from China.
 
+![](https://github-profile-trophy.vercel.app/?username=bndynet&rank=-C,-B&margin-w=15&margin-h=15&no-bg=true&no-frame=false&&column=-1)
+
+
 ### Languages and Tools
 
 <a href="https://dotnet.microsoft.com/" target="_blank"> <img align="left" src="https://static.bndy.net/images/logos/dotnet.svg" alt="DotNet" height="32px"/> </a>
