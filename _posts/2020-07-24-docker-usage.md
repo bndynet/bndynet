@@ -8,7 +8,7 @@ tags: [CI and CD]
 
 
 ```shell
-docker build -t <image-name> .
+docker build -t <image-name> --build-arg YOUR_ARG="<arg-value>" .
 
 # -d: as deamon
 # --rm: exit and remove
