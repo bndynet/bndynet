@@ -24,6 +24,9 @@ iTerm2 has better color fidelity than the built in Terminal, so your themes will
 
 Get the iTerm color settings
 
+- [Solarized Dark theme](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Solarized%20Dark%20-%20Patched.itermcolors) (patched version to fix the bright black value)
+- [Solarized Light theme](https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Light.itermcolors)
+- [More themes @ iterm2colorschemes](http://iterm2colorschemes.com/)
 
 Just save it somewhere and open the file(s). The color settings will be imported into iTerm2. Apply them in iTerm through iTerm → preferences → profiles → colors → load presets. You can create a different profile other than `Default` if you wish to do so.
 
@@ -72,6 +75,11 @@ The font [**SourceCodePro+Powerline+Awesome+Regular**](https://github.com/Falkor
 
 Things like
 
+- auto suggestions
+- word jumping with arrow keys / natural text editing
+- shorter prompt style
+- syntax highlighting
+- visual studio code config
 
 can be found in the section below.
 
@@ -103,10 +111,22 @@ For further customisation of your prompt, you can follow a great guide here: htt
 ## Syntax highlighting
 
 
+```text
+brew install zsh-syntax-highlighting
+
+```
+
+
 If you do not have or do not like homebrew, follow [the installation instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md) instead.
 
 
 After installation through homebrew, add
+
+
+```text
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+```
 
 
 to **the end** of your `.zshrc` file. After that, it’s best to restart your terminal. Sourcing your `~/.zshrc` does not seem to work well with this plugin.
@@ -117,6 +137,9 @@ to **the end** of your `.zshrc` file. After that, it’s best to restart your te
 
 Installing a patched font will mess up the integrated terminal in VS Code unless you use the proper settings. You’ll need to go to settings (CMD + ,) and add or edit the following values:
 
+- for Source Code Pro: `"terminal.integrated.fontFamily": "Source Code Pro for Powerline"`
+- for Meslo: `"terminal.integrated.fontFamily": "Meslo LG M for Powerline"`
+- for other fonts you’ll need to check the font name in Font Book.
 
 You can also set the fontsize e.g.: `"terminal.integrated.fontSize": 14`
 

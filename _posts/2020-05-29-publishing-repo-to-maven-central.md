@@ -25,13 +25,44 @@ Installing GnuPG
 Generating a Key Pair and Sharing Key
 
 
+```text
+gpg --generate-key
+gpg --list-keys --keyid-format short
+gpg --list-secret-keys --keyid-format short
+gpg --keyserver hkp://pool.sks-keyservers.net --send-keys <pubkeyid>
+// gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys <pubkeyid>
+```
+
+
 Delete Key or Sub Key
+
+
+```text
+gpg2 –edit-key A6BAB25  
+gpg> 1  
+gpg> save  
+gpg> key 2  
+gpg> delkey  
+```
 
 
 ## Local GPG
 
 
 Add `~/.gradle/gradle.properties` with following content:
+
+
+```text
+signing.keyId=<pubkeyid>
+signing.password=<passwordgpg>
+// For new version GPG, secring.gpg does not be used.
+// But you can still use `gpg --export-secret-keys > ~/.gnupg/secring.gpg` to generate
+// On windows, you can use `C:/Users/<yourname>/.gnupg/secring.gpg` instead.
+signing.secretKeyRingFile=/Users/<yourname>/.gnupg/secring.gpg
+
+ossrhUsername=<name>
+ossrhPassword=<password>
+```
 
 
 ## Project Configuration
@@ -134,3 +165,5 @@ uploadArchives {
 
 ## Deployment
 
+1. `gradle uploadArchives`
+2. Go to `https://oss.sonatype.org/#stagingRepositories` to close your repo. If closed successfully, you can release it. Otherwise, drop it and regradle it again.

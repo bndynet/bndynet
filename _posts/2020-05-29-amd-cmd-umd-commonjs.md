@@ -54,6 +54,8 @@ define(['jquery', 'underscore'], function ($, _) {
 
 Standard locates at https://github.com/seajs/seajs/issues/242. It keeps more compatibilities with **CommonJS** and **Node.js** Modules.
 
+- Published by Chinese people who is developing SeaJS.
+- It is like **AMD**.
 
 ```javascript
 define((require, exports, module) => {
