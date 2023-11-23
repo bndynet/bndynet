@@ -1,7 +1,7 @@
 ---
 title: Download File via AJAX
-categories: [Programming,JavaScript]
-tags: [Programming,JavaScript]
+categories: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
+tags: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
 ---
 
 [https://www.notion.so/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090](https://www.notion.so/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090)

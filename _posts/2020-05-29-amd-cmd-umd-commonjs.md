@@ -1,7 +1,7 @@
 ---
 title: AMD、CMD、UMD、CommonJS
-categories: [Programming,JavaScript]
-tags: [Programming,JavaScript]
+categories: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
+tags: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
 ---
 
 [https://www.notion.so/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12](https://www.notion.so/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12)

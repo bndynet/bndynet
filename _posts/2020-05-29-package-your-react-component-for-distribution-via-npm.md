@@ -1,7 +1,7 @@
 ---
 title: Package your React Component for distribution via NPM
-categories: [Programming,React]
-tags: [Programming,React]
+categories: [Programming,Web,React,Programming,Web,Programming,Web,React]
+tags: [Programming,Web,React,Programming,Web,Programming,Web,React]
 ---
 
 [https://www.notion.so/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9](https://www.notion.so/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9)

@@ -1,7 +1,7 @@
 ---
 title: Cache for HttpClient
-categories: [Programming,Angular]
-tags: [Programming,Angular]
+categories: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
+tags: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
 ---
 
 [https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89](https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89)

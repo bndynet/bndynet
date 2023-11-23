@@ -1,7 +1,7 @@
 ---
 title: React and JSX Style Guide
-categories: [Programming,React]
-tags: [Programming,React]
+categories: [Programming,Web,React,Programming,Web,Programming,Web,React]
+tags: [Programming,Web,React,Programming,Web,Programming,Web,React]
 ---
 
 [https://www.notion.so/React-and-JSX-Style-Guide-53551fc9751f40a0a975ce75f44a85e2](https://www.notion.so/React-and-JSX-Style-Guide-53551fc9751f40a0a975ce75f44a85e2)

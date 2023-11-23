@@ -1,7 +1,7 @@
 ---
 title: Events of Component
-categories: [Programming,Angular]
-tags: [Programming,Angular]
+categories: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
+tags: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
 ---
 
 [https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e](https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e)
