@@ -1,7 +1,7 @@
 ---
 title: Web Components in React
-categories: [Programming,Web,React,Programming,Web,Programming,Web,React]
-tags: [Programming,Web,React,Programming,Web,Programming,Web,React]
+categories: [Programming,Web,React]
+tags: [Programming,Web,React]
 ---
 
 [https://www.notion.so/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4](https://www.notion.so/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4)

@@ -1,7 +1,7 @@
 ---
 title: Variables in ng-container/ng-template
-categories: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
-tags: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
+categories: [Programming,Web,Angular]
+tags: [Programming,Web,Angular]
 ---
 
 [https://www.notion.so/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd](https://www.notion.so/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd)

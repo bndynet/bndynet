@@ -1,7 +1,7 @@
 ---
 title: Preloading
-categories: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
-tags: [Programming,Web,Angular,Programming,Web,Programming,Web,Angular]
+categories: [Programming,Web,Angular]
+tags: [Programming,Web,Angular]
 ---
 
 [https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272](https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272)

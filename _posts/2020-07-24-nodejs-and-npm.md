@@ -120,3 +120,25 @@ and then install.
 npm install
 ```
 
+
+**Alternatively, you can use the following way to debug in real-time.**
+
+
+```scss
+cd ~/your-pkg-source
+npm link // creates global link
+
+cd ~/your-work
+npm link your-pkg
+
+```
+
+
+You may also shortcut the two steps in one. For example, to do the above use-case in a shorter way:
+
+
+```scss
+cd ~/projects/your-project  # go into the dir of your main project
+npm link ../your-pkg-dir     # link the dir of your dependency
+```
+

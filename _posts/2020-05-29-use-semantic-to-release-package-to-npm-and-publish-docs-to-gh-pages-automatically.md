@@ -1,7 +1,7 @@
 ---
 title: Use @semantic to release package to NPM and publish docs to gh-pages automatically
-categories: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
-tags: [Programming,Web,JavaScript,Programming,Web,Programming,Web,JavaScript]
+categories: [Programming,Web,JavaScript]
+tags: [Programming,Web,JavaScript]
 ---
 
 [https://www.notion.so/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b](https://www.notion.so/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b)
