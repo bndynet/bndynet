@@ -39,6 +39,8 @@ docker commit container-id image-name
 ## Save and load images
 docker save image-name > image-name.tar
 cat image-name.tar | docker load
+## copy files from container into host which does not need a running container
+docker cp your-file-path-in-container your-host-location
 
 # Publish
 docker build -t bndynet/image-name:1.0 .
