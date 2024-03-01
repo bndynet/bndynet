@@ -1,7 +1,7 @@
 ---
 title: nodejs and npm
-categories: [Tools ]
-tags: [Tools ]
+categories: [Tools ,Tools ]
+tags: [Tools ,Tools ]
 ---
 
 [https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8](https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8)

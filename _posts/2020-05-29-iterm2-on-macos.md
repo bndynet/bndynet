@@ -1,7 +1,7 @@
 ---
 title: iTerm2 on MacOS
-categories: [Tools ]
-tags: [Tools ]
+categories: [Tools ,Tools ]
+tags: [Tools ,Tools ]
 ---
 
 [https://www.notion.so/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50](https://www.notion.so/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50)
