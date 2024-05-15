@@ -68,3 +68,15 @@ du ~/go | sort -n -r | less
 57072   /home/george/go/src/golang.org
 ```
 
+
+## Open and close ports on RHEL 8 / CentOS 8
+
+
+```shell
+sudo firewall-cmd --zone=public --list-ports
+sudo firewall-cmd --zone=public --permanent --add-port 8080/tcp
+sudo firewall-cmd --reload
+
+sudo firewall-cmd --zone=public --permanent --remove-port 8080/tcp
+```
+
