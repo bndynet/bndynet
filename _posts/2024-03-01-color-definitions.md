@@ -1,7 +1,7 @@
 ---
 title: Color Definitions
-categories: [Resources,Resources]
-tags: [Resources,Resources]
+categories: [Resources]
+tags: [Resources]
 ---
 
 [https://www.notion.so/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6](https://www.notion.so/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6)
