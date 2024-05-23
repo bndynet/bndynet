@@ -75,6 +75,15 @@ You can determine the [hash_of_the_container] via the `docker inspect <containe
 4. Restart your docker engine (to flush/clear config caches).
 5. Start the container (`docker start <container_name>`).
 
+## Print Logs
+
+
+```shell
+# print the log for container
+docker logs -f <container-name> 1>/dev/null
+```
+
+
 ## Example:
 
 
