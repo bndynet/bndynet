@@ -62,3 +62,37 @@ Invoked when one of the custom element's attributes is added, removed, or change
 :host-context() {}
 ```
 
+
+## Access parent element
+
+
+```javascript
+<wc-parent>
+	<wc-child>
+	  <wc-subchild>
+	  </wc-subchild>
+	</wc-child>
+<wc-parent>
+```
+
+
+```javascript
+function findParent(startElement: Element | ShadowRoot, selector: string): Element | null {
+  let result: Element | null;
+  if (startElement instanceof HTMLElement) {
+    result = startElement.closest(selector);
+    if (result) {
+      return result;
+    }
+  }
+  const r = startElement.getRootNode();
+  if (r instanceof ShadowRoot) {
+    return findParent((r as ShadowRoot).host, selector);
+  }
+  return null;
+}
+
+// wc-subchild component
+findParent(this.shadowRoot, 'wc-parent');
+```
+
