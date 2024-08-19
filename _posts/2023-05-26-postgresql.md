@@ -50,6 +50,11 @@ postgres=# SELECT 1;
 ## **Generate SSL Certificates for PostgreSQL server**
 
 1. Go to data folder
+
+	```shell
+	cd /var/lib/postgresql/data/pgdata
+	```
+
 2. Generate a private key by entering a pass phrase:
 
 	```shell
