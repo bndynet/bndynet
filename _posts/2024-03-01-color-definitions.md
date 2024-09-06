@@ -8,6 +8,19 @@ tags: [Resources]
 
 
 ```javascript
+const colorScheme = {
+  background: '#1F2D3D',  // 深色背景（深蓝/深灰）
+  primary: '#3498DB',     // 主色（亮蓝）
+  secondary: '#2ECC71',   // 辅助色（亮绿）
+  highlight: '#E74C3C',   // 强调色（亮红，用于警告或重要数据）
+  accent: '#F1C40F',      // 点缀色（亮黄，用于吸引注意的元素）
+  textPrimary: '#FFFFFF', // 主要文字色（白色，确保与深色背景的对比度）
+  textSecondary: '#BDC3C7'// 次要文字色（浅灰色，用于次级信息）
+};
+```
+
+
+```javascript
 export const gray = {
     gray1: "hsl(0, 0%, 99.0%)",
     gray2: "hsl(0, 0%, 97.5%)",
