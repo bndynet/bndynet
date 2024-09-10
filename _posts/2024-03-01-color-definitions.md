@@ -20,6 +20,95 @@ const colorScheme = {
 ```
 
 
+## Popular Colors
+
+
+**Retro Metro**
+
+
+```javascript
+[“#ea5545”, “#f46a9b”, “#ef9b20”, “#edbf33”, “#ede15b”, “#bdcf32”, “#87bc45”, “#27aeef”, “#b33dc6”]
+```
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/metro.png)
+
+
+**Dutch Field**
+
+
+```javascript
+[#e60049″, “#0bb4ff”, “#50e991”, “#e6d800”, “#9b19f5”, “#ffa300”, “#dc0ab4”, “#b3d4ff”, “#00bfa0”]
+```
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/dutch.png)
+
+
+**River Nights**
+
+
+```javascript
+[“#b30000”, “#7c1158”, “#4421af”, “#1a53ff”, “#0d88e6”, “#00b7c7”, “#5ad45a”, “#8be04e”, “#ebdc78”]
+```
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/river-1.png)
+
+
+**Spring Pastels**
+
+
+```javascript
+[“#fd7f6f”, “#7eb0d5”, “#b2e061”, “#bd7ebe”, “#ffb55a”, “#ffee65”, “#beb9db”, “#fdcce5”, “#8bd3c7”]
+```
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/spring.png)
+
+
+## **Sequential palettes**
+
+
+**Blue to Yellow**
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/blueyellow.png)
+
+
+[“#115f9a”, “#1984c5”, “#22a7f0”, “#48b5c4”, “#76c68f”, “#a6d75b”, “#c9e52f”, “#d0ee11”, “#f4f100”]
+
+
+**Grey to Red**
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/greyred.png)
+
+
+[“#d7e1ee”, “#cbd6e4”, “#bfcbdb”, “#b3bfd1”, “#a4a2a8”, “#df8879”, “#c86558”, “#b04238”, “#991f17”]
+
+
+**Black to Pink**
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/blackpink.png)
+
+
+[“#2e2b28”, “#3b3734”, “#474440”, “#54504c”, “#6b506b”, “#ab3da9”, “#de25da”, “#eb44e8”, “#ff80ff”]
+
+
+**Blues**
+
+
+![](https://wpdatatables.com/wp-content/uploads/2022/06/blues.png)
+
+
+[“#0000b3”, “#0010d9”, “#0020ff”, “#0040ff”, “#0060ff”, “#0080ff”, “#009fff”, “#00bfff”, “#00ffff”]
+
+
+## More Colors
+
+
 ```javascript
 export const gray = {
     gray1: "hsl(0, 0%, 99.0%)",
