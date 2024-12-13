@@ -142,3 +142,14 @@ cd ~/projects/your-project  # go into the dir of your main project
 npm link ../your-pkg-dir     # link the dir of your dependency
 ```
 
+
+## Update all package versions 
+
+
+```shell
+npm install -g npm-check-updates   # global to install the tool
+ncu  # check updates
+ncu -u  # update the versions for all packages in package.json file
+npm install
+```
+

@@ -27,9 +27,20 @@ node {
   cleanWs()
 
   try {
-    docker.image('node:14').inside('--network host') {
+    docker.image('node:20').inside('--network host') {
       stage("Source code") {
-        //git branch: Git_Branch, credentialsId: Cred_ID, url: Git_Url
+				checkout([
+					$class: 'GitSCM',
+					branches: [[name: '*/${Git_Branch}']],
+					userRemoteConfigs: [[
+						url: 'git@github.com:bndynet/typescript-lib-starter.git',
+						credentialsId: '${Cred_ID}'
+					]],
+					extensions: [
+						[$class: 'CloneOption', depth: 1, noTags: false, shallow: true],
+						[$class: 'CheckoutOption', timeout: 30]
+          ]
+        ])
       }
       stage('Prepare') {
 				sh """
