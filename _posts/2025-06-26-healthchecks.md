@@ -1,7 +1,7 @@
 ---
 title: healthchecks
-categories: [DevOps]
-tags: [DevOps]
+categories: [DevOps,Monitoring Tools]
+tags: [DevOps,Monitoring Tools]
 ---
 
 [https://www.notion.so/healthchecks-21e1a3b433fe807eb6f9e38046ceda75](https://www.notion.so/healthchecks-21e1a3b433fe807eb6f9e38046ceda75)
