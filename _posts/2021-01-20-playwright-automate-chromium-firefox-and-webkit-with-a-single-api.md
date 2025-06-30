@@ -1,7 +1,7 @@
 ---
 title: Playwright - Automate Chromium, Firefox and WebKit with a single API
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f](https://www.notion.so/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f)

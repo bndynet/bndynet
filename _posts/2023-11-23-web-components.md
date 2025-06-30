@@ -1,7 +1,7 @@
 ---
 title: Web Components
-categories: [Programming,Web]
-tags: [Programming,Web]
+categories: [Frontend]
+tags: [Frontend]
 ---
 
 [https://www.notion.so/Web-Components-97c73d287ed84ce0896fb9f5665037dd](https://www.notion.so/Web-Components-97c73d287ed84ce0896fb9f5665037dd)

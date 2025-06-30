@@ -1,7 +1,7 @@
 ---
 title: Publishing Repo to Maven Central
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116](https://www.notion.so/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116)

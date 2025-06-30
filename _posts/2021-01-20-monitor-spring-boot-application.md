@@ -1,7 +1,7 @@
 ---
 title: Monitor Spring Boot Application
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196](https://www.notion.so/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196)

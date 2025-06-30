@@ -1,7 +1,7 @@
 ---
 title: Java Versions and JDK Versions
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca](https://www.notion.so/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca)

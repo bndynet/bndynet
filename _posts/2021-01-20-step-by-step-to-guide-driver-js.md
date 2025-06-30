@@ -1,7 +1,7 @@
 ---
 title: Step by Step to Guide (driver.js)
-categories: [Libraries]
-tags: [Libraries]
+categories: [Frontend,Libraries]
+tags: [Frontend,Libraries]
 ---
 
 [https://www.notion.so/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33](https://www.notion.so/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33)

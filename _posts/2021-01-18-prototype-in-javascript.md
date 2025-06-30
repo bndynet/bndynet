@@ -1,7 +1,7 @@
 ---
 title: Prototype in JavaScript
-categories: [Programming,Web,JavaScript]
-tags: [Programming,Web,JavaScript]
+categories: [Frontend,JavaScript]
+tags: [Frontend,JavaScript]
 ---
 
 [https://www.notion.so/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650](https://www.notion.so/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650)

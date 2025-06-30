@@ -1,7 +1,7 @@
 ---
 title: Jest - For Angular
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644](https://www.notion.so/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644)

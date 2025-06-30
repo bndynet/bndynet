@@ -1,7 +1,7 @@
 ---
 title: Global Error Handling
-categories: [Programming,Web,Angular]
-tags: [Programming,Web,Angular]
+categories: [Frontend,Angular,Frontend,Angular]
+tags: [Frontend,Angular,Frontend,Angular]
 ---
 
 [https://www.notion.so/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a](https://www.notion.so/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a)

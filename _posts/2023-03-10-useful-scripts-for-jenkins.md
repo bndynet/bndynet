@@ -1,7 +1,7 @@
 ---
 title: Useful Scripts for Jenkins
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d](https://www.notion.so/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d)

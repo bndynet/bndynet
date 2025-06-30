@@ -1,7 +1,7 @@
 ---
 title: Jest - Timer Mocks
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd](https://www.notion.so/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd)

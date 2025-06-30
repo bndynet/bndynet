@@ -1,7 +1,7 @@
 ---
 title: Jest - Async
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Jest-Async-6b1003d1495c4962b010e1088ebad7fd](https://www.notion.so/Jest-Async-6b1003d1495c4962b010e1088ebad7fd)

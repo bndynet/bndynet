@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions 
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d](https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d)

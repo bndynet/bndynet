@@ -1,7 +1,7 @@
 ---
 title: Marble testing for rxjs
-categories: [Programming,Web,JavaScript]
-tags: [Programming,Web,JavaScript]
+categories: [Frontend,JavaScript]
+tags: [Frontend,JavaScript]
 ---
 
 [https://www.notion.so/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb](https://www.notion.so/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb)

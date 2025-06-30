@@ -1,7 +1,7 @@
 ---
 title: Update Jenkins inside Docker Container
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def](https://www.notion.so/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def)

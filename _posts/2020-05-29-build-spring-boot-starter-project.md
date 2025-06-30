@@ -1,7 +1,7 @@
 ---
 title: Build Spring Boot Starter Project
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea](https://www.notion.so/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea)

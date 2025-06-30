@@ -1,7 +1,7 @@
 ---
 title: AOP – Aspect-oriented programming
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1](https://www.notion.so/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1)

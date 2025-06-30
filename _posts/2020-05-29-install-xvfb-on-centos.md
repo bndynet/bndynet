@@ -1,7 +1,7 @@
 ---
 title: Install Xvfb on CentOS
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Install-Xvfb-on-CentOS-2a01f24a9e694e78bf725a61883356b8](https://www.notion.so/Install-Xvfb-on-CentOS-2a01f24a9e694e78bf725a61883356b8)

@@ -1,7 +1,7 @@
 ---
 title: Docker Usage
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0](https://www.notion.so/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0)

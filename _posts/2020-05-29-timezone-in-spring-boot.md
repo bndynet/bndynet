@@ -1,7 +1,7 @@
 ---
 title: TimeZone in Spring Boot
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961](https://www.notion.so/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961)

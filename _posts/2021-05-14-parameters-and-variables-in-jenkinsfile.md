@@ -1,7 +1,7 @@
 ---
 title: Parameters and Variables in Jenkinsfile
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb](https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)

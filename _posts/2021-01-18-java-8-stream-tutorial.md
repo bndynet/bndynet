@@ -1,7 +1,7 @@
 ---
 title: Java 8 Stream Tutorial
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993](https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993)

@@ -1,7 +1,7 @@
 ---
 title: Syntax Tips
-categories: [Programming,Web,JavaScript]
-tags: [Programming,Web,JavaScript]
+categories: [Frontend,JavaScript]
+tags: [Frontend,JavaScript]
 ---
 
 [https://www.notion.so/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309](https://www.notion.so/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309)

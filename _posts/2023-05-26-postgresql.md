@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL
-categories: [Databases]
-tags: [Databases]
+categories: [Backend,Databases]
+tags: [Backend,Databases]
 ---
 
 [https://www.notion.so/PostgreSQL-70ae56c4eee7438f956b90839b363e68](https://www.notion.so/PostgreSQL-70ae56c4eee7438f956b90839b363e68)

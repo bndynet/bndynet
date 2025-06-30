@@ -1,7 +1,7 @@
 ---
 title: Spring Boot with Keycloak
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9](https://www.notion.so/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9)

@@ -1,7 +1,7 @@
 ---
 title: Jenkins File Examples
-categories: [CI and CD]
-tags: [CI and CD]
+categories: [DevOps,CI and CD]
+tags: [DevOps,CI and CD]
 ---
 
 [https://www.notion.so/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219](https://www.notion.so/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219)

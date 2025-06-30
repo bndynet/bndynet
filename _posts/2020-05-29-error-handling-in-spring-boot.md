@@ -1,7 +1,7 @@
 ---
 title: Error Handling in Spring Boot
-categories: [Programming,Java]
-tags: [Programming,Java]
+categories: [Backend,Java]
+tags: [Backend,Java]
 ---
 
 [https://www.notion.so/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26](https://www.notion.so/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26)

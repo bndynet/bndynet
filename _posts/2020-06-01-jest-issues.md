@@ -1,7 +1,7 @@
 ---
 title: Jest - Issues
-categories: [Programming,Testing]
-tags: [Programming,Testing]
+categories: [Frontend,Testing]
+tags: [Frontend,Testing]
 ---
 
 [https://www.notion.so/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e](https://www.notion.so/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e)

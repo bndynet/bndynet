@@ -1,7 +1,7 @@
 ---
 title: Service Provided in a Lazy Loaded Module
-categories: [Programming,Web,Angular]
-tags: [Programming,Web,Angular]
+categories: [Frontend,Angular,Frontend,Angular]
+tags: [Frontend,Angular,Frontend,Angular]
 ---
 
 [https://www.notion.so/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b](https://www.notion.so/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b)
