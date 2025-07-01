@@ -1,7 +1,7 @@
 ---
 title: Preloading
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272](https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272)

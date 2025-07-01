@@ -1,7 +1,7 @@
 ---
 title: Cache for HttpClient
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89](https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89)

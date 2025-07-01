@@ -1,7 +1,7 @@
 ---
 title: Development on MacOS
-categories: [Guidelines]
-tags: [Guidelines]
+categories: [OS]
+tags: [OS]
 ---
 
 [https://www.notion.so/Development-on-MacOS-2161a3b433fe80728241c00cfe6064ff](https://www.notion.so/Development-on-MacOS-2161a3b433fe80728241c00cfe6064ff)

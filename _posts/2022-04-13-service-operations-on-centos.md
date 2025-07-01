@@ -1,7 +1,7 @@
 ---
 title: Service Operations on CentOS
-categories: [OS & Apps]
-tags: [OS & Apps]
+categories: [OS]
+tags: [OS]
 ---
 
 [https://www.notion.so/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5](https://www.notion.so/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5)

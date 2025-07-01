@@ -1,7 +1,7 @@
 ---
 title: Commands for Terminal
-categories: [OS & Apps]
-tags: [OS & Apps]
+categories: [OS]
+tags: [OS]
 ---
 
 [https://www.notion.so/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1](https://www.notion.so/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1)

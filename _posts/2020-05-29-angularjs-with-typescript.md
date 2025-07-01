@@ -1,7 +1,7 @@
 ---
 title: AngularJS with TypeScript
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca](https://www.notion.so/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca)

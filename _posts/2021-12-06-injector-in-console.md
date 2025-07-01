@@ -1,7 +1,7 @@
 ---
 title: Injector in Console
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/Injector-in-Console-f1cf7162406843329c29f78f035b8714](https://www.notion.so/Injector-in-Console-f1cf7162406843329c29f78f035b8714)

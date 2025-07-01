@@ -1,7 +1,7 @@
 ---
 title: API Design Guide
-categories: [Guidelines]
-tags: [Guidelines]
+categories: [Standard]
+tags: [Standard]
 ---
 
 [https://www.notion.so/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd](https://www.notion.so/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd)

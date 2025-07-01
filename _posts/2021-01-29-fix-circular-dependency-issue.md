@@ -1,7 +1,7 @@
 ---
 title: Fix Circular Dependency issue
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/Fix-Circular-Dependency-issue-bc1a435aa1e043a791a73b044fe5e35d](https://www.notion.so/Fix-Circular-Dependency-issue-bc1a435aa1e043a791a73b044fe5e35d)

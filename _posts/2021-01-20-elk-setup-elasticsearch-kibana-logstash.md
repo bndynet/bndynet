@@ -1,7 +1,7 @@
 ---
 title: ELK Setup - Elasticsearch、Kibana、Logstash
-categories: [Guidelines]
-tags: [Guidelines]
+categories: [DevOps,PLC]
+tags: [DevOps,PLC]
 ---
 
 [https://www.notion.so/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375](https://www.notion.so/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375)

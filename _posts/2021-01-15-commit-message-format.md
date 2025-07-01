@@ -1,7 +1,7 @@
 ---
 title: Commit Message Format
-categories: [Guidelines]
-tags: [Guidelines]
+categories: [Standard]
+tags: [Standard]
 ---
 
 [https://www.notion.so/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9](https://www.notion.so/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9)

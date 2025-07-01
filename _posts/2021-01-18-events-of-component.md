@@ -1,7 +1,7 @@
 ---
 title: Events of Component
-categories: [Frontend,Angular,Frontend,Angular]
-tags: [Frontend,Angular,Frontend,Angular]
+categories: [Frontend,Angular]
+tags: [Frontend,Angular]
 ---
 
 [https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e](https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e)
