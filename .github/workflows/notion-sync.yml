@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs "At 11:00 on every day-of-week from Monday through Friday"
     - cron: '0 20 * * *'
+  workflow_dispatch:
     
 jobs:
   # Build job
