@@ -1,0 +1,22 @@
+#projects {
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  img {
+    height: 160px;
+    margin-bottom: 0.5rem;
+    width: 300px;
+
+    border: 6px solid #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    outline: 1px solid rgba(0, 0, 0, 0.06);
+    outline-offset: 4px;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -12,19 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Generate posts
-        uses: bndynet/github-action-notion@v2
+        uses: bndynet/github-action-notion@v3
         with:
           notion-token: ${{ secrets.NOTION_TOKEN}}
           root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
+          output-dir: ./blog/
           cleanup-before: true
+          output-page-count: '0'
 
       - name: Commit posts
-        uses: EndBug/add-and-commit@v9  # https://github.com/marketplace/actions/add-commit
+        uses: EndBug/add-and-commit@v10  # https://github.com/marketplace/actions/add-commit
         with:
-          add: '_posts'
-          message: Sync Notion pages to posts by GitHub Actions
+          add: 'blog'
+          message: Sync notion pages to blog by GitHub Actions
           committer_name: Bendy Zhang
           committer_email: zb@bndy.net
