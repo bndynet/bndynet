@@ -1,0 +1,10 @@
+.vs/
+.idea/
+*.iml
+*.iws
+test/
+*.secret
+compilerconfig.*
+GitHubVisualizer.sln
+GitHubVisualizer.sln.GhostDoc.xml
+

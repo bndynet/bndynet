@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbndynet=self.webpackChunkbndynet||[]).push([[7472],{5513(e){e.exports=JSON.parse('{"title":"All posts","items":[{"title":"BNDY-NET","permalink":"/blog/2020/05/28/bndy-net","unlisted":false,"date":"2020-05-28T00:00:00.000Z"}]}')}}]);

@@ -1,0 +1,1 @@
+(self.webpackChunkbndynet=self.webpackChunkbndynet||[]).push([[5734],{5734(){}}]);
