@@ -3,10 +3,10 @@ title: 'Jest - For Angular'
 slug: 'jest-for-angular'
 date: 2021-01-25
 tags: ['Frontend', 'Testing']
-notion_url: 'https://www.notion.so/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644'
+notion_url: 'https://app.notion.com/p/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644'
 ---
 
-[Open in Notion](https://www.notion.so/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644)
+[Open in Notion](https://app.notion.com/p/Jest-For-Angular-9c4819ab017847e7b1b8b62376707644)
 
 
 ```shell

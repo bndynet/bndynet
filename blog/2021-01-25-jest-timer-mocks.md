@@ -3,10 +3,10 @@ title: 'Jest - Timer Mocks'
 slug: 'jest-timer-mocks'
 date: 2021-01-25
 tags: ['Frontend', 'Testing']
-notion_url: 'https://www.notion.so/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd'
+notion_url: 'https://app.notion.com/p/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd'
 ---
 
-[Open in Notion](https://www.notion.so/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd)
+[Open in Notion](https://app.notion.com/p/Jest-Timer-Mocks-8632afbadae7492c803e113effc31acd)
 
 
 ```javascript

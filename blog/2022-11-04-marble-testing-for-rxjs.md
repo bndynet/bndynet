@@ -3,10 +3,10 @@ title: 'Marble testing for rxjs'
 slug: 'marble-testing-for-rxjs'
 date: 2022-11-04
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://www.notion.so/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb'
+notion_url: 'https://app.notion.com/p/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb'
 ---
 
-[Open in Notion](https://www.notion.so/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb)
+[Open in Notion](https://app.notion.com/p/Marble-testing-for-rxjs-5e583c7454c349b18a6626c69f62befb)
 
 
 ## Examples

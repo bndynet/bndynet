@@ -3,10 +3,10 @@ title: 'Enable https in Spring Boot'
 slug: 'enable-https-in-spring-boot'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Enable-https-in-Spring-Boot-13ee4cfeaa2c485f91e22e1e4b01a4d0'
+notion_url: 'https://app.notion.com/p/Enable-https-in-Spring-Boot-13ee4cfeaa2c485f91e22e1e4b01a4d0'
 ---
 
-[Open in Notion](https://www.notion.so/Enable-https-in-Spring-Boot-13ee4cfeaa2c485f91e22e1e4b01a4d0)
+[Open in Notion](https://app.notion.com/p/Enable-https-in-Spring-Boot-13ee4cfeaa2c485f91e22e1e4b01a4d0)
 
 1. Create Self Signed SSL Certificate
 

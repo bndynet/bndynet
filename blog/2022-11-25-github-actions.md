@@ -3,10 +3,10 @@ title: 'GitHub Actions '
 slug: 'github-actions'
 date: 2022-11-25
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d'
+notion_url: 'https://app.notion.com/p/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d'
 ---
 
-[Open in Notion](https://www.notion.so/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d)
+[Open in Notion](https://app.notion.com/p/GitHub-Actions-07bb3aca648f407a91d8ecbcecdfa59d)
 
 
 ## Context in Workflow

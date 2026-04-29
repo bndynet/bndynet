@@ -3,10 +3,10 @@ title: 'Service Operations on CentOS'
 slug: 'service-operations-on-centos'
 date: 2022-04-13
 tags: ['OS']
-notion_url: 'https://www.notion.so/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5'
+notion_url: 'https://app.notion.com/p/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5'
 ---
 
-[Open in Notion](https://www.notion.so/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5)
+[Open in Notion](https://app.notion.com/p/Service-Operations-on-CentOS-e2dbd2619fa24666ba86d19f4e6297a5)
 
 
 # Enable or disable service on OS start

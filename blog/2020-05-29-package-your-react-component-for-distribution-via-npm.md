@@ -3,10 +3,10 @@ title: 'Package your React Component for distribution via NPM'
 slug: 'package-your-react-component-for-distribution-via-npm'
 date: 2020-05-29
 tags: ['Frontend', 'React']
-notion_url: 'https://www.notion.so/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9'
+notion_url: 'https://app.notion.com/p/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9'
 ---
 
-[Open in Notion](https://www.notion.so/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9)
+[Open in Notion](https://app.notion.com/p/Package-your-React-Component-for-distribution-via-NPM-61150b3f3bc24cef9f4cc2aae0ac09b9)
 
 
 ## 1. MAKE A PACKAGE NPM PUBLISHABLE

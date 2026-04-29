@@ -3,10 +3,10 @@ title: 'PostgreSQL'
 slug: 'postgresql'
 date: 2023-05-26
 tags: ['Backend', 'Databases']
-notion_url: 'https://www.notion.so/PostgreSQL-70ae56c4eee7438f956b90839b363e68'
+notion_url: 'https://app.notion.com/p/PostgreSQL-70ae56c4eee7438f956b90839b363e68'
 ---
 
-[Open in Notion](https://www.notion.so/PostgreSQL-70ae56c4eee7438f956b90839b363e68)
+[Open in Notion](https://app.notion.com/p/PostgreSQL-70ae56c4eee7438f956b90839b363e68)
 
 
 ## Installing

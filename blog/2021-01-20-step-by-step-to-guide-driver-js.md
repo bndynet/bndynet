@@ -3,10 +3,10 @@ title: 'Step by Step to Guide (driver.js)'
 slug: 'step-by-step-to-guide-driver-js'
 date: 2021-01-20
 tags: ['Frontend', 'Libraries']
-notion_url: 'https://www.notion.so/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33'
+notion_url: 'https://app.notion.com/p/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33'
 ---
 
-[Open in Notion](https://www.notion.so/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33)
+[Open in Notion](https://app.notion.com/p/Step-by-Step-to-Guide-driver-js-ce20d85e86db4bceb2200cf886cd3b33)
 
 
 [bookmark](https://github.com/kamranahmedse/driver.js)

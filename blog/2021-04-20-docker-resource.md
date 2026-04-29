@@ -3,10 +3,10 @@ title: 'Docker Resource'
 slug: 'docker-resource'
 date: 2021-04-20
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://www.notion.so/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39'
+notion_url: 'https://app.notion.com/p/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39'
 ---
 
-[Open in Notion](https://www.notion.so/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39)
+[Open in Notion](https://app.notion.com/p/Docker-Resource-1c78fd7b5d8f411a8526bca6a6b67e39)
 
 
 # Node.js

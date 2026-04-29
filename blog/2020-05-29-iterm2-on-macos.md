@@ -3,10 +3,10 @@ title: 'iTerm2 on MacOS'
 slug: 'iterm2-on-macos'
 date: 2020-05-29
 tags: ['Tools ']
-notion_url: 'https://www.notion.so/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50'
+notion_url: 'https://app.notion.com/p/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50'
 ---
 
-[Open in Notion](https://www.notion.so/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50)
+[Open in Notion](https://app.notion.com/p/iTerm2-on-MacOS-5df973b859404bb1b6b436026e3b7e50)
 
 
 # How to install

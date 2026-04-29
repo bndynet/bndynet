@@ -3,10 +3,10 @@ title: 'ELK Setup - Elasticsearch、Kibana、Logstash'
 slug: 'elk-setup-elasticsearch-kibana-logstash'
 date: 2021-01-20
 tags: ['DevOps', 'PLC']
-notion_url: 'https://www.notion.so/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375'
+notion_url: 'https://app.notion.com/p/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375'
 ---
 
-[Open in Notion](https://www.notion.so/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375)
+[Open in Notion](https://app.notion.com/p/ELK-Setup-Elasticsearch-Kibana-Logstash-2b7ba19859634a9da76072070e804375)
 
 
 # 摘要

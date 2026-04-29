@@ -3,10 +3,10 @@ title: 'Global Error Handling'
 slug: 'global-error-handling'
 date: 2022-11-02
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a'
+notion_url: 'https://app.notion.com/p/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a'
 ---
 
-[Open in Notion](https://www.notion.so/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a)
+[Open in Notion](https://app.notion.com/p/Global-Error-Handling-4d1b704ef32742f69d816df19962e72a)
 
 
 ## global-error-handler.ts

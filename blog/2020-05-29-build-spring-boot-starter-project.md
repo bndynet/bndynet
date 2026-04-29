@@ -3,10 +3,10 @@ title: 'Build Spring Boot Starter Project'
 slug: 'build-spring-boot-starter-project'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea'
+notion_url: 'https://app.notion.com/p/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea'
 ---
 
-[Open in Notion](https://www.notion.so/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea)
+[Open in Notion](https://app.notion.com/p/Build-Spring-Boot-Starter-Project-9ce098c683144dc6bd7f34ad338f8bea)
 
 
 ## Two Java Files

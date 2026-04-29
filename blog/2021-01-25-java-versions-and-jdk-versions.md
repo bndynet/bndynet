@@ -3,10 +3,10 @@ title: 'Java Versions and JDK Versions'
 slug: 'java-versions-and-jdk-versions'
 date: 2021-01-25
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca'
+notion_url: 'https://app.notion.com/p/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca'
 ---
 
-[Open in Notion](https://www.notion.so/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca)
+[Open in Notion](https://app.notion.com/p/Java-Versions-and-JDK-Versions-9278629bc95b4dbd94153c4a29e514ca)
 
 
 ## Versions and JDK

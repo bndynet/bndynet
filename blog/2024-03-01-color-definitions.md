@@ -3,10 +3,10 @@ title: 'Color Definitions'
 slug: 'color-definitions'
 date: 2024-03-01
 tags: ['Resources']
-notion_url: 'https://www.notion.so/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6'
+notion_url: 'https://app.notion.com/p/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6'
 ---
 
-[Open in Notion](https://www.notion.so/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6)
+[Open in Notion](https://app.notion.com/p/Color-Definitions-ea9c7b3cd38245c3a808a843c674bbe6)
 
 
 ```javascript

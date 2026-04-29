@@ -3,10 +3,10 @@ title: 'Preloading'
 slug: 'preloading'
 date: 2021-06-25
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272'
+notion_url: 'https://app.notion.com/p/Preloading-12f7f43c98504b218fd1ecb307b75272'
 ---
 
-[Open in Notion](https://www.notion.so/Preloading-12f7f43c98504b218fd1ecb307b75272)
+[Open in Notion](https://app.notion.com/p/Preloading-12f7f43c98504b218fd1ecb307b75272)
 
 
 # Lazy loading for modules
