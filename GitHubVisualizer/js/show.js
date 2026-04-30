@@ -1431,6 +1431,7 @@
                 .attr("width", w)
                 .attr("height", h)
                 .call(zoom)
+                .on("wheel.zoom", null)
                 .on("mousewheel.zoom", null)
                 .on("DOMMouseScroll.zoom", null)
                 .node();
@@ -1454,6 +1455,7 @@
 
             layer.append("g")
                 .call(zoom)
+                .on("wheel.zoom", null)
                 .on("mousewheel.zoom", null)
                 .on("DOMMouseScroll.zoom", null)
                 .on('mousemove.tooltip', movem)
