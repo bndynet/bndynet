@@ -1431,6 +1431,8 @@
                 .attr("width", w)
                 .attr("height", h)
                 .call(zoom)
+                .on("mousewheel.zoom", null)
+                .on("DOMMouseScroll.zoom", null)
                 .node();
 
             d3.select(canvas).style("background", "#000");
@@ -1452,6 +1454,8 @@
 
             layer.append("g")
                 .call(zoom)
+                .on("mousewheel.zoom", null)
+                .on("DOMMouseScroll.zoom", null)
                 .on('mousemove.tooltip', movem)
                 .append("rect")
                 .attr("width", w)
