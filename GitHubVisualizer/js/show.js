@@ -6,6 +6,14 @@
 
 "use strict";
 
+function blockWheel() {
+    if (d3.event) {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
+    }
+    return false;
+}
+
 (function(vis) {
     var _worker,
         _data,
@@ -1409,6 +1417,12 @@
                 .scale(1)
                 .translate([0, 0])
                 .on("zoom", function () {
+                    var se = d3.event.sourceEvent;
+                    if (se && /wheel|mousewheel|DOMMouseScroll/.test(se.type)) {
+                        zoom.translate(lastEvent.translate);
+                        zoom.scale(lastEvent.scale);
+                        return;
+                    }
                     lastEvent.translate = d3.event.translate.slice(0);
                     lastEvent.scale = d3.event.scale;
 
@@ -1431,9 +1445,9 @@
                 .attr("width", w)
                 .attr("height", h)
                 .call(zoom)
-                .on("wheel.zoom", null)
-                .on("mousewheel.zoom", null)
-                .on("DOMMouseScroll.zoom", null)
+                .on("wheel.zoom", blockWheel)
+                .on("mousewheel.zoom", blockWheel)
+                .on("DOMMouseScroll.zoom", blockWheel)
                 .node();
 
             d3.select(canvas).style("background", "#000");
@@ -1455,9 +1469,9 @@
 
             layer.append("g")
                 .call(zoom)
-                .on("wheel.zoom", null)
-                .on("mousewheel.zoom", null)
-                .on("DOMMouseScroll.zoom", null)
+                .on("wheel.zoom", blockWheel)
+                .on("mousewheel.zoom", blockWheel)
+                .on("DOMMouseScroll.zoom", blockWheel)
                 .on('mousemove.tooltip', movem)
                 .append("rect")
                 .attr("width", w)
