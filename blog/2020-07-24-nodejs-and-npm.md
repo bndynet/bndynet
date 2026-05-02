@@ -3,10 +3,10 @@ title: 'nodejs and npm'
 slug: 'nodejs-and-npm'
 date: 2020-07-24
 tags: ['Tools ']
-notion_url: 'https://app.notion.com/p/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8'
+notion_url: 'https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8'
 ---
 
-[Open in Notion](https://app.notion.com/p/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8)
+[Open in Notion](https://www.notion.so/nodejs-and-npm-5f60b844b7814b7cb5413147c27f8fa8)
 
 
 ## Installation on CentOS 7

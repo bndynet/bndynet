@@ -3,10 +3,10 @@ title: 'API Design Guide'
 slug: 'api-design-guide'
 date: 2020-05-29
 tags: ['Standard']
-notion_url: 'https://app.notion.com/p/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd'
+notion_url: 'https://www.notion.so/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd'
 ---
 
-[Open in Notion](https://app.notion.com/p/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd)
+[Open in Notion](https://www.notion.so/API-Design-Guide-5e2fb00ada4e4878ad6a45212f8425cd)
 
 
 ## Use RESTful service URLs

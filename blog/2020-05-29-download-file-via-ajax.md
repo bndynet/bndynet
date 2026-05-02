@@ -3,10 +3,10 @@ title: 'Download File via AJAX'
 slug: 'download-file-via-ajax'
 date: 2020-05-29
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://app.notion.com/p/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090'
+notion_url: 'https://www.notion.so/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090'
 ---
 
-[Open in Notion](https://app.notion.com/p/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090)
+[Open in Notion](https://www.notion.so/Download-File-via-AJAX-c2cbd5b166b94b03a51acf2da3f39090)
 
 
 ```javascript

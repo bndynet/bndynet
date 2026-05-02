@@ -3,10 +3,10 @@ title: 'AOP – Aspect-oriented programming'
 slug: 'aop-aspect-oriented-programming'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://app.notion.com/p/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1'
+notion_url: 'https://www.notion.so/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1'
 ---
 
-[Open in Notion](https://app.notion.com/p/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1)
+[Open in Notion](https://www.notion.so/AOP-Aspect-oriented-programming-059f105d3d4b41e1ae107371919e83a1)
 
 
 It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification,

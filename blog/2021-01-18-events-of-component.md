@@ -3,10 +3,10 @@ title: 'Events of Component'
 slug: 'events-of-component'
 date: 2021-01-18
 tags: ['Frontend', 'Angular']
-notion_url: 'https://app.notion.com/p/Events-of-Component-6f325676e5404b5fa600213ceef23d3e'
+notion_url: 'https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e'
 ---
 
-[Open in Notion](https://app.notion.com/p/Events-of-Component-6f325676e5404b5fa600213ceef23d3e)
+[Open in Notion](https://www.notion.so/Events-of-Component-6f325676e5404b5fa600213ceef23d3e)
 
 
 ## Outside Click

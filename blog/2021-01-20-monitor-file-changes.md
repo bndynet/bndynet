@@ -3,10 +3,10 @@ title: 'Monitor File Changes'
 slug: 'monitor-file-changes'
 date: 2021-01-20
 tags: ['Backend', 'Java']
-notion_url: 'https://app.notion.com/p/Monitor-File-Changes-0d635ecd452c4e5eb7ad13f9777adafe'
+notion_url: 'https://www.notion.so/Monitor-File-Changes-0d635ecd452c4e5eb7ad13f9777adafe'
 ---
 
-[Open in Notion](https://app.notion.com/p/Monitor-File-Changes-0d635ecd452c4e5eb7ad13f9777adafe)
+[Open in Notion](https://www.notion.so/Monitor-File-Changes-0d635ecd452c4e5eb7ad13f9777adafe)
 
 
 ```java

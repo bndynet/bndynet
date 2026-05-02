@@ -3,10 +3,10 @@ title: 'Web Components in React'
 slug: 'web-components-in-react'
 date: 2023-11-23
 tags: ['Frontend', 'React']
-notion_url: 'https://app.notion.com/p/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4'
+notion_url: 'https://www.notion.so/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4'
 ---
 
-[Open in Notion](https://app.notion.com/p/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4)
+[Open in Notion](https://www.notion.so/Web-Components-in-React-1a3a5024656443fd8d45c844e44b0db4)
 
 
 ## Events of Web Components in React

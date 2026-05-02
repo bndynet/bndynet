@@ -3,10 +3,10 @@ title: 'Docker Usage'
 slug: 'docker-usage'
 date: 2020-07-24
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://app.notion.com/p/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0'
+notion_url: 'https://www.notion.so/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0'
 ---
 
-[Open in Notion](https://app.notion.com/p/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0)
+[Open in Notion](https://www.notion.so/Docker-Usage-c50b9e8cc6ad48899e2c0ff488f271f0)
 
 
 ```shell

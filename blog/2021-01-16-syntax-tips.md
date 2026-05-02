@@ -3,10 +3,10 @@ title: 'Syntax Tips'
 slug: 'syntax-tips'
 date: 2021-01-16
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://app.notion.com/p/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309'
+notion_url: 'https://www.notion.so/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309'
 ---
 
-[Open in Notion](https://app.notion.com/p/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309)
+[Open in Notion](https://www.notion.so/Syntax-Tips-17687191d3c04a8baa7136d0a2dec309)
 
 
 ## ?? and ||

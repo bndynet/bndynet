@@ -3,10 +3,10 @@ title: 'healthchecks'
 slug: 'healthchecks'
 date: 2025-06-26
 tags: ['DevOps', 'Monitoring Tools']
-notion_url: 'https://app.notion.com/p/healthchecks-21e1a3b433fe807eb6f9e38046ceda75'
+notion_url: 'https://www.notion.so/healthchecks-21e1a3b433fe807eb6f9e38046ceda75'
 ---
 
-[Open in Notion](https://app.notion.com/p/healthchecks-21e1a3b433fe807eb6f9e38046ceda75)
+[Open in Notion](https://www.notion.so/healthchecks-21e1a3b433fe807eb6f9e38046ceda75)
 
 
 ## Running in Docker

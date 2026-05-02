@@ -3,10 +3,10 @@ title: 'Publishing Repo to Maven Central'
 slug: 'publishing-repo-to-maven-central'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://app.notion.com/p/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116'
+notion_url: 'https://www.notion.so/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116'
 ---
 
-[Open in Notion](https://app.notion.com/p/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116)
+[Open in Notion](https://www.notion.so/Publishing-Repo-to-Maven-Central-149966b2de424104bb0d0f9bf87b6116)
 
 
 ## Create an account on oss.sonatype.org

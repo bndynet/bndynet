@@ -3,10 +3,10 @@ title: 'Jest - Issues'
 slug: 'jest-issues'
 date: 2020-06-01
 tags: ['Frontend', 'Testing']
-notion_url: 'https://app.notion.com/p/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e'
+notion_url: 'https://www.notion.so/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e'
 ---
 
-[Open in Notion](https://app.notion.com/p/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e)
+[Open in Notion](https://www.notion.so/Jest-Issues-831d928ced3b451e9d2c8a264ada0f7e)
 
 
 ## Configurations for DOM Support

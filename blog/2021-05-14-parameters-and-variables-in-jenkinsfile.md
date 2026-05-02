@@ -3,10 +3,10 @@ title: 'Parameters and Variables in Jenkinsfile'
 slug: 'parameters-and-variables-in-jenkinsfile'
 date: 2021-05-14
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://app.notion.com/p/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb'
+notion_url: 'https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb'
 ---
 
-[Open in Notion](https://app.notion.com/p/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)
+[Open in Notion](https://www.notion.so/Parameters-and-Variables-in-Jenkinsfile-c42a2207b65f43df9ff6f78b2c4e17cb)
 
 
 ```shell

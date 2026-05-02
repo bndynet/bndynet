@@ -3,10 +3,10 @@ title: 'Use @semantic to release package to NPM and publish docs to gh-pages aut
 slug: 'use-semantic-to-release-package-to-npm-and-publish-docs-to-gh-pages-automatically'
 date: 2020-05-29
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://app.notion.com/p/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b'
+notion_url: 'https://www.notion.so/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b'
 ---
 
-[Open in Notion](https://app.notion.com/p/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b)
+[Open in Notion](https://www.notion.so/Use-semantic-to-release-package-to-NPM-and-publish-docs-to-gh-pages-automatically-9f1bdd8734874fcaa1ed9621c1867f9b)
 
 1. Install requisite dependencies
 

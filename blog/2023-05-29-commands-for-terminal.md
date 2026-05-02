@@ -3,10 +3,10 @@ title: 'Commands for Terminal'
 slug: 'commands-for-terminal'
 date: 2023-05-29
 tags: ['OS']
-notion_url: 'https://app.notion.com/p/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1'
+notion_url: 'https://www.notion.so/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1'
 ---
 
-[Open in Notion](https://app.notion.com/p/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1)
+[Open in Notion](https://www.notion.so/Commands-for-Terminal-9f9f65c1bde74874a7e5582c101ca9e1)
 
 
 ## Useful Aliases

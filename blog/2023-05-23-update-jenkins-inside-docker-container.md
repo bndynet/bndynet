@@ -3,10 +3,10 @@ title: 'Update Jenkins inside Docker Container'
 slug: 'update-jenkins-inside-docker-container'
 date: 2023-05-23
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://app.notion.com/p/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def'
+notion_url: 'https://www.notion.so/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def'
 ---
 
-[Open in Notion](https://app.notion.com/p/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def)
+[Open in Notion](https://www.notion.so/Update-Jenkins-inside-Docker-Container-caffb7b2f92e4f0290dfe3cfb1f33def)
 
 
 First identify your image.

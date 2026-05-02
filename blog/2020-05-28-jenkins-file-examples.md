@@ -3,10 +3,10 @@ title: 'Jenkins File Examples'
 slug: 'jenkins-file-examples'
 date: 2020-05-28
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://app.notion.com/p/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219'
+notion_url: 'https://www.notion.so/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219'
 ---
 
-[Open in Notion](https://app.notion.com/p/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219)
+[Open in Notion](https://www.notion.so/Jenkins-File-Examples-bb0efd5ea63e41699913260f81ad7219)
 
 
 ## Parameter Definitions

@@ -3,10 +3,10 @@ title: 'Compress Files'
 slug: 'compress-files'
 date: 2025-07-01
 tags: ['OS']
-notion_url: 'https://app.notion.com/p/Compress-Files-2231a3b433fe801991e1ddfc158d8962'
+notion_url: 'https://www.notion.so/Compress-Files-2231a3b433fe801991e1ddfc158d8962'
 ---
 
-[Open in Notion](https://app.notion.com/p/Compress-Files-2231a3b433fe801991e1ddfc158d8962)
+[Open in Notion](https://www.notion.so/Compress-Files-2231a3b433fe801991e1ddfc158d8962)
 
 
 ```javascript

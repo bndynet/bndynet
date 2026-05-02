@@ -3,10 +3,10 @@ title: 'Error Handling in Spring Boot'
 slug: 'error-handling-in-spring-boot'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://app.notion.com/p/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26'
+notion_url: 'https://www.notion.so/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26'
 ---
 
-[Open in Notion](https://app.notion.com/p/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26)
+[Open in Notion](https://www.notion.so/Error-Handling-in-Spring-Boot-a0b7580bbaa345a5ab3dcb8c1d613c26)
 
 
 # Custom Error

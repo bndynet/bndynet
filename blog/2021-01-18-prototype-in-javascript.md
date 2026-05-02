@@ -3,10 +3,10 @@ title: 'Prototype in JavaScript'
 slug: 'prototype-in-javascript'
 date: 2021-01-18
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://app.notion.com/p/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650'
+notion_url: 'https://www.notion.so/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650'
 ---
 
-[Open in Notion](https://app.notion.com/p/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650)
+[Open in Notion](https://www.notion.so/Prototype-in-JavaScript-f11c3f72963b480f8bf8822bbb134650)
 
 
 All JavaScript objects inherit properties and methods from a prototype.
