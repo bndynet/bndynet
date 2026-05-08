@@ -19,6 +19,6 @@ module.exports = {
     { label: 'iCharts', href: '/iframe?url=https://bndynet.github.io/icharts/'},
   ],
   theme: {
-    favicon: 'img/favicon.ico',
+    favicon: 'https://static.bndy.net/favicon.ico',
   },
 };
