@@ -18,3 +18,4 @@ jobs:
     with:
       build-command: 'npm run build'
       deploy-folder: 'build'
+      cname: 'bndy.net'
