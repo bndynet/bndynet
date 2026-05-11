@@ -33,7 +33,7 @@ const colorScheme = {
 ```
 
 
-![metro.png](/static/notion/2024-03-01-color-definitions/8c7cc75746ef82c7.png)
+![metro.png](/notion/2024-03-01-color-definitions/8c7cc75746ef82c7.png)
 
 
 **Dutch Field**
@@ -44,7 +44,7 @@ const colorScheme = {
 ```
 
 
-![dutch.png](/static/notion/2024-03-01-color-definitions/cfabc80ad85e38fd.png)
+![dutch.png](/notion/2024-03-01-color-definitions/cfabc80ad85e38fd.png)
 
 
 **River Nights**
@@ -55,7 +55,7 @@ const colorScheme = {
 ```
 
 
-![river-1.png](/static/notion/2024-03-01-color-definitions/4dec86f7cabf9a94.png)
+![river-1.png](/notion/2024-03-01-color-definitions/4dec86f7cabf9a94.png)
 
 
 **Spring Pastels**
@@ -66,7 +66,7 @@ const colorScheme = {
 ```
 
 
-![spring.png](/static/notion/2024-03-01-color-definitions/6a6c3f91f49d9df5.png)
+![spring.png](/notion/2024-03-01-color-definitions/6a6c3f91f49d9df5.png)
 
 
 ## **Sequential palettes**
@@ -75,7 +75,7 @@ const colorScheme = {
 **Blue to Yellow**
 
 
-![blueyellow.png](/static/notion/2024-03-01-color-definitions/fd0a2015de3673ae.png)
+![blueyellow.png](/notion/2024-03-01-color-definitions/fd0a2015de3673ae.png)
 
 
 [“#115f9a”, “#1984c5”, “#22a7f0”, “#48b5c4”, “#76c68f”, “#a6d75b”, “#c9e52f”, “#d0ee11”, “#f4f100”]
@@ -84,7 +84,7 @@ const colorScheme = {
 **Grey to Red**
 
 
-![greyred.png](/static/notion/2024-03-01-color-definitions/568a3c60c2bc482d.png)
+![greyred.png](/notion/2024-03-01-color-definitions/568a3c60c2bc482d.png)
 
 
 [“#d7e1ee”, “#cbd6e4”, “#bfcbdb”, “#b3bfd1”, “#a4a2a8”, “#df8879”, “#c86558”, “#b04238”, “#991f17”]
@@ -93,7 +93,7 @@ const colorScheme = {
 **Black to Pink**
 
 
-![blackpink.png](/static/notion/2024-03-01-color-definitions/a09b5aedacb4ea85.png)
+![blackpink.png](/notion/2024-03-01-color-definitions/a09b5aedacb4ea85.png)
 
 
 [“#2e2b28”, “#3b3734”, “#474440”, “#54504c”, “#6b506b”, “#ab3da9”, “#de25da”, “#eb44e8”, “#ff80ff”]
@@ -102,7 +102,7 @@ const colorScheme = {
 **Blues**
 
 
-![blues.png](/static/notion/2024-03-01-color-definitions/aa6ad41feaf06326.png)
+![blues.png](/notion/2024-03-01-color-definitions/aa6ad41feaf06326.png)
 
 
 [“#0000b3”, “#0010d9”, “#0020ff”, “#0040ff”, “#0060ff”, “#0080ff”, “#009fff”, “#00bfff”, “#00ffff”]
