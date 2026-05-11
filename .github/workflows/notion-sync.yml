@@ -22,7 +22,7 @@ jobs:
           md-dir: ./blog/
           download-assets: 'true'
           assets-dir: ./static/notion/
-          asset-link-base: /static/notion/
+          asset-link-base: /notion/
           cleanup-before: true
           output-page-count: '0'
 
