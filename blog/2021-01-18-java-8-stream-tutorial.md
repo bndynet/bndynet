@@ -9,7 +9,7 @@ notion_url: 'https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eb
 [Open in Notion](https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993)
 
 
-![20210116091807985.jpg](https://img-blog.csdnimg.cn/20210116091807985.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODMwODM3NA==,size_16,color_FFFFFF,t_70#pic_center)
+![20210116091807985.jpg](/static/notion/2021-01-18-java-8-stream-tutorial/12e9814a37b6a6c0.jpg)
 
 
 ```java
