@@ -15,18 +15,21 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Generate posts
-        uses: bndynet/github-action-notion@v3
+        uses: bndynet/github-action-notion@v4
         with:
           notion-token: ${{ secrets.NOTION_TOKEN}}
           root-page-id: ${{ secrets.NOTION_ROOT_PAGE_ID }}
-          output-dir: ./blog/
+          md-dir: ./blog/
+          download-assets: 'true'
+          assets-dir: ./static/notion/
+          asset-link-base: /static/notion/
           cleanup-before: true
           output-page-count: '0'
 
       - name: Commit posts
         uses: EndBug/add-and-commit@v10  # https://github.com/marketplace/actions/add-commit
         with:
-          add: 'blog'
+          add: 'blog static/notion'
           message: Sync notion pages to blog by GitHub Actions
           committer_name: Bendy Zhang
           committer_email: zb@bndy.net
