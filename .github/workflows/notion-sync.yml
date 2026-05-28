@@ -1,4 +1,4 @@
-name: Sync Notion pages to posts
+name: Sync docs and blog
 
 on:
   schedule:
@@ -14,6 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Sync docs from source repositories
+        uses: bndynet/github-action-sync-repo-files@v1
+        with:
+          token: ${{ secrets.SYNC_REPO_FILES_TOKEN || github.token }}
+          commit-message: 'chore: auto-sync docs [skip ci]'
+          mappings: |
+            bndynet/icharts@main:docs => docs/icharts clean
+            bndynet/icharts@main:README.md => docs/icharts/index.md
+            bndynet/ichat@main:README.md => docs/iChat/index.md
+
       - name: Generate posts
         uses: bndynet/github-action-notion@v4
         with:
@@ -26,10 +36,10 @@ jobs:
           cleanup-before: true
           output-page-count: '0'
 
-      - name: Commit posts
+      - name: Commit blog
         uses: EndBug/add-and-commit@v10  # https://github.com/marketplace/actions/add-commit
         with:
           add: 'blog static/notion'
-          message: Sync notion pages to blog by GitHub Actions
+          message: 'chore: auto-sync blog [skip ci]'
           committer_name: Bendy Zhang
           committer_email: zb@bndy.net
