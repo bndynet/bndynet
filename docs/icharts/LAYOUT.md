@@ -1,4 +1,4 @@
-# icharts — Layout Pipeline
+# Layout Pipeline
 
 > Internal design and usage guide for the chart layout pipeline in
 > `@bndynet/icharts` — the small set of helpers in

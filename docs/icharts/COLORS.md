@@ -1,4 +1,4 @@
-# icharts — Color System Guide
+# Color System Guide
 
 > Internal design and usage guide for the color pipeline of
 > `@bndynet/icharts`. Two audiences:

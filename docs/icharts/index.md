@@ -1,4 +1,4 @@
-# @bndynet/icharts
+# iCharts
 
 A lightweight charting library with a Web Component (`<i-chart>`) and a simple `createChart()` API.
 
