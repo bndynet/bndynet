@@ -22,7 +22,8 @@ jobs:
           mappings: |
             bndynet/icharts@main:docs => docs/icharts clean
             bndynet/icharts@main:README.md => docs/icharts/index.md
-            bndynet/ichat@main:README.md => docs/iChat/index.md
+            bndynet/ichat@main:README.md => docs/ichat/index.md
+            bndynet/sse-parser@main:README.md => docs/sse-parser/index.md
 
       - name: Generate posts
         uses: bndynet/github-action-notion@v4
@@ -41,5 +42,5 @@ jobs:
         with:
           add: 'blog static/notion'
           message: 'chore: auto-sync blog [skip ci]'
-          committer_name: Bendy Zhang
-          committer_email: zb@bndy.net
+          committer_name: 'github-actions[bot]'
+          committer_email: '41898282+github-actions[bot]@users.noreply.github.com'
