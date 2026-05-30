@@ -1,4 +1,4 @@
-# iCharts
+# @bndynet/icharts
 
 A lightweight charting library with a Web Component (`<i-chart>`) and a simple `createChart()` API.
 
@@ -254,6 +254,7 @@ The SSR-safe entry deliberately does NOT auto-register the
 | Radar  | `radar`  | `default`, `circle` |
 | Network | `network` | `default`, `circular` |
 | Tree   | `tree`   | `default` (use `direction` for layout orientation) |
+| Treemap | `treemap` | `default` |
 | Word Cloud | `wordcloud` | `default`, `diamond`, `poster` |
 
 ---
@@ -274,6 +275,7 @@ Each chart type expects a specific data shape. Full schemas, field notes, and ch
 | Radar | `RadarData` | [docs/chart-radar.md](docs/chart-radar.md) |
 | Network | `NetworkData` | [docs/chart-network.md](docs/chart-network.md) |
 | Tree | `TreeData` | [docs/chart-tree.md](docs/chart-tree.md) |
+| Treemap | `TreemapData` | [docs/chart-treemap.md](docs/chart-treemap.md) |
 
 **Shared options** (theme, title, colors, tooltip, …): [docs/chart-options-common.md](docs/chart-options-common.md).
 
@@ -298,6 +300,7 @@ All options fields are optional. Each chart type extends the base `ChartOptions`
 | `radar` | `RadarChartOptions` | `ChartOptions` | [docs/chart-radar.md](docs/chart-radar.md) |
 | `network` | `NetworkChartOptions` | `ChartOptions` | [docs/chart-network.md](docs/chart-network.md) |
 | `tree` | `TreeChartOptions` | `ChartOptions` | [docs/chart-tree.md](docs/chart-tree.md) |
+| `treemap` | `TreemapChartOptions` | `ChartOptions` | [docs/chart-treemap.md](docs/chart-treemap.md) |
 | `wordcloud` | `WordCloudChartOptions` | `ChartOptions` | [docs/chart-wordcloud.md](docs/chart-wordcloud.md) |
 
 `createChart` accepts `AnyChartOptions` — a chart-specific literal type-checks without importing the subtype. For stricter validation, import the matching `XxxChartOptions` and annotate explicitly.
