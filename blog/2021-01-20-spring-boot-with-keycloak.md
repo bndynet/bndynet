@@ -3,10 +3,10 @@ title: 'Spring Boot with Keycloak'
 slug: 'spring-boot-with-keycloak'
 date: 2021-01-20
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9'
+notion_url: 'https://app.notion.com/p/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9'
 ---
 
-[Open in Notion](https://www.notion.so/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9)
+[Open in Notion](https://app.notion.com/p/Spring-Boot-with-Keycloak-43abb21afb144e8aacfc13dcba7a1ce9)
 
 
 [bookmark](https://www.baeldung.com/spring-boot-keycloak)

@@ -3,10 +3,10 @@ title: 'Jest - Async'
 slug: 'jest-async'
 date: 2021-01-25
 tags: ['Frontend', 'Testing']
-notion_url: 'https://www.notion.so/Jest-Async-6b1003d1495c4962b010e1088ebad7fd'
+notion_url: 'https://app.notion.com/p/Jest-Async-6b1003d1495c4962b010e1088ebad7fd'
 ---
 
-[Open in Notion](https://www.notion.so/Jest-Async-6b1003d1495c4962b010e1088ebad7fd)
+[Open in Notion](https://app.notion.com/p/Jest-Async-6b1003d1495c4962b010e1088ebad7fd)
 
 
 # Async Example

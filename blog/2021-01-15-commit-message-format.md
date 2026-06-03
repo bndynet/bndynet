@@ -3,10 +3,10 @@ title: 'Commit Message Format'
 slug: 'commit-message-format'
 date: 2021-01-15
 tags: ['Standard']
-notion_url: 'https://www.notion.so/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9'
+notion_url: 'https://app.notion.com/p/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9'
 ---
 
-[Open in Notion](https://www.notion.so/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9)
+[Open in Notion](https://app.notion.com/p/Commit-Message-Format-79646c28a54940da9d11dff1c058cce9)
 
 
 ```html

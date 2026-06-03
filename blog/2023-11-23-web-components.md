@@ -3,10 +3,10 @@ title: 'Web Components'
 slug: 'web-components'
 date: 2023-11-23
 tags: ['Frontend']
-notion_url: 'https://www.notion.so/Web-Components-97c73d287ed84ce0896fb9f5665037dd'
+notion_url: 'https://app.notion.com/p/Web-Components-97c73d287ed84ce0896fb9f5665037dd'
 ---
 
-[Open in Notion](https://www.notion.so/Web-Components-97c73d287ed84ce0896fb9f5665037dd)
+[Open in Notion](https://app.notion.com/p/Web-Components-97c73d287ed84ce0896fb9f5665037dd)
 
 
 ## **HTMLSlotElement**

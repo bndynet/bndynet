@@ -3,10 +3,10 @@ title: 'IntelliJ IDEA'
 slug: 'intellij-idea'
 date: 2021-07-20
 tags: ['Tools ']
-notion_url: 'https://www.notion.so/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a'
+notion_url: 'https://app.notion.com/p/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a'
 ---
 
-[Open in Notion](https://www.notion.so/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a)
+[Open in Notion](https://app.notion.com/p/IntelliJ-IDEA-091b588d904749aeaf9efd7c9fb3215a)
 
 
 # Auto-build

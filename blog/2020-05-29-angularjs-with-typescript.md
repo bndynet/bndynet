@@ -3,10 +3,10 @@ title: 'AngularJS with TypeScript'
 slug: 'angularjs-with-typescript'
 date: 2020-05-29
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca'
+notion_url: 'https://app.notion.com/p/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca'
 ---
 
-[Open in Notion](https://www.notion.so/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca)
+[Open in Notion](https://app.notion.com/p/AngularJS-with-TypeScript-80e90b81b7114807aac19e569982e7ca)
 
 
 ## Components

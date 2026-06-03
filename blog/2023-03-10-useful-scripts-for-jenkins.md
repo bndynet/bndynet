@@ -3,10 +3,10 @@ title: 'Useful Scripts for Jenkins'
 slug: 'useful-scripts-for-jenkins'
 date: 2023-03-10
 tags: ['DevOps', 'CI and CD']
-notion_url: 'https://www.notion.so/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d'
+notion_url: 'https://app.notion.com/p/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d'
 ---
 
-[Open in Notion](https://www.notion.so/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d)
+[Open in Notion](https://app.notion.com/p/Useful-Scripts-for-Jenkins-a0fc6caf2cdc43c6a45f406e816c2d5d)
 
 
 ## **Decrypt credentials defined in Jenkins and list values.**

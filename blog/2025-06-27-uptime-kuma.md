@@ -3,10 +3,10 @@ title: 'Uptime Kuma'
 slug: 'uptime-kuma'
 date: 2025-06-27
 tags: ['DevOps', 'Monitoring Tools']
-notion_url: 'https://www.notion.so/Uptime-Kuma-21f1a3b433fe80b1b3dfcda80e16a2be'
+notion_url: 'https://app.notion.com/p/Uptime-Kuma-21f1a3b433fe80b1b3dfcda80e16a2be'
 ---
 
-[Open in Notion](https://www.notion.so/Uptime-Kuma-21f1a3b433fe80b1b3dfcda80e16a2be)
+[Open in Notion](https://app.notion.com/p/Uptime-Kuma-21f1a3b433fe80b1b3dfcda80e16a2be)
 
 
 ## Run in Docker

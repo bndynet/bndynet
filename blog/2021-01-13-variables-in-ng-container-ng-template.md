@@ -3,10 +3,10 @@ title: 'Variables in ng-container/ng-template'
 slug: 'variables-in-ng-container-ng-template'
 date: 2021-01-13
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd'
+notion_url: 'https://app.notion.com/p/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd'
 ---
 
-[Open in Notion](https://www.notion.so/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd)
+[Open in Notion](https://app.notion.com/p/Variables-in-ng-container-ng-template-fab1314c12924d5aa22de15db7844efd)
 
 
 ```html

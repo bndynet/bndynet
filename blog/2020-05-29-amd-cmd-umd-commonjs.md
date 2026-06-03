@@ -3,10 +3,10 @@ title: 'AMD、CMD、UMD、CommonJS'
 slug: 'amd-cmd-umd-commonjs'
 date: 2020-05-29
 tags: ['Frontend', 'JavaScript']
-notion_url: 'https://www.notion.so/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12'
+notion_url: 'https://app.notion.com/p/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12'
 ---
 
-[Open in Notion](https://www.notion.so/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12)
+[Open in Notion](https://app.notion.com/p/AMD-CMD-UMD-CommonJS-69d826713a6748608fc35f9a692e2d12)
 
 
 # AMD（Asynchromous Module Definition)

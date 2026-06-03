@@ -3,10 +3,10 @@ title: 'Java 8 Stream Tutorial'
 slug: 'java-8-stream-tutorial'
 date: 2021-01-18
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993'
+notion_url: 'https://app.notion.com/p/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993'
 ---
 
-[Open in Notion](https://www.notion.so/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993)
+[Open in Notion](https://app.notion.com/p/Java-8-Stream-Tutorial-3e0251f254264fa3acb9eba089478993)
 
 
 ![20210116091807985.jpg](/notion/2021-01-18-java-8-stream-tutorial/12e9814a37b6a6c0.jpg)

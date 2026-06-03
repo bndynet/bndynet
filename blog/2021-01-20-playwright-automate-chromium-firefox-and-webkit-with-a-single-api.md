@@ -3,10 +3,10 @@ title: 'Playwright - Automate Chromium, Firefox and WebKit with a single API'
 slug: 'playwright-automate-chromium-firefox-and-webkit-with-a-single-api'
 date: 2021-01-20
 tags: ['Frontend', 'Testing']
-notion_url: 'https://www.notion.so/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f'
+notion_url: 'https://app.notion.com/p/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f'
 ---
 
-[Open in Notion](https://www.notion.so/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f)
+[Open in Notion](https://app.notion.com/p/Playwright-Automate-Chromium-Firefox-and-WebKit-with-a-single-API-655e1682fa5242dc9c88220b7caf532f)
 
 
 Playwright is a Node.js library to automate Chromium, Firefox and WebKit with a single API. Playwright is built to enable cross-browser web automation that is ever-green, capable, reliable and fast.

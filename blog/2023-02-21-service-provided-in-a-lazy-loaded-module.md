@@ -3,10 +3,10 @@ title: 'Service Provided in a Lazy Loaded Module'
 slug: 'service-provided-in-a-lazy-loaded-module'
 date: 2023-02-21
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b'
+notion_url: 'https://app.notion.com/p/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b'
 ---
 
-[Open in Notion](https://www.notion.so/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b)
+[Open in Notion](https://app.notion.com/p/Service-Provided-in-a-Lazy-Loaded-Module-dc374704420544949184666dfef1b65b)
 
 
 [https://angular.io/guide/ngmodule-faq#why-is-a-service-provided-in-a-lazy-loaded-module-visible-only-to-that-module](https://angular.io/guide/ngmodule-faq#why-is-a-service-provided-in-a-lazy-loaded-module-visible-only-to-that-module)

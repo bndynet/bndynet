@@ -3,10 +3,10 @@ title: 'TimeZone in Spring Boot'
 slug: 'timezone-in-spring-boot'
 date: 2020-05-29
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961'
+notion_url: 'https://app.notion.com/p/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961'
 ---
 
-[Open in Notion](https://www.notion.so/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961)
+[Open in Notion](https://app.notion.com/p/TimeZone-in-Spring-Boot-bcb5c63fd9d44f89b6d01845e84f5961)
 
 
 ```java

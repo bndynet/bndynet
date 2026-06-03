@@ -3,10 +3,10 @@ title: 'Monitor Spring Boot Application'
 slug: 'monitor-spring-boot-application'
 date: 2021-01-20
 tags: ['Backend', 'Java']
-notion_url: 'https://www.notion.so/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196'
+notion_url: 'https://app.notion.com/p/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196'
 ---
 
-[Open in Notion](https://www.notion.so/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196)
+[Open in Notion](https://app.notion.com/p/Monitor-Spring-Boot-Application-30e77904ca3241829eafae2f2d96a196)
 
 
 [bookmark](https://sentry.io/)

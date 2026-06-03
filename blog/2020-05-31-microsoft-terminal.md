@@ -3,10 +3,10 @@ title: 'Microsoft Terminal'
 slug: 'microsoft-terminal'
 date: 2020-05-31
 tags: ['Tools ']
-notion_url: 'https://www.notion.so/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f'
+notion_url: 'https://app.notion.com/p/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f'
 ---
 
-[Open in Notion](https://www.notion.so/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f)
+[Open in Notion](https://app.notion.com/p/Microsoft-Terminal-9e5dc6adb45b44179857dc8cd887839f)
 
 
 # Useful Commands

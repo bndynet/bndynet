@@ -3,10 +3,10 @@ title: 'Cache for HttpClient'
 slug: 'cache-for-httpclient'
 date: 2021-06-17
 tags: ['Frontend', 'Angular']
-notion_url: 'https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89'
+notion_url: 'https://app.notion.com/p/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89'
 ---
 
-[Open in Notion](https://www.notion.so/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89)
+[Open in Notion](https://app.notion.com/p/Cache-for-HttpClient-0a73c261f9fc45b6b94d85d641a6be89)
 
 
 ```typescript
