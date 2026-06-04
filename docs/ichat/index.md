@@ -1,4 +1,4 @@
-# iChat
+# @bndynet/ichat
 
 Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-block renderers (charts, KPI, forms, Mermaid), reasoning blocks, and streaming. **Recommended:** install **`@bndynet/ichat`** and use **`<i-chat>`** — one tag bundles the message list and default composer (`<i-chat-input>`). Chart/KPI/form/Mermaid fences come from **`@bndynet/ichat-renderers`**; register them once with **`registerRenderer`** from **`@bndynet/ichat`** (see [Custom renderers](#custom-renderers)). Lower-level packages exist if you compose the list and input yourself.
 
@@ -80,11 +80,11 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 </script>
 ```
 
-Use **`addMessage`**, **`updateMessage`**, **`removeMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see below). **`createStreamingController()`** returns a helper bound to the inner list.
+Use **`addMessage`**, **`updateMessage`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see below). **`createStreamingController()`** returns a helper bound to the inner list.
 
 ## Script tag (IIFE bundles)
 
-For pages without a bundler, load the **`@bndynet/ichat`** IIFE build. The global object is **`iChat`** (e.g. **`iChat.NiceChat`**, **`iChat.registerRenderer`**, **`iChat.rendererRegistry`**, …). Optional renderers still come from the **`@bndynet/ichat-renderers`** IIFE (global **`iChatRenderers`**) — after both scripts load, call **`iChat.registerRenderer(iChatRenderers.chartRenderer)`** (and **`kpiRenderer`**, **`kpisRenderer`**, **`formRenderer`**, **`mermaidRenderer`** as needed).
+For pages without a bundler, load the **`@bndynet/ichat`** IIFE build. The global object is **`iChat`** (e.g. **`iChat.Chat`**, **`iChat.registerRenderer`**, **`iChat.rendererRegistry`**, …). Optional renderers still come from the **`@bndynet/ichat-renderers`** IIFE (global **`iChatRenderers`**) — after both scripts load, call **`iChat.registerRenderer(iChatRenderers.chartRenderer)`** (and **`kpiRenderer`**, **`kpisRenderer`**, **`formRenderer`**, **`mermaidRenderer`** as needed).
 
 ```html
 <script src="/path/to/chat/dist/index.global.js"></script>
@@ -109,6 +109,7 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 - **Extensible fenced blocks** — **`registerRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control (from `@bndynet/ichat` or `@bndynet/ichat-messages`)
 - **Reasoning blocks** — collapsible “thinking” UI + streaming
 - **Streaming typewriter** — progressive reveal and cursor state
+- **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`**; compact quote rows via **`parentId`**
 - **Slots** — avatars, actions, empty state
 - **Theming** — 12 base CSS custom properties; all components derive from them automatically ([host theme contract](#host-theme-contract-light--dark) for charts & Mermaid)
 - **TypeScript** — declaration files for public API
@@ -126,6 +127,15 @@ Each `ChatMessage` has `role: 'self' | 'peer' | 'assistant' | 'system'`.
 
 **Breaking migration from earlier releases:** use `role: 'self'` instead of `'user'`. Rename `config.userAvatar` → `config.selfAvatar`, slot `user-avatar` → `self-avatar`, and add optional `peerAvatar` / slot `peer-avatar` for `role: 'peer'`. For CSS, prefer `--chat-self-*`; legacy `--chat-user-*` is still honored via fallbacks inside the components.
 
+### `ChatMessage` fields (common)
+
+| Field | Description |
+|-------|-------------|
+| `id`, `role`, `content`, `timestamp` | Required row identity and body |
+| `avatar` | Per-row avatar override (see [Per-message `avatar`](#per-message-avatar)) |
+| `reasoning`, `streaming`, `error`, `cancelled`, `duration` | Assistant streaming / errors / timing |
+| `parentId` | When set on a message in `messages[]`, that row renders as a **compact quote** (avatar + content only; no reasoning, footer, or `message-actions`). Use for reply rows you store in the thread. Distinct from **`replyMessage`**, which renders quote blocks **under** a parent without adding them to `messages[]`. |
+
 ## `<i-chat>` — properties, methods, events
 
 | Property | Type | Default | Description |
@@ -140,7 +150,7 @@ Each `ChatMessage` has `role: 'self' | 'peer' | 'assistant' | 'system'`.
 | `voiceListeningLabel` | `string` | `'Listening…'` | Forwarded to the default `<i-chat-input>` — text on the listening overlay |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods (forwarded to the inner message list):** `addMessage`, `updateMessage`, `removeMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
+**Methods (forwarded to the inner message list):** `addMessage`, `updateMessage`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -162,6 +172,45 @@ chatEl.addEventListener('streaming-change', (e) => {
   if (e.detail.streaming) { /* … */ }
 });
 ```
+
+### Reply blocks
+
+Show quoted content **under** an existing message (e.g. after the user taps Reply in `message-actions`). The component only **renders** these blocks; you still own the composer (`<i-chat-input>` or `slot="input"`).
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `replyMessage(id, info?)` | `string` (block key) | Adds a quote block under the message with `id`. Each call **stacks** another block on the same message. `info` is optional display fields (`content`, `avatar`, `role`, …) — you can pass the `ChatMessage` being quoted. |
+| `clearReplyMessage(idOrKey?)` | — | Message `id` → remove **all** blocks under that message; block `key` from `replyMessage` → remove one block; omit → clear every reply block. No-op when nothing matches. **`removeMessage(id)`** also clears blocks for that `id`. |
+
+Blocks reuse `<i-chat-message>` in quote mode (charts, forms, Mermaid fences, etc. still render). Style with `.message-replies`, `.message-reply`, and `.message--reply`.
+
+**`message-action` example** (listen on `<i-chat>`; `detail.message` is the row that was acted on):
+
+```javascript
+chat.addEventListener('message-action', (e) => {
+  const { action, message } = e.detail;
+  if (action === 'reply') {
+    chat.replyMessage(message.id, {
+      id: message.id,
+      content: message.content,
+      role: message.role,
+      avatar: message.avatar,
+      timestamp: message.timestamp,
+    });
+  } else if (action === 'clear-reply') {
+    chat.clearReplyMessage(message.id);
+  }
+});
+```
+
+```html
+<div slot="message-actions">
+  <button type="button" data-action="reply">Reply</button>
+  <button type="button" data-action="clear-reply">Clear quote</button>
+</div>
+```
+
+The same methods exist on **`<i-chat-messages>`** when you use the message list without `<i-chat>`.
 
 ### Slots on `<i-chat>`
 
@@ -190,6 +239,7 @@ Message-related slots are **forwarded** with declarative `<slot name="…" slot=
   </div>
   <div slot="message-actions">
     <button type="button" data-action="copy">Copy</button>
+    <button type="button" data-action="reply">Reply</button>
     <button type="button" data-action="like">👍</button>
     <button type="button" data-action="dislike">👎</button>
   </div>
