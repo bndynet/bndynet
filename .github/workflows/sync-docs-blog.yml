@@ -41,6 +41,6 @@ jobs:
         uses: EndBug/add-and-commit@v10  # https://github.com/marketplace/actions/add-commit
         with:
           add: 'blog static/notion'
-          message: 'chore: auto-sync blog [skip ci]'
+          message: 'chore: auto-sync blog'
           committer_name: 'github-actions[bot]'
           committer_email: '41898282+github-actions[bot]@users.noreply.github.com'
