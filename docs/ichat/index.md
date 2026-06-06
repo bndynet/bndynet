@@ -61,6 +61,8 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 <i-chat id="chat"></i-chat>
 
 <script type="module">
+  import { textPart } from '@bndynet/ichat';
+
   const chat = document.getElementById('chat');
 
   chat.addEventListener('send', (e) => {
@@ -68,10 +70,10 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
     chat.addMessage({
       id: Date.now().toString(),
       role: 'self',
-      content: text,
+      parts: [textPart(text)],
       timestamp: Date.now(),
     });
-    // …call your API, then add assistant messages with addMessage / updateMessage
+    // …call your API, then add assistant messages with addMessage / updateMessage / appendPart
   });
 
   chat.addEventListener('streaming-change', (e) => {
@@ -80,7 +82,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 </script>
 ```
 
-Use **`addMessage`**, **`updateMessage`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see below). **`createStreamingController()`** returns a helper bound to the inner list.
+A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message body](#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see below). **`createStreamingController()`** returns a helper bound to the inner list.
 
 ## Script tag (IIFE bundles)
 
@@ -107,8 +109,10 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 - **Lit 3 Web Components** — works with any framework or vanilla HTML
 - **Markdown** — `markdown-it` + `highlight.js`, sanitized with DOMPurify
 - **Extensible fenced blocks** — **`registerRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control (from `@bndynet/ichat` or `@bndynet/ichat-messages`)
-- **Reasoning blocks** — collapsible “thinking” UI + streaming
-- **Streaming typewriter** — progressive reveal and cursor state
+- **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `file`, `source`, custom `x-*`); parts stream and update independently (see [Message body](#message-body--parts))
+- **Reasoning parts** — collapsible “thinking” UI + streaming
+- **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval
+- **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts
 - **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`**; compact quote rows via **`parentId`**
 - **Slots** — avatars, actions, empty state
 - **Theming** — 12 base CSS custom properties; all components derive from them automatically ([host theme contract](#host-theme-contract-light--dark) for charts & Mermaid)
@@ -131,26 +135,95 @@ Each `ChatMessage` has `role: 'self' | 'peer' | 'assistant' | 'system'`.
 
 | Field | Description |
 |-------|-------------|
-| `id`, `role`, `content`, `timestamp` | Required row identity and body |
+| `id`, `role` | Required row identity |
+| `parts` | **Required.** Ordered, typed body parts — the single source of truth for the body (see [Message body](#message-body--parts)). May be an empty array (e.g. an error-only or streaming-placeholder row). |
+| `timestamp` | Row time (used by date separators / footer) |
 | `avatar` | Per-row avatar override (see [Per-message `avatar`](#per-message-avatar)) |
-| `reasoning`, `streaming`, `error`, `cancelled`, `duration` | Assistant streaming / errors / timing |
-| `parentId` | When set on a message in `messages[]`, that row renders as a **compact quote** (avatar + content only; no reasoning, footer, or `message-actions`). Use for reply rows you store in the thread. Distinct from **`replyMessage`**, which renders quote blocks **under** a parent without adding them to `messages[]`. |
+| `streaming`, `error`, `cancelled`, `duration` | Assistant streaming / errors / timing |
+| `parentId` | When set on a message in `messages[]`, that row renders as a **compact quote** (avatar + body only; no footer or `message-actions`). Use for reply rows you store in the thread. Distinct from **`replyMessage`**, which renders quote blocks **under** a parent without adding them to `messages[]`. |
+
+## Message body — `parts[]`
+
+A message body is **always** an ordered array of typed parts. This mirrors modern AI chat protocols (Anthropic content blocks, Vercel AI SDK message parts): text, reasoning, tool calls, files, sources, and host‑defined `x-*` parts all sit side by side and stream/update independently. There is no plain `content` / `reasoning` string on `ChatMessage`.
+
+### Part types (`MessagePart`)
+
+Every part has a stable **`id`** (used for keyed rendering + targeted updates) and an optional **`status`** (`'pending' | 'streaming' | 'complete' | 'error' | 'cancelled'`).
+
+| `type` | Shape (besides `id` / `status`) | Rendered as |
+|--------|---------------------------------|-------------|
+| `text` | `text: string` | Markdown bubble (typewriter while `status: 'streaming'`; charts/Mermaid/forms fences still render) |
+| `reasoning` | `text: string` | Collapsible “thinking” block (`<i-chat-reasoning>`) |
+| `tool-call` | `toolCallId`, `toolName`, `title?`, `args?`, `state`, `result?`, `resultParts?`, `error?`, `approval?`, `durationMs?` | Tool-call card (`<i-chat-tool-call>`) — see [Tool calls](#tool-calls) |
+| `file` | `mediaType`, `url?` \| `data?` (base64), `name?`, `size?` | Inline image or download link |
+| `source` | `url`, `title?`, `snippet?` | Citation link with optional snippet |
+| `x-*` (custom) | `data: unknown` | Readable JSON dump (host can register richer rendering) |
+
+### Factories
+
+Import helpers so you don’t have to hand-write `id`s:
+
+```javascript
+import { textPart, reasoningPart, nextPartId, getMessageText } from '@bndynet/ichat';
+
+chat.addMessage({
+  id: 'a1',
+  role: 'assistant',
+  parts: [
+    reasoningPart('Let me work through this…'),
+    textPart('The answer is **42**.'),
+  ],
+  timestamp: Date.now(),
+});
+
+// Plain-text view (copy / search / persistence) — joins all text parts:
+const plain = getMessageText(chat.messages.find((m) => m.id === 'a1'));
+```
+
+- `textPart(text, opts?)` / `reasoningPart(text, opts?)` — `opts` accepts `{ id?, status?, metadata? }`; an `id` is generated when omitted.
+- `nextPartId(prefix?)` — collision-resistant id generator (`part-<n>`).
+- `getMessageText(message)` — concatenates all `text` parts.
+
+### Streaming & updating parts
+
+Append and patch parts by id instead of rewriting the whole message:
+
+| Method (on `<i-chat>` / `<i-chat-messages>`) | Description |
+|----------------------------------------------|-------------|
+| `appendPart(messageId, part)` | Push a new part (e.g. start a streaming `text` part, add a `tool-call`). |
+| `updatePart(messageId, partId, patch)` | Shallow-merge `patch` into the matching part (e.g. grow `text`, flip `status`). Keyed by `id`, so stateful elements survive. |
+| `updateToolCall(messageId, partId, patch)` | Convenience wrapper around `updatePart` for `tool-call` parts. |
+
+```javascript
+const id = 'a2';
+chat.addMessage({ id, role: 'assistant', parts: [], streaming: true, timestamp: Date.now() });
+
+// Stream a text part:
+chat.appendPart(id, textPart('', { id: 'body', status: 'streaming' }));
+let acc = '';
+for await (const chunk of stream) {
+  acc += chunk;
+  chat.updatePart(id, 'body', { text: acc });
+}
+chat.updatePart(id, 'body', { status: 'complete' });
+chat.updateMessage(id, { streaming: false });
+```
 
 ## `<i-chat>` — properties, methods, events
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `messages` | `ChatMessage[]` | `[]` | Bound to the inner list (also writable; prefer `addMessage` / `updateMessage` to avoid overwriting streamed state) |
-| `config` | `ChatConfig` | `{}` | Avatars, locale, date separators, etc. |
+| `config` | `ChatConfig` | `{}` | Avatars, `locale`, `labels` (all UI strings — see [Localization](#localization-i18n)), date separators, etc. |
 | `emptyText` | `string` | `''` | Plain text when there are no messages and no `empty` slot |
-| `placeholder` | `string` | `'Type a message…'` | Default `<i-chat-input>` placeholder (ignored when using `slot="input"`) |
+| `placeholder` | `string` | `''` | Default `<i-chat-input>` placeholder (ignored when using `slot="input"`). Empty → localized default from `config.locale` / `config.labels.composer.placeholder` |
 | `disabled` | `boolean` | `false` | Disables the default composer |
 | `showVoiceInput` | `boolean` | `true` | Enables/disables the default composer voice button; even when `true`, the button is rendered only if the browser supports speech recognition |
 | `voiceLang` | `string` | `''` | Forwarded to the default `<i-chat-input>` — BCP 47 tag for speech recognition (e.g. `zh-CN`; empty uses `navigator.language`) |
-| `voiceListeningLabel` | `string` | `'Listening…'` | Forwarded to the default `<i-chat-input>` — text on the listening overlay |
+| `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods (forwarded to the inner message list):** `addMessage`, `updateMessage`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
+**Methods (forwarded to the inner message list):** `addMessage`, `updateMessage`, `appendPart`, `updatePart`, `updateToolCall`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -160,8 +233,82 @@ Each `ChatMessage` has `role: 'self' | 'peer' | 'assistant' | 'system'`.
 | `cancel` | — | User cancelled during streaming (default input) |
 | `streaming-change` | `{ streaming: boolean }` | Any assistant message is streaming |
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
+| `tool-action` | `{ action: 'approve' \| 'reject', toolCallId: string, part: ToolCallPart }` | From a `tool-call` part’s human-in-the-loop buttons (when `approval === 'required'`) |
+| `form-submit` | `{ formId, title, values, messageId, message }` | From an embedded `form` fenced block inside a `text` part |
 
 Events that originate on inner rows (e.g. `message-complete` on `<i-chat-message>`) use `bubbles` + `composed` so you can listen on `<i-chat>` or `document`.
+
+## Localization (i18n)
+
+All user-facing strings flow from a single place: **`config.locale`** + **`config.labels`**. There is one unified dictionary (`ChatLabels`) covering the composer, reasoning block, tool-call card, message list, and date separators. Built-in dictionaries are provided for `en` (default) and `zh` / `zh-CN`; unknown locales fall back to English.
+
+- **`locale`** also drives `Intl`-based formatting (timestamps and assistant duration via `Intl.NumberFormat` / `Intl.DurationFormat`).
+- **`labels`** is a deep-partial override merged on top of the locale dictionary — supply only the strings you want to change.
+
+```javascript
+const chat = document.querySelector('i-chat');
+
+// 1) Built-in Chinese (one line):
+chat.config = { locale: 'zh-CN' };
+
+// 2) Any locale + your own translations (e.g. from vue-i18n / i18next):
+chat.config = {
+  locale: 'fr',
+  labels: {
+    composer: { placeholder: 'Écrivez un message…', send: 'Envoyer' },
+    reasoning: { thinking: 'Réflexion…', reasoning: 'Raisonnement' },
+    toolCall: { running: 'En cours…', approve: 'Autoriser', reject: 'Refuser' },
+    messages: { empty: 'Aucun message. Démarrez la conversation\u202f!' },
+    dateSeparator: {
+      today: "Aujourd'hui",
+      yesterday: 'Hier',
+      daysAgo: (n) => `il y a ${n} jours`,
+      older: 'Plus ancien',
+    },
+  },
+};
+```
+
+The library intentionally ships **no i18n runtime** — translations come from your app (vue-i18n, i18next, …); you just fill in `config.labels`. Helpers are exported for advanced use: `resolveLabels({ locale, labels })`, `CHAT_LABELS_EN`, `CHAT_LABELS_ZH_CN` (and `resolveComposerLabels`, `COMPOSER_LABELS_*` from `@bndynet/ichat-input` for standalone composer use).
+
+`ChatLabels` sections: `composer` (placeholder, send/cancel/voice button labels + titles, listening overlay), `reasoning` (`thinking`, `reasoning`), `toolCall` (state labels, section headings, approve/reject), `messages` (`empty`, `dismissError`, `scrollToLatest`), and `dateSeparator` (`today`, `yesterday`, `daysAgo(n)`, `older`).
+
+> The older `config.dateSeparatorLabels` still works but is deprecated — prefer `config.labels.dateSeparator`.
+
+### Plurals (`makeDaysAgo`)
+
+`dateSeparator.daysAgo(n)` is a function so you control grammar. For languages with several plural forms (Russian, Arabic, Polish, …) a single template is wrong. Use **`makeDaysAgo(locale, forms)`** — it picks the correct CLDR plural category via `Intl.PluralRules`. Provide a template per category (`one` / `two` / `few` / `many` / `other`); `other` is the required fallback:
+
+```javascript
+import { makeDaysAgo } from '@bndynet/ichat';
+
+chat.config = {
+  locale: 'ru',
+  labels: {
+    dateSeparator: {
+      today: 'сегодня',
+      yesterday: 'вчера',
+      older: 'ранее',
+      daysAgo: makeDaysAgo('ru', {
+        one: (n) => `${n} день назад`,
+        few: (n) => `${n} дня назад`,
+        many: (n) => `${n} дней назад`,
+        other: (n) => `${n} дней назад`,
+      }),
+    },
+  },
+};
+```
+
+### Right-to-left (RTL)
+
+All component styles use **CSS logical properties** (`margin-inline-*`, `padding-inline-*`, `border-inline-*`, `inset-inline-*`, logical `border-*-radius`, `text-align: start/end`), so the layout mirrors automatically for RTL languages. Just set **`dir="rtl"`** on `<i-chat>` (or any ancestor) — `direction` inherits into the shadow DOM, flipping bubble alignment, avatars, the speech-bubble "tail", quote bars, the reasoning chevron, etc.
+
+```html
+<i-chat dir="rtl" .config=${{ locale: 'ar', labels: arabicLabels }}></i-chat>
+```
+
+The demo's **Chat** page has a language switcher (English / 简体中文 / العربية) that toggles `dir` so you can see RTL + `makeDaysAgo` live.
 
 ### Streaming
 
@@ -179,7 +326,7 @@ Show quoted content **under** an existing message (e.g. after the user taps Repl
 
 | Method | Returns | Description |
 |--------|---------|-------------|
-| `replyMessage(id, info?)` | `string` (block key) | Adds a quote block under the message with `id`. Each call **stacks** another block on the same message. `info` is optional display fields (`content`, `avatar`, `role`, …) — you can pass the `ChatMessage` being quoted. |
+| `replyMessage(id, info?)` | `string` (block key) | Adds a quote block under the message with `id`. Each call **stacks** another block on the same message. `info` is optional display fields (`parts`, `avatar`, `role`, …) — you can pass the `ChatMessage` being quoted. |
 | `clearReplyMessage(idOrKey?)` | — | Message `id` → remove **all** blocks under that message; block `key` from `replyMessage` → remove one block; omit → clear every reply block. No-op when nothing matches. **`removeMessage(id)`** also clears blocks for that `id`. |
 
 Blocks reuse `<i-chat-message>` in quote mode (charts, forms, Mermaid fences, etc. still render). Style with `.message-replies`, `.message-reply`, and `.message--reply`.
@@ -192,7 +339,7 @@ chat.addEventListener('message-action', (e) => {
   if (action === 'reply') {
     chat.replyMessage(message.id, {
       id: message.id,
-      content: message.content,
+      parts: message.parts,
       role: message.role,
       avatar: message.avatar,
       timestamp: message.timestamp,
@@ -279,8 +426,9 @@ When using `<i-chat-input>` directly, the same properties are available:
 
 - `showVoiceInput` (`boolean`, default `true`)
 - `voiceLang` (`string`, BCP 47, e.g. `zh-CN`, `en-US`; defaults to `navigator.language`)
-- `voiceListeningLabel` (`string`, default `Listening…`) — shown centered over the textarea while dictating (no scrim; light text shadow keeps it readable on top of live transcript)
+- `voiceListeningLabel` (`string`, default `''`) — shown centered over the textarea while dictating; empty → localized default from `locale` / `labels.voiceListening`
 - `voiceDiagnostics` (`boolean`, default `false`) — logs recognition milestones to the console (`console.debug`)
+- `locale` (`string`, BCP 47; built-ins `en` / `zh` / `zh-CN`) and `labels` (`Partial<ComposerLabels>`) — localize the composer strings (placeholder, send/cancel/voice labels). Empty `placeholder` / `voiceListeningLabel` attributes fall back to these. `<i-chat>` forwards `config.locale` and `config.labels.composer` here automatically.
 
 **Testing speech-to-text (Web Speech API):**
 
@@ -318,10 +466,12 @@ Pass `avatar` on each `ChatMessage` when calling `addMessage` / assigning `messa
 Supported values: image URL, `data:image/…;base64,…`, raw base64 (defaults to PNG in the component), inline `<svg>…</svg>`, or plain text / emoji.
 
 ```javascript
+import { textPart } from '@bndynet/ichat';
+
 chat.addMessage({
   id: 'u1',
   role: 'self',
-  content: 'Hello',
+  parts: [textPart('Hello')],
   timestamp: Date.now(),
   avatar: 'https://example.com/avatar.png',
 });
@@ -388,16 +538,65 @@ Fenced block in markdown:
 
 ## Reasoning
 
-Set `reasoning` on the assistant message (separate from `content`), e.g. when your backend streams reasoning and answer on different fields. To show the “Thinking…” state before the first reasoning token, start with `reasoning: ''` on a streaming message. If you still have tagged reasoning inside a single string, use `extractReasoning()` from `@bndynet/ichat-messages` and pass the split values yourself.
+Reasoning is a **`reasoning` part** rendered as a collapsible “thinking” block, separate from the answer `text` part — useful when your backend streams reasoning and answer on different tracks. To show the “Thinking…” state before the first reasoning token, add a streaming reasoning part with empty text. If you have tagged reasoning inside a single string, use `extractReasoning()` from `@bndynet/ichat-messages` to split it, then build the parts yourself.
 
 ```javascript
+import { textPart, reasoningPart } from '@bndynet/ichat';
+
 // `chat` is your `<i-chat>` element
 chat.addMessage({
   id: '1',
   role: 'assistant',
-  content: 'The answer is 42.',
-  reasoning: 'Let me calculate step by step…',
+  parts: [
+    reasoningPart('Let me calculate step by step…'),
+    textPart('The answer is 42.'),
+  ],
   streaming: true,
+});
+```
+
+While streaming, grow the reasoning and answer parts independently via `updatePart` (give them fixed ids, e.g. `reasoning` / `body`), then set each part’s `status` to `'complete'` and clear `streaming` on the message when done.
+
+## Tool calls
+
+Tool / function invocations are **`tool-call` parts**, rendered as an expandable card (`<i-chat-tool-call>`) with arguments, result, and status. The `state` field follows the Vercel AI SDK vocabulary so adapters map cleanly from OpenAI `tool_calls` / Anthropic `tool_use`:
+
+`'input-streaming'` → `'input-available'` → `'executing'` → `'output-available'` \| `'output-error'`.
+
+```javascript
+const msgId = 'a3';
+chat.addMessage({ id: msgId, role: 'assistant', parts: [], streaming: true, timestamp: Date.now() });
+
+// Add the call, then advance its state machine:
+chat.appendPart(msgId, {
+  id: 'tc-1',
+  type: 'tool-call',
+  toolCallId: 'call_1',
+  toolName: 'search_web',
+  args: { q: 'lit web components' },
+  state: 'input-available',
+});
+chat.updateToolCall(msgId, 'tc-1', { state: 'executing' });
+chat.updateToolCall(msgId, 'tc-1', {
+  state: 'output-available',
+  durationMs: 1100,
+  // `result` (string / JSON) renders as a code block, or use `resultParts`
+  // for rich nested output (text + file + custom …):
+  resultParts: [{ id: 'r1', type: 'text', text: 'Found **3 results**.' }],
+});
+```
+
+**Human-in-the-loop approval:** set `approval: 'required'` on a `tool-call` part to render Approve / Reject buttons. The card emits a bubbling `tool-action` event (`{ action, toolCallId, part }`); respond by patching the part:
+
+```javascript
+chat.addEventListener('tool-action', (e) => {
+  const { action, part } = e.detail;
+  if (action === 'approve') {
+    chat.updateToolCall(messageId, part.id, { approval: 'approved', state: 'executing' });
+    // …run the tool, then attach the result via updateToolCall(… { state: 'output-available', result })
+  } else {
+    chat.updateToolCall(messageId, part.id, { approval: 'rejected' });
+  }
 });
 ```
 
@@ -467,13 +666,13 @@ chatEl.updateTimeline(messageId, 1, 'active', 'deploy');
 
 Timelines that need dynamic status updates are typically generated by the **backend orchestration logic** (agent frameworks, pipelines), not by the AI model. The workflow has two phases:
 
-**Phase 1 — Define the timeline** (via `content` or `reasoning`):
+**Phase 1 — Define the timeline** (markdown inside a `text` or `reasoning` part):
 
 ```
 data: {"reasoning": "<!-- bid:agent -->\n1. [pending] Search documents\n2. [pending] Analyze results\n3. [pending] Generate response\n"}
 ```
 
-The `<!-- bid:agent -->` annotation and `[pending]` status markers live inside the markdown content. This ensures the bid stays associated with its timeline regardless of how the stream is chunked or re-rendered.
+Map that stream into a part — e.g. `appendPart(messageId, reasoningPart(md, { id: 'plan' }))` then grow it with `updatePart`. The `<!-- bid:agent -->` annotation and `[pending]` status markers live inside the part’s markdown, so the bid stays associated with its timeline regardless of how the stream is chunked or re-rendered.
 
 **Phase 2 — Update step statuses** (structured event):
 
