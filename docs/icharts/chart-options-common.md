@@ -149,10 +149,48 @@ Cross-cutting `ChartOptions` shared by every chart type. `legend` and `grid` liv
     cursorGap?: number;
   };
 
+  // Typed mouse-interaction handlers. Each receives a normalized
+  // ChartEventContext (the same item/edge shape tooltip.customHtml gets)
+  // instead of raw ECharts params. Engine-bound; kept in sync across update().
+  events?: {
+    onClick?: (ctx: ChartEventContext) => void;
+    onDoubleClick?: (ctx: ChartEventContext) => void;
+    onMouseOver?: (ctx: ChartEventContext) => void;
+    onMouseOut?: (ctx: ChartEventContext) => void;
+  };
+
   // Advanced passthrough — for anything not covered above
   echarts?: Record<string, unknown>;
 }
 ```
+
+> **Events.** `options.events` gives you typed `onClick` / `onDoubleClick` /
+> `onMouseOver` / `onMouseOut` handlers without reaching into the raw ECharts
+> instance. Each handler receives a normalized `ChartEventContext`:
+>
+> ```ts
+> interface ChartEventContext {
+>   type: 'click' | 'dblclick' | 'mouseover' | 'mouseout';
+>   // Reuses the tooltip item/edge normalization — narrow with data.kind.
+>   data?: TooltipContextItem | TooltipContextEdge;
+>   componentType?: string; // 'series' | 'markPoint' | 'title' | …
+>   seriesType?: string;    // 'line' | 'pie' | 'sankey' | …
+>   seriesIndex?: number;
+>   raw: unknown;           // raw ECharts params — escape hatch
+> }
+> ```
+>
+> `data` mirrors what `tooltip.customHtml` receives — a click on a pie slice or
+> sankey node is a `TooltipContextItem`, a click on a sankey/chord/network link
+> is a `TooltipContextEdge`. There is no `'axis'` event kind: ECharts clicks
+> always land on a single data item. `data` is `undefined` when the hit wasn't
+> on a series item (legend, title, empty canvas) — use `componentType` and
+> `raw` for those. The engine binds these on the live instance and re-syncs
+> them on every `update()`, so passing new handlers replaces the old ones
+> without stacking listeners; all are detached on `dispose()`. A throwing
+> handler is swallowed so it can't break ECharts' event dispatch. For events
+> not covered here (`legendselectchanged`, `datazoom`, …) use
+> `getEChartsInstance().on(...)` directly.
 
 > `legend` and `grid` are intentionally **not** on the base — only chart types
 > that actually render them expose the field. `legend` lives on `XYChartOptions`,

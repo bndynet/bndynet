@@ -246,6 +246,7 @@ The SSR-safe entry deliberately does NOT auto-register the
 | Line   | `line`   | `default`, `spark`, `race` |
 | Bar    | `bar`    | `default`, `horizontal`, `spark`, `race` |
 | Area   | `area`   | `default`, `spark` |
+| Map    | `map`    | `default` |
 | Pie    | `pie`    | `default`, `doughnut`, `half-doughnut`, `nightingale` |
 | Gauge  | `gauge`  | `default`, `percentage` |
 | Liquid Progress | `liquidprogress` | `default` |
@@ -257,6 +258,28 @@ The SSR-safe entry deliberately does NOT auto-register the
 | Treemap | `treemap` | `default` |
 | Word Cloud | `wordcloud` | `default`, `diamond`, `poster` |
 
+### Map resources (`type: 'map'`)
+
+`map` charts require a pre-registered map resource. Register your GeoJSON (or SVG map) once with `registerMap`, then reference it via `options.mapName`:
+
+```ts
+import { registerMap, createChart } from '@bndynet/icharts';
+
+// `chinaGeoJson` can come from your own local file or a remote fetch.
+registerMap('china', chinaGeoJson);
+
+createChart(el, 'map', [
+  { name: '北京市', value: 92 },
+  { name: '上海市', value: 88 },
+  { name: '广东省', value: 97 },
+  { name: '浙江省', value: 85 },
+], {
+  title: '中国区域评分',
+  mapName: 'china',
+  visualMap: { min: 60, max: 100 },
+});
+```
+
 ---
 
 ## Data Formats
@@ -266,6 +289,7 @@ Each chart type expects a specific data shape. Full schemas, field notes, and ch
 | Chart | Data type | Reference |
 |-------|-----------|-----------|
 | Line / Bar / Area | `XYData` (`LineData` / `BarData` / `AreaData`) | [docs/chart-xy.md](docs/chart-xy.md) |
+| Map | `MapData` | [docs/chart-map.md](docs/chart-map.md) |
 | Pie | `PieData` | [docs/chart-pie.md](docs/chart-pie.md) |
 | Word Cloud | `WordCloudData` | [docs/chart-wordcloud.md](docs/chart-wordcloud.md) |
 | Gauge | `GaugeData` | [docs/chart-gauge.md](docs/chart-gauge.md) |
@@ -292,6 +316,7 @@ All options fields are optional. Each chart type extends the base `ChartOptions`
 | `line` | `LineChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
 | `bar` | `BarChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
 | `area` | `AreaChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
+| `map` | `MapChartOptions` | `ChartOptions` | [docs/chart-map.md](docs/chart-map.md) |
 | `pie` | `PieChartOptions` | `ChartOptions` | [docs/chart-pie.md](docs/chart-pie.md) |
 | `gauge` | `GaugeChartOptions` | `ChartOptions` | [docs/chart-gauge.md](docs/chart-gauge.md) |
 | `liquidprogress` | `LiquidProgressChartOptions` | `ChartOptions` | [docs/chart-liquidprogress.md](docs/chart-liquidprogress.md) |
@@ -423,7 +448,11 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 | `getSeriesColor(name)` | Get the assigned color (with hover/active/disabled states) for a name |
 | `getCurrentTheme()` | Get the active theme object |
 | `getThemeColors()` | Get the active theme's UI color tokens |
-| `registerAdapter(type, adapter)` | Register a custom chart type adapter |
+| `registerAdapter(type, adapter)` | Register a custom chart type adapter (warns when shadowing a built-in type) |
+| `getAdapter(type)` | Look up the registered adapter for a type (or `undefined`) |
+| `hasAdapter(type)` | Whether an adapter is registered for `type` |
+| `listAdapters()` | Type strings of every registered adapter (built-in + custom) |
+| `unregisterAdapter(type)` | Remove a registered adapter; returns whether one existed |
 
 ---
 
@@ -441,35 +470,164 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 
 ---
 
+## Events
+
+Listen for clicks and hovers with typed `options.events` handlers — no need to
+reach into the raw ECharts instance. Each handler receives a normalized
+`ChartEventContext` whose `data` reuses the **same item/edge shape** that
+`tooltip.customHtml` gets:
+
+```ts
+createChart(el, 'pie', data, {
+  events: {
+    onClick: (ctx) => {
+      // ctx.type === 'click'
+      if (ctx.data?.kind === 'item') {
+        console.log('clicked slice', ctx.data.name, ctx.data.value, ctx.data.color);
+      }
+    },
+    onMouseOver: (ctx) => {
+      /* ctx.data?.kind: 'item' (slice / node / word) | 'edge' (link) | undefined */
+    },
+  },
+});
+```
+
+`ChartEventContext`:
+
+```ts
+interface ChartEventContext {
+  type: 'click' | 'dblclick' | 'mouseover' | 'mouseout';
+  data?: TooltipContextItem | TooltipContextEdge; // narrow with data.kind
+  componentType?: string; // 'series' | 'markPoint' | 'title' | …
+  seriesType?: string;    // 'line' | 'pie' | 'sankey' | …
+  seriesIndex?: number;
+  raw: unknown;           // raw ECharts params — escape hatch
+}
+```
+
+- A click on a pie slice / sankey node / word-cloud word → `data.kind === 'item'`;
+  on a sankey / chord / network link → `data.kind === 'edge'`. There is no
+  `'axis'` event kind (ECharts clicks always hit a single data item).
+- `data` is `undefined` when the hit wasn't on a series item (legend, title,
+  empty canvas) — fall back to `componentType` / `raw`.
+- Handlers stay in sync across `update({ events })` (no stacked listeners) and
+  are detached on `dispose()`. A throwing handler is swallowed so it can't
+  break ECharts' event dispatch.
+- For events not covered (`legendselectchanged`, `datazoom`, …) use
+  `getEChartsInstance().on(...)` directly.
+
+---
+
+## Type-safe by chart type
+
+`createChart` infers `data` and `options` from the `type` argument, so a
+mismatch is a **compile-time** error (not a runtime throw) and editors offer
+accurate completions for the chart you picked:
+
+```ts
+// ✅ data is narrowed to PieData, options to PieChartOptions
+createChart(el, 'pie', [{ name: 'A', value: 1 }], { variant: 'doughnut' });
+
+// ❌ compile error — XYData is not assignable to PieData
+createChart(el, 'pie', { categories: [], series: [] });
+```
+
+Passing a dynamic `string` type still works and falls back to the broad
+`ChartData` / `AnyChartOptions` unions. The same inference applies to
+`chart.update(data, options)`.
+
+---
+
 ## Extensibility
 
 Custom chart types can be registered via `registerAdapter`. Each adapter implements a `validate` guard and a `resolve` function that returns a full ECharts option object.
 
 ```ts
-import { registerAdapter, type ChartAdapter } from '@bndynet/icharts';
+import { registerAdapter, createChart, type ChartAdapter } from '@bndynet/icharts';
 
-const myAdapter: ChartAdapter = {
+interface ScatterPoint { x: number; y: number }
+
+const scatterAdapter: ChartAdapter = {
   validate(data) {
-    return Array.isArray(data) && data.every(d => 'x' in d && 'y' in d);
+    return Array.isArray(data) && data.every((d) => 'x' in d && 'y' in d);
   },
-  resolve(data, options) {
+  resolve(data) {
+    const points = data as ScatterPoint[];
     return {
       option: {
         xAxis: { type: 'value' },
         yAxis: { type: 'value' },
-        series: [{ type: 'scatter', data: (data as any[]).map(d => [d.x, d.y]) }],
+        series: [{ type: 'scatter', data: points.map((d) => [d.x, d.y]) }],
       },
     };
   },
 };
 
-registerAdapter('scatter', myAdapter);
+registerAdapter('scatter', scatterAdapter);
 
-// Use just like any built-in type
 createChart(el, 'scatter', [{ x: 1, y: 2 }, { x: 3, y: 5 }]);
 ```
 
-The optional `onInit` hook in the returned object receives the ECharts instance after the first `setOption` call, which is useful for attaching event listeners.
+### Making a custom type first-class (no `as` casts)
+
+Fold your type into `ChartTypeRegistry` via declaration merging and the
+custom `type` gets the same inference as a built-in — `createChart('scatter', …)`
+will type-check `data` as your shape with full editor completions:
+
+```ts
+declare module '@bndynet/icharts' {
+  interface ChartTypeRegistry {
+    scatter: { data: ScatterPoint[]; options: ChartOptions };
+  }
+}
+
+// data is now inferred as ScatterPoint[] — no cast in the adapter or call site
+createChart(el, 'scatter', [{ x: 1, y: 2 }]);
+```
+
+### Adapter capabilities
+
+The object returned by `resolve` and the adapter itself support a few optional hooks:
+
+| Field | On | Purpose |
+|-------|----|---------|
+| `onInit(instance)` | resolve result | Runs after the first `setOption` — attach event listeners, read canvas dimensions, etc. |
+| `notMerge` | resolve result | Forwarded to ECharts `setOption(option, notMerge)`. Default `true` (full replace); set `false` to let ECharts animate transitions across successive `update()` calls. |
+| `mergeData(prev, next)` | adapter | Fold the next `update()` data into the previous frame instead of replacing it — lets a live chart accept a partial patch (e.g. gauge `update({ value })` carries `max` / `label` forward). The engine only calls it when both frames pass `validate`. |
+| `clearOnThemeChange` | adapter | When `true`, the engine clears the instance before repainting on `setTheme()` — needed by custom-series renderers (e.g. wordcloud) that leave stale marks during diff/merge. |
+
+**`onInit` cleanup.** If `onInit` wires a `ResizeObserver`, event listener, or
+timer, return a teardown function. The engine runs it before the next render's
+`onInit` and once more on `dispose()` — so you never leak observers and never
+have to poll `isDisposed()`:
+
+```ts
+const adapter: ChartAdapter = {
+  validate: (d) => Array.isArray(d),
+  resolve: (data) => ({
+    option: buildOption(data),
+    onInit: (chart) => {
+      const ro = new ResizeObserver(() => chart.resize());
+      ro.observe(chart.getDom());
+      return () => ro.disconnect(); // engine calls this on re-render + dispose
+    },
+  }),
+};
+```
+
+### Registry introspection
+
+`getAdapter(type)` / `hasAdapter(type)` / `listAdapters()` / `unregisterAdapter(type)`
+let you inspect and manage the registry — branch before calling `createChart`,
+build a type picker, or swap an adapter during hot-reload. Re-registering a
+**built-in** type logs a `console.warn` (the override still applies); use a
+distinct type string for custom charts to avoid the warning.
+
+> For the full runtime model — the `_apply` render loop, the `onInit` teardown
+> lifecycle, the engine-vs-adapter boundary, and how to add per-type behavior
+> without touching the engine — see the design guide in
+> [`docs/LIFECYCLE.md`](docs/LIFECYCLE.md).
 
 ---
 

@@ -115,10 +115,13 @@ configure({ consistentColors: true });
 ```
 
 Internally `resolveColors` switches from `resolveColorsByPosition` to
-`resolveSeriesColors` (see `src/themes/index.ts`). ColorHub remembers a
+`resolveSeriesColors` (see `src/themes/index.ts`). The library's
+`PaletteRegistry` (`src/themes/palette-registry.ts`) remembers a
 `name → color` map per theme. First time we see `"Revenue"` it gets
 `palette[0]` and that mapping is stored; later charts that include
-`"Revenue"` look it up instead of starting from `palette[0]`.
+`"Revenue"` look it up instead of starting from `palette[0]`. (ColorHub
+itself is now a read-only theme / palette / token repository — it no
+longer accumulates the name → color map as a render side effect.)
 
 ```ts
 configure({ consistentColors: true });
@@ -157,13 +160,14 @@ setColorMap({ Revenue: '#ff8fab' }, 'dark');
 
 `setColorMap` is **only meaningful when `consistentColors: true`**.
 With `consistentColors: false` the resolver path is
-`resolveColorsByPosition`, which does not read ColorHub's stored map.
+`resolveColorsByPosition`, which does not read the registry's stored map.
 For per-chart pins regardless of the global flag, use the chart's own
 `options.colorMap`.
 
 **Pins are sticky.** They survive both `switchTheme()` and `resetColorMap()`.
-Internally they live in a per-theme pinned map that is seeded back into
-ColorHub whenever the working colorMap is cleared. Concretely:
+Internally they live in a dedicated per-theme `pins` map inside
+`PaletteRegistry`, kept separate from the auto-assigned slots so the
+auto-reset paths never touch them. Concretely:
 
 ```ts
 setColorMap({ Premium: '#FFD166' }, 'light');
@@ -196,6 +200,49 @@ you want to wipe state mid-page without changing theme, or when you want
 to wipe **every** theme's auto state at once (the no-arg form).
 
 In both cases, entries previously written by `setColorMap` are preserved.
+
+### Name leases & dispose-release recycling
+
+When `consistentColors` is on, each chart render is bracketed by a
+**color render session** so the names it resolves become a *refcounted
+lease* owned by that chart instance. The engine (`src/core.ts`)
+wraps the adapter resolve in `beginColorRender(chart, theme)` /
+`endColorRender(chart)`, and `dispose()` calls `releaseColorOwner(chart)`.
+
+- **Acquire:** on each render, the chart's lease is recomputed from the
+  names it resolved this pass. Newly-referenced auto names get
+  `refcount += 1`; names it no longer uses get released.
+- **Release:** when a chart disposes (or stops referencing a name), the
+  auto entry's refcount drops. An **auto** entry whose refcount reaches
+  zero is *recycled* — its palette slot is freed so the next new name
+  restarts at the lowest open slot instead of drifting forward. **Pins
+  are never recycled** (they live in the separate `pins` map and ignore
+  refcounts).
+- **Idempotent:** re-rendering the same chart with the same names does
+  not change global state after the first pass — the lease is unchanged,
+  so refcounts hold steady.
+
+This makes `dispose()` the **load-bearing** cleanup path: a page that
+unmounts all its charts releases their names, and a subsequent page with
+brand-new names restarts at `palette[0]` **without** relying on
+`pruneDetachedCharts` / the disconnect sentinel. Those sweeps are now a
+pure safety net for charts that leak (never disposed, container detached)
+rather than the mechanism that keeps colors from drifting.
+
+> **Behavioral note (intended).** Because the last holder of a name
+> releases its slot, a name that fully disappears from all live charts
+> and later reappears may land on a *different* palette slot than before.
+> A page that unmounts and remounts with the **same** names in the
+> **same** first-seen order still gets the **same** colors (allocation is
+> deterministic). Live charts always retain their colors — only names
+> with zero live references are recycled. Names resolved outside a render
+> session (e.g. `getSeriesColor()` or SSR `renderChartToSVGString`)
+> acquire no refcount and simply linger, matching pre-refactor behavior.
+
+Resolution happens through the same singleton, so the contract is
+verified end-to-end in `src/core.test.ts` ("consistentColors
+dispose-release recycle") and at the unit level in
+`src/themes/palette-registry.test.ts`.
 
 ---
 
@@ -574,8 +621,9 @@ document.addEventListener('toggle-theme', () => {
   adapter. Use the resolver.
 - ❌ Re-introduce a central `applyChartColors` step in `core.ts` —
   adapters now own assembly end-to-end.
-- ❌ Read `colorHub` directly from outside `src/themes/index.ts`. It is
-  not a public API and is rebuilt by `resetColorMap()`.
+- ❌ Read `colorHub` or `paletteRegistry` directly from outside
+  `src/themes/index.ts`. Neither is a public API — go through the
+  resolver / `setColorMap` / `resetColorMap` entry points.
 - ❌ Expect `options.colors` (the array form) to partially override —
   it is all-or-nothing. Use `options.colorMap` for selective overrides.
 - ❌ Call `setColorMap` while `consistentColors: false`. It writes into
@@ -591,7 +639,8 @@ document.addEventListener('toggle-theme', () => {
 | File | Role |
 |------|------|
 | `src/utils.ts` | Generic helpers + the resolver (`resolveColors`, `resolveColorsForNodes`) + `buildSparkAreaGradient`. |
-| `src/themes/index.ts` | ColorHub wiring, theme registration / switching, low-level resolvers (`resolveSeriesColors` / `resolveColorsByPosition`), `setColorMap` / `resetColorMap`. |
+| `src/themes/index.ts` | ColorHub wiring (read-only repo) + PaletteRegistry wiring, theme registration / switching, low-level resolvers (`resolveSeriesColors` / `resolveColorsByPosition`), `setColorMap` / `resetColorMap`, plus the internal render-session wrappers `beginColorRender` / `endColorRender` / `releaseColorOwner` (consumed by `core.ts`, not part of the public API). |
+| `src/themes/palette-registry.ts` | `PaletteRegistry` — library-owned, SSR-safe name→color allocator for `consistentColors`. Separate auto / pin maps per theme + first-seen `order`. Replaces ColorHub's stateful accumulator. Refcounts auto names per render-session lease so `dispose()` recycles freed palette slots (pins never recycle). |
 | `src/themes/presets.ts` | Built-in `light` / `dark` palettes and UI tokens. |
 | `src/themes/echarts-theme.ts` | `buildEChartsTheme()` — bakes `ChartThemeColors` into an ECharts theme object. |
 | `src/themes/types.ts` | `ChartTheme`, `ChartThemeColors`, `ChartThemeConfig`. |
