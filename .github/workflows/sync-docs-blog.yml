@@ -21,8 +21,9 @@ jobs:
           commit-message: 'chore: auto-sync docs [skip ci]'
           mappings: |
             bndynet/icharts@main:docs => docs/icharts clean
-            bndynet/icharts@main:README.md => docs/icharts/index.md
-            bndynet/ichat@main:README.md => docs/ichat/index.md
+            bndynet/icharts@main:README.md => docs/icharts/index.md :: ([\[(])docs/ => $1./
+            bndynet/ichat@main:docs => docs/ichat clean
+            bndynet/ichat@main:README.md => docs/ichat/index.md :: ([\[(])docs/ => $1./
             bndynet/sse-parser@main:README.md => docs/sse-parser/index.md
 
       - name: Generate posts
