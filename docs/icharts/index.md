@@ -284,24 +284,24 @@ createChart(el, 'map', [
 
 ## Data Formats
 
-Each chart type expects a specific data shape. Full schemas, field notes, and chart-specific options live in [`docs/`](docs/) (one file per family).
+Each chart type expects a specific data shape. Full schemas, field notes, and chart-specific options live in [`docs/`](./) (one file per family).
 
 | Chart | Data type | Reference |
 |-------|-----------|-----------|
-| Line / Bar / Area | `XYData` (`LineData` / `BarData` / `AreaData`) | [docs/chart-xy.md](docs/chart-xy.md) |
-| Map | `MapData` | [docs/chart-map.md](docs/chart-map.md) |
-| Pie | `PieData` | [docs/chart-pie.md](docs/chart-pie.md) |
-| Word Cloud | `WordCloudData` | [docs/chart-wordcloud.md](docs/chart-wordcloud.md) |
-| Gauge | `GaugeData` | [docs/chart-gauge.md](docs/chart-gauge.md) |
-| Liquid Progress | `LiquidProgressData` | [docs/chart-liquidprogress.md](docs/chart-liquidprogress.md) |
-| Sankey | `SankeyData` | [docs/chart-sankey.md](docs/chart-sankey.md) |
-| Chord | `ChordData` | [docs/chart-chord.md](docs/chart-chord.md) |
-| Radar | `RadarData` | [docs/chart-radar.md](docs/chart-radar.md) |
-| Network | `NetworkData` | [docs/chart-network.md](docs/chart-network.md) |
-| Tree | `TreeData` | [docs/chart-tree.md](docs/chart-tree.md) |
-| Treemap | `TreemapData` | [docs/chart-treemap.md](docs/chart-treemap.md) |
+| Line / Bar / Area | `XYData` (`LineData` / `BarData` / `AreaData`) | [./chart-xy.md](./chart-xy.md) |
+| Map | `MapData` | [./chart-map.md](./chart-map.md) |
+| Pie | `PieData` | [./chart-pie.md](./chart-pie.md) |
+| Word Cloud | `WordCloudData` | [./chart-wordcloud.md](./chart-wordcloud.md) |
+| Gauge | `GaugeData` | [./chart-gauge.md](./chart-gauge.md) |
+| Liquid Progress | `LiquidProgressData` | [./chart-liquidprogress.md](./chart-liquidprogress.md) |
+| Sankey | `SankeyData` | [./chart-sankey.md](./chart-sankey.md) |
+| Chord | `ChordData` | [./chart-chord.md](./chart-chord.md) |
+| Radar | `RadarData` | [./chart-radar.md](./chart-radar.md) |
+| Network | `NetworkData` | [./chart-network.md](./chart-network.md) |
+| Tree | `TreeData` | [./chart-tree.md](./chart-tree.md) |
+| Treemap | `TreemapData` | [./chart-treemap.md](./chart-treemap.md) |
 
-**Shared options** (theme, title, colors, tooltip, …): [docs/chart-options-common.md](docs/chart-options-common.md).
+**Shared options** (theme, title, colors, tooltip, …): [./chart-options-common.md](./chart-options-common.md).
 
 Runnable demos for every variant live in the [demo site](site/) (`npm start`).
 
@@ -313,26 +313,26 @@ All options fields are optional. Each chart type extends the base `ChartOptions`
 
 | Chart type | Options interface | Extends | Reference |
 |------------|-------------------|---------|-----------|
-| `line` | `LineChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
-| `bar` | `BarChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
-| `area` | `AreaChartOptions` | `XYChartOptions` | [docs/chart-xy.md](docs/chart-xy.md) |
-| `map` | `MapChartOptions` | `ChartOptions` | [docs/chart-map.md](docs/chart-map.md) |
-| `pie` | `PieChartOptions` | `ChartOptions` | [docs/chart-pie.md](docs/chart-pie.md) |
-| `gauge` | `GaugeChartOptions` | `ChartOptions` | [docs/chart-gauge.md](docs/chart-gauge.md) |
-| `liquidprogress` | `LiquidProgressChartOptions` | `ChartOptions` | [docs/chart-liquidprogress.md](docs/chart-liquidprogress.md) |
-| `sankey` | `SankeyChartOptions` | `ChartOptions` | [docs/chart-sankey.md](docs/chart-sankey.md) |
-| `chord` | `ChordChartOptions` | `ChartOptions` | [docs/chart-chord.md](docs/chart-chord.md) |
-| `radar` | `RadarChartOptions` | `ChartOptions` | [docs/chart-radar.md](docs/chart-radar.md) |
-| `network` | `NetworkChartOptions` | `ChartOptions` | [docs/chart-network.md](docs/chart-network.md) |
-| `tree` | `TreeChartOptions` | `ChartOptions` | [docs/chart-tree.md](docs/chart-tree.md) |
-| `treemap` | `TreemapChartOptions` | `ChartOptions` | [docs/chart-treemap.md](docs/chart-treemap.md) |
-| `wordcloud` | `WordCloudChartOptions` | `ChartOptions` | [docs/chart-wordcloud.md](docs/chart-wordcloud.md) |
+| `line` | `LineChartOptions` | `XYChartOptions` | [./chart-xy.md](./chart-xy.md) |
+| `bar` | `BarChartOptions` | `XYChartOptions` | [./chart-xy.md](./chart-xy.md) |
+| `area` | `AreaChartOptions` | `XYChartOptions` | [./chart-xy.md](./chart-xy.md) |
+| `map` | `MapChartOptions` | `ChartOptions` | [./chart-map.md](./chart-map.md) |
+| `pie` | `PieChartOptions` | `ChartOptions` | [./chart-pie.md](./chart-pie.md) |
+| `gauge` | `GaugeChartOptions` | `ChartOptions` | [./chart-gauge.md](./chart-gauge.md) |
+| `liquidprogress` | `LiquidProgressChartOptions` | `ChartOptions` | [./chart-liquidprogress.md](./chart-liquidprogress.md) |
+| `sankey` | `SankeyChartOptions` | `ChartOptions` | [./chart-sankey.md](./chart-sankey.md) |
+| `chord` | `ChordChartOptions` | `ChartOptions` | [./chart-chord.md](./chart-chord.md) |
+| `radar` | `RadarChartOptions` | `ChartOptions` | [./chart-radar.md](./chart-radar.md) |
+| `network` | `NetworkChartOptions` | `ChartOptions` | [./chart-network.md](./chart-network.md) |
+| `tree` | `TreeChartOptions` | `ChartOptions` | [./chart-tree.md](./chart-tree.md) |
+| `treemap` | `TreemapChartOptions` | `ChartOptions` | [./chart-treemap.md](./chart-treemap.md) |
+| `wordcloud` | `WordCloudChartOptions` | `ChartOptions` | [./chart-wordcloud.md](./chart-wordcloud.md) |
 
 `createChart` accepts `AnyChartOptions` — a chart-specific literal type-checks without importing the subtype. For stricter validation, import the matching `XxxChartOptions` and annotate explicitly.
 
-Cross-cutting fields (`theme`, `title`, `padding`, `colors`, `colorMap`, `labelFontSize`, `tooltip`, `echarts`): [docs/chart-options-common.md](docs/chart-options-common.md).
+Cross-cutting fields (`theme`, `title`, `padding`, `colors`, `colorMap`, `labelFontSize`, `tooltip`, `echarts`): [./chart-options-common.md](./chart-options-common.md).
 
-Internal design notes: [docs/COLORS.md](docs/COLORS.md) (color pipeline), [docs/LAYOUT.md](docs/LAYOUT.md) (title + legend layout).
+Internal design notes: [./COLORS.md](./COLORS.md) (color pipeline), [./LAYOUT.md](./LAYOUT.md) (title + legend layout).
 
 ---
 
@@ -627,7 +627,7 @@ distinct type string for custom charts to avoid the warning.
 > For the full runtime model — the `_apply` render loop, the `onInit` teardown
 > lifecycle, the engine-vs-adapter boundary, and how to add per-type behavior
 > without touching the engine — see the design guide in
-> [`docs/LIFECYCLE.md`](docs/LIFECYCLE.md).
+> [`docs/LIFECYCLE.md`](./LIFECYCLE.md).
 
 ---
 

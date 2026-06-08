@@ -1,8 +1,8 @@
 # @bndynet/ichat
 
-Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-block renderers (charts, KPI, forms, Mermaid), reasoning blocks, and streaming. **Recommended:** install **`@bndynet/ichat`** and use **`<i-chat>`** — one tag bundles the message list and default composer (`<i-chat-input>`). Chart/KPI/form/Mermaid fences come from **`@bndynet/ichat-renderers`**; register them once with **`registerRenderer`** from **`@bndynet/ichat`** (see [Custom renderers](docs/renderers.md)). Lower-level packages exist if you compose the list and input yourself.
+Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-block renderers (charts, KPI, forms, Mermaid), reasoning blocks, and streaming. **Recommended:** install **`@bndynet/ichat`** and use **`<i-chat>`** — one tag bundles the message list and default composer (`<i-chat-input>`). Chart/KPI/form/Mermaid fences come from **`@bndynet/ichat-renderers`**; register them once with **`registerRenderer`** from **`@bndynet/ichat`** (see [Custom renderers](./renderers.md)). Lower-level packages exist if you compose the list and input yourself.
 
-> **Looking for the full design & reference docs?** They live in [`docs/`](docs/README.md) — see the [Documentation](#documentation) section below.
+> **Looking for the full design & reference docs?** They live in [`docs/`](./README.md) — see the [Documentation](#documentation) section below.
 
 ## Packages
 
@@ -84,7 +84,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 </script>
 ```
 
-A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](docs/message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see the [`<i-chat>` API](docs/component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
+A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
 
 ## Script tag (IIFE bundles)
 
@@ -106,37 +106,37 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 
 ## Features
 
-- **`<i-chat>` shell** — default textarea + send/cancel, or replace the footer with **`slot="input"`** ([`<i-chat>` API](docs/component-api.md))
-- **Voice input (default composer)** — microphone button uses Web Speech API when available; hidden automatically on unsupported browsers ([Composer & interaction](docs/composer.md#default-composer-voice-input))
+- **`<i-chat>` shell** — default textarea + send/cancel, or replace the footer with **`slot="input"`** ([`<i-chat>` API](./component-api.md))
+- **Voice input (default composer)** — microphone button uses Web Speech API when available; hidden automatically on unsupported browsers ([Composer & interaction](./composer.md#default-composer-voice-input))
 - **Lit 3 Web Components** — works with any framework or vanilla HTML
 - **Markdown** — `markdown-it` + `highlight.js`, sanitized with DOMPurify
-- **Extensible fenced blocks** — **`registerRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control ([Custom renderers](docs/renderers.md))
-- **Extensible `x-*` parts** — **`registerPartRenderer`** maps custom part types to a Web Component or HTML string ([Parts](docs/parts.md#x--custom-extension-parts))
-- **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](docs/message-model.md#message-body--parts))
-- **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](docs/parts.md#reasoning))
-- **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](docs/parts.md#tool-calls))
-- **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](docs/composer.md#streaming))
-- **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`** ([Composer & interaction](docs/composer.md#reply-blocks))
-- **Slots** — avatars, actions, empty state ([`<i-chat>` API](docs/component-api.md#slots-on-i-chat))
-- **Timeline** — `[status]` markdown lists rendered as vertical timelines ([Timeline](docs/timeline.md))
-- **Theming** — 12 base CSS custom properties; all components derive from them automatically ([Theming](docs/theming.md))
-- **Localization & RTL** — single `config.labels` dictionary, plurals, and automatic RTL mirroring ([Localization](docs/localization.md))
+- **Extensible fenced blocks** — **`registerRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control ([Custom renderers](./renderers.md))
+- **Extensible `x-*` parts** — **`registerPartRenderer`** maps custom part types to a Web Component or HTML string ([Parts](./parts.md#x--custom-extension-parts))
+- **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](./message-model.md#message-body--parts))
+- **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](./parts.md#reasoning))
+- **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](./parts.md#tool-calls))
+- **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](./composer.md#streaming))
+- **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`** ([Composer & interaction](./composer.md#reply-blocks))
+- **Slots** — avatars, actions, empty state ([`<i-chat>` API](./component-api.md#slots-on-i-chat))
+- **Timeline** — `[status]` markdown lists rendered as vertical timelines ([Timeline](./timeline.md))
+- **Theming** — 12 base CSS custom properties; all components derive from them automatically ([Theming](./theming.md))
+- **Localization & RTL** — single `config.labels` dictionary, plurals, and automatic RTL mirroring ([Localization](./localization.md))
 - **TypeScript** — declaration files for public API
 
 ## Documentation
 
-Detailed design and reference docs live in [`docs/`](docs/README.md):
+Detailed design and reference docs live in [`docs/`](./README.md):
 
 | Doc | Covers |
 |-----|--------|
-| [Message model](docs/message-model.md) | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating |
-| [`<i-chat>` API](docs/component-api.md) | Properties, methods, events, slots, per-message avatar |
-| [Parts](docs/parts.md) | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts |
-| [Custom renderers](docs/renderers.md) | `registerRenderer` + built-in chart / KPI / form / Mermaid renderers |
-| [Timeline](docs/timeline.md) | `[status]` lists, block IDs, programmatic updates, SSE integration |
-| [Theming](docs/theming.md) | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference |
-| [Localization (i18n)](docs/localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL |
-| [Composer & interaction](docs/composer.md) | Streaming, reply blocks, voice input |
+| [Message model](./message-model.md) | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating |
+| [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, per-message avatar |
+| [Parts](./parts.md) | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts |
+| [Custom renderers](./renderers.md) | `registerRenderer` + built-in chart / KPI / form / Mermaid renderers |
+| [Timeline](./timeline.md) | `[status]` lists, block IDs, programmatic updates, SSE integration |
+| [Theming](./theming.md) | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference |
+| [Localization (i18n)](./localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL |
+| [Composer & interaction](./composer.md) | Streaming, reply blocks, voice input |
 
 ## Development
 
