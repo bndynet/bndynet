@@ -9,7 +9,7 @@ module.exports = {
   logo: 'https://static.bndy.net/images/logo_fill.svg',
   url: 'https://bndy.net',
   baseUrl: '/',
-  copyright: `Copyright © ${new Date().getFullYear()} BNDY-NET`,
+  copyright: `Copyright © 2013 - ${new Date().getFullYear()} BNDY-NET`,
   blog: true,
   mdxRoot: './docs',
   nav: [
@@ -17,6 +17,7 @@ module.exports = {
     { label: 'Blog', href: '/blog'},
     { label: 'iChat', href: '/iframe?url=https://bndynet.github.io/ichat/'},
     { label: 'iCharts', href: '/iframe?url=https://bndynet.github.io/icharts/'},
+    { label: 'Layout', href: '/iframe?url=https://bndynet.github.io/layout/'},
   ],
   theme: {
     favicon: 'https://static.bndy.net/favicon.ico',
