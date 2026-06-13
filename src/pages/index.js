@@ -66,7 +66,7 @@ export default function Home() {
 
         <div class="col-md-4 widget">
           <a href="https://github.com/bndynet/android-starter">
-            <img src="https://th.bing.com/th/id/R.22bec9984f8753eb4067350a4b4c2574?rik=I%2fGeQLRoty2PXQ&amp;riu=http%3a%2f%2fwww.thetop10s.net%2fwp-content%2fuploads%2f2013%2f07%2fandroid.jpg&amp;ehk=vaM7j9BpVLZGWKD4NRDcIyUVjb6ynu8SwI8uJicsFq8%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1" />
+            <img src="/img/android.png" />
           </a>
           <h2>Android Starter Project</h2>
           <p>
@@ -78,7 +78,7 @@ export default function Home() {
 
         <div class="col-md-4 widget">
           <a href="https://github.com/bndynet/spring-cloud-starter">
-            <img src="/assets/img/spring-cloud.png" />
+            <img src="/img/spring-cloud.png" />
           </a>
           <h2>Spring Cloud Starter</h2>
           <p>
