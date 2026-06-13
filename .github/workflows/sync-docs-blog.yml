@@ -26,6 +26,7 @@ jobs:
             bndynet/ichat@main:README.md => docs/ichat/index.md :: ([\[(])docs/ => $1./
             bndynet/sse-parser@main:README.md => docs/sse-parser/index.md
             bndynet/layout@main:README.md => docs/layout/index.md
+            bndynet/color-hub@main:README.md => docs/color-hub/index.md
 
       - name: Generate posts
         uses: bndynet/github-action-notion@v4
