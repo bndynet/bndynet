@@ -367,6 +367,28 @@ no-ops there).
 | `loadThemeName(key?)` | Read a persisted theme name, or `null` |
 | `bindThemeToDOM(hub, options?)` | Apply the hub's current theme now and on every `switchTheme`; `options.persist` saves the name. Returns an unsubscribe function |
 
+Apply a single theme directly — by default it writes onto `:root`, or pass
+`target` to scope the variables to one element (and `prefix` / `includePalette`
+to customize the output):
+
+```ts
+import { applyTheme } from '@bndynet/color-hub';
+
+// Write --ch-* vars + data-theme on <html> (document.documentElement):
+applyTheme(darkTheme);
+
+// ...or scope the variables to a specific element, with a custom prefix:
+const card = document.querySelector<HTMLElement>('.card')!;
+applyTheme(darkTheme, {
+  target: card,
+  prefix: 'app',        // --app-background, --app-text-primary, ...
+  includePalette: true, // also emit --app-palette-0, --app-palette-1, ...
+  attribute: null,      // skip the data-theme attribute
+});
+```
+
+Or bind a `ColorHub` so the DOM re-themes automatically on every `switchTheme`:
+
 ```ts
 import { ColorHub, bindThemeToDOM, getSystemColorScheme } from '@bndynet/color-hub';
 
@@ -455,14 +477,15 @@ import {
 ## Development
 
 ```bash
-npm install
-npm run build       # writes dist/ (ESM, CJS, IIFE, declarations)
-npm run typecheck   # tsc
-npm run test        # vitest
+npm install          # install dependencies
+npm run build        # writes dist/ (ESM, CJS, IIFE, declarations)
+npm run typecheck    # tsc
+npm run test         # vitest
 npm run lint
 ```
 
-If configured, `npm start` builds and serves the demo under `site/`.
+A local docs site with live demos lives under [`site/`](./site); run it with
+`npm start`.
 
 ## License
 
