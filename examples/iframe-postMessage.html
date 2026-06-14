@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      body.light {
+        background-color: white;
+        color: black;
+      }
+
+      body.dark {
+        background-color: #121212;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Iframe Content</h1>
+    <div>Loaded at: <span id="loadedAt"></span></div>
+    <div>Host theme: <span id="theme"></span></div>
+    <script>
+      console.log('iframe-postMessage loaded');
+      document.getElementById('loadedAt').textContent =
+        new Date().toLocaleTimeString();
+
+      let themeSpan = document.getElementById('theme');
+      let theme;
+      function changeTheme(newTheme) {
+        if (theme) {
+          document.body.classList.remove(theme);
+        }
+
+        theme = newTheme;
+        document.body.classList.add(theme);
+        themeSpan.textContent = theme;
+      }
+
+      // theme change from host page by postMessage
+      window.addEventListener('message', (event) => {
+        const eventType = event.data.type;
+        if (eventType === 'themeChanged') {
+          changeTheme(event.data.theme);
+        }
+      });
+
+      window.parent.postMessage({ type: 'requestTheme' }, '*');
+    </script>
+  </body>
+</html>
