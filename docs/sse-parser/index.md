@@ -10,6 +10,7 @@ Zero-dependency TypeScript SDK for parsing **Server-Sent Events (SSE)** and **ND
 - AI adapters that normalize vendor payloads into a unified `ChatStreamEvent`:
   - **OpenAI** — Chat Completions (`/v1/chat/completions`) and the newer Responses API (`/v1/responses`)
   - OpenAI-compatible: Azure, Groq, Together, vLLM, LiteLLM
+  - **DeepSeek** — OpenAI-format Chat Completions with thinking token support
   - **Anthropic** (Claude Messages API)
   - **Google Gemini**
   - **Ollama**
@@ -42,6 +43,7 @@ Provider cheat sheet — pick the one matching the endpoint you call:
 |---|---|
 | OpenAI Chat Completions (`/v1/chat/completions`), Azure, Groq, Together, vLLM, LiteLLM | `'openai'` |
 | OpenAI Responses (`/v1/responses`) | `'openai-responses'` |
+| DeepSeek OpenAI-format Chat Completions (`/chat/completions`) | `'deepseek'` |
 | Anthropic Messages (`/v1/messages`) | `'anthropic'` |
 | Google Gemini (`:streamGenerateContent?alt=sse`) | `'gemini'` |
 | Ollama (`/api/chat`, NDJSON) | `'ollama'` |
@@ -81,6 +83,35 @@ for await (const event of openaiStream(res)) {
   }
 }
 ```
+
+### DeepSeek
+
+```typescript
+import { deepseekStream } from '@bndynet/sse-parser';
+
+const res = await fetch('https://api.deepseek.com/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${apiKey}`,
+  },
+  body: JSON.stringify({
+    model: 'deepseek-v4-pro',
+    messages: [{ role: 'user', content: 'Explain SSE' }],
+    stream: true,
+  }),
+});
+
+for await (const event of deepseekStream(res)) {
+  if (event.type === 'reasoning') process.stderr.write(event.content);
+  if (event.type === 'text') process.stdout.write(event.content);
+  if (event.type === 'done') console.log('\nUsage:', event.usage);
+}
+```
+
+`deepseekStream` parses DeepSeek's OpenAI-format SSE chunks, including
+`delta.reasoning_content`, streamed tool calls, cache hit/miss usage, and
+reasoning token usage.
 
 ### OpenAI Responses API
 
@@ -166,7 +197,7 @@ for await (const sseEvent of readSSEStream(res)) {
 ## Input sources
 
 Every reader and adapter (`readSSEStream`, `readNDJSONStream`, `openaiStream`,
-`chatStream`, …) accepts a `StreamInput`:
+`deepseekStream`, `chatStream`, …) accepts a `StreamInput`:
 
 ```typescript
 type StreamInput =
@@ -243,6 +274,28 @@ for await (const event of openaiStream(res)) {
 Every adapter yields a single terminal `done` event when the stream completes
 successfully, carrying the final `usage` when the vendor provides it. (Errors
 surface as non-fatal `error` events or, for connection/timeout failures, throw.)
+
+### Token usage fields
+
+`usage` normalizes common token counters across providers. The core fields are
+`promptTokens`, `completionTokens`, and `totalTokens`; adapters also fill
+optional breakdown fields when the provider reports them:
+
+```typescript
+interface TokenUsage {
+  promptTokens?: number;
+  completionTokens?: number;
+  totalTokens?: number;
+  cachedPromptTokens?: number;
+  uncachedPromptTokens?: number;
+  cacheCreationPromptTokens?: number;
+  reasoningTokens?: number;
+  toolUsePromptTokens?: number;
+}
+```
+
+Provider-specific payloads are still available on `event.raw` for callers that
+need exact vendor field names.
 
 ## Error Handling
 
@@ -389,6 +442,7 @@ for await (const sse of readSSEStream(res, { doneSentinel: '[END]' })) { /* ... 
 | `chatStream(input, { provider, ...opts })` | Unified entry — dispatches to the adapter for `provider` |
 | `openaiStream(res, opts?)` | OpenAI Chat Completions adapter → `AsyncGenerator<ChatStreamEvent>` |
 | `openaiResponsesStream(res, opts?)` | OpenAI Responses API adapter |
+| `deepseekStream(res, opts?)` | DeepSeek OpenAI-format Chat Completions adapter |
 | `anthropicStream(res, opts?)` | Anthropic adapter |
 | `geminiStream(res, opts?)` | Gemini adapter |
 | `ollamaStream(res, opts?)` | Ollama adapter |

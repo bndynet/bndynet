@@ -48,6 +48,22 @@ Cross-cutting `ChartOptions` shared by every chart type. `legend` and `grid` liv
    */
   labelFontSize?: number;
 
+  /**
+   * Emphasis (hover / programmatic-highlight) behavior. By default ECharts
+   * only emphasizes the hovered/highlighted item, which is easy to miss on a
+   * busy multi-series chart. Set `blurOthers: true` to additionally fade every
+   * other item so the focused one clearly stands out.
+   *
+   * Applies to BOTH real mouse hover AND `chart.highlight(...)` (same emphasis
+   * state) — so cross-chart hover linkage gets the fade for free. Honored by
+   * line / area / bar / pie / radar; graph charts (sankey / chord / network)
+   * already blur via their own adjacency focus. Off by default.
+   */
+  emphasis?: {
+    blurOthers?: boolean;   // fade non-highlighted items, default false
+    blurOpacity?: number;   // 0–1 opacity of faded items, default 0.12
+  };
+
   // Tooltip
   tooltip?: {
     enabled?: boolean;

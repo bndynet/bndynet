@@ -467,6 +467,8 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 | `resize()` | Trigger resize (e.g. after container size change) |
 | `dispose()` | Destroy the chart and free memory. Called automatically when the container leaves the DOM (idempotent — safe to call again). |
 | `getEChartsInstance()` | Access the underlying ECharts instance |
+| `highlight(target)` | Put data into the highlight (emphasis) state. `target` is a name string (shorthand for `{ name }`, matches across all series) or `{ name?, seriesName?, seriesIndex?, dataIndex? }`. Pair with `unhighlight` — see [Cross-chart linkage](#cross-chart-linkage). |
+| `unhighlight(target?)` | Clear a highlight (the counterpart to `highlight`; wraps ECharts' `downplay`). Call with no argument to clear every highlight on the chart. |
 
 ---
 
@@ -516,6 +518,52 @@ interface ChartEventContext {
   break ECharts' event dispatch.
 - For events not covered (`legendselectchanged`, `datazoom`, …) use
   `getEChartsInstance().on(...)` directly.
+
+### Cross-chart linkage
+
+Combine the hover handlers with the instance's `highlight()` / `unhighlight()`
+methods to link charts that share names — hovering one chart emphasizes the
+matching data everywhere:
+
+```ts
+const charts = [revenueLine, revenuePie, revenueRadar];
+
+const link = {
+  onMouseOver: (ctx) => {
+    if (ctx.data?.kind !== 'item') return;
+    for (const c of charts) c.highlight(ctx.data.name); // string → { name }
+  },
+  onMouseOut: () => {
+    for (const c of charts) c.unhighlight(); // no target → clear all
+  },
+};
+
+createChart(lineEl, 'line', data, { events: link });
+createChart(pieEl, 'pie', data, { events: link });
+createChart(radarEl, 'radar', data, { events: link });
+```
+
+- `highlight(name)` matches every same-named item across all series; pass
+  `{ seriesIndex, dataIndex }` for finer targeting.
+- `unhighlight()` is the counterpart to `highlight` (it wraps ECharts'
+  `downplay` action) — always pair hover-in `highlight` with hover-out
+  `unhighlight`, otherwise the emphasis state lingers.
+- Both are no-ops after `dispose()`.
+
+> **Make the highlight pop.** By itself `highlight()` only emphasizes the
+> target, which is subtle on a busy multi-series chart. Set
+> `emphasis: { blurOthers: true }` (a base `ChartOptions` field) to additionally
+> **fade every other item** so the focused one clearly stands out. It applies
+> to real hover and `highlight()` alike, and is honored by line / area / bar /
+> pie / radar (graph charts already blur via adjacency). Tune the fade with
+> `emphasis.blurOpacity` (0–1, default `0.12`).
+>
+> ```ts
+> createChart(el, 'line', data, {
+>   emphasis: { blurOthers: true },        // fade the other lines on hover/highlight
+>   events: { onMouseOver: (ctx) => { /* … */ } },
+> });
+> ```
 
 ---
 
