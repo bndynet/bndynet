@@ -9,6 +9,6 @@ notion_url: 'https://app.notion.com/p/LangGraph-3211a3b433fe80019b62d5bd52b9e979
 [Open in Notion](https://app.notion.com/p/LangGraph-3211a3b433fe80019b62d5bd52b9e979)
 
 
-![image.png](/notion/2026-03-12-langgraph/c9a6e0328781a03a.png)
+![image.png](/notion/2026-03-12-langgraph/1b4d5563c3a0e760.png)
 
 
