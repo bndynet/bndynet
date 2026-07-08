@@ -103,6 +103,7 @@ Component-specific tokens chain to base tokens. You can override any component t
 | `--chat-input-border` | `--chat-border` |
 | `--chat-input-text` | `--chat-text` |
 | `--chat-input-primary` | `--chat-primary` |
+| `--chat-input-primary-hover` | `--chat-primary-hover`, then derived from `--chat-primary` |
 | `--chat-mermaid-background` | `--chat-bg` |
 | `--chat-mermaid-text` | `--chat-text` |
 | `--chat-mermaid-text-secondary` | `--chat-text-secondary` |
@@ -121,28 +122,30 @@ Component-specific tokens chain to base tokens. You can override any component t
 
 ## Quick example — dark theme
 
-With the 12-token architecture, a dark theme only needs the base tokens plus any design-constant overrides (like code block colors). Pair this selector with **`data-theme` on `<html>`** (or use **`html.dark`** tokens) so it matches the [host theme contract](#host-theme-contract-light--dark) for charts and Mermaid.
+With the 12-token architecture, a dark theme only needs the base tokens plus any design-constant overrides (like code block colors). Pair this selector with **`data-theme` on `<html>`** (or use **`html.dark`** tokens) so it matches the [host theme contract](#host-theme-contract-light--dark) for charts and Mermaid. The values below use the built-in dark palette from `@bndynet/vue-site`, with `--chat-bg` assigned to the site chrome layer so the chat panel stays visible on the content background.
 
 ```css
 :root[data-theme="dark"] {
-  --chat-bg:            #16213e;
-  --chat-surface:       #1e1e3a;
-  --chat-surface-alt:   #2d2d44;
-  --chat-border:        #404060;
-  --chat-text:          #e0e0e0;
-  --chat-text-secondary:#a0a0b0;
-  --chat-text-muted:    #707080;
-  --chat-primary:       #818cf8;
-  --chat-primary-light: #312e81;
-  --chat-error:         #f87171;
-  --chat-success:       #10b981;
-  --chat-warning:       #fbbf24;
+  --chat-bg:            #242526;
+  --chat-surface:       #1b1b1d;
+  --chat-surface-alt:   rgba(255, 255, 255, 0.07);
+  --chat-border:        #444950;
+  --chat-text:          #e3e3e3;
+  --chat-text-secondary: #bec3c9;
+  --chat-text-muted:    #8d9295;
+  --chat-primary:       #3578e5;
+  --chat-primary-light: rgba(53, 120, 229, 0.18);
+  --chat-error:         #f56c6c;
+  --chat-success:       #67c23a;
+  --chat-warning:       #e6a23c;
 
   /* Design constants (not derived from base) */
-  --chat-code-bg:       #0d1117;
-  --chat-code-text:     #c9d1d9;
-  --chat-shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.3);
-  --chat-shadow-md:     0 4px 12px rgba(0, 0, 0, 0.4);
+  --chat-primary-hover: #538ce9;
+  --chat-code-bg:       #1c1e21;
+  --chat-code-text:     #e3e3e3;
+  --chat-code-inline-bg: rgba(255, 255, 255, 0.1);
+  --chat-shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.16);
+  --chat-shadow-md:     0 4px 12px rgba(0, 0, 0, 0.12), 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 ```
 
@@ -251,6 +254,7 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 
 | Property | Default | Description |
 |----------|---------|-------------|
+| `--chat-primary-hover` | derived | Primary action hover color |
 | `--chat-blockquote-bg` | `rgba(0,0,0,0.02)` | Blockquote background |
 | `--chat-chart-bar-track-bg` | `rgba(0,0,0,0.04)` | Chart bar track background |
 

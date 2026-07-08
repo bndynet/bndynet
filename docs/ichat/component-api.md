@@ -3,6 +3,7 @@
 Properties, methods, and events of the `<i-chat>` shell, plus slots and per-message avatars.
 
 - [Properties, methods, events](#i-chat--properties-methods-events)
+- [Composer confirmations](#composer-confirmations)
 - [Slots on `<i-chat>`](#slots-on-i-chat)
 - [Per-message `avatar`](#per-message-avatar)
 
@@ -20,7 +21,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods (forwarded to the inner message list):** `addMessage`, `updateMessage`, `appendPart`, `updatePart`, `updateToolCall`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `updatePart`, `updateToolCall`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -32,8 +33,47 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
 | `tool-action` | `{ action: 'approve' \| 'reject', toolCallId: string, part: ToolCallPart }` | From a `tool-call` part’s human-in-the-loop buttons (when `approval === 'required'`) |
 | `form-submit` | `{ formId, title, values, messageId, message }` | From an embedded `form` fenced block inside a `text` part |
+| `confirmation-change` | `{ active, queue, queueLength }` | Active composer confirmation or FIFO queue changed |
+| `confirmation-decision` | `ChatConfirmationResult` | User confirmed or cancelled the active composer confirmation |
 
 Events that originate on inner rows (e.g. `message-complete` on `<i-chat-message>`) use `bubbles` + `composed` so you can listen on `<i-chat>` or `document`.
+
+## Composer confirmations
+
+Use `requestConfirmation(request)` when an AI or host action must pause for user approval before continuing. The confirmation panel is a composer state: while it is active, it replaces the default `<i-chat-input>` in the footer. If you provide a custom `slot="input"`, that slotted composer is also hidden until the active confirmation is resolved.
+
+```javascript
+const result = await chat.requestConfirmation({
+  title: 'Delete this file?',
+  description: 'This will remove /tmp/cache.db.',
+  details: { path: '/tmp/cache.db', source: 'cleanup tool' },
+  confirmLabel: 'Delete',
+  variant: 'danger',
+});
+
+if (result.confirmed) {
+  await deleteFile('/tmp/cache.db');
+}
+```
+
+`ChatConfirmationRequest` fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | `string?` | Optional stable id. Generated when omitted |
+| `title` | `string` | Main prompt shown to the user |
+| `description` | `string?` | Short supporting text |
+| `details` | `unknown?` | String or structured data; objects render in a collapsible details block |
+| `requiredLabel` | `string?` | Per-request eyebrow above the title. Set to `''` to hide it for this request |
+| `confirmLabel` / `cancelLabel` | `string?` | Per-request button labels |
+| `variant` | `'default' \| 'danger'` | Use `danger` for destructive or high-impact actions |
+| `payload` | `unknown?` | Host data returned in `result.request`; not rendered by default |
+
+Multiple calls are queued FIFO and shown one at a time. `clearConfirmations()` resolves the active and queued confirmations as `{ confirmed: false, action: 'cancel' }`.
+
+Generate `title` / `description` in your application from validated action or tool schemas. Model-provided text can be included as supporting context, but the primary confirmation copy should come from trusted business logic.
+
+The small eyebrow above the title comes from `config.labels.confirmation.required`. Set that label to an empty string to hide it globally, or set `request.requiredLabel = ''` to hide it for one confirmation.
 
 ## Slots on `<i-chat>`
 
@@ -49,6 +89,8 @@ Message-related slots are **forwarded** with declarative `<slot name="…" slot=
 | `empty` | Content when there are no messages |
 | `actions` | Bottom-left toolbar **inside** the default `<i-chat-input>` (attach, model picker, etc.) |
 | `input` | **Replaces** the entire default `<i-chat-input>` — supply your own footer; dispatch `send` / handle streaming as needed |
+
+When a composer confirmation is active, the confirmation panel temporarily replaces both the default composer and any custom `slot="input"` content.
 
 ### Slots example
 
