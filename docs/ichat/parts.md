@@ -1,9 +1,10 @@
-# Parts: reasoning, tool calls, files, sources, custom
+# Parts: reasoning, tool calls, todos, files, sources, custom
 
-Beyond plain `text`, a message body can carry reasoning blocks, tool-call cards, attachments, citations, and host-defined `x-*` widgets — all as top-level entries in [`message.parts`](./message-model.md#message-body--parts).
+Beyond plain `text`, a message body can carry reasoning blocks, tool-call cards, todo panels, attachments, citations, and host-defined `x-*` widgets — all as top-level entries in [`message.parts`](./message-model.md#message-body--parts).
 
 - [Reasoning](#reasoning)
 - [Tool calls](#tool-calls)
+- [Todos](#todos)
 - [File, source, and custom parts](#file-source-and-custom-parts)
 - [vs. `registerRenderer` (markdown fences)](#vs-registerrenderer-markdown-fences)
 
@@ -57,11 +58,20 @@ chat.updateToolCall(msgId, 'tc-1', {
 });
 ```
 
-**Human-in-the-loop approval:** set `approval: 'required'` on a `tool-call` part to render Approve / Reject buttons. The card emits a bubbling `tool-action` event (`{ action, toolCallId, part }`); respond by patching the part:
+Use `tryUpdateToolCall()` when the host needs a diagnostic failure reason instead of a boolean:
+
+```javascript
+const result = chat.tryUpdateToolCall(msgId, 'tc-1', { state: 'executing' });
+if (!result.ok) {
+  console.warn('Tool update ignored:', result.reason);
+}
+```
+
+**Human-in-the-loop approval:** set `approval: 'required'` on a `tool-call` part to render Approve / Reject buttons. The card emits the unified `part-action` event and a deprecated bubbling `tool-action` compatibility event (`{ action, toolCallId, part, messageId, message }`); respond by patching the part:
 
 ```javascript
 chat.addEventListener('tool-action', (e) => {
-  const { action, part } = e.detail;
+  const { action, messageId, part } = e.detail;
   if (action === 'approve') {
     chat.updateToolCall(messageId, part.id, { approval: 'approved', state: 'executing' });
     // …run the tool, then attach the result via updateToolCall(… { state: 'output-available', result })
@@ -70,6 +80,22 @@ chat.addEventListener('tool-action', (e) => {
   }
 });
 ```
+
+For new integrations, prefer the unified event:
+
+```javascript
+chat.addEventListener('part-action', (e) => {
+  if (e.detail.kind !== 'tool-call') return;
+  const { messageId, part, action } = e.detail.detail;
+  chat.updateToolCall(messageId, part.id, {
+    approval: action === 'approve' ? 'approved' : 'rejected',
+  });
+});
+```
+
+## Todos
+
+Use the built-in `todo` part for a compact, collapsible plan whose items update independently while the assistant works. Create it with `todoPart()`, patch items with `updateTodoItem()`, and handle optional user changes through `part-action` or the deprecated compatibility `todo-action`. See the complete [Todo panel guide](./todo.md).
 
 ## File, source, and custom parts
 

@@ -67,6 +67,19 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 
   const chat = document.getElementById('chat');
 
+  // Optional: load historical messages as completed content so they do not
+  // replay the streaming typewriter effect on first render.
+  const history = await fetchHistory();
+  chat.messages = history.map((message) => ({
+    ...message,
+    streaming: false,
+    parts: message.parts.map((part) =>
+      part.status === 'streaming'
+        ? { ...part, status: 'complete' }
+        : part,
+    ),
+  }));
+
   chat.addEventListener('send', (e) => {
     const text = e.detail.content;
     chat.addMessage({
@@ -84,7 +97,9 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 </script>
 ```
 
-A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
+A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`updateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
+
+When the user first opens a chat, load historical messages as completed content. Setting `message.streaming` to `false` is enough to prevent the text typewriter effect, because animation only runs when both the message and the target text part are streaming. It is also best to avoid carrying historical part statuses such as `status: 'streaming'`, especially for `reasoning` parts that have their own thinking/expanded state. For live assistant responses, keep using `streaming: true` and a streaming text/reasoning part while the backend is still producing content, then clear the flags when the response is done.
 
 ## Script tag (IIFE bundles)
 
@@ -112,13 +127,14 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 - **Markdown** — `markdown-it` + `highlight.js`, sanitized with DOMPurify
 - **Extensible fenced blocks** — **`registerRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control ([Custom renderers](./renderers.md))
 - **Extensible `x-*` parts** — **`registerPartRenderer`** maps custom part types to a Web Component or HTML string ([Parts](./parts.md#x--custom-extension-parts))
-- **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](./message-model.md#message-body--parts))
+- **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `todo`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](./message-model.md#message-body--parts))
 - **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](./parts.md#reasoning))
 - **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](./parts.md#tool-calls))
 - **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](./composer.md#streaming))
 - **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`** ([Composer & interaction](./composer.md#reply-blocks))
 - **Slots** — avatars, actions, empty state ([`<i-chat>` API](./component-api.md#slots-on-i-chat))
 - **Timeline** — `[status]` markdown lists rendered as vertical timelines ([Timeline](./timeline.md))
+- **Todo panel** — structured, collapsible plans with item IDs, live status updates, and user actions ([Todo panel](./todo.md))
 - **Theming** — 12 base CSS custom properties; all components derive from them automatically ([Theming](./theming.md))
 - **Localization & RTL** — single `config.labels` dictionary, plurals, and automatic RTL mirroring ([Localization](./localization.md))
 - **TypeScript** — declaration files for public API
@@ -130,10 +146,12 @@ Detailed design and reference docs live in [`docs/`](./README.md):
 | Doc | Covers |
 |-----|--------|
 | [Message model](./message-model.md) | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating |
+| [SSE response format](./sse-response-format.md) | Recommended backend event stream contract for live assistant responses |
 | [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, per-message avatar |
 | [Parts](./parts.md) | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts |
 | [Custom renderers](./renderers.md) | `registerRenderer` + built-in chart / KPI / form / Mermaid renderers |
 | [Timeline](./timeline.md) | `[status]` lists, block IDs, programmatic updates, SSE integration |
+| [Todo panel](./todo.md) | Structured items, collapse behavior, status events, updates, SSE revisions |
 | [Theming](./theming.md) | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference |
 | [Localization (i18n)](./localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL |
 | [Composer & interaction](./composer.md) | Streaming, reply blocks, voice input |

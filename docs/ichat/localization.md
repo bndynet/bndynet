@@ -1,6 +1,6 @@
 # Localization (i18n)
 
-All user-facing strings flow from a single place: **`config.locale`** + **`config.labels`**. There is one unified dictionary (`ChatLabels`) covering the composer, reasoning block, tool-call card, composer confirmations, message list, and date separators. Built-in dictionaries are provided for `en` (default) and `zh` / `zh-CN`; unknown locales fall back to English.
+All user-facing strings flow from a single place: **`config.locale`** + **`config.labels`**. There is one unified dictionary (`ChatLabels`) covering the composer, reasoning block, tool-call card, todo panel, composer confirmations, message list, and date separators. Built-in dictionaries are provided for `en` (default) and `zh` / `zh-CN`; unknown locales fall back to English.
 
 - **`locale`** also drives `Intl`-based formatting (timestamps and assistant duration via `Intl.NumberFormat` / `Intl.DurationFormat`).
 - **`labels`** is a deep-partial override merged on top of the locale dictionary — supply only the strings you want to change.
@@ -18,6 +18,7 @@ chat.config = {
     composer: { placeholder: 'Écrivez un message…', send: 'Envoyer' },
     reasoning: { thinking: 'Réflexion…', reasoning: 'Raisonnement' },
     toolCall: { running: 'En cours…', approve: 'Autoriser', reject: 'Refuser' },
+    todo: { title: 'Tâches', progress: (done, total) => `${done}/${total} terminées` },
     confirmation: { required: 'Confirmation requise', confirm: 'Confirmer', cancel: 'Annuler' },
     messages: { empty: 'Aucun message. Démarrez la conversation\u202f!' },
     dateSeparator: {
@@ -32,7 +33,7 @@ chat.config = {
 
 The library intentionally ships **no i18n runtime** — translations come from your app (vue-i18n, i18next, …); you just fill in `config.labels`. Helpers are exported for advanced use: `resolveLabels({ locale, labels })`, `CHAT_LABELS_EN`, `CHAT_LABELS_ZH_CN` (and `resolveComposerLabels`, `COMPOSER_LABELS_*` from `@bndynet/ichat-input` for standalone composer use).
 
-`ChatLabels` sections: `composer` (placeholder, send/cancel/voice button labels + titles, listening overlay), `reasoning` (`thinking`, `reasoning`), `toolCall` (state labels, section headings, approve/reject), `confirmation` (composer confirmation labels), `messages` (`empty`, `dismissError`, `scrollToLatest`), and `dateSeparator` (`today`, `yesterday`, `daysAgo(n)`, `older`).
+`ChatLabels` sections: `composer` (placeholder, send/cancel/voice button labels + titles, listening overlay), `reasoning` (`thinking`, `reasoning`), `toolCall` (state labels, section headings, approve/reject), `todo` (title, progress, status and accessibility labels), `confirmation` (composer confirmation labels), `messages` (`empty`, `dismissError`, `scrollToLatest`), and `dateSeparator` (`today`, `yesterday`, `daysAgo(n)`, `older`).
 
 > The older `config.dateSeparatorLabels` still works but is deprecated — prefer `config.labels.dateSeparator`.
 
