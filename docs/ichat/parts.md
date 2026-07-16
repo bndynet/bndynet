@@ -103,7 +103,7 @@ Attachments, citations, and host-defined payloads are first-class **`parts[]` en
 
 ### `file` — attachments
 
-Images (`mediaType` starts with `image/`) render inline. Everything else becomes a download link (`name` or `url` as the label). Supply either **`url`** (HTTP(S) or `data:` URL) or raw **`data`** (base64 without the `data:` prefix).
+Images (`mediaType` starts with `image/`) render inline as lightweight attachments outside the text bubble. Everything else becomes a download link (`name` or `url` as the label). Supply either **`url`** (HTTP(S) or `data:` URL) or raw **`data`** (base64 without the `data:` prefix).
 
 ```javascript
 import { textPart, nextPartId } from '@bndynet/ichat';
@@ -135,7 +135,7 @@ chat.addMessage({
 
 ### `source` — citations (RAG / search)
 
-Each `source` part renders a link (`title` if set, otherwise `url`) and an optional **`snippet`**. Typical for web-search or retrieval citations returned alongside an answer.
+Each `source` part renders a lightweight citation row outside the text bubble, with a link (`title` if set, otherwise `url`) and an optional **`snippet`**. Typical for web-search or retrieval citations returned alongside an answer.
 
 ```javascript
 chat.addMessage({

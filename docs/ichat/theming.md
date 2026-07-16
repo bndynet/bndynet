@@ -70,7 +70,7 @@ The library uses a **12 base token** system. Every component-specific token (use
 | `--chat-bg` | ![#f7f7f8](https://placehold.co/14x14/f7f7f8/f7f7f8.png) `#f7f7f8` | Container background |
 | `--chat-surface` | ![#ffffff](https://placehold.co/14x14/ffffff/e5e7eb.png) `#ffffff` | Card / bubble surface |
 | `--chat-surface-alt` | ![#f0f2f5](https://placehold.co/14x14/f0f2f5/f0f2f5.png) `#f0f2f5` | Alternate surface (table headers, summaries) |
-| `--chat-border` | ![#e5e7eb](https://placehold.co/14x14/e5e7eb/e5e7eb.png) `#e5e7eb` | Borders and dividers |
+| `--chat-border` | ![#e8e8e8](https://placehold.co/14x14/e8e8e8/e8e8e8.png) `#e8e8e8` | Borders and dividers |
 | `--chat-text` | ![#1a1a2e](https://placehold.co/14x14/1a1a2e/1a1a2e.png) `#1a1a2e` | Primary text |
 | `--chat-text-secondary` | ![#6b7280](https://placehold.co/14x14/6b7280/6b7280.png) `#6b7280` | Secondary text (labels) |
 | `--chat-text-muted` | ![#9ca3af](https://placehold.co/14x14/9ca3af/9ca3af.png) `#9ca3af` | Muted text (timestamps, placeholders) |
@@ -93,6 +93,10 @@ Component-specific tokens chain to base tokens. You can override any component t
 | `--chat-reasoning-bg` | `--chat-primary-light` |
 | `--chat-reasoning-text` | `--chat-primary` |
 | `--chat-reasoning-border` | `color-mix(--chat-primary, --chat-border)` |
+| `--chat-panel-bg` | `--chat-surface` |
+| `--chat-panel-border` | `color-mix(--chat-border, --chat-surface)` |
+| `--chat-panel-radius` | `--chat-radius` |
+| `--chat-panel-shadow` | component default |
 | `--chat-error-color` | `--chat-error` |
 | `--chat-error-bg` | `color-mix(--chat-error, --chat-surface)` |
 | `--chat-timeline-done` | `--chat-success` |
@@ -173,7 +177,7 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 | `--chat-bg` | `#f7f7f8` | Container background |
 | `--chat-surface` | `#ffffff` | Elevated surface (bubbles, scroll button, cards) |
 | `--chat-surface-alt` | `#f0f2f5` | Alternative surface (table headers, charts, action hover) |
-| `--chat-border` | `#e5e7eb` | Borders, dividers, scrollbar thumb |
+| `--chat-border` | `#e8e8e8` | Borders, dividers, scrollbar thumb |
 | `--chat-text` | `#1a1a2e` | Primary text color |
 | `--chat-text-secondary` | `#6b7280` | Secondary text (labels, blockquote) |
 | `--chat-text-muted` | `#9ca3af` | Muted text (timestamps, placeholders) |
@@ -224,10 +228,12 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 
 | Property | Default | Description |
 |----------|---------|-------------|
-| `--chat-reasoning-bg` | `= --chat-primary-light` | Reasoning block background |
-| `--chat-reasoning-border` | derived | Reasoning block border (mix of `--chat-primary` and `--chat-border`) |
-| `--chat-reasoning-text` | `= --chat-primary` | Reasoning header text |
+| `--chat-reasoning-bg` | derived | Thought summary background (subtle mix of surface + primary) |
+| `--chat-reasoning-border` | derived | Thought summary border (mix of `--chat-border` and `--chat-primary`) |
+| `--chat-reasoning-text` | `= --chat-text-secondary` | Thought summary header text |
+| `--chat-reasoning-accent` | `= --chat-primary` | Left rail, icon, and thinking dots |
 | `--chat-reasoning-header-hover-bg` | derived | Reasoning header hover overlay |
+| `--chat-reasoning-content-max-height` | `260px` | Expanded reasoning body max height before internal scroll |
 
 ### Colors — Code (design constant)
 
@@ -255,6 +261,11 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 | Property | Default | Description |
 |----------|---------|-------------|
 | `--chat-primary-hover` | derived | Primary action hover color |
+| `--chat-panel-bg` | `= --chat-surface` | Shared embedded panel background |
+| `--chat-panel-border` | derived | Shared embedded panel border (mix of `--chat-border` and `--chat-surface`) |
+| `--chat-disclosure-header-bg` | `= --chat-surface-alt` | Shared header background for collapsible panels |
+| `--chat-disclosure-header-hover-bg` | subtly derived | Shared hover background for collapsible panel headers |
+| `--chat-disclosure-body-bg` | `transparent` | Shared body background for collapsible panels |
 | `--chat-blockquote-bg` | `rgba(0,0,0,0.02)` | Blockquote background |
 | `--chat-chart-bar-track-bg` | `rgba(0,0,0,0.04)` | Chart bar track background |
 
@@ -273,8 +284,10 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 | Property | Default | Description |
 |----------|---------|-------------|
 | `--chat-radius-sm` | `6px` | Small radius (bubble tail, code, images) |
-| `--chat-radius` | `12px` | Medium radius (container, code blocks, reasoning) |
+| `--chat-radius` | `12px` | Medium radius (containers and larger panels) |
 | `--chat-radius-lg` | `18px` | Large radius (message bubbles) |
+| `--chat-panel-radius` | `= --chat-radius` | Shared embedded panel radius |
+| `--chat-disclosure-radius` | `6px` | Shared compact radius for collapsible panels |
 
 ### Shadows
 
@@ -282,6 +295,7 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 |----------|---------|-------------|
 | `--chat-shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Assistant bubble shadow |
 | `--chat-shadow-md` | `0 4px 12px rgba(0,0,0,0.08)` | Scroll-to-bottom button shadow |
+| `--chat-panel-shadow` | component default | Shared embedded panel shadow |
 
 ### Transitions
 
@@ -297,6 +311,9 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 | `--chat-avatar-size` | `32px` | Avatar width & height |
 | `--chat-message-max-width` | `85%` | Max width of a single message row |
 | `--chat-messages-max-width` | `100%` | Max width of the message list inner area (fills host; override e.g. `800px` or `min(100%, 48rem)` for a centered reading column) |
+| `--chat-bubble-block-end-gap` | `= --chat-spacing-sm` | Extra space below a message bubble before following parts or footer metadata |
+| `--chat-disclosure-header-height` | `32px` | Shared compact header height for collapsible panels |
+| `--chat-todo-item-min-height` | `32px` | Compact minimum row height for each todo item |
 | `--chat-scrollbar-width` | `6px` | Scrollbar width (WebKit) |
 
 ## Minimal override set

@@ -66,9 +66,13 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
   import { textPart } from '@bndynet/ichat';
 
   const chat = document.getElementById('chat');
+  let idSeq = 0;
+  const nextId = () =>
+    globalThis.crypto?.randomUUID?.() ?? `msg-${Date.now().toString(36)}-${++idSeq}`;
 
-  // Optional: load historical messages as completed content so they do not
-  // replay the streaming typewriter effect on first render.
+  let activeStream = null;
+
+  // TODO: Replace with your history loader, or use [] when there is no history.
   const history = await fetchHistory();
   chat.messages = history.map((message) => ({
     ...message,
@@ -80,15 +84,82 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
     ),
   }));
 
-  chat.addEventListener('send', (e) => {
+  chat.addEventListener('send', async (e) => {
     const text = e.detail.content;
+    const assistantId = nextId();
+    const bodyPartId = 'body';
+    const stream = {
+      assistantId,
+      bodyPartId,
+      abort: new AbortController(),
+      cancelled: false,
+    };
+
+    activeStream = stream;
+
     chat.addMessage({
-      id: Date.now().toString(),
+      id: nextId(),
       role: 'self',
       parts: [textPart(text)],
       timestamp: Date.now(),
     });
-    // …call your API, then add assistant messages with addMessage / updateMessage / appendPart
+
+    // Important: create the assistant placeholder before starting fetch/SSE,
+    // not after the first token arrives. The built-in composer uses
+    // `streaming: true` to switch Send -> Cancel and block duplicate sends
+    // while the network request is waiting for the first chunk.
+    chat.addMessage({
+      id: assistantId,
+      role: 'assistant',
+      parts: [textPart('', { id: bodyPartId, status: 'streaming' })],
+      streaming: true,
+      timestamp: Date.now(),
+    });
+
+    let answer = '';
+    try {
+      // TODO: Replace this with your fetch/SSE/WebSocket/SDK adapter.
+      // It should yield text chunks and respect the AbortSignal when possible.
+      for await (const chunk of streamAssistantReply(text, { signal: stream.abort.signal })) {
+        if (stream.abort.signal.aborted) break;
+        answer += chunk;
+        chat.updatePart(assistantId, bodyPartId, {
+          text: answer,
+          status: 'streaming',
+        });
+      }
+
+      if (stream.abort.signal.aborted) {
+        chat.updatePart(assistantId, bodyPartId, { status: 'cancelled' });
+        chat.updateMessage(assistantId, { cancelled: true });
+      } else {
+        chat.updatePart(assistantId, bodyPartId, { status: 'complete' });
+      }
+    } catch (error) {
+      if (stream.abort.signal.aborted) {
+        chat.updatePart(assistantId, bodyPartId, { status: 'cancelled' });
+        chat.updateMessage(assistantId, { cancelled: true });
+      } else {
+        chat.updatePart(assistantId, bodyPartId, { status: 'error' });
+        chat.updateMessage(assistantId, {
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    } finally {
+      // Important: always release streaming, including success, error, and
+      // cancellation. If this is skipped, the composer will remain locked.
+      chat.updateMessage(assistantId, { streaming: false });
+      if (activeStream === stream) {
+        activeStream = null;
+      }
+    }
+  });
+
+  chat.addEventListener('cancel', () => {
+    if (!activeStream || activeStream.cancelled) return;
+    activeStream.cancelled = true;
+    activeStream.abort.abort();
+    chat.cancelMessage(activeStream.assistantId, '*— Response stopped —*');
   });
 
   chat.addEventListener('streaming-change', (e) => {
@@ -99,7 +170,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 
 A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`updateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateTimeline`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
 
-When the user first opens a chat, load historical messages as completed content. Setting `message.streaming` to `false` is enough to prevent the text typewriter effect, because animation only runs when both the message and the target text part are streaming. It is also best to avoid carrying historical part statuses such as `status: 'streaming'`, especially for `reasoning` parts that have their own thinking/expanded state. For live assistant responses, keep using `streaming: true` and a streaming text/reasoning part while the backend is still producing content, then clear the flags when the response is done.
+When the user first opens a chat, load historical messages as completed content. Normalize stored messages by setting `message.streaming` to `false` and converting any persisted `status: 'streaming'` parts to a terminal state such as `complete`, especially for `reasoning` parts that have their own thinking/expanded state.
 
 ## Script tag (IIFE bundles)
 

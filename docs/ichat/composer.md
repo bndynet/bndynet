@@ -16,6 +16,30 @@ chatEl.addEventListener('streaming-change', (e) => {
 });
 ```
 
+When you provide a custom composer through `slot="input"`, dispatch `send` from the slotted composer element and guard it with both the streaming flag and any request you have already started. `<i-chat>` also ignores slotted `send` events while it is streaming or disabled, but keeping the button/keyboard path disabled avoids confusing UI:
+
+```javascript
+let streaming = false;
+let pending = false;
+
+chatEl.addEventListener('streaming-change', (e) => {
+  streaming = e.detail.streaming;
+  pending = false;
+});
+
+function sendFromCustomInput(content) {
+  const text = content.trim();
+  if (!text || streaming || pending) return;
+
+  pending = true;
+  customInputEl.dispatchEvent(new CustomEvent('send', {
+    detail: { content: text },
+    bubbles: true,
+    composed: true,
+  }));
+}
+```
+
 ## Reply blocks
 
 Show quoted content **under** an existing message (e.g. after the user taps Reply in `message-actions`). The component only **renders** these blocks; you still own the composer (`<i-chat-input>` or `slot="input"`).

@@ -124,12 +124,13 @@ Event detail includes `action`, `itemId`, `previousStatus`, requested `status`, 
 
 ## Theme tokens
 
-The panel derives from the normal `--chat-*` palette. Override only when the todo needs a distinct treatment:
+The panel derives from the shared `--chat-panel-*` tokens and then the normal `--chat-*` palette. Override only when the todo needs a distinct treatment:
 
 | Property | Purpose |
 |----------|---------|
 | `--chat-todo-bg` | Panel background |
 | `--chat-todo-border` | Border and row dividers |
+| `--chat-todo-shadow` | Panel shadow |
 | `--chat-todo-text` | Primary text |
 | `--chat-todo-secondary` | Secondary text and inactive icons |
 | `--chat-todo-active` | Active item icon |
