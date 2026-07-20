@@ -63,7 +63,7 @@ The TypeScript package also exports **`CHAT_MERMAID_TOKEN_NAMES`** from `@bndyne
 
 ## Token architecture
 
-The library uses a **12 base token** system. Every component-specific token (user bubbles, reasoning, timeline, form, input, etc.) automatically derives from these base tokens via `var()` chaining. Most apps only need to set these 12 properties to completely re-theme the UI:
+The library uses a **12 base token** system. Every component-specific token (user bubbles, reasoning, progress, form, input, etc.) automatically derives from these base tokens via `var()` chaining. Most apps only need to set these 12 properties to completely re-theme the UI:
 
 | Token | Light default | Description |
 |-------|---------------|-------------|
@@ -99,8 +99,8 @@ Component-specific tokens chain to base tokens. You can override any component t
 | `--chat-panel-shadow` | component default |
 | `--chat-error-color` | `--chat-error` |
 | `--chat-error-bg` | `color-mix(--chat-error, --chat-surface)` |
-| `--chat-timeline-done` | `--chat-success` |
-| `--chat-timeline-error` | `--chat-error` |
+| `--chat-progress-done` | `--chat-success` |
+| `--chat-progress-error` | `--chat-error` |
 | `--chat-kpi-trend-up` | `--chat-success` |
 | `--chat-kpi-trend-down` | `--chat-error` |
 | `--chat-input-bg` | `--chat-surface` |
@@ -184,7 +184,7 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 | `--chat-primary` | `#2563eb` | Accent / link color, typing cursor |
 | `--chat-primary-light` | `#dbeafe` | Light tint of primary (reasoning bg, highlights) |
 | `--chat-error` | `#ef4444` | Error / danger color |
-| `--chat-success` | `#10b981` | Success color (timeline done, KPI trend up) |
+| `--chat-success` | `#10b981` | Success color (progress done, KPI trend up) |
 | `--chat-warning` | `#f59e0b` | Warning color |
 
 ### Colors — Self bubble (`role: self`)
@@ -250,9 +250,9 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 |----------|---------|-------------|
 | `--chat-error-color` | `= --chat-error` | Error text color |
 | `--chat-error-bg` | derived | Error background (mix of `--chat-error` and `--chat-surface`) |
-| `--chat-timeline-done` | `= --chat-success` | Timeline done step indicator |
-| `--chat-timeline-active` | `= --chat-primary` | Timeline active step indicator |
-| `--chat-timeline-error` | `= --chat-error` | Timeline error step indicator |
+| `--chat-progress-done` | `= --chat-success` | Progress done step indicator |
+| `--chat-progress-active` | `= --chat-primary` | Progress active step indicator |
+| `--chat-progress-error` | `= --chat-error` | Progress error step indicator |
 | `--chat-kpi-trend-up` | `= --chat-success` | KPI positive trend color |
 | `--chat-kpi-trend-down` | `= --chat-error` | KPI negative trend color |
 

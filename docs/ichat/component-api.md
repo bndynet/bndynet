@@ -21,7 +21,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `updateToolCall`, `tryUpdateTodoItem`, `updateTodoItem`, `tryApplyMessagePartUpdateEvent`, `applyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `applyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateTimeline`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `updateToolCall`, `tryUpdateTodoItem`, `updateTodoItem`, `tryApplyMessagePartUpdateEvent`, `applyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `applyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -70,7 +70,7 @@ The older `updateTodoItem()`, `updateToolCall()`, `applyMessagePartUpdateEvent()
 
 ### Link clicks and protocols
 
-Rendered message links emit a cancelable `link-click` event. By default, built-in rendered links preserve every URI protocol scheme, including custom app protocols such as `myapp:`. Set `config.allowedLinkProtocols` to a non-empty list when you want to restrict which protocols are kept. Values may include or omit the trailing colon.
+Rendered message links emit a cancelable `link-click` event. By default, built-in rendered links allow `http`, `https`, `mailto`, and `tel`, plus relative URLs and fragment links. Custom app protocols such as `myapp:` must be explicitly opted into with `config.allowedLinkProtocols`. A non-empty list replaces the default protocol list, and values may include or omit the trailing colon.
 
 ```javascript
 chat.config = {
@@ -174,7 +174,7 @@ When a composer confirmation is active, the confirmation panel temporarily repla
 
 Pass `avatar` on each `ChatMessage` when calling `addMessage` / assigning `messages`. If `avatar` is non-empty, it is used for that row instead of the matching `config` defaults (`selfAvatar`, `peerAvatar`, `assistantAvatar`) and instead of the `self-avatar` / `peer-avatar` / `assistant-avatar` slots.
 
-Supported values: image URL, `data:image/…;base64,…`, raw base64 (defaults to PNG in the component), inline `<svg>…</svg>`, or plain text / emoji.
+Supported values: image URL, `data:image/…;base64,…`, raw base64 (defaults to PNG in the component), inline `<svg>…</svg>`, or plain text / emoji. Per-message inline SVG is sanitized before rendering; use a role-specific avatar slot when the application needs fully trusted custom DOM.
 
 ```javascript
 import { textPart } from '@bndynet/ichat';
