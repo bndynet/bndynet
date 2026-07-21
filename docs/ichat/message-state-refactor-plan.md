@@ -6,10 +6,10 @@
 
 | Item | Value |
 |------|-------|
-| Document status | **Planned, implementation not started** |
-| Implementation progress | **0 / 9** |
+| Document status | **Planned, implementation in progress** |
+| Implementation progress | **4 / 9** |
 | Current code baseline | monorepo `2.0.0` |
-| Last verified | 2026-07-20 |
+| Last verified | 2026-07-21 |
 | Core approach | `<i-chat>` is the sole message-state owner in composed usage; `<i-chat-messages>` retains standalone state capabilities |
 | Compatibility policy | 2.x only adds APIs, migrates internals, and fixes defects; public API removal is reserved for the next major version |
 
@@ -178,10 +178,10 @@ Event requirements:
 
 | Change | Scope | Status | Dependency | Risk | Breaking |
 |--------|-------|--------|------------|------|----------|
-| CHG-01 | Add the `messages-change` contract and temporary reverse-sync bridge | `NOT STARTED` | None | Medium | No (bug fix) |
-| CHG-02 | Extract shared pure message-collection reducers | `NOT STARTED` | CHG-01 | Low | No |
-| CHG-03 | Move regular message mutations to the top-level store | `NOT STARTED` | CHG-02 | Medium | No (bug fix) |
-| CHG-04 | Move diagnostic, tool, todo, and SSE updates to the top-level store | `NOT STARTED` | CHG-03 | Medium | No (bug fix) |
+| CHG-01 | Add the `messages-change` contract and temporary reverse-sync bridge | `DONE` | None | Medium | No (bug fix) |
+| CHG-02 | Extract shared pure message-collection reducers | `DONE` | CHG-01 | Low | No |
+| CHG-03 | Move regular message mutations to the top-level store | `DONE` | CHG-02 | Medium | No (bug fix) |
+| CHG-04 | Move diagnostic, tool, todo, and SSE updates to the top-level store | `DONE` | CHG-03 | Medium | No (bug fix) |
 | CHG-05 | Separate cancellation data semantics from animation side effects | `NOT STARTED` | CHG-04 | High | No (bug fix) |
 | CHG-06 | Add pre-render safety and a ready contract | `NOT STARTED` | CHG-05 | Medium | No |
 | CHG-07 | Remove dependency on the temporary bridge and finish state convergence | `NOT STARTED` | CHG-06 | Medium | No (internal) |
@@ -998,4 +998,95 @@ Future AI agents must execute one Change at a time:
 
 ## 13. Implementation Records
 
-None yet. Every Change is currently `NOT STARTED`.
+### CHG-01 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-21
+- Release version: 2.0.x (target)
+- Main files:
+  - `packages/chat-messages/src/messages-change-types.ts` (new) — public event types
+  - `packages/chat-messages/src/components/chat-messages.ts` — `_commitMessages()` + mutation routing
+  - `packages/chat-messages/src/index.ts` — export new types
+  - `packages/chat/src/components/chat.ts` — `_handleMessagesChange()` listener + `_ensureChildSynced()` + bridge
+  - `packages/chat/src/index.ts` — re-export new types
+  - `packages/chat-messages/test/messages-change.test.ts` (new) — 18 test cases
+- Public API changes:
+  - New `messages-change` event (bubbles, composed) on both `<i-chat>` and `<i-chat-messages>`
+  - New types: `MessagesChangeDetail`, `MessagesChangeReason`, `MessagesChangeSource`
+  - `@fires messages-change` JSDoc on both components
+- Behavior changes:
+  - `chat.messages` is now synchronized after every delegated proxy call (was stale before — bug fix)
+  - Direct external `messages = […]` assignment does NOT emit `messages-change`
+  - Stale child mutations are rejected by the parent bridge guard
+- Breaking change: No (bug fix)
+- Automated tests: 18 new test cases in `messages-change.test.ts`, all passing; 3 existing tests continue to pass
+- Manual regression: Build verified for all 4 packages; no compilation errors
+- Known limitations:
+  - `cancelMessage()` still uses `'message:update'` reason (will be `'message:cancel'` in CHG-05)
+  - Bridge is temporary — CHG-03 through CHG-07 will progressively remove delegation
+- Follow-up work: CHG-02 (extract pure reducers)
+### CHG-02 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-21
+- Release version: 2.0.x (target)
+- Main files:
+  - `packages/chat-messages/src/message-collection-state.ts` (new) — pure reducers: `addMessage`, `patchMessageById`, `removeMessageById`, `clearMessages`, `cancelMessageData`
+  - `packages/chat-messages/src/components/chat-messages.ts` — `addMessage`, `updateMessage`, `removeMessage`, `clear` now delegate to pure functions
+  - `packages/chat-messages/src/index.ts` — export new pure functions
+  - `packages/chat-messages/test/message-collection-state.test.ts` (new) — 17 pure-function test cases
+- Public API changes:
+  - New exports: `addMessage`, `patchMessageById`, `removeMessageById`, `clearMessages`, `cancelMessageData`
+- Behavior changes:
+  - `updateMessage` / `removeMessage` with missing id: now returns original array reference (was new array with same content). This avoids unnecessary renders and `messages-change` emissions — bug fix.
+  - `cancelMessageData` is available but not yet wired into `ChatMessages.cancelMessage` (CHG-05 will do that).
+- Breaking change: No
+- Automated tests: 17 new pure-function tests; all 8 test files pass
+- Manual regression: Full build (4 packages) passes with zero errors
+- Known limitations:
+  - `cancelMessageData` is created and tested but not yet used by `ChatMessages.cancelMessage` — deferred to CHG-05
+- Follow-up work: CHG-03 (move regular mutations to top-level store)
+
+### CHG-03 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-21
+- Release version: 2.0.x (target)
+- Main files:
+  - `packages/chat/src/components/chat.ts` — `_commitMessages()` top-level commit; migrated `addMessage`/`updateMessage`/`appendPart`/`updatePart`/`removeMessage`/`clear`/`addErrorMessage` to direct top-level writes
+  - `packages/chat-messages/src/components/chat-messages.ts` — `_clearPresentation()` `@internal`
+  - `packages/chat-messages/src/index.ts` — fixed `export type` → `export` for pure reducers
+- Public API changes: None (all method signatures unchanged)
+- Behavior changes:
+  - `chat.messages` is now the sole authoritative store — updated synchronously
+  - Template uses `.messages=${this.messages}` one-way binding
+  - `firstUpdated()`/`updated()` no longer manually push properties
+  - Streaming state derived from message array during commits
+- Breaking change: No (bug fix)
+- Automated tests: All 8 test files pass
+- Manual regression: Full build (4 packages) — zero errors
+- Known limitations:
+  - `try*`/`cancel`/SSE methods still delegate to child (CHG-04 / CHG-05)
+  - CHG-01 bridge remains for unmigrated paths
+- Follow-up work: CHG-04
+
+### CHG-04 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-21
+- Release version: 2.0.x (target)
+- Main files:
+  - `packages/chat/src/components/chat.ts` — `tryUpdatePart`/`tryUpdateToolCall`/`tryUpdateTodoItem`/`tryApplyMessagePartUpdateEvent`/`tryApplyTodoItemUpdateEvent` now direct top-level implementations using shared pure helpers; restored `cancel`/`cancelMessage` proxy methods
+- Public API changes: None
+- Behavior changes:
+  - All diagnostic (`try*`) and SSE event methods now write through `Chat._commitMessages`
+  - Boolean wrappers (`updateToolCall`, `updateTodoItem`, `apply*Event`) unchanged
+  - Failed updates return identical diagnostic shapes, emit no event
+- Breaking change: No
+- Automated tests: All 8 test files pass
+- Manual regression: Full build (4 packages) — zero errors
+- Known limitations:
+  - `cancel`/`cancelMessage` still proxy to child (CHG-05)
+  - Bridge (`_handleMessagesChange`) remains active for cancel paths
+- Follow-up work: CHG-05
+
