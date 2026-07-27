@@ -63,7 +63,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 <i-chat id="chat"></i-chat>
 
 <script type="module">
-  import { textPart } from '@bndynet/ichat';
+  import { textPart, normalizeHistoryMessages } from '@bndynet/ichat';
 
   const chat = document.getElementById('chat');
   let idSeq = 0;
@@ -74,15 +74,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 
   // TODO: Replace with your history loader, or use [] when there is no history.
   const history = await fetchHistory();
-  chat.messages = history.map((message) => ({
-    ...message,
-    streaming: false,
-    parts: message.parts.map((part) =>
-      part.status === 'streaming'
-        ? { ...part, status: 'complete' }
-        : part,
-    ),
-  }));
+  chat.messages = normalizeHistoryMessages(history.messages);
 
   chat.addEventListener('send', async (e) => {
     const text = e.detail.content;
@@ -170,7 +162,88 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 
 A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`updateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateProgressStep`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
 
-When the user first opens a chat, load historical messages as completed content. Normalize stored messages by setting `message.streaming` to `false` and converting any persisted `status: 'streaming'` parts to a terminal state such as `complete`, especially for `reasoning` parts that have their own thinking/expanded state.
+### Framework integration (Vue / React)
+
+By default **`<i-chat>` owns its own message state**. Listen to `messages-change` for side effects like logging or persistence:
+
+```js
+chat.addEventListener('messages-change', (e) => {
+  console.log(e.detail.reason, e.detail.messages);
+});
+```
+
+When you need a **single source of truth** shared across multiple components (e.g. a chat panel + a sidebar + an export view all reading the same message list), use **controlled mode**:
+
+```js
+// Vue example — messages lives in a reactive store
+chat.messageMode = 'controlled';
+chat.addEventListener('messages-change', (e) => {
+  if (e.detail.committed) return;          // skip external assignments
+  messages.value = e.detail.messages;       // one source, many consumers
+});
+```
+
+In uncontrolled mode `chat.messages` is immediately up-to-date after any mutation — just read it. Controlled mode is opt-in and only needed when an external framework must own the array.
+
+When the user first opens a chat, load historical messages as completed content. Use `normalizeHistoryMessages()` from `@bndynet/ichat-messages` (re-exported by `@bndynet/ichat`) to sanitise messages loaded from your backend — it sets `streaming: false`, marks interrupted messages as `cancelled`, converts any persisted `status: 'streaming' | 'pending'` parts to `'complete'`, and removes empty placeholder messages. Pass `interruptedStatus` / `removeEmptyMessages` options to customise the behaviour.
+
+### SSE client (built-in)
+
+When your backend follows the [SSE response format](./sse-response-format.md), use the built-in SSE client instead of hand-writing a streaming loop:
+
+```js
+import { createChatSSEClient } from '@bndynet/ichat/sse';
+
+const sse = createChatSSEClient('/api/chat/stream', chat, {
+  onError: (err) => chat.showError(err),
+});
+
+chat.addEventListener('send', (e) => {
+  sse.start();  // auto-creates assistant placeholder, routes all SSE events
+});
+
+chat.addEventListener('cancel', () => {
+  sse.abort();
+});
+```
+
+The SSE client automatically handles `message.created`, `message.part.updated`, `todo.item.updated`, `message.completed`, and `stream.done` events — no manual parsing needed. For custom backends, the manual `addMessage` / `updatePart` approach shown above still works.
+
+### Syntax highlighting
+
+By default code blocks render as plain escaped `<pre><code>`. Pass your own `highlight.js` instance to keep the bundle small:
+
+> **Bundle size:** `@bndynet/ichat-messages` ESM is **~177KB** (third-party deps like `markdown-it`, `dompurify`, `highlight.js`, `lit` are resolved by your bundler — no duplicates).
+
+```js
+import hljs from 'highlight.js/lib/core';
+import ts from 'highlight.js/lib/languages/typescript';
+hljs.registerLanguage('typescript', ts);
+
+chat.config = { ...chat.config, highlightJs: hljs };
+```
+
+### Middleware & plugins
+
+Intercept or transform messages with middleware, or package reusable logic as plugins:
+
+```js
+// Middleware — transform content before send
+chat.use({
+  name: 'trim',
+  beforeSend: (content) => content.trim(),
+});
+
+// Plugin — packaged logic with install/teardown
+chat.use({
+  name: 'logger',
+  install(chat) {
+    const onSend = (e) => console.log('send:', e.detail.content);
+    chat.addEventListener('send', onSend);
+    return () => chat.removeEventListener('send', onSend);
+  },
+});
+```
 
 ## Script tag (IIFE bundles)
 
@@ -193,6 +266,9 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 ## Features
 
 - **`<i-chat>` shell** — default textarea + send/cancel, or replace the footer with **`slot="input"`** ([`<i-chat>` API](./component-api.md))
+- **Built-in SSE client** — `createChatSSEClient()` auto-routes backend streaming events ([SSE response format](./sse-response-format.md))
+- **Middleware & plugins** — `chat.use()` for `ChatMiddleware` hooks and `ChatPlugin` lifecycle ([`<i-chat>` API](./component-api.md))
+- **Configurable syntax highlighting** — optional `config.highlightJs` injection; falls back to plain `<pre><code>` when omitted
 - **Voice input (default composer)** — microphone button uses Web Speech API when available; hidden automatically on unsupported browsers ([Composer & interaction](./composer.md#default-composer-voice-input))
 - **Lit 3 Web Components** — works with any framework or vanilla HTML
 - **Markdown** — `markdown-it` + `highlight.js`, sanitized with DOMPurify
@@ -218,7 +294,7 @@ Detailed design and reference docs live in [`docs/`](./README.md):
 |-----|--------|
 | [Message model](./message-model.md) | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating |
 | [SSE response format](./sse-response-format.md) | Recommended backend event stream contract for live assistant responses |
-| [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, per-message avatar |
+| [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, confirmations, highlight.js, SSE client, middleware |
 | [Parts](./parts.md) | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts |
 | [Custom renderers](./renderers.md) | `registerRenderer` + built-in chart / KPI / form / Mermaid renderers |
 | [Progress](./progress.md) | `[status]` lists, block IDs, programmatic updates, SSE integration |
@@ -226,6 +302,7 @@ Detailed design and reference docs live in [`docs/`](./README.md):
 | [Theming](./theming.md) | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference |
 | [Localization (i18n)](./localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL |
 | [Composer & interaction](./composer.md) | Streaming, reply blocks, voice input |
+| [Migration: v2 → v3](./migration-v2-to-v3.md) | Breaking changes, deprecated API table, upgrade timeline |
 
 ## Development
 
@@ -234,12 +311,15 @@ Clone, install, build, run the static demo:
 ```bash
 npm install
 npm run build    # workspace order: chat-messages, chat-input, chat-renderers, chat, apps/demo
+npm run test     # 24 unit tests (pure helpers)
 npm run dev      # concurrent watch on all packages + chat-demo dev server (see root `package.json`)
 ```
 
 | Script | Description |
 |--------|----------------|
 | `npm run build` | Builds all workspaces in dependency order (ends with `apps/demo`) |
+| `npm run test` | Runs 24 unit tests for pure helpers |
+| `npm run test:coverage` | Runs tests with Node.js coverage report |
 | `npm run dev` | Watch mode for packages and the Vue demo app (`chat-demo`) |
 | `npm run start` | Alias for `npm run dev` (see root `package.json`) |
 

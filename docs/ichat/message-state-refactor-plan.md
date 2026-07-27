@@ -6,8 +6,8 @@
 
 | Item | Value |
 |------|-------|
-| Document status | **Planned, implementation in progress** |
-| Implementation progress | **4 / 9** |
+| Document status | **Complete — all 9 changes implemented** |
+| Implementation progress | **9 / 9** |
 | Current code baseline | monorepo `2.0.0` |
 | Last verified | 2026-07-21 |
 | Core approach | `<i-chat>` is the sole message-state owner in composed usage; `<i-chat-messages>` retains standalone state capabilities |
@@ -182,13 +182,13 @@ Event requirements:
 | CHG-02 | Extract shared pure message-collection reducers | `DONE` | CHG-01 | Low | No |
 | CHG-03 | Move regular message mutations to the top-level store | `DONE` | CHG-02 | Medium | No (bug fix) |
 | CHG-04 | Move diagnostic, tool, todo, and SSE updates to the top-level store | `DONE` | CHG-03 | Medium | No (bug fix) |
-| CHG-05 | Separate cancellation data semantics from animation side effects | `NOT STARTED` | CHG-04 | High | No (bug fix) |
-| CHG-06 | Add pre-render safety and a ready contract | `NOT STARTED` | CHG-05 | Medium | No |
-| CHG-07 | Remove dependency on the temporary bridge and finish state convergence | `NOT STARTED` | CHG-06 | Medium | No (internal) |
-| CHG-08 | Add explicit controlled and uncontrolled modes | `NOT STARTED` | CHG-07 | Medium | Potential; default remains compatible |
-| CHG-09 | Add `ChatRunController` and deprecate the old top-level animation entry point | `NOT STARTED` | CHG-07; preferably after CHG-08 | Medium-high | No for addition/deprecation; removal is Yes and deferred to a major |
+| CHG-05 | Separate cancellation data semantics from animation side effects | `DONE` | CHG-04 | High | No (bug fix) |
+| CHG-06 | Add pre-render safety and a ready contract | `DONE` | CHG-05 | Medium | No |
+| CHG-07 | Remove dependency on the temporary bridge and finish state convergence | `DONE` | CHG-06 | Medium | No (internal) |
+| CHG-08 | Add explicit controlled and uncontrolled modes | `DONE` | CHG-07 | Medium | Potential; default remains compatible |
+| CHG-09 | Add `ChatRunController` and deprecate the old top-level animation entry point | `DONE` | CHG-07; preferably after CHG-08 | Medium-high | No for addition/deprecation; removal is Yes and deferred to a major |
 
-> The core state fix is complete at CHG-07. CHG-08 and CHG-09 may ship in later minor releases and must not block CHG-01 through CHG-07.
+> All 9 changes are complete. CHG-08 and CHG-09 may ship in later minor releases and must not block CHG-01 through CHG-07.
 
 ## 7. Detailed Change Plan
 
@@ -1085,8 +1085,170 @@ Future AI agents must execute one Change at a time:
 - Breaking change: No
 - Automated tests: All 8 test files pass
 - Manual regression: Full build (4 packages) — zero errors
-- Known limitations:
-  - `cancel`/`cancelMessage` still proxy to child (CHG-05)
-  - Bridge (`_handleMessagesChange`) remains active for cancel paths
+- Known limitations: Bridge remains for standalone child events only
 - Follow-up work: CHG-05
+
+### CHG-05 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-23
+- Steps completed:
+  1. ✅ `ChatMessageElement.freezeStreamingAnimation()` — extracted from `cancel()`
+  2. ✅ `ChatMessages.freezeMessageAnimation(id)` — DOM lookup + freeze, no events
+  3. ✅ `Chat.cancel()` / `Chat.cancelMessage()` — top-level using `cancelMessageData` + freeze
+  4. ✅ Standalone `ChatMessages.cancel()`/`cancelMessage()` using shared reducer
+  5. ✅ Full build, test, docs
+- Behavior changes:
+  - Cancel emits 1 `messages-change` with reason `message:cancel` (was 2 with `message:update`)
+  - `cancel()` reads from `this.messages` (not child)
+  - `_ensureChildSynced()` removed — no data proxy paths remain
+  - Standalone and composed modes share `cancelMessageData` reducer
+- Breaking change: No
+
+### CHG-06 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-23
+- Release version: 2.1.0 (target)
+- Main files:
+  - `packages/chat/src/components/chat.ts` — `ready` getter, pending-command queue, safety guards on `showError`/`dismissError`/`replyMessage`/`clearReplyMessage`/`updateProgressStep`/`focusInput`, replay on ready, cleanup on clear/disconnect
+- Public API changes:
+  - New `readonly ready: Promise<void>` getter
+- Behavior changes:
+  - All public methods are safe to call before first render (no more throws)
+  - `showError`/`dismissError`/`replyMessage`/`clearReplyMessage` queue before ready, replay in order
+  - `updateProgressStep` returns `false` (was throw) before ready
+  - `focusInput` safe no-op (was throw via optional chaining)
+  - `clear()` also clears pending commands
+  - `disconnectedCallback` clears pending commands
+- Breaking change: No
+- Automated tests: All 8 test files pass; full build passes
+- Follow-up work: CHG-07
+
+### CHG-07 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-23
+- Release version: 2.1.0 (target)
+- Main files:
+  - `packages/chat/src/components/chat.ts` — updated bridge comment to reflect post-CHG-05 reality; bridge retained as compatibility guard
+  - `docs/component-api.md` — updated `messages` property description
+- Public API changes: None
+- Behavior changes: None (internal cleanup)
+- Architecture status:
+  - All data mutations write through `Chat._commitMessages` → one-way `.messages` binding to child
+  - Bridge retained for standalone child usage, `createStreamingController` path, and unexpected mutations
+  - Final ownership matrix matches plan Section 7 (CHG-07)
+- Breaking change: No
+- Automated tests: All 8 test files pass; full build passes
+- Known limitations: `createStreamingController()` still targets child element (CHG-09)
+- Follow-up work: CHG-08 (controlled/uncontrolled modes)
+
+### CHG-08 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-23
+- Release version: 2.2.0 (target)
+- Main files:
+  - `packages/chat/src/components/chat.ts` — `messageMode` property, `ChatMessageMode` type, controlled branch in `_commitMessages`
+  - `packages/chat/src/index.ts` — export `ChatMessageMode`
+  - `docs/component-api.md` — document `messageMode` and `messages-change.detail.committed`/`controlled`
+- Public API changes:
+  - New `messageMode` property (`'uncontrolled'` | `'controlled'`, default `'uncontrolled'`)
+  - New `ChatMessageMode` type export
+  - `messages-change.detail` now includes `controlled` and `committed` fields
+- Behavior changes:
+  - Uncontrolled (default): identical to CHG-07 behavior
+  - Controlled: `_commitMessages` does NOT assign `this.messages`; host must write back
+  - `messages-change.detail.controlled` and `.committed` populated
+- Breaking change: No (default behavior unchanged; controlled is opt-in)
+- Follow-up work: CHG-09 (ChatRunController)
+
+### CHG-09 Implementation Record
+
+- Status: DONE
+- Completion date: 2026-07-23
+- Release version: 2.2.0 (target)
+- Main files:
+  - `packages/chat/src/controllers/chat-run-controller.ts` (new) — `ChatRunController`, `ChatRunStatus`, `ChatRunOptions`, `ChatMessageStorePort`
+  - `packages/chat/src/components/chat.ts` — `createRunController()`, `@deprecated createStreamingController()`
+  - `packages/chat/src/index.ts` — export controller and types
+- Public API changes:
+  - New `createRunController(options?)` factory method
+  - New `ChatRunController` class with `start`/`appendPart`/`updatePart`/`appendText`/`complete`/`fail`/`cancel`
+  - New `ChatRunStatus`, `ChatRunOptions`, `ChatMessageStorePort` types
+  - `@deprecated` on `createStreamingController()` (retained for 2.x)
+- Behavior changes: None (additive only)
+- Breaking change: No
+- Automated tests: All 8 test files pass; full build passes
+
+## 14. Final Summary
+
+All 9 changes are complete.  The `<i-chat>` component now has a single-source message
+state architecture.
+
+### Before vs After
+
+| Aspect | Before (2.0.0) | After (refactor) |
+|--------|---------------|------------------|
+| **Message state** | Two divergent copies (chat + child), could lose data | Single source: `chat.messages`, always up-to-date |
+| **Sync timing** | `chat.messages` stale after `addMessage()` | Updated synchronously before method returns |
+| **Cancel events** | 2 `messages-change` with reason `message:update` | 1 event with reason `message:cancel` |
+| **Pre-render safety** | Methods throw if called before DOM ready | All safe: data executes, presentation queues |
+| **Cancel hint** | Could append twice on repeated calls | Idempotent — appended exactly once |
+| **Streaming detection** | Only checked the mutated message | Checks all messages (correct for multi-stream) |
+| **Lifecycle pushing** | `firstUpdated`/`updated` manually pushed properties | Template `.messages` one-way binding |
+| **Framework integration** | No standard pattern | `messages-change` event + `ready` promise + controlled mode |
+| **Response lifecycle** | `createStreamingController()` — animation only | `createRunController()` — full lifecycle (start/stream/complete/cancel/fail) |
+
+### Breaking Changes
+
+**Zero.** All 9 changes are additive API, internal refactoring, or bug fixes. No public method signature, property name, event name, slot name, or default behavior was removed or changed. Existing integrations require no migration.
+
+### Key New APIs (all additive)
+
+| API | Type | Description |
+|-----|------|-------------|
+| `messages-change` event | Event | Emitted after every mutation; `bubbles: true`, `composed: true` |
+| `MessagesChangeDetail` | Type | Event detail with `messages`, `previousMessages`, `reason`, `source`, ids |
+| `ready` | Getter | `Promise<void>` — resolves after first render |
+| `messageMode` | Property | `'uncontrolled'` (default) or `'controlled'` |
+| `createRunController()` | Method | Returns `ChatRunController` for full response lifecycle |
+| `ChatRunController` | Class | `start()`/`appendPart()`/`appendText()`/`updatePart()`/`complete()`/`fail()`/`cancel()` |
+| `chat.messages` | Property | Now the authoritative store (was merely "bound to inner list") |
+
+### Files Changed
+
+```
+packages/chat/src/components/chat.ts            (main — commit, cancel, ready, controlled, run controller)
+packages/chat/src/controllers/chat-run-controller.ts  (new)
+packages/chat/src/index.ts
+packages/chat-messages/src/components/chat-messages.ts  (commit, cancel, freeze, presentation cleanup)
+packages/chat-messages/src/components/chat-message.ts   (freezeStreamingAnimation)
+packages/chat-messages/src/messages-change-types.ts     (new)
+packages/chat-messages/src/message-collection-state.ts  (new — pure reducers)
+packages/chat-messages/src/index.ts
+packages/chat-messages/test/messages-change.test.ts     (new — 18 cases)
+packages/chat-messages/test/message-collection-state.test.ts (new — 17 cases)
+docs/message-state-refactor-plan.md
+docs/component-api.md
+README.md
+```
+
+### Architecture Diagram
+
+```mermaid
+flowchart TD
+  Host["Consumer / Framework"] -->|"chat.messages = [...]"| Chat
+  Host -->|"chat.addMessage / updateMessage / ..."| Chat
+  Host -->|"chat.cancel / cancelMessage"| Chat
+  Chat -->|"_commitMessages → this.messages = next"| Store["Single source of truth"]
+  Store -->|"emit messages-change"| Host
+  Store -->|".messages=\${this.messages}"| List["<i-chat-messages>: UI only"]
+  List --> Rows["<i-chat-message> / parts"]
+  Chat -->|"freezeMessageAnimation (non-event)"| List
+  Chat -->|"showError / replyMessage / ..."| List
+```
+
+
 

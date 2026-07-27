@@ -11,11 +11,13 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `messages` | `ChatMessage[]` | `[]` | Bound to the inner list (also writable; prefer `addMessage` / `updateMessage` to avoid overwriting streamed state) |
+| `messages` | `ChatMessage[]` | `[]` | The authoritative message array. Write directly (`chat.messages = [...]`) to replace all messages, or use imperative methods (`addMessage`, etc.) for incremental updates. |
 | `config` | `ChatConfig` | `{}` | Avatars, `locale`, `labels` (all UI strings — see [Localization](./localization.md)), date separators, etc. |
 | `emptyText` | `string` | `''` | Plain text when there are no messages and no `empty` slot |
 | `placeholder` | `string` | `''` | Default `<i-chat-input>` placeholder (ignored when using `slot="input"`). Empty → localized default from `config.locale` / `config.labels.composer.placeholder` |
 | `disabled` | `boolean` | `false` | Disables the default composer |
+| `ready` | `Promise<void>` (readonly) | — | Resolves after the first render when child elements are queryable. Data methods are safe before `ready`; DOM methods may `await chat.ready`. |
+| `messageMode` | `'uncontrolled'` \| `'controlled'` | `'uncontrolled'` | Message ownership mode. `uncontrolled`: component owns messages (default). `controlled`: host owns messages — imperative methods emit `messages-change` with `committed: false`; host must synchronously write `event.detail.messages` back. |
 | `showVoiceInput` | `boolean` | `true` | Enables/disables the default composer voice button; even when `true`, the button is rendered only if the browser supports speech recognition |
 | `voiceLang` | `string` | `''` | Forwarded to the default `<i-chat-input>` — BCP 47 tag for speech recognition (e.g. `zh-CN`; empty uses `navigator.language`) |
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
@@ -29,6 +31,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 |-------|--------|--------|
 | `send` | `{ content: string }` | User submitted the default input (or your control inside `slot="input"` must dispatch the same event if you mimic the built-in) |
 | `cancel` | — | User cancelled during streaming (default input) |
+| `messages-change` | `MessagesChangeDetail` | Emitted after any imperative message-collection mutation commits. Direct external `messages = […]` does **not** emit this event. |
 | `streaming-change` | `{ streaming: boolean }` | Any assistant message is streaming |
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
 | `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, detail }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`; `detail` is the compatibility payload |
@@ -86,6 +89,26 @@ chat.addEventListener('link-click', (e) => {
   }
 });
 ```
+
+### Syntax highlighting
+
+By default, code blocks render as plain escaped `<pre><code>` without language-based highlighting. To enable highlighting, pass your own `highlight.js` instance via `config.highlightJs`. This keeps the bundle small — only the languages you register are included.
+
+```typescript
+import hljs from 'highlight.js/lib/core';
+import typescript from 'highlight.js/lib/languages/typescript';
+import python from 'highlight.js/lib/languages/python';
+
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('python', python);
+
+chat.config = {
+  ...chat.config,
+  highlightJs: hljs,
+};
+```
+
+If `highlightJs` is not set, code blocks fall back to plain escaped text — no errors, no missing imports.
 
 ## Composer confirmations
 
