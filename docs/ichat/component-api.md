@@ -3,6 +3,7 @@
 Properties, methods, and events of the `<i-chat>` shell, plus slots and per-message avatars.
 
 - [Properties, methods, events](#i-chat--properties-methods-events)
+- [Markdown extension API](#markdown-extension-api)
 - [Composer confirmations](#composer-confirmations)
 - [Slots on `<i-chat>`](#slots-on-i-chat)
 - [Per-message `avatar`](#per-message-avatar)
@@ -23,7 +24,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `updateToolCall`, `tryUpdateTodoItem`, `updateTodoItem`, `tryApplyMessagePartUpdateEvent`, `applyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `applyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerRenderer`, `createStreamingController`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `updateToolCall`, `tryUpdateTodoItem`, `updateTodoItem`, `tryApplyMessagePartUpdateEvent`, `applyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `applyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerCodeRenderer`, `registerMarkdownPlugin`, `createStreamingController`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -43,6 +44,29 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `confirmation-decision` | `ChatConfirmationResult` | User confirmed or cancelled the active composer confirmation |
 
 Events that originate on inner rows (e.g. `message-complete` on `<i-chat-message>`) use `bubbles` + `composed` so you can listen on `<i-chat>` or `document`.
+
+## Markdown Extension API
+
+Register markdown-it plugins (inline rules, block rules, renderer overrides) with automatic CSS injection into the Shadow DOM.
+
+```typescript
+import { registerMarkdownPlugin } from '@bndynet/ichat';
+// or from '@bndynet/ichat-messages' if using the messages component standalone
+
+registerMarkdownPlugin({
+  name: 'my-emoji',                    // unique id, idempotent registration
+  plugin: (md) => {                    // markdown-it plugin function
+    md.inline.ruler.before('escape', 'emoji', ...);
+  },
+  css: '.emoji { font-size: 1.2em; }', // optional: auto-injected into all Shadow DOMs
+  cleanup: () => { /* optional */ },    // called when unregistered
+});
+```
+
+- **Idempotent** — calling again with the same `name` is a no-op.
+- **CSS auto-injection** — the `css` string is automatically injected into every `<i-chat-messages>`, `<i-chat-message>`, `<i-chat-reasoning>`, and `<i-chat-tool-call>` shadow root.
+- **Cache invalidation** — the markdown render cache is flushed so re-renders pick up the extension.
+- For fenced-code-block renderers (chart, Mermaid, form, etc.), use `registerRenderer` instead. See [Renderers](./renderers.md).
 
 ### Part actions
 
