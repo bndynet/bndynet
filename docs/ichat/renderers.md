@@ -9,6 +9,8 @@ Extend the markdown pipeline with custom fenced-code-block renderers, including 
 
 ## Custom renderers
 
+> **⚠️ Important:** All Markdown extensions — both `registerCodeRenderer` (fenced-code-block renderers) and `registerMarkdownPlugin` (markdown-it plugins) — **must** be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM. Extensions registered after a component has already connected and rendered may not take effect on existing content. Always register extensions at module-init time, before any `<i-chat>` element is inserted into the document.
+
 Prefer **`registerCodeRenderer`** from **`@bndynet/ichat`** so your app does not need to import **`@bndynet/ichat-messages`** just to touch the registry:
 
 ```typescript
@@ -53,17 +55,19 @@ If you use **`@bndynet/ichat-messages`** without **`@bndynet/ichat`**, import **
 
 For plugins that operate at the **markdown-it** level (inline rules, block rules, renderer overrides) — as opposed to fenced-code-block renderers — use **`registerMarkdownPlugin`**. This API also handles **CSS injection** into the Shadow DOM automatically.
 
+> **⚠️ Same constraint as above:** must be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM.
+
 ```typescript
 import { registerMarkdownPlugin } from '@bndynet/ichat';
 
 registerMarkdownPlugin({
-  name: 'my-plugin',
-  plugin: (md) => {
+  id: 'my-plugin',
+  install: (md) => {
     // Add inline rules, block rules, or modify renderer
     md.inline.ruler.before('escape', 'my_rule', ...);
   },
-  css: '.my-class { color: red; }',  // optional: auto-injected into all components
-  cleanup: () => { /* optional teardown */ },
+  styles: '.my-class { color: red; }',  // optional: auto-injected into all Shadow DOMs
+  // globalStyles: '@font-face { ... }',  // optional: injected into document.head once
 });
 ```
 
@@ -77,7 +81,7 @@ For simple markdown-it plugins that don't need CSS, `registerMarkdownPlugin` is 
 > md.use(chartPlugin);
 > ```
 >
-> This is equivalent to `registerMarkdownPlugin({ name: 'chart', plugin: chartPlugin })`. The new API is preferred for idempotency and cache management.
+> This is equivalent to `registerMarkdownPlugin({ id: 'chart', install: chartPlugin })`. The new API is preferred for idempotency and cache management.
 
 Fenced block in markdown:
 

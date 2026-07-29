@@ -54,19 +54,22 @@ import { registerMarkdownPlugin } from '@bndynet/ichat';
 // or from '@bndynet/ichat-messages' if using the messages component standalone
 
 registerMarkdownPlugin({
-  name: 'my-emoji',                    // unique id, idempotent registration
-  plugin: (md) => {                    // markdown-it plugin function
+  id: 'my-emoji',                      // unique id
+  install: (md) => {                   // markdown-it plugin function
     md.inline.ruler.before('escape', 'emoji', ...);
   },
-  css: '.emoji { font-size: 1.2em; }', // optional: auto-injected into all Shadow DOMs
-  cleanup: () => { /* optional */ },    // called when unregistered
+  styles: '.emoji { font-size: 1.2em; }', // optional: auto-injected into all Shadow DOMs
+  // globalStyles: '@font-face { ... }',  // optional: injected into document.head once
 });
 ```
 
-- **Idempotent** — calling again with the same `name` is a no-op.
-- **CSS auto-injection** — the `css` string is automatically injected into every `<i-chat-messages>`, `<i-chat-message>`, `<i-chat-reasoning>`, and `<i-chat-tool-call>` shadow root.
+- **Idempotent** — registering the same object reference with the same `id` is a no-op.
+- **Conflict detection** — registering a different object under an already-used `id` throws a clear error.
+- **CSS auto-injection** — the `styles` string is automatically injected into every `<i-chat-messages>`, `<i-chat-message>`, `<i-chat-reasoning>`, and `<i-chat-tool-call>` shadow root via a shared constructable stylesheet.
 - **Cache invalidation** — the markdown render cache is flushed so re-renders pick up the extension.
 - For fenced-code-block renderers (chart, Mermaid, form, etc.), use `registerRenderer` instead. See [Renderers](./renderers.md).
+
+> **⚠️ Important:** All Markdown extensions — both `registerMarkdownPlugin` and `registerCodeRenderer` — **must** be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM. Extensions registered after a component has already connected and rendered may not take effect on existing content. Always register extensions at module-init time, before any `<i-chat>` element is inserted into the document.
 
 ### Part actions
 

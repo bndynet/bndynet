@@ -39,7 +39,7 @@ npm install @bndynet/ichat-messages
 
 ## Quick start (ES modules)
 
-Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, register **`@bndynet/ichat-renderers`** once **before** the first message that uses them (see `apps/demo/bootstrap.ts` in this repo):
+Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, register **`@bndynet/ichat-renderers`** once **before** the first `<i-chat>` component connects to the DOM (see `apps/demo/bootstrap.ts` in this repo). All Markdown extensions — both `registerCodeRenderer` and `registerMarkdownPlugin` — must be registered at module-init time, before any `<i-chat>` or `<i-chat-messages>` element is inserted into the document:
 
 ```html
 <script type="module">
