@@ -113,7 +113,6 @@ Total commits: **5** (one per implemented phase).
 ### ⏸ Phase 6 — Architecture Cleanup
 
 **Status:** Partially implemented.
-- highlight.js is now injectable (step toward peerDependency)
 - `<i-chat>` decomposition, deprecated API removal deferred to v3
 
 ### ⏸ Phase 7 — Documentation & Showcase
@@ -186,7 +185,6 @@ import {
 
 2. **Medium-term (v3 release)**
    - Remove deprecated APIs (Phase 6.2)
-   - Migrate heavy deps to peerDependencies (Phase 6.3)
    - Write v2→v3 migration guide (Phase 7.1)
 
 3. **Long-term**

@@ -97,7 +97,7 @@ source.addEventListener('todo.item.updated', (event) => {
 });
 ```
 
-For custom adapters, `normalizeTodoItemUpdateEvent(event)` is exported separately. The older `patchTodoItemInPart()` helper remains as a deprecated compatibility alias for `patchTodoItem()`.
+For custom adapters, `normalizeTodoItemUpdateEvent(event)` is exported separately.
 
 ## Handle user changes
 
@@ -106,18 +106,10 @@ Clicking a status icon requests the next status but does not mutate the componen
 ```javascript
 chat.addEventListener('part-action', (event) => {
   if (event.detail.kind !== 'todo') return;
-  const { messageId, part, itemId, status } = event.detail.detail;
-  chat.updateTodoItem(messageId, part.id, itemId, { status });
+  const { messageId, partId, detail } = event.detail;
+  chat.tryUpdateTodoItem(messageId, partId, detail.itemId, { status: detail.status });
 });
 ```
-
-The legacy `todo-action` event is still emitted as a deprecated compatibility event and should only be removed in a future major version:
-
-```javascript
-chat.addEventListener('todo-action', (event) => {
-  const { messageId, part, itemId, status } = event.detail;
-  chat.updateTodoItem(messageId, part.id, itemId, { status });
-});
 ```
 
 Event detail includes `action`, `itemId`, `previousStatus`, requested `status`, `part`, `messageId`, and `message`.

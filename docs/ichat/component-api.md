@@ -24,7 +24,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `updateToolCall`, `tryUpdateTodoItem`, `updateTodoItem`, `tryApplyMessagePartUpdateEvent`, `applyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `applyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerCodeRenderer`, `registerMarkdownPlugin`, `createStreamingController`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerCodeRenderer`, `registerMarkdownPlugin`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -35,10 +35,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `messages-change` | `MessagesChangeDetail` | Emitted after any imperative message-collection mutation commits. Direct external `messages = […]` does **not** emit this event. |
 | `streaming-change` | `{ streaming: boolean }` | Any assistant message is streaming |
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
-| `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, detail }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`; `detail` is the compatibility payload |
-| `tool-action` | `{ action: 'approve' \| 'reject', toolCallId, part, messageId, message }` | Deprecated compatibility event from a `tool-call` part’s human-in-the-loop buttons |
-| `todo-action` | `{ action, itemId, previousStatus, status, part, messageId, message }` | Deprecated compatibility event from an interactive `todo` part status icon |
-| `form-submit` | `{ formId, title, values, messageId, message }` | Deprecated compatibility event from an embedded `form` fenced block inside a `text` part |
+| `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, detail }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`. |
 | `link-click` | `{ href, rawHref, protocol, text, messageId, message, partId?, partType?, target, originalEvent }` | Cancelable event from rendered message links. Call `preventDefault()` to handle a link yourself |
 | `confirmation-change` | `{ active, queue, queueLength }` | Active composer confirmation or FIFO queue changed |
 | `confirmation-decision` | `ChatConfirmationResult` | User confirmed or cancelled the active composer confirmation |
@@ -73,22 +70,22 @@ registerMarkdownPlugin({
 
 ### Part actions
 
-`part-action` is the unified event for interactions that originate inside a rendered message part. `kind` names the part domain (`'form'`, `'todo'`, or `'tool-call'`), while `action` names the specific intent (`'submit'`, `'change-status'`, `'approve'`, `'reject'`). The original `form-submit`, `todo-action`, and `tool-action` events still fire as deprecated compatibility events and should only be removed in a future major version.
+`part-action` is the unified event for interactions that originate inside a rendered message part. `kind` names the part domain (`'form'`, `'todo'`, or `'tool-call'`), while `action` names the specific intent (`'submit'`, `'change-status'`, `'approve'`, `'reject'`).
 
 ```javascript
 chat.addEventListener('part-action', (event) => {
-  const { kind, action, detail } = event.detail;
+  const { kind, action, messageId, partId, part, detail } = event.detail;
   if (kind === 'todo') {
     const result = chat.tryUpdateTodoItem(
-      detail.messageId,
-      detail.part.id,
+      messageId,
+      partId,
       detail.itemId,
       { status: detail.status },
     );
     if (!result.ok) console.warn('Todo update ignored:', result.reason);
   }
   if (kind === 'tool-call' && action === 'approve') {
-    const result = chat.tryUpdateToolCall(detail.messageId, detail.part.id, {
+    const result = chat.tryUpdateToolCall(messageId, partId, {
       approval: 'approved',
     });
     if (!result.ok) console.warn('Tool update ignored:', result.reason);
@@ -96,7 +93,7 @@ chat.addEventListener('part-action', (event) => {
 });
 ```
 
-The older `updateTodoItem()`, `updateToolCall()`, `applyMessagePartUpdateEvent()`, and `applyTodoItemUpdateEvent()` methods return `boolean` for compatibility. Use the `try*` variants when the host needs a failure reason such as `message-not-found`, `part-not-found`, `part-type-mismatch`, `stale-revision`, `invalid-status`, or `invalid-state`.
+All mutation methods now return diagnostic results via `try*` variants (`tryUpdateTodoItem`, `tryUpdateToolCall`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`), providing structured failure reasons (`message-not-found`, `part-not-found`, `part-type-mismatch`, `stale-revision`, `invalid-status`, `invalid-state`).
 
 ### Link clicks and protocols
 

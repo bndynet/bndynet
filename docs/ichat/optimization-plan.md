@@ -48,16 +48,6 @@
   - Controlled by `config.markdownMode: 'full' | 'streaming-light'`
   - Reduces jank during high-frequency token delivery
 
-### 2.3 Bundle size: peerDependencies + tree-shaking
-
-- [ ] Move `markdown-it`, `dompurify`, `highlight.js` from `dependencies` → `peerDependencies`
-  - `highlight.js` is already config-injectable via `config.highlightJs`; this completes the split
-- [ ] Remove `noExternal: [/.*/]` from `chat-messages/tsup.config.ts`
-- [ ] Provide both an ESM build (for tree-shaking consumers) and a full IIFE bundle
-- [ ] Document bundle size in README with badges
-
----
-
 ## Phase 3 — Developer Experience (remaining)
 
 ### 3.1 Type system cleanup

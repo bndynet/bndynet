@@ -28,28 +28,40 @@ registerCodeRenderer(myRenderer);
 
 For **`unregister`**, **`list`**, or other registry methods, import **`rendererRegistry`** from **`@bndynet/ichat`** (re-exported from **`@bndynet/ichat-messages`**).
 
-## Charts, KPI, form, and Mermaid (`@bndynet/ichat-renderers`)
+## Charts, KPI, form, and Mermaid
 
-**`@bndynet/ichat`** does **not** ship or auto-register **`@bndynet/ichat-renderers`**. Install **`@bndynet/ichat-renderers`** plus its peers (**`echarts`**, **`mermaid`**, **`markdown-it`** as required by that package), then register the built-in objects (same as the Quick start snippet in the [README](../README.md#quick-start-es-modules)):
+**`@bndynet/ichat`** does **not** ship or auto-register renderers. Install what you need:
+
+```bash
+npm install @bndynet/ichat-renderers                     # KPI, forms
+npm install @bndynet/ichat-renderer-chart                # charts via @bndynet/icharts
+npm install @bndynet/ichat-renderer-mermaid              # Mermaid diagrams
+npm install @bndynet/ichat-renderer-katex                # LaTeX math
+```
+
+All third-party runtimes (`@bndynet/icharts`, `mermaid`, `katex`, `markdown-it`) are auto-installed — no manual peer work.
+
+**All renderer packages auto-register on import** — no `registerCodeRenderer` calls needed:
+
+```typescript
+import '@bndynet/ichat';
+import '@bndynet/ichat-renderers';          // auto-registers kpi, kpis, form
+import '@bndynet/ichat-renderer-chart';     // auto-registers chart
+import '@bndynet/ichat-renderer-mermaid';   // auto-registers mermaid
+import '@bndynet/ichat-renderer-katex';     // auto-registers LaTeX math
+```
+
+> **Must be imported before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM.
+
+If you need custom options (e.g. disabling code toggles), use the manual API:
 
 ```typescript
 import { registerCodeRenderer } from '@bndynet/ichat';
-import {
-  chartRenderer,
-  kpiRenderer,
-  kpisRenderer,
-  formRenderer,
-  mermaidRenderer,
-} from '@bndynet/ichat-renderers';
-
-registerCodeRenderer(chartRenderer);
-registerCodeRenderer(kpiRenderer);
-registerCodeRenderer(kpisRenderer);
-registerCodeRenderer(formRenderer);
-registerCodeRenderer(mermaidRenderer);
+import { createChartRenderer } from '@bndynet/ichat-renderer-chart';
+registerCodeRenderer(createChartRenderer({ codeToggle: false }));
 ```
 
-If you use **`@bndynet/ichat-messages`** without **`@bndynet/ichat`**, import **`rendererRegistry`** from **`@bndynet/ichat-messages`** and call **`rendererRegistry.register(...)`** with the same renderer objects from **`@bndynet/ichat-renderers`**.
+If you use **`@bndynet/ichat-messages`** without **`@bndynet/ichat`**, the same auto-registration works — just `import` the renderer packages.
 
 ## Markdown-it Extensions (Inline / Block Plugins)
 

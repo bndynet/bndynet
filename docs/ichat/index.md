@@ -11,27 +11,30 @@ Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-bloc
 | [`@bndynet/ichat`](packages/chat) | **Default.** `<i-chat>` — messages + input. Exports **`registerCodeRenderer`**, re-exports **`rendererRegistry`**, **`StreamingController`**, types, and **`ChatMessages`** for advanced use. |
 | [`@bndynet/ichat-messages`](packages/chat-messages) | Message list only (`<i-chat-messages>`, markdown pipeline, `BlockRenderer`, streaming). Use if you do **not** want `<i-chat>`. |
 | [`@bndynet/ichat-input`](packages/chat-input) | Composer only (`<i-chat-input>`). |
-| [`@bndynet/ichat-renderers`](packages/chat-renderers) | Optional fenced-block implementations (chart, KPI, form, Mermaid). Depends on **`@bndynet/ichat-messages`**; pair with **`@bndynet/ichat`** or use directly with **`chat-messages`** only. |
+| [`@bndynet/ichat-renderers`](packages/chat-renderers) | Lightweight fenced-block renderers: KPI cards, interactive forms. No heavy deps. |
+| [`@bndynet/ichat-renderer-chart`](packages/chat-renderer-chart) | Chart fences (bar, line, area, pie, gauge) via `@bndynet/icharts`. |
+| [`@bndynet/ichat-renderer-katex`](packages/chat-renderer-katex) | LaTeX math: `$inline$` and `$$display$$` via KaTeX. |
+| [`@bndynet/ichat-renderer-mermaid`](packages/chat-renderer-mermaid) | Mermaid diagram fences with theme-aware dark/light mode. |
 
-**Peers (when you use renderers):** **`@bndynet/ichat-renderers`** expects **`echarts` ≥ 6**, **`mermaid` ≥ 11**, and **`markdown-it` ≥ 14** (see that package’s `package.json`). **`@bndynet/ichat`** itself does not list those peers — install them next to **`@bndynet/ichat-renderers`** in your app.
+> **Zero-config install:** all third-party deps (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `katex`, `mermaid`, `@bndynet/icharts`) are auto-installed by npm — no manual peer-dependency hunting.
 
 ---
 
 ## Install
 
-**Shell + optional fenced blocks (recommended when you want charts / KPI / forms / Mermaid):**
+**Chat + all optional renderers:**
 
 ```bash
-npm install @bndynet/ichat @bndynet/ichat-renderers echarts mermaid
+npm install @bndynet/ichat @bndynet/ichat-renderers @bndynet/ichat-renderer-chart @bndynet/ichat-renderer-katex @bndynet/ichat-renderer-mermaid
 ```
 
-**Shell only** (markdown + code highlighting; no chart/KPI/form/Mermaid fences unless you add your own renderers):
+**Chat only** (markdown + highlighting, no chart/KPI/form/Mermaid):
 
 ```bash
 npm install @bndynet/ichat
 ```
 
-**Message list only** (custom composer elsewhere):
+**Message list only** (custom composer):
 
 ```bash
 npm install @bndynet/ichat-messages
@@ -44,20 +47,9 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 ```html
 <script type="module">
   import '@bndynet/ichat';
-  import { registerCodeRenderer } from '@bndynet/ichat';
-  import {
-    chartRenderer,
-    kpiRenderer,
-    kpisRenderer,
-    formRenderer,
-    mermaidRenderer,
-  } from '@bndynet/ichat-renderers';
-
-  registerCodeRenderer(chartRenderer);
-  registerCodeRenderer(kpiRenderer);
-  registerCodeRenderer(kpisRenderer);
-  registerCodeRenderer(formRenderer);
-  registerCodeRenderer(mermaidRenderer);
+  import '@bndynet/ichat-renderers';
+  import '@bndynet/ichat-renderer-chart';
+  import '@bndynet/ichat-renderer-mermaid';
 </script>
 
 <i-chat id="chat"></i-chat>
@@ -160,7 +152,7 @@ Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, 
 </script>
 ```
 
-A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`updateToolCall`**, **`updateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateProgressStep`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createStreamingController()`** returns a helper bound to the inner list.
+A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`tryUpdateToolCall`**, **`tryUpdateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateProgressStep`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createRunController()`** returns a helper that manages the full AI response lifecycle.
 
 ### Framework integration (Vue / React)
 
@@ -211,9 +203,7 @@ The SSE client automatically handles `message.created`, `message.part.updated`, 
 
 ### Syntax highlighting
 
-By default code blocks render as plain escaped `<pre><code>`. Pass your own `highlight.js` instance to keep the bundle small:
-
-> **Bundle size:** `@bndynet/ichat-messages` ESM is **~177KB** (third-party deps like `markdown-it`, `dompurify`, `highlight.js`, `lit` are resolved by your bundler — no duplicates).
+`highlight.js` is auto-installed. By default, code blocks render with full language auto-detection. To reduce bundle size, pass your own pre-configured `highlight.js` instance:
 
 ```js
 import hljs from 'highlight.js/lib/core';
@@ -222,6 +212,8 @@ hljs.registerLanguage('typescript', ts);
 
 chat.config = { ...chat.config, highlightJs: hljs };
 ```
+
+Leaving `config.highlightJs` unset uses the built-in full instance — no extra setup needed.
 
 ### Middleware & plugins
 
@@ -245,21 +237,15 @@ chat.use({
 });
 ```
 
-## Script tag (IIFE bundles)
+## Script tag (global build)
 
-For pages without a bundler, load the **`@bndynet/ichat`** IIFE build. The global object is **`iChat`** (e.g. **`iChat.Chat`**, **`iChat.registerCodeRenderer`**, **`iChat.rendererRegistry`**, …). Optional renderers still come from the **`@bndynet/ichat-renderers`** IIFE (global **`iChatRenderers`**) — after both scripts load, call **`iChat.registerCodeRenderer(iChatRenderers.chartRenderer)`** (and **`kpiRenderer`**, **`kpisRenderer`**, **`formRenderer`**, **`mermaidRenderer`** as needed).
+For pages without a bundler, use the **`@bndynet/ichat`** global IIFE build — it bundles all dependencies (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `ichat-messages`, `ichat-input`) into one self-contained file (~623KB). The global object is **`iChat`** (e.g. **`iChat.Chat`**, **`iChat.registerCodeRenderer`**, …).
 
 ```html
-<script src="/path/to/chat/dist/index.global.js"></script>
+<script src="https://unpkg.com/@bndynet/ichat/dist/ichat.global.js"></script>
 ```
 
-**Other packages (split IIFE):** if you load lower-level builds without `@bndynet/ichat`, each bundle exposes its own global — load scripts in dependency order and match peers (`echarts`, `markdown-it`, etc. per package `package.json`):
-
-| Package | Global (IIFE) | Typical artifact |
-|---------|---------------|------------------|
-| `@bndynet/ichat-messages` | `iChatMessages` | `…/chat-messages/dist/index.global.js` |
-| `@bndynet/ichat-input` | `iChatInput` | `…/chat-input/dist/index.global.js` |
-| `@bndynet/ichat-renderers` | `iChatRenderers` | `…/chat-renderers/dist/index.global.js` |
+> **Note:** renderer packages (`ichat-renderer-chart`, `ichat-renderer-katex`, `ichat-renderer-mermaid`, `ichat-renderers`) do not ship global builds. For script-tag usage with renderers, use an import map or a bundler.
 
 The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.ts`**. When developing this monorepo, run **`npm run dev`** from the repo root: it starts watchers for all packages and the **`chat-demo`** app under `apps/demo/`. The dev server URL and port are printed in the terminal (Vite defaults, often `http://localhost:5173/`).
 

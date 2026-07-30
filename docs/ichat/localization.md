@@ -35,8 +35,6 @@ The library intentionally ships **no i18n runtime** — translations come from y
 
 `ChatLabels` sections: `composer` (placeholder, send/cancel/voice button labels + titles, listening overlay), `reasoning` (`thinking`, `reasoning`), `toolCall` (state labels, section headings, approve/reject), `todo` (title, progress, status and accessibility labels), `confirmation` (composer confirmation labels), `messages` (`empty`, `dismissError`, `scrollToLatest`), and `dateSeparator` (`today`, `yesterday`, `daysAgo(n)`, `older`).
 
-> The older `config.dateSeparatorLabels` still works but is deprecated — prefer `config.labels.dateSeparator`.
-
 ## Plurals (`makeDaysAgo`)
 
 `dateSeparator.daysAgo(n)` is a function so you control grammar. For languages with several plural forms (Russian, Arabic, Polish, …) a single template is wrong. Use **`makeDaysAgo(locale, forms)`** — it picks the correct CLDR plural category via `Intl.PluralRules`. Provide a template per category (`one` / `two` / `few` / `many` / `other`); `other` is the required fallback:

@@ -1,12 +1,12 @@
 # Migration Guide: v2 → v3
 
-> **Status:** Work in progress. v3 is not yet released — this document tracks planned breaking changes as they land on the `v3` branch.
+> **Status:** v3 is in active development on the `v3` branch.
 
 ---
 
 ## Summary
 
-v3 focuses on reducing bundle size by externalizing heavy third-party dependencies. Most consumers will need no changes; those using `highlight.js` features should verify their setup.
+v3 removes all deprecated APIs introduced in v2, simplifies the event system to a single `part-action` event, and removes the `config.dateSeparatorLabels` config option. Consumers using the deprecated APIs must migrate to the replacements listed below.
 
 ---
 
@@ -23,36 +23,42 @@ v3 focuses on reducing bundle size by externalizing heavy third-party dependenci
 
 **Migration:** None required. These packages remain in `dependencies` so npm installs them automatically. Your bundler handles the rest.
 
-### 2. Peer dependency migration (future)
+### 2. Removed APIs
 
-The following will move from `dependencies` → `peerDependencies` in a future v3 release:
+The following APIs were deprecated in v2 and are removed in v3:
 
-| Package | Reason |
-|---------|--------|
-| `markdown-it` | Consumers may already have it for their own markdown |
-| `dompurify` | Consumers may already have it for sanitization |
-| `highlight.js` | Already config-injectable via `config.highlightJs` |
+| Removed | Replacement |
+|--------|-------------|
+| `createStreamingController()` | `createRunController()` |
+| `patchTodoItemInPart()` | `patchTodoItem()` |
+| `updateTodoItem()` (boolean) | `tryUpdateTodoItem()` (diagnostic result) |
+| `updateToolCall()` (boolean) | `tryUpdateToolCall()` (diagnostic result) |
+| `applyMessagePartUpdateEvent()` (boolean) | `tryApplyMessagePartUpdateEvent()` |
+| `applyTodoItemUpdateEvent()` (boolean) | `tryApplyTodoItemUpdateEvent()` |
+| `config.dateSeparatorLabels` | `config.labels.dateSeparator` |
 
-When this lands, consumers will need to explicitly install these packages. Migration notes will be added here.
+### 3. Deprecated events removed
 
----
+The following DOM events are removed; use the unified `part-action` event instead:
 
-## Deprecated APIs (removal planned for v3)
+| Removed event | Use instead |
+|--------------|-------------|
+| `form-submit` | `part-action` with `kind: 'form'`, `action: 'submit'` |
+| `todo-action` | `part-action` with `kind: 'todo'` |
+| `tool-action` | `part-action` with `kind: 'tool-call'` |
 
-These surfaces remain in 2.x but will be removed in v3:
+The `part-action` event detail always includes `messageId`, `message`, `partId`, and `partType` enriched by the component hierarchy.
 
-| Deprecated | Replacement | Notes |
-|------------|-------------|-------|
-| `createStreamingController()` | `createRunController()` | Full run lifecycle vs animation-only |
-| `form-submit` event | `part-action` with `kind: 'form'` | Unified event system |
-| `todo-action` event | `part-action` with `kind: 'todo'` | Unified event system |
-| `tool-action` event | `part-action` with `kind: 'tool-call'` | Unified event system |
-| `patchTodoItemInPart()` | `patchTodoItem()` | Alias, no behavior difference |
-| `updateTodoItem()` (boolean) | `tryUpdateTodoItem()` (diagnostic) | Structured error reasons |
-| `updateToolCall()` (boolean) | `tryUpdateToolCall()` (diagnostic) | Structured error reasons |
-| `applyMessagePartUpdateEvent()` (boolean) | `tryApplyMessagePartUpdateEvent()` | Structured error reasons |
-| `applyTodoItemUpdateEvent()` (boolean) | `tryApplyTodoItemUpdateEvent()` | Structured error reasons |
-| `config.dateSeparatorLabels` | `config.labels.dateSeparator` | Unified labels config |
+### 4. Removed type exports
+
+| Removed export | Notes |
+|---------------|-------|
+| `ChatFormSubmitDetail` | Access via `ChatPartActionDetail` generic |
+| `TodoActionDetail` | Access via `ChatPartActionDetail` generic |
+| `ToolActionDetail` | Access via `ChatPartActionDetail` generic |
+| `ChatFormSubmitRequestDetail` | Internal type, no longer exported |
+| `TodoActionRequestDetail` | Internal type, no longer exported |
+| `ToolActionRequestDetail` | Internal type, no longer exported |
 
 ---
 

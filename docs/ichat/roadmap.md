@@ -144,9 +144,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 ### Architecture (v3)
 
 - [x] 🟡 **`<i-chat>` decomposition** ✅ (completed 2026-07-26) — Extracted `CommandQueue`, `ConfirmationController`, `SlotForwardingController`. chat.ts: 1200 → 1102 lines. (Phase 6.1)
-- [ ] 🔵 **Remove deprecated APIs** — `createStreamingController()`, `patchTodoItemInPart`, `form-submit`/`todo-action`/`tool-action` events, `config.dateSeparatorLabels`, boolean-return wrappers (`updateTodoItem`, `updateToolCall`, `apply*Event`). (Phase 6.2)
-- [ ] 🟡 **Peer dependency migration** — Move `markdown-it`, `dompurify`, `highlight.js` to peerDependencies. Provide tree-shakeable ESM build alongside full IIFE bundle. Document bundle size with badges. (Phase 6.3)
-
+- [x] 🔵 **Remove deprecated APIs** ✅ (completed 2026-07-30) — Removed `createStreamingController()`, `patchTodoItemInPart`, `form-submit`/`todo-action`/`tool-action` events, `config.dateSeparatorLabels`, boolean-return wrappers (`updateTodoItem`, `updateToolCall`, `apply*Event`). (Phase 6.2)
 ### Documentation & Showcase
 
 - [ ] 🔵 **Storybook 8+** — Stories for each component with configurable knobs (locale, theme, message count, streaming simulation). Deploy to Chromatic for visual regression testing. (Phase 7.2)
@@ -156,12 +154,4 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 ## Compatibility & Deprecation
 
-These surfaces remain supported for compatibility. New integrations should use the preferred API, and removal should only happen in a future major version with migration notes.
-
-| Deprecated surface | Preferred surface | Notes |
-|--------------------|-------------------|-------|
-| `patchTodoItemInPart()` | `patchTodoItem()` | Compatibility alias; no behavior difference. |
-| `form-submit` event | `part-action` with `kind: 'form'`, `action: 'submit'` | Still emitted after message context enrichment. |
-| `todo-action` event | `part-action` with `kind: 'todo'` | Still emitted for interactive todo status requests. |
-| `tool-action` event | `part-action` with `kind: 'tool-call'` | Still emitted for tool-call approval requests. |
-| `config.dateSeparatorLabels` | `config.labels.dateSeparator` | Still merged for backward compatibility. |
+All deprecated APIs listed in prior versions have been removed in v3. See the [v2→v3 migration guide](./migration-v2-to-v3.md) for replacements.
