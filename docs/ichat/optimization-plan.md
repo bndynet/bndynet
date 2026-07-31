@@ -22,7 +22,7 @@
   - `ready` promise contract
   - pending command replay on first render
   - `createRunController()` lifecycle
-- [ ] **Integration tests** — SSE event stream → `tryApplyMessagePartUpdateEvent` / `tryApplyTodoItemUpdateEvent` end-to-end
+- [ ] **Integration tests** — ChatRunController + stream parser → `tryApplyMessagePartUpdateEvent` / `tryApplyTodoItemUpdateEvent` end-to-end
 
 ### 1.2 Coverage thresholds
 
@@ -44,140 +44,45 @@
 
 ### 2.2 Markdown streaming light mode
 
-- [ ] During active streaming, render plain text only; run full markdown-it + DOMPurify pass once streaming stops
-  - Controlled by `config.markdownMode: 'full' | 'streaming-light'`
-  - Reduces jank during high-frequency token delivery
+- [x] During active streaming, skip DOMPurify + morphdom; use `innerHTML` directly ✅ (completed 2026-07-31)
+  - Detected via `TextPart.status === 'streaming'` — no new config needed
+  - Added `renderMarkdownLight()` in `markdown-renderer.ts` for the streaming path
+  - Full pipeline (DOMPurify + `renderMarkdownInto` morphing) runs on terminal render
+  - markdown-it always runs so users see formatted text, never raw markdown
 
 ## Phase 3 — Developer Experience (remaining)
 
-### 3.1 Type system cleanup
-
-- [ ] Split `packages/chat/src/index.ts` into `index.ts` (user-facing) + `internals.ts` (diagnostics)
-  - Keep ~20 core types in main export
-  - Move 40+ diagnostic types (`*FailureReason`, `*Result`) to subpath export
-- [ ] Add `@bndynet/ichat/messages` re-export path for direct messages package access
-- [ ] Document the public API surface in `docs/public-api.md`
-
 ### 3.2 Generic type support
 
-- [ ] Make `<i-chat>` generic over custom part types:
+- [x] Make `<i-chat>` generic over custom part types ✅ (completed 2026-07-31)
 
   ```typescript
-  interface ChatMessageExtraParts {
-    [type: `x-${string}`]: unknown;
-  }
+  // Usage:
+  type MyParts = { 'x-weather': { temp: number; humidity: number } };
+  const chat = document.querySelector('i-chat') as Chat<MyParts>;
+  chat.messages[0].parts.forEach(p => {
+    if (p.type === 'x-weather') p.data.temp; // typed as number
+  });
+  ```
 
-  class Chat<TExtraParts extends Record<string, unknown> = {}> extends LitElement {
-    messages: Array<ChatMessage & { parts: Array<MessagePart | CustomPart<TExtraParts>> }>;
+  ```typescript
+  // Internal implementation:
+  class Chat<TExtraParts extends Record<`x-${string}`, unknown> = {}> extends LitElement {
+    messages: Array<ChatMessage & { parts: ExtendedMessagePart<TExtraParts>[] }>;
   }
   ```
 
-- [ ] Provide type helpers: `CustomPartOf<T>`, `PartOf<M, T>`
+- [x] Provide type helpers: `CustomPartOf<T>`, `PartOf<M, T>`, `ExtendedMessagePart<T>` ✅
 
----
-
-## Phase 4 — Extensibility (remaining)
-
-### 4.1 Overridable built-in part renderers
-
-- [ ] Extend `PartRenderer` lookup to allow replacing built-in types (`text`, `tool-call`) via the custom registry:
-
-  ```typescript
-  interface PartRenderer {
-    test: (type: string) => boolean; // already accepts any string
-    // ...
-  }
-  ```
-
-- [ ] `<i-chat-part-host>` lookup order: custom registry → built-in renderers
-  - Currently the registry only handles custom `x-*` types; built-in types always use the default components
-- [ ] Allow consumers to replace the markdown-based `text` part renderer entirely
-
-### 4.2 Built-in plugins
-
-- [ ] Ship pre-built plugins so consumers don't need to write their own:
-  - `MarkdownPlugin` — markdown-it config (linkify, typographer, custom fences)
-  - `HighlightPlugin` — highlight.js injection with language registration
-- [ ] User-land examples: KaTeX math plugin, link preview plugin, code copy button plugin
-
----
-
-## Phase 5 — Accessibility
-
-> **Status: ~15% complete.** Only `<i-chat-reasoning>` `aria-expanded` and `<i-chat-input>` partial labels exist.
-
-### 5.1 ARIA & roles
-
-- [ ] `<i-chat-messages>` — `role="log"`, `aria-live="polite"`, `aria-label`
-- [ ] `<i-chat-message>` — `role="article"` for assistant messages
-- [ ] `<i-chat-tool-call>` — `aria-expanded` on collapsible body, `aria-label` on approve/reject buttons
-- [ ] `<i-chat-todo>` — `role="list"`, `role="listitem"` with `aria-checked`
-- [ ] confirmation panel — `role="alertdialog"` or `role="dialog"`
-
-### 5.2 Keyboard navigation
-
-- [ ] `<i-chat-tool-call>` — Enter/Space to toggle collapse, Tab to approve/reject
-- [ ] `<i-chat-todo>` — Enter/Space to cycle status on interactive items
-- [ ] confirmation panel — Escape to cancel, Enter to confirm, focus trap
-
-### 5.3 Screen reader announcements
-
-- [ ] Announce new messages (especially streaming completion) via `aria-live` region
-- [ ] Announce tool-call state transitions
-- [ ] Announce errors
-
----
-
-## Phase 6 — Architecture Cleanup (v3 prep)
-
-### 6.1 `<i-chat>` decomposition
-
-- [ ] Extract `ConfirmationController` (ReactiveController pattern, similar to `ChatRunController`)
-- [ ] Extract `SlotForwardingController`
-- [ ] Replace `_pendingCommands` array with a `CommandQueue` class (typed, testable)
-- [ ] Target: `<i-chat>` component file ≤ 300 lines
-
-### 6.2 Remove deprecated APIs
-
-- [ ] Remove `createStreamingController()` — use `createRunController()`
-- [ ] Remove `form-submit`, `todo-action`, `tool-action` compatibility events — use `part-action`
-- [ ] Remove `patchTodoItemInPart` alias — use `patchTodoItem`
-- [ ] Remove boolean-return wrappers: `updateTodoItem`, `updateToolCall`, `applyMessagePartUpdateEvent`, `applyTodoItemUpdateEvent` — use `try*` variants
-- [ ] Remove `config.dateSeparatorLabels` — use `config.labels.dateSeparator`
-
----
-
-## Phase 7 — Documentation & Showcase (remaining)
-
-### 7.1 Migration guides
-
-- [ ] v1 → v2 migration guide (`docs/migration-v1-to-v2.md`)
-- [ ] v2 → v3 migration guide (planned breaking changes)
-
-### 7.2 Storybook
-
-- [ ] Set up Storybook 8+ with Lit support
-- [ ] Stories for each component: `<i-chat>`, `<i-chat-input>`, `<i-chat-message>`, `<i-chat-tool-call>`, `<i-chat-todo>`, `<i-chat-reasoning>`
-- [ ] Configurable knobs: locale, dark/light, message count, streaming simulation
-- [ ] Deploy to Chromatic for visual regression testing
-
-### 7.3 Interactive playground
-
-- [ ] Embed a live `<i-chat>` playground on the docs site (iframe + demo code)
-- [ ] Show the same demo with different framework wrappers (Vue, React, plain HTML)
+  - `CustomPartOf<T>` — Given a mapping `{ 'x-*': DataType }`, produces a typed `CustomPart` discriminated union.
+  - `PartOf<M, T>` — Extract the part(s) matching a given type string from a message's parts array.
+  - `ExtendedMessagePart<T>` — Extends the standard `MessagePart` union with typed custom parts.
 
 ---
 
 ## Current Priority
 
 ```
-🔴 Phase 5   Accessibility           (largest gap, compliance risk)
 🔴 Phase 2.1 Virtual scroll          (performance critical path)
-🟡 Phase 2.3 Bundle size            (small change, big impact)
-🟡 Phase 1.1 Component tests        (regression safety net)
-🟡 Phase 6.1 Decomposition          (maintainability)
-🟢 Phase 3   Type system + generics (nice to have)
-🟢 Phase 4   Overridable renderers + built-in plugins
-🔵 Phase 6.2 Remove deprecated      (v3 only)
-🔵 Phase 7   Storybook + playground (pre-release)
+🟢 Phase 1.1 Integration tests      (regression safety net)
 ```

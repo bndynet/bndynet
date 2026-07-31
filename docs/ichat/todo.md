@@ -68,7 +68,7 @@ if (!result.ok) {
 
 When every item is `done` or `skipped`, the part lifecycle status becomes `complete`. Updating a completed todo back to a non-terminal state changes the lifecycle to `streaming`.
 
-For SSE, send stable IDs and a monotonic revision:
+For backend streaming, send stable IDs and a monotonic revision:
 
 ```json
 {

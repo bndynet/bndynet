@@ -12,7 +12,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `messages` | `ChatMessage[]` | `[]` | The authoritative message array. Write directly (`chat.messages = [...]`) to replace all messages, or use imperative methods (`addMessage`, etc.) for incremental updates. |
+| `messages` | `ChatMessage[]` | `[]` | The authoritative message array. Write directly (`chat.messages = [...]`) to replace all messages, or use imperative methods (`addMessage`, etc.) for incremental updates. When using the generic `Chat<TExtraParts>` type (see [Generic type support](#generic-type-support)), `parts` carry fully typed custom `x-*` extensions. |
 | `config` | `ChatConfig` | `{}` | Avatars, `locale`, `labels` (all UI strings — see [Localization](./localization.md)), date separators, etc. |
 | `emptyText` | `string` | `''` | Plain text when there are no messages and no `empty` slot |
 | `placeholder` | `string` | `''` | Default `<i-chat-input>` placeholder (ignored when using `slot="input"`). Empty → localized default from `config.locale` / `config.labels.composer.placeholder` |
@@ -67,6 +67,59 @@ registerMarkdownPlugin({
 - For fenced-code-block renderers (chart, Mermaid, form, etc.), use `registerRenderer` instead. See [Renderers](./renderers.md).
 
 > **⚠️ Important:** All Markdown extensions — both `registerMarkdownPlugin` and `registerCodeRenderer` — **must** be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM. Extensions registered after a component has already connected and rendered may not take effect on existing content. Always register extensions at module-init time, before any `<i-chat>` element is inserted into the document.
+
+### Generic type support
+
+`<i-chat>` is generic over custom part types, enabling full type-checking and autocomplete for host-defined `x-*` extensions.
+
+```typescript
+import type { Chat, CustomPartOf, PartOf, ExtendedMessagePart } from '@bndynet/ichat';
+
+// 1. Define your custom part data types
+interface MyParts {
+  'x-weather': { temp: number; humidity: number; unit: 'C' | 'F' };
+  'x-map': { lat: number; lng: number; zoom: number };
+}
+
+// 2. Cast the element to Chat<YourParts>
+const chat = document.querySelector('i-chat') as Chat<MyParts>;
+
+// 3. Custom parts are now fully typed
+chat.messages.forEach((msg) => {
+  msg.parts.forEach((part) => {
+    if (part.type === 'x-weather') {
+      part.data.temp;    // ✅ number (autocompleted)
+      part.data.unit;    // ✅ 'C' | 'F'
+    }
+    if (part.type === 'x-map') {
+      part.data.lat;     // ✅ number
+      part.data.zoom;    // ✅ number
+    }
+  });
+});
+```
+
+**Type helpers:**
+
+| Helper | Signature | Description |
+|--------|-----------|-------------|
+| `Chat<TExtraParts>` | `Chat<{ 'x-*': Data }>` | The generic `<i-chat>` element type; defaults to `Chat<{}>` (plain `ChatMessage[]`). |
+| `CustomPartOf<T>` | `CustomPartOf<{ 'x-*': Data }>` | Produces a typed `CustomPart` discriminated union from a mapping. |
+| `PartOf<M, T>` | `PartOf<ChatMessage, 'text'>` | Extracts the part(s) matching a given type string from a message. |
+| `ExtendedMessagePart<T>` | `ExtendedMessagePart<{ 'x-*': Data }>` | `MessagePart` union extended with typed custom parts. |
+
+```typescript
+// CustomPartOf example
+type WeatherPart = CustomPartOf<MyParts>;
+//   = CustomPart & { type: 'x-weather'; data: { temp: number; humidity: number; unit: 'C' | 'F' } }
+//   | CustomPart & { type: 'x-map'; data: { lat: number; lng: number; zoom: number } }
+
+// PartOf example (works with plain ChatMessage too)
+type TextParts = PartOf<ChatMessage, 'text'>;      // TextPart
+type ToolParts = PartOf<ChatMessage, 'tool-call'>; // ToolCallPart
+```
+
+> **Note:** The generic parameter is purely a TypeScript-level feature — there is zero runtime cost. When `TExtraParts` is omitted (the default `{}`), all types resolve to the standard non-generic `ChatMessage` / `MessagePart` / `CustomPart`, fully backward-compatible.
 
 ### Part actions
 

@@ -179,27 +179,35 @@ In uncontrolled mode `chat.messages` is immediately up-to-date after any mutatio
 
 When the user first opens a chat, load historical messages as completed content. Use `normalizeHistoryMessages()` from `@bndynet/ichat-messages` (re-exported by `@bndynet/ichat`) to sanitise messages loaded from your backend — it sets `streaming: false`, marks interrupted messages as `cancelled`, converts any persisted `status: 'streaming' | 'pending'` parts to `'complete'`, and removes empty placeholder messages. Pass `interruptedStatus` / `removeEmptyMessages` options to customise the behaviour.
 
-### SSE client (built-in)
+### Backend integration
 
-When your backend follows the [SSE response format](./sse-response-format.md), use the built-in SSE client instead of hand-writing a streaming loop:
+The quick-start example above shows the standard streaming pattern using `chat.addMessage` / `chat.updatePart` / `chat.updateMessage`. For a higher-level API, use `ChatRunController`:
 
 ```js
-import { createChatSSEClient } from '@bndynet/ichat/sse';
+const run = chat.createRunController();
+run.start([textPart('', { status: 'streaming' })]);
 
-const sse = createChatSSEClient('/api/chat/stream', chat, {
-  onError: (err) => chat.showError(err),
-});
-
-chat.addEventListener('send', (e) => {
-  sse.start();  // auto-creates assistant placeholder, routes all SSE events
-});
-
-chat.addEventListener('cancel', () => {
-  sse.abort();
-});
+const response = await fetch('/api/chat', { signal: run.signal });
+// ... read stream ...
+run.appendText(partId, delta);
+run.complete();
 ```
 
-The SSE client automatically handles `message.created`, `message.part.updated`, `todo.item.updated`, `message.completed`, and `stream.done` events — no manual parsing needed. For custom backends, the manual `addMessage` / `updatePart` approach shown above still works.
+See [`ChatRunController` API](./component-api.md) for the full lifecycle.
+
+**Method mapping** — parse your backend stream into these calls. Event names are yours to define; the lib only provides the methods:
+
+| Scenario | Method |
+|---|---|
+| Start assistant response | `run.start([textPart('', { status: 'streaming' })])` |
+| Append text delta | `run.appendText(partId, delta)` |
+| Append structured part (tool-call, reasoning…) | `run.appendPart(part)` |
+| Update an existing part | `run.updatePart(partId, patch)` |
+| Apply a raw part-update payload | `chat.tryApplyMessagePartUpdateEvent(rawEvent)` |
+| Apply a raw todo-update payload | `chat.tryApplyTodoItemUpdateEvent(rawEvent)` |
+| Stream completed | `run.complete()` |
+| Stream error | `run.fail(error)` |
+| Cancel (abort fetch) | `run.signal` → fetch aborted, then `chat.cancelMessage(id)` |
 
 ### Syntax highlighting
 
@@ -252,14 +260,14 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 ## Features
 
 - **`<i-chat>` shell** — default textarea + send/cancel, or replace the footer with **`slot="input"`** ([`<i-chat>` API](./component-api.md))
-- **Built-in SSE client** — `createChatSSEClient()` auto-routes backend streaming events ([SSE response format](./sse-response-format.md))
+- **`ChatRunController`** — Full response lifecycle (start/stream/complete/fail/cancel) with built-in `AbortController`
 - **Middleware & plugins** — `chat.use()` for `ChatMiddleware` hooks and `ChatPlugin` lifecycle ([`<i-chat>` API](./component-api.md))
 - **Configurable syntax highlighting** — optional `config.highlightJs` injection; falls back to plain `<pre><code>` when omitted
 - **Voice input (default composer)** — microphone button uses Web Speech API when available; hidden automatically on unsupported browsers ([Composer & interaction](./composer.md#default-composer-voice-input))
 - **Lit 3 Web Components** — works with any framework or vanilla HTML
 - **Markdown** — `markdown-it` + `highlight.js`, sanitized with DOMPurify
 - **Extensible fenced blocks** — **`registerCodeRenderer`** from **`@bndynet/ichat`**, or **`rendererRegistry`** + **`BlockRenderer`** for lower-level control ([Custom renderers](./renderers.md))
-- **Extensible `x-*` parts** — **`registerPartRenderer`** maps custom part types to a Web Component or HTML string ([Parts](./parts.md#x--custom-extension-parts))
+- **Extensible `x-*` parts** — **`registerPartRenderer`** maps custom part types to a Web Component or HTML string; pair with generic **`Chat<TExtraParts>`** for full type-checking of custom part data ([Parts](./parts.md#x--custom-extension-parts))
 - **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `todo`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](./message-model.md#message-body--parts))
 - **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](./parts.md#reasoning))
 - **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](./parts.md#tool-calls))
@@ -279,12 +287,11 @@ Detailed design and reference docs live in [`docs/`](./README.md):
 | Doc | Covers |
 |-----|--------|
 | [Message model](./message-model.md) | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating |
-| [SSE response format](./sse-response-format.md) | Recommended backend event stream contract for live assistant responses |
-| [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, confirmations, highlight.js, SSE client, middleware |
+| [`<i-chat>` API](./component-api.md) | Properties, methods, events, slots, confirmations, highlight.js, ChatRunController, middleware |
 | [Parts](./parts.md) | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts |
 | [Custom renderers](./renderers.md) | `registerCodeRenderer` + built-in chart / KPI / form / Mermaid renderers |
-| [Progress](./progress.md) | `[status]` lists, block IDs, programmatic updates, SSE integration |
-| [Todo panel](./todo.md) | Structured items, collapse behavior, status events, updates, SSE revisions |
+| [Progress](./progress.md) | `[status]` lists, block IDs, programmatic updates |
+| [Todo panel](./todo.md) | Structured items, collapse behavior, status events, updates |
 | [Theming](./theming.md) | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference |
 | [Localization (i18n)](./localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL |
 | [Composer & interaction](./composer.md) | Streaming, reply blocks, voice input |

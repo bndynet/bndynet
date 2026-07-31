@@ -69,7 +69,7 @@ If you're coming from v1, these v2 features are already available:
 - **`createRunController()`** — Full response lifecycle (start/stream/complete/cancel/fail) with built-in `AbortController`
 - **`messages-change` event** — Single-source message state with structured detail
 - **`ready` promise** — Safe pre-render API calls
-- **SSE client** — `createChatSSEClient()` at `@bndynet/ichat/sse`
+- **`ChatRunController`** — `chat.createRunController()` manages full response lifecycle with `AbortController`
 - **Middleware** — `chat.use(middleware)` with `beforeSend`/`afterMessageAdded`/`beforeAppendPart`/`onError`
 - **Plugin system** — `chat.use(plugin)` with `install`/teardown
 - **Async BlockRenderer** — `renderAsync()` for async code block rendering

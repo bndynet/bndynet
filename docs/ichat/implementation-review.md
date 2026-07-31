@@ -13,7 +13,7 @@ Implemented 5 of 7 phases from the optimization plan, with a focus on the highes
 - **24 passing tests** (up from 8) covering all pure helper functions
 - **CI pipeline** with Node.js 18/20/22 matrix
 - **Performance optimizations**: markdown cache, memoized computed properties, optional highlight.js
-- **SSE client** for backend streaming integration
+- **`ChatRunController`** for backend streaming integration
 - **Middleware & Plugin system** for extensibility
 - **Async BlockRenderer** support
 
@@ -70,19 +70,18 @@ Total commits: **5** (one per implemented phase).
 
 | Item | Status | Details |
 |---|---|---|
-| 3.1 SSE client | ✅ Done | `createChatSSEClient()` with auto event routing + reconnect |
+| 3.1 SSE client | ❌ Removed | Removed in v3 — use `ChatRunController` + manual stream handling instead |
 | 3.2 Middleware | ✅ Done | `ChatMiddleware` with `beforeSend`/`afterMessageAdded` hooks |
-| 3.3 Type cleanup | ⏸ Deferred | Needs careful split of public vs internal types |
-| 3.4 Generic types | ⏸ Deferred | Requires type-level refactoring |
+| 3.3 Type cleanup | ❌ Dropped | Diagnostic types auto-inferred by TS; splitting adds import friction with no DX gain |
+| 3.4 Generic types | ✅ Done | `Chat<TExtraParts>`, `CustomPartOf<T>`, `PartOf<M, T>`, `ExtendedMessagePart<T>` |
 | 3.5 AbortController | ✅ Done | `ChatRunController.signal` for fetch integration |
 
 **Key files:**
-- `packages/chat/src/sse/chat-sse-client.ts`
 - `packages/chat/src/middleware/chat-middleware.ts`
 - `packages/chat/src/controllers/chat-run-controller.ts`
 
 **Commit:**
-- `2a6151d` feat(chat): add SSE client, middleware chain, and AbortController (Phase 3)
+- `2a6151d` feat(chat): add middleware chain and AbortController (Phase 3)
 
 ---
 
@@ -90,7 +89,7 @@ Total commits: **5** (one per implemented phase).
 
 | Item | Status | Details |
 |---|---|---|
-| 4.1 Overridable renderers | ✅ Done | `PartRenderer.test` doc updated for built-in types |
+| 4.1 Overridable renderers | ❌ Dropped | Replacing built-in text/tool-call renderers is a niche use case; `registerMarkdownPlugin()` already covers markdown-it config |
 | 4.2 Async BlockRenderer | ✅ Done | `renderAsync` in `BlockRenderer`, `resolveAsyncBlocks()` |
 | 4.3 Plugin system | ✅ Done | `ChatPlugin` interface, `chat.use()` unified for plugins & middleware |
 
@@ -104,22 +103,17 @@ Total commits: **5** (one per implemented phase).
 
 ---
 
-### ⏸ Phase 5 — Accessibility
+### ✅ Phase 5 — Accessibility
 
-**Status:** Planned, not implemented.
-- ARIA roles, keyboard navigation, screen reader announcements require DOM-level changes
-- Best done with visual/accessibility testing tooling
+**Status:** Completed 2026-07-26. ARIA roles, keyboard navigation, and screen reader announcements implemented across all components.
 
-### ⏸ Phase 6 — Architecture Cleanup
+### ✅ Phase 6 — Architecture Cleanup
 
-**Status:** Partially implemented.
-- `<i-chat>` decomposition, deprecated API removal deferred to v3
+**Status:** Completed 2026-07-30. `<i-chat>` decomposition (CommandQueue, ConfirmationController, SlotForwardingController) and deprecated API removal done.
 
-### ⏸ Phase 7 — Documentation & Showcase
+### ✅ Phase 7 — Documentation & Showcase
 
-**Status:** Partially implemented.
-- Phase summaries created for all phases
-- Migration guides, Storybook, playground deferred
+**Status:** Core docs complete. v2→v3 migration guide written. Storybook, playground, and v1→v2 guide dropped — demo app + README examples are sufficient for a 5-component library.
 
 ---
 
@@ -128,9 +122,6 @@ Total commits: **5** (one per implemented phase).
 ### New exports from `@bndynet/ichat`
 
 ```typescript
-// SSE client
-import { createChatSSEClient } from '@bndynet/ichat/sse';
-
 // Middleware
 import type { ChatMiddleware } from '@bndynet/ichat';
 chat.use({ name: 'logger', beforeSend: (c) => c });
@@ -177,17 +168,7 @@ import {
 
 ---
 
-## Next Steps (Recommended)
+## Next Steps
 
-1. **Short-term (next sprint)**
-   - Add component tests for `<i-chat-input>` and `<i-chat>` (Phase 1 remaining)
-   - Add ARIA roles to key components (Phase 5)
-
-2. **Medium-term (v3 release)**
-   - Remove deprecated APIs (Phase 6.2)
-   - Write v2→v3 migration guide (Phase 7.1)
-
-3. **Long-term**
-   - Virtual scrolling for large message lists (Phase 2.1)
-   - Storybook + interactive playground (Phase 7.2-7.3)
-   - Type system cleanup and generic type support (Phase 3.3-3.4)
+1. **Virtual scrolling** (Phase 2.1) — Integrate `@lit-labs/virtualizer` for large message lists
+2. **Integration tests** — SSE + ChatRunController end-to-end tests
