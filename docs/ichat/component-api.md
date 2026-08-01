@@ -24,7 +24,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `registerCodeRenderer`, `registerMarkdownPlugin`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `scrollToMessage`, `scrollToPart`, `registerCodeRenderer`, `registerMarkdownPlugin`, `focusInput`
 
 **Events on `<i-chat>`:**
 
