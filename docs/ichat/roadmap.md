@@ -30,6 +30,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] Extract text part rendering. `i-chat-text-part` now owns markdown rendering, morphdom caching, and typing cursor state while `i-chat-part-host` stays focused on part routing and event enrichment.
 - [x] Share markdown morphing between text and reasoning. `renderMarkdownInto()` now centralizes markdown rendering, morphdom patching, and HTML cache checks for both `i-chat-text-part` and `i-chat-reasoning`.
 - [x] Align backend event envelopes with OpenAI Responses style. Canonical events now document `event` + matching `data.type` + `sequence_number`, while normalizers continue accepting legacy payloads without `data.type`.
+- [x] 🟡 **`scrollToMessage()` / `scrollToPart()` public API** ✅ (completed 2026-08-01) — Expose methods on `<i-chat-messages>` to scroll a message or part into view by ID, and proxy them on `<i-chat>` as the primary consumer-facing API. DOM already has `data-message-id` / `data-part-id` attributes.
 
 ### Performance
 
@@ -74,12 +75,6 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 - [ ] 🔴 **Virtual scrolling** — Integrate `@lit-labs/virtualizer` into `<i-chat-messages>`. Replace `repeat` with `<lit-virtualizer>`, keep date separators outside the virtual range, and ensure `scrollToBottom()` + `ResizeObserver` auto-scroll still work. Add `virtualScroll` config toggle (default on) and perf benchmarks for 100/1000/10000 messages. (Phase 2.1)
 - [x] 🟡 **Remove `noExternal` bundling** ✅ (completed 2026-07-26) — `chat-messages` 524KB → 177KB, `chat-input` similar. Third-party deps now externalized; consumers' bundlers handle tree-shaking. Peer dependency migration deferred to v3. (Phase 2.3 step 1)
-
-### Navigation & Anchors
-
-- [ ] 🟡 **Heading anchor IDs** — Add `markdown-it-anchor` plugin (opt-in via `MarkdownRenderOptions.headingAnchors`). Generate GitHub-style `id` attributes on `<h1>`–`<h6>` so fragment links `[link](#heading-text)` have matching targets. Default off for zero breaking change.
-- [x] 🟡 **`scrollToMessage()` / `scrollToPart()` public API** ✅ (completed 2026-08-01) — Expose methods on `<i-chat-messages>` to scroll a message or part into view by ID, and proxy them on `<i-chat>` as the primary consumer-facing API. DOM already has `data-message-id` / `data-part-id` attributes; only the public methods are missing.
-- [ ] 🟡 **Fragment link interception** — When `ChatConfig.interceptFragmentLinks` is true, clicking `#xxx` links inside messages calls `scrollToMessage`/`scrollToPart` or `scrollIntoView` within the chat scroll container instead of letting the browser handle it. Default off.
 
 ### Testing
 
