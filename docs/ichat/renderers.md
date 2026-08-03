@@ -26,6 +26,70 @@ const myRenderer: BlockRenderer = {
 registerCodeRenderer(myRenderer);
 ```
 
+Renderer HTML is **safe by default**: during streaming, an untrusted renderer
+shows the escaped fenced source; when the message completes, its HTML is passed
+through DOMPurify before insertion. This requires no configuration.
+
+If a renderer must produce rich HTML while tokens are still streaming, it may
+opt into the trusted fast path:
+
+```typescript
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character]!);
+
+const trustedRenderer: BlockRenderer = {
+  name: 'my-safe-widget',
+  trusted: true,
+  test: (lang) => lang === 'my-safe-widget',
+  render: (code) => `<my-safe-widget data-code="${escapeHtml(code)}"></my-safe-widget>`,
+};
+```
+
+Only set `trusted: true` when every model-controlled value (`code`, `lang`, and
+`info`) is escaped for its HTML context. Trusted output bypasses DOMPurify. The
+official chart, KPI, form, details, and Mermaid renderers are audited and opt in
+internally, so they continue to render live without user configuration. An
+untrusted async renderer is not started repeatedly during streaming; it starts
+on the terminal render and its resolved HTML is sanitised.
+
+Async renderers are resolved automatically by `<i-chat-text-part>`. They receive
+an optional lifecycle signal that is aborted when the part is rendered again or
+removed, so network work can stop without additional host bookkeeping:
+
+```typescript
+const remoteRenderer: BlockRenderer = {
+  name: 'remote-card',
+  test: (lang) => lang === 'remote-card',
+  renderAsync: async (code, _lang, _info, context) => {
+    const response = await fetch(`/api/cards/${encodeURIComponent(code.trim())}`, {
+      signal: context?.signal,
+    });
+    return response.text();
+  },
+};
+```
+
+Renderer failures never fail the whole message. Sync failures, rejected async
+work, and throwing `test()` functions fall back to the escaped fenced source.
+Older async results cannot replace a newer render pass. For diagnostics, listen
+for the bubbling `chat-renderer-error` event on `<i-chat>` or
+`<i-chat-messages>`:
+
+```typescript
+import type { RendererErrorDetail } from '@bndynet/ichat';
+
+chat.addEventListener('chat-renderer-error', (event) => {
+  const { renderer, phase, error, partId } =
+    (event as CustomEvent<RendererErrorDetail>).detail;
+  reportToObservability({ renderer, phase, error, partId });
+});
+```
+
+The event is observational; consumers do not need to handle it for the fallback
+behavior to work.
+
 For **`unregister`**, **`list`**, or other registry methods, import **`rendererRegistry`** from **`@bndynet/ichat`** (re-exported from **`@bndynet/ichat-messages`**).
 
 ## Charts, KPI, form, and Mermaid
@@ -66,6 +130,9 @@ If you use **`@bndynet/ichat-messages`** without **`@bndynet/ichat`**, the same 
 ## Markdown-it Extensions (Inline / Block Plugins)
 
 For plugins that operate at the **markdown-it** level (inline rules, block rules, renderer overrides) — as opposed to fenced-code-block renderers — use **`registerMarkdownPlugin`**. This API also handles **CSS injection** into the Shadow DOM automatically.
+
+Markdown plugins execute as trusted application code. Renderer rules installed
+by a plugin must escape any model-controlled values they place into HTML.
 
 > **⚠️ Same constraint as above:** must be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM.
 

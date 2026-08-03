@@ -37,7 +37,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] Markdown cache — Two-level cache (raw content + HTML comparison) in `renderMarkdownInto()`. Skips markdown-it + DOMPurify when raw content unchanged; skips morphdom when HTML unchanged. (Phase 2.2)
 - [x] highlight.js configurable — `ChatConfig.highlightJs` optional injection. When omitted, code blocks fall back to plain escaped `<pre><code>`. Threaded through full component chain. (Phase 2.3)
 - [x] Memoized computed properties — `_messageRenderItems()` cached by collection shape (length + first/last id + timestamp). `_labels` cached by locale + labels reference. (Phase 2.4)
-- [x] 🟡 **Markdown streaming light mode** — During active streaming in `i-chat-text-part`, skip DOMPurify (trusted backend source) and morphdom diff (use `innerHTML` — every token grows the full text, so incremental diff has zero reuse value). Added `renderMarkdownLight()` for the streaming path; full pipeline (DOMPurify + morphdom) runs on terminal render. No new config. (Phase 2.2)
+- [x] 🟡 **Markdown streaming light mode** — During active streaming in `i-chat-text-part`, skip DOMPurify and morphdom diff (use `innerHTML` — every token grows the full text, so incremental diff has zero reuse value). The light path disables raw HTML, validates URI protocols, and defers untrusted renderer output; the full pipeline (DOMPurify + morphdom) runs on terminal render. No user config is required. (Phase 2.2)
 
 ### Backend Integration
 
@@ -53,10 +53,16 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 - [x] Plugin system — `ChatPlugin` interface with `install(chat)` + optional teardown. `chat.use()` unified for both middleware and plugins. (Phase 4.3)
 - [x] Async BlockRenderer — `renderAsync()` for fenced blocks. Placeholder on first render, swapped when promise resolves. `resolveAsyncBlocks()` exported. (Phase 4.2)
+- [x] Renderer runtime isolation — block and string-part renderer failures fall
+  back safely, async work is terminal-only and lifecycle-cancellable, stale
+  results cannot overwrite newer content, and `chat-renderer-error` provides
+  optional observability. Official Chart and Mermaid compatibility is covered
+  in the browser regression benchmark.
 
 ### Accessibility
 
-- [x] ARIA roles & labels — Phase 5.1 complete. Added `role="log" aria-live="polite"` to `<i-chat-messages>`, `role="article"` to assistant messages, `aria-expanded` + button labels to `<i-chat-tool-call>`, `role="list"/listitem" + aria-checked` to `<i-chat-todo>`, `role="alertdialog" aria-modal` to confirmation panel. (Phase 5.1)- [x] Keyboard navigation — Phase 5.2 complete. Confirmation dialog: Escape → cancel, Tab/Shift+Tab focus trap, auto-focus confirm button. Tool-call/todo already handled by native `<details>` + `<button>`. (Phase 5.2)
+- [x] ARIA roles & labels — Phase 5.1 complete. Added `role="log" aria-live="polite"` to `<i-chat-messages>`, `role="article"` to assistant messages, `aria-expanded` + button labels to `<i-chat-tool-call>`, `role="list"/listitem" + aria-checked` to `<i-chat-todo>`, `role="alertdialog" aria-modal` to confirmation panel. (Phase 5.1)
+- [x] Keyboard navigation — Phase 5.2 complete. Confirmation dialog: Escape → cancel, Tab/Shift+Tab focus trap, auto-focus confirm button. Tool-call/todo already handled by native `<details>` + `<button>`. (Phase 5.2)
 - [x] Screen reader announcements — Phase 5.3 complete. New messages via `aria-live="polite"` on wrapper, tool-call state via sr-only live region, errors via `role="alert"` on banner. (Phase 5.3)
 
 ### Testing
@@ -69,12 +75,29 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] `component-api.md` — Syntax highlighting section with usage example. (Phase 7)
 - [x] `implementation-review.md` — Codebase architecture review. (Phase 7)
 
+### Code Quality & Lightweightness (v3.1)
+
+- [x] 🟡 **Deduplicate renderer utils** ✅ (completed 2026-08-03) — Three identical copies of `utils.ts` (+ `icons.ts`/`version.ts`) across `chat-renderers`, `chat-renderer-chart`, `chat-renderer-mermaid` merged into single `renderer-utils.ts` in `chat-messages`. Net: ~540 lines removed.
+- [x] 🟡 **highlight.js → optional peerDep** ✅ (completed 2026-08-03) — Moved from hard dependency to optional peer. Added self-contained `HighlightJs` interface so consumers' TypeScript never needs the package. Without highlight.js: plain `<pre><code>`, no error. `chat-messages` hard deps: 5 → 4.
+- [x] 🟡 **Inline register-*.ts thin wrappers** ✅ (completed 2026-08-03) — Two 10-line files that merely delegated to `@bndynet/ichat-messages` merged into `chat/src/index.ts`. Public API unchanged.
+- [x] 🟡 **Extract confirmation dialog** ✅ (completed 2026-08-03) — `i-chat-confirmation` standalone Lit component with own shadow DOM, styles, and keyboard nav. `chat.ts`: 1088 → 966 lines (-122), `chat.scss`: 202 → 40 lines (-162).
+- [x] 🟡 **Split chat-message.scss** ✅ (completed 2026-08-03) — 707-line monolith split into 3 files: `_chat-message-content.scss` (248), `_chat-message-meta.scss` (211), main file (252). Each partial is self-contained.
+- [x] 🟡 **Extract buildMessagesChangeDetail** ✅ (completed 2026-08-03) — Pure helper in `messages-change-types.ts` shared by both `chat.ts` and `chat-messages.ts`. Eliminates ~25 lines of duplicated detail-building logic.
+
 ## Backlog
 
 ### Performance
 
 - [ ] 🔴 **Virtual scrolling** — Integrate `@lit-labs/virtualizer` into `<i-chat-messages>`. Replace `repeat` with `<lit-virtualizer>`, keep date separators outside the virtual range, and ensure `scrollToBottom()` + `ResizeObserver` auto-scroll still work. Add `virtualScroll` config toggle (default on) and perf benchmarks for 100/1000/10000 messages. (Phase 2.1)
 - [x] 🟡 **Remove `noExternal` bundling** ✅ (completed 2026-07-26) — `chat-messages` 524KB → 177KB, `chat-input` similar. Third-party deps now externalized; consumers' bundlers handle tree-shaking. Peer dependency migration deferred to v3. (Phase 2.3 step 1)
+
+### Code Quality & Lightweightness (continued)
+
+- [ ] 🟡 **Extract ChatForm from form-renderer.ts** — `form-renderer.ts` (622 lines) contains a full `ChatForm` custom element. Extract into `chat-form.ts`; `form-renderer.ts` keeps only renderer registration. Est: 622 → ~200 lines.
+- [ ] 🟡 **Extract ChatMessageStore from chat.ts** — `chat.ts` (966 lines) still carries ~300 lines of message proxy methods (`addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, …). Extract into a `ChatMessageStore` class (similar to `ChatRunController`). Est: chat.ts 966 → ~650 lines.
+- [ ] 🟢 **Extract ScrollController + ErrorBannerController** — `chat-messages.ts` (893 lines) contains ~80 lines of scroll logic and ~40 lines of error-banner logic. Extract as Lit ReactiveControllers (like existing `StreamingController`). Est: 893 → ~750 lines.
+- [ ] 🟢 **Evaluate dompurify alternative** — `dompurify` (~15KB) used for XSS sanitisation. Streaming mode already skips it. Evaluate a lighter self-implementation covering the needed SVG + details/summary allow-list.
+- [ ] 🔵 **Evaluate morphdom removal** — `morphdom` (~3KB) used for DOM diff/patch. Evaluate replacing with Lit-native rendering (`unsafeHTML` + template updates) in terminal render path.
 
 ### Testing
 
@@ -84,6 +107,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 ### Architecture (v3)
 
 - [x] 🟡 **`<i-chat>` decomposition** ✅ (completed 2026-07-26) — Extracted `CommandQueue`, `ConfirmationController`, `SlotForwardingController`. chat.ts: 1200 → 1102 lines. (Phase 6.1)
+- [x] 🟡 **Further decomposition** ✅ (completed 2026-08-03) — Extracted `ChatConfirmation` component, inlined register wrappers, deduplicated utils. chat.ts: 1088 → 966 lines.
 - [x] 🔵 **Remove deprecated APIs** ✅ (completed 2026-07-30) — Removed `createStreamingController()`, `patchTodoItemInPart`, `form-submit`/`todo-action`/`tool-action` events, `config.dateSeparatorLabels`, boolean-return wrappers. (Phase 6.2)
 
 ## Compatibility & Deprecation

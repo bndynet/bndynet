@@ -44,6 +44,10 @@ npm install @bndynet/ichat-messages
 
 Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, register **`@bndynet/ichat-renderers`** once **before** the first `<i-chat>` component connects to the DOM (see `apps/demo/bootstrap.ts` in this repo). All Markdown extensions — both `registerCodeRenderer` and `registerMarkdownPlugin` — must be registered at module-init time, before any `<i-chat>` or `<i-chat-messages>` element is inserted into the document:
 
+Custom fenced renderers are sanitised by default. The official renderer
+packages opt into the audited `trusted: true` streaming path internally, so no
+extra security or performance configuration is required for normal use.
+
 ```html
 <script type="module">
   import '@bndynet/ichat';
@@ -211,7 +215,13 @@ See [`ChatRunController` API](./component-api.md) for the full lifecycle.
 
 ### Syntax highlighting
 
-`highlight.js` is auto-installed. By default, code blocks render with full language auto-detection. To reduce bundle size, pass your own pre-configured `highlight.js` instance:
+`highlight.js` is **not bundled** — install it separately if you need code highlighting:
+
+```bash
+npm install highlight.js
+```
+
+Pass your own pre-configured instance via `config.highlightJs` (only the languages you register are included):
 
 ```js
 import hljs from 'highlight.js/lib/core';
@@ -221,7 +231,7 @@ hljs.registerLanguage('typescript', ts);
 chat.config = { ...chat.config, highlightJs: hljs };
 ```
 
-Leaving `config.highlightJs` unset uses the built-in full instance — no extra setup needed.
+When `config.highlightJs` is not set, code blocks render as plain `<pre><code>` without syntax highlighting — no error, no crash.
 
 ### Middleware & plugins
 

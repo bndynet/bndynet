@@ -37,6 +37,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
 | `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, detail }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`. |
 | `link-click` | `{ href, rawHref, protocol, text, messageId, message, partId?, partType?, target, originalEvent }` | Cancelable event from rendered message links. Call `preventDefault()` to handle a link yourself |
+| `chat-renderer-error` | `RendererErrorDetail` | A block or string-part renderer failed during matching, sync rendering, or async rendering. The message has already fallen back safely; use this event for logging/observability. |
 | `confirmation-change` | `{ active, queue, queueLength }` | Active composer confirmation or FIFO queue changed |
 | `confirmation-decision` | `ChatConfirmationResult` | User confirmed or cancelled the active composer confirmation |
 
