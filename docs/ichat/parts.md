@@ -72,7 +72,7 @@ if (!result.ok) {
 ```javascript
 chat.addEventListener('part-action', (e) => {
   if (e.detail.kind !== 'tool-call') return;
-  const { action, messageId, partId, detail } = e.detail;
+  const { action, messageId, partId, payload } = e.detail;
   if (action === 'approve') {
     chat.tryUpdateToolCall(messageId, partId, { approval: 'approved', state: 'executing' });
     // …run the tool, then attach the result via tryUpdateToolCall(… { state: 'output-available', result })

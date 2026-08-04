@@ -3,14 +3,15 @@
 Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: when an item lands, mark or move it in the same change. Add new sections as other areas grow.
 
 > **For cross-cutting architecture, performance, and DX improvements see the [Optimization Plan](./optimization-plan.md).**
+>
+> **Current focus (2026-08-04): professional-library hardening without feature expansion.** Do not add new message types, renderers, or interaction features until the P0 contract and state-architecture work below is complete.
 
 ## Completed
 
 ### Testing & CI
 
-- [x] Unit tests for pure helpers — `message-part-state`, `todo-state`, `tool-call-state`, `message-part-events`, `date-separator`, `duration-format`, `update-results`. 24 tests, all passing. (Phase 1.1)
-- [x] CI pipeline — GitHub Actions with Node.js 18/20/22 matrix, test + coverage on push/PR to `main`/`v3`. (Phase 1.2)
-- [x] 🟢 **Coverage thresholds** ✅ (completed 2026-07-31)
+- [x] Unit and component test foundations — the current local suites for `@bndynet/ichat-messages` (29 tests), `@bndynet/ichat`, and `@bndynet/ichat-input` pass on Node.js 20. Pure reducers, component contracts, renderer isolation, streaming safety, and run-controller flows are covered. (Phase 1.1)
+- [x] Coverage commands — package-level coverage scripts are available for the messages and input packages. Enforced thresholds and repository-local PR CI remain P0 work below.
 - [x] 🟢 **SSE integration tests** ✅ (completed 2026-07-31) — ChatRunController + stream parser → `tryApplyMessagePartUpdateEvent` / `tryApplyTodoItemUpdateEvent` end-to-end. (Phase 1.1)
 - [x] 🟢 **ChatRunController integration tests** ✅ (completed 2026-07-31) — Full lifecycle: start → appendText → updatePart → complete / fail / cancel. (Phase 1.1)
 
@@ -46,12 +47,12 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 ### Developer Experience
 
 - [x] AbortController in ChatRunController — `run.signal` for fetch integration. Auto-aborted on `complete()` / `fail()` / `cancel()`. (Phase 3.5)
-- [x] Middleware chain — `ChatMiddleware` with `beforeSend`, `afterMessageAdded`, `beforeAppendPart`, `onError` hooks. FIFO execution, null short-circuits. (Phase 3.2)
+- [x] Middleware chain primitives — `ChatMiddleware` and FIFO execution helpers exist. `beforeSend` is integrated; closing the public contract for `afterMessageAdded`, `beforeAppendPart`, and `onError` is P0 work below. (Phase 3.2 foundation)
 - [x] 🟢 **Generic type support** — Made `<i-chat>` generic over custom part types (`Chat<TExtraArgs>`). Added `CustomPartOf<T>`, `PartOf<M, T>`, and `ExtendedMessagePart<T>` type helpers. (Phase 3.4)
 
 ### Extensibility
 
-- [x] Plugin system — `ChatPlugin` interface with `install(chat)` + optional teardown. `chat.use()` unified for both middleware and plugins. (Phase 4.3)
+- [x] Plugin API foundation — `ChatPlugin` exposes `install(chat)` + optional teardown, and `chat.use()` accepts both middleware and plugins. Unified lifecycle ownership, duplicate-name handling, and disconnect cleanup remain P0 work below. (Phase 4.3 foundation)
 - [x] Async BlockRenderer — `renderAsync()` for fenced blocks. Placeholder on first render, swapped when promise resolves. `resolveAsyncBlocks()` exported. (Phase 4.2)
 - [x] Renderer runtime isolation — block and string-part renderer failures fall
   back safely, async work is terminal-only and lifecycle-cancellable, stale
@@ -84,31 +85,56 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] 🟡 **Split chat-message.scss** ✅ (completed 2026-08-03) — 707-line monolith split into 3 files: `_chat-message-content.scss` (248), `_chat-message-meta.scss` (211), main file (252). Each partial is self-contained.
 - [x] 🟡 **Extract buildMessagesChangeDetail** ✅ (completed 2026-08-03) — Pure helper in `messages-change-types.ts` shared by both `chat.ts` and `chat-messages.ts`. Eliminates ~25 lines of duplicated detail-building logic.
 
-## Backlog
+## Professional Library Readiness Backlog
 
-### Performance
+Baseline review (2026-08-04): **7.2/10 overall** — architecture 7.6, extensibility 6.8, usability 7.3. The target is **8.5/10** after P0 and the core P1 items. Work is grouped by category; within each category, items are ordered **P0 → P1 → P2 → Deferred**. Priorities are based on consumer impact and public-contract risk, not source-file length.
 
-- [ ] 🔴 **Virtual scrolling** — Integrate `@lit-labs/virtualizer` into `<i-chat-messages>`. Replace `repeat` with `<lit-virtualizer>`, keep date separators outside the virtual range, and ensure `scrollToBottom()` + `ResizeObserver` auto-scroll still work. Add `virtualScroll` config toggle (default on) and perf benchmarks for 100/1000/10000 messages. (Phase 2.1)
-- [x] 🟡 **Remove `noExternal` bundling** ✅ (completed 2026-07-26) — `chat-messages` 524KB → 177KB, `chat-input` similar. Third-party deps now externalized; consumers' bundlers handle tree-shaking. Peer dependency migration deferred to v3. (Phase 2.3 step 1)
+### Architecture & State Management
 
-### Code Quality & Lightweightness (continued)
+- [x] 🔴 **[P0] Create one authoritative `ChatMessageStore`** ✅ (completed 2026-08-04) — Extracted `ChatMessageStore` class (303 lines) encapsulating messages array, commit logic (controlled/uncontrolled modes), streaming-state derivation, and all pure data-mutation methods. Implements `ChatMessageStorePort` so `ChatRunController` works unchanged. `chat.ts`: 966 → 790 lines (-176).
+- [ ] 🔴 **[P0] Make controlled ownership framework-safe** — Remove the requirement that hosts synchronously write `messages-change.detail.messages` back during the event handler. Define a deterministic snapshot/acceptance contract so sequential run-controller updates cannot read stale state in React-style asynchronous hosts. Preserve uncontrolled mode as the simple default and document any major-version migration required.
+  - **Done when:** sequential controlled updates remain correct with asynchronous host state propagation, and controlled/uncontrolled behavior shares the same store tests.
+- [x] 🟡 **[P1] Decompose components by responsibility** ✅ (completed 2026-08-04) — All three targets extracted: `ChatMessageStore` (state ownership), `ChatFormElement` (521 lines from `form-renderer.ts`, which shrank 622→93), `ScrollController` (160 lines) + `ErrorBannerController` (67 lines) as Lit ReactiveControllers from `chat-messages.ts` (893→793).
 
-- [ ] 🟡 **Extract ChatForm from form-renderer.ts** — `form-renderer.ts` (622 lines) contains a full `ChatForm` custom element. Extract into `chat-form.ts`; `form-renderer.ts` keeps only renderer registration. Est: 622 → ~200 lines.
-- [ ] 🟡 **Extract ChatMessageStore from chat.ts** — `chat.ts` (966 lines) still carries ~300 lines of message proxy methods (`addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, …). Extract into a `ChatMessageStore` class (similar to `ChatRunController`). Est: chat.ts 966 → ~650 lines.
-- [ ] 🟢 **Extract ScrollController + ErrorBannerController** — `chat-messages.ts` (893 lines) contains ~80 lines of scroll logic and ~40 lines of error-banner logic. Extract as Lit ReactiveControllers (like existing `StreamingController`). Est: 893 → ~750 lines.
-- [ ] 🟢 **Evaluate dompurify alternative** — `dompurify` (~15KB) used for XSS sanitisation. Streaming mode already skips it. Evaluate a lighter self-implementation covering the needed SVG + details/summary allow-list.
-- [ ] 🔵 **Evaluate morphdom removal** — `morphdom` (~3KB) used for DOM diff/patch. Evaluate replacing with Lit-native rendering (`unsafeHTML` + template updates) in terminal render path.
+### Extensibility
 
-### Testing
+- [ ] 🔴 **[P0] Close the Middleware and Plugin contracts** — Route `afterMessageAdded`, `beforeAppendPart`, and `onError` through the same authoritative mutation/error paths as `beforeSend`, or remove any hook that is not intended to be supported. Replace the parallel direct-install / `PluginManager` paths with one lifecycle owner that handles duplicate names, teardown, explicit disposal, and component disconnect. Add contract tests for every documented hook and lifecycle transition.
+  - **Done when:** every public hook has at least one integration test; a plugin teardown runs exactly once; documentation contains no declared-but-unwired extension points.
+- [ ] 🟡 **[P1] Introduce a scoped `ExtensionContext`** — Keep a global default for the one-line setup, but allow each chat instance/application boundary to own its block renderers, part renderers, and Markdown plugins. Remove the mismatch where an instance exposes `registerCodeRenderer()` even though the global registry may already be frozen. Registration must return an explicit result instead of silently warning and doing nothing.
+  - **Done when:** two chat instances can use different extension sets; dynamic application boundaries do not depend on module import order; the global convenience path remains backward compatible.
+- [ ] 🟡 **[P1] Harden the Renderer result contract** — Replace the primary `trusted?: boolean` + raw HTML string convention with explicit result modes such as element, sanitized HTML, and internal trusted HTML. Keep untrusted rendering as the default, restrict trusted bypass to audited built-ins/capabilities, validate custom-element names, and preserve renderer error observability.
+  - **Done when:** third-party renderers cannot bypass sanitization with an accidental boolean; sync/async/element renderers share one documented lifecycle and error contract.
+- [ ] 🟡 **[P1] Validate renderer input schemas at runtime** — Validate Form, Chart, and other JSON renderer payloads before property access or custom-element creation. Invalid data must produce a safe code fallback and a structured renderer diagnostic instead of relying on TypeScript assertions after `JSON.parse`.
+  - **Done when:** malformed-but-valid JSON is covered by tests and cannot throw from an official renderer.
 
-- [x] 🟡 **Component tests for `<i-chat-input>`** ✅ — Module import, element registration, constructor, default property values. (Phase 1.1)
-- [x] 🟡 **Component tests for `<i-chat>`** ✅ — Import, registration, constructor, property defaults, method signatures, `ready` promise. (Phase 1.1)
+### Testing & Release Quality
 
-### Architecture (v3)
+- [ ] 🔴 **[P0] Add repository-local CI and release gates** — Run build, type generation/checks, unit/component tests, official renderer tests, browser streaming/security smoke tests, and package-validation checks on pull requests and before publish. Use supported Node.js LTS versions and enforce coverage/API thresholds in CI rather than only exposing local scripts.
+  - **Done when:** required PR checks block regressions; release cannot publish when tests, browser smoke tests, type exports, or `npm pack` validation fail; documentation no longer references a missing workflow.
+- [ ] 🟢 **[P2] Complete distribution metadata** — Include the repository license in published packages and add supported engines, security policy, contribution guidance, package smoke tests, and API compatibility reporting.
 
-- [x] 🟡 **`<i-chat>` decomposition** ✅ (completed 2026-07-26) — Extracted `CommandQueue`, `ConfirmationController`, `SlotForwardingController`. chat.ts: 1200 → 1102 lines. (Phase 6.1)
-- [x] 🟡 **Further decomposition** ✅ (completed 2026-08-03) — Extracted `ChatConfirmation` component, inlined register wrappers, deduplicated utils. chat.ts: 1088 → 966 lines.
-- [x] 🔵 **Remove deprecated APIs** ✅ (completed 2026-07-30) — Removed `createStreamingController()`, `patchTodoItemInPart`, `form-submit`/`todo-action`/`tool-action` events, `config.dateSeparatorLabels`, boolean-return wrappers. (Phase 6.2)
+### Developer Experience & Package API
+
+- [ ] 🟡 **[P1] Define intentional package and API boundaries** — Separate side-effect-free types/utilities from custom-element registration where practical; add explicit subpath exports/define entry points, accurate `sideEffects` metadata, a Custom Elements Manifest and framework typings, and automated public API/package checks. Reduce the top-level barrel to supported consumer APIs and mark internals clearly.
+  - **Done when:** consumers can import types/core helpers without registering every element; bundlers and framework tooling can discover the components and events; accidental public API changes are detected.
+- [ ] 🟢 **[P2] Make documentation reflect runtime behavior** — Reconcile warning-vs-throw semantics, extension registration timing, current test counts, controlled-mode behavior, and CI status. Generate API tables from declarations/Custom Elements Manifest where possible so roadmap, README, and implementation review do not drift independently.
+
+### Performance & Security
+
+- [ ] 🔵 **[P2] Evaluate morphdom only with evidence** — Keep the current implementation unless a benchmarked Lit-native replacement improves size or maintainability without regressing cursor stability, async renderer replacement, or terminal rendering.
+- [x] 🟢 **[P2] Retain DOMPurify as the security boundary** ✅ (decision 2026-08-04) — Do not replace the audited sanitizer with a custom allow-list implementation merely to save bundle size. Revisit only if there is a measured blocker and equivalent security coverage.
+- [ ] ⏸️ **[Deferred] Virtual scrolling** — Deferred until the professional-library P0/P1 work is complete and production measurements demonstrate a real need. If resumed, require benchmarks for 100/1000/10000 messages and compatibility tests for date separators, auto-scroll, `ResizeObserver`, and imperative scroll APIs. (Former Phase 2.1)
+
+### Maintenance & Internal Consistency
+
+- [ ] 🟢 **[P2] Remove duplicate and unused internal paths** — Delete or consolidate the unused `markdown-extensions.ts` implementation and the parallel/incomplete plugin-manager path after the selected contracts are in place. Keep one implementation per extension mechanism.
+
+### Previously Completed Architecture and Bundle Work
+
+- [x] 🟡 **Remove `noExternal` bundling** ✅ (completed 2026-07-26) — `chat-messages` 524KB → 177KB, `chat-input` similar. Third-party dependencies are externalized for consumer bundlers. (Phase 2.3 step 1)
+- [x] 🟡 **`<i-chat>` decomposition** ✅ (completed 2026-07-26) — Extracted `CommandQueue`, `ConfirmationController`, and `SlotForwardingController`. (Phase 6.1)
+- [x] 🟡 **Further decomposition** ✅ (completed 2026-08-04) — Extracted `ChatMessageStore` (state ownership, commit semantics, streaming derivation), `ScrollController` and `ErrorBannerController` (Lit ReactiveControllers from `chat-messages.ts`), `ChatFormElement` (521-line custom element from `form-renderer.ts`), plus earlier `ChatConfirmation`, inlined registration wrappers, and deduplicated renderer utilities.
+- [x] 🔵 **Remove deprecated APIs** ✅ (completed 2026-07-30) — Removed v2 compatibility APIs scheduled for the v3 major release. (Phase 6.2)
 
 ## Compatibility & Deprecation
 

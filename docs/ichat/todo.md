@@ -106,8 +106,8 @@ Clicking a status icon requests the next status but does not mutate the componen
 ```javascript
 chat.addEventListener('part-action', (event) => {
   if (event.detail.kind !== 'todo') return;
-  const { messageId, partId, detail } = event.detail;
-  chat.tryUpdateTodoItem(messageId, partId, detail.itemId, { status: detail.status });
+  const { messageId, partId, payload } = event.detail;
+  chat.tryUpdateTodoItem(messageId, partId, payload.itemId, { status: payload.status });
 });
 ```
 ```

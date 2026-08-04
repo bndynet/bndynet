@@ -35,7 +35,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `messages-change` | `MessagesChangeDetail` | Emitted after any imperative message-collection mutation commits. Direct external `messages = […]` does **not** emit this event. |
 | `streaming-change` | `{ streaming: boolean }` | Any assistant message is streaming |
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
-| `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, detail }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`. |
+| `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, payload }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`. |
 | `link-click` | `{ href, rawHref, protocol, text, messageId, message, partId?, partType?, target, originalEvent }` | Cancelable event from rendered message links. Call `preventDefault()` to handle a link yourself |
 | `chat-renderer-error` | `RendererErrorDetail` | A block or string-part renderer failed during matching, sync rendering, or async rendering. The message has already fallen back safely; use this event for logging/observability. |
 | `confirmation-change` | `{ active, queue, queueLength }` | Active composer confirmation or FIFO queue changed |
@@ -128,13 +128,13 @@ type ToolParts = PartOf<ChatMessage, 'tool-call'>; // ToolCallPart
 
 ```javascript
 chat.addEventListener('part-action', (event) => {
-  const { kind, action, messageId, partId, part, detail } = event.detail;
+  const { kind, action, messageId, partId, part, payload } = event.detail;
   if (kind === 'todo') {
     const result = chat.tryUpdateTodoItem(
       messageId,
       partId,
-      detail.itemId,
-      { status: detail.status },
+      payload.itemId,
+      { status: payload.status },
     );
     if (!result.ok) console.warn('Todo update ignored:', result.reason);
   }
