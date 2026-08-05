@@ -1,37 +1,39 @@
 # Composer & interaction
 
-Streaming state, reply (quote) blocks, and the default composer's voice input.
+Busy/streaming state, reply (quote) blocks, and the default composer's voice input.
 
-- [Streaming](#streaming)
+- [Busy and streaming](#busy-and-streaming)
 - [Reply blocks](#reply-blocks)
 - [Default composer voice input](#default-composer-voice-input)
 
-## Streaming
+## Busy and streaming
 
-The default composer already switches send ↔ cancel while streaming. For extra UI, listen to `streaming-change`:
+`<i-chat>` exposes one read-only submission lock, `busy`. It is true while a submission is passing through `beforeSend` middleware or while any non-error assistant message is streaming. The default composer keeps its textarea editable for the next draft while blocking Send, voice input, and slotted actions; during streaming, Send is replaced by Cancel.
 
-```javascript
-chatEl.addEventListener('streaming-change', (e) => {
-  if (e.detail.streaming) { /* … */ }
-});
-```
-
-When you provide a custom composer through `slot="input"`, dispatch `send` from the slotted composer element and guard it with both the streaming flag and any request you have already started. `<i-chat>` also ignores slotted `send` events while it is streaming or disabled, but keeping the button/keyboard path disabled avoids confusing UI:
+Listen to `busy-change` when extra UI or a custom composer needs the same lock. Use `streaming-change` separately when the UI needs to know whether Cancel is available:
 
 ```javascript
+let busy = chatEl.busy;
 let streaming = false;
-let pending = false;
+
+chatEl.addEventListener('busy-change', (e) => {
+  busy = e.detail.busy;
+  customSendButton.disabled = busy;
+});
 
 chatEl.addEventListener('streaming-change', (e) => {
   streaming = e.detail.streaming;
-  pending = false;
+  customCancelButton.hidden = !streaming;
 });
+```
 
+When you provide a custom composer through `slot="input"`, dispatch a bubbling, composed `send` event and guard the local button/keyboard path with `busy`. `<i-chat>` performs the same check at its event boundary, so a stale or incorrectly enabled custom button still cannot start a second submission:
+
+```javascript
 function sendFromCustomInput(content) {
   const text = content.trim();
-  if (!text || streaming || pending) return;
+  if (!text || busy) return;
 
-  pending = true;
   customInputEl.dispatchEvent(new CustomEvent('send', {
     detail: { content: text },
     bubbles: true,
@@ -39,6 +41,38 @@ function sendFromCustomInput(content) {
   }));
 }
 ```
+
+In the host `send` listener, create the streaming assistant placeholder before the first network `await`. This hands the lock from submission preprocessing to streaming without briefly unlocking the composer:
+
+```javascript
+chatEl.addEventListener('send', async (e) => {
+  const run = chatEl.createRunController();
+  run.start([textPart('', { id: 'body', status: 'streaming' })]);
+
+  // Network work starts only after run.start().
+  await streamReply(e.detail.content, run);
+});
+```
+
+Use the same lifecycle for a backend that returns one complete response. `start()` does not require initial parts; it keeps the chat busy while the request is pending, and `complete()` supplies the final message in one update:
+
+```javascript
+chatEl.addEventListener('send', async (e) => {
+  const run = chatEl.createRunController();
+  run.start();
+
+  try {
+    const answer = await fetchReply(e.detail.content);
+    run.complete({
+      parts: [textPart(answer, { id: 'body', status: 'complete' })],
+    });
+  } catch {
+    run.fail('Request failed');
+  }
+});
+```
+
+The demo uses these same `ChatRunController` paths for complete and simulated streaming responses, so its busy, completion, and cancellation behavior exercises the public integration API.
 
 ## Reply blocks
 

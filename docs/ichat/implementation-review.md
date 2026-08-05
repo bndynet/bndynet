@@ -10,8 +10,8 @@
 
 Implemented 5 of 7 phases from the optimization plan, with a focus on the highest-impact items. The codebase now has:
 
-- **24 passing tests** (up from 8) covering all pure helper functions
-- **CI pipeline** with Node.js 18/20/22 matrix
+- Comprehensive test suite (~360+ test blocks across all packages) covering pure helpers, components, middleware, ownership, and browser rendering
+- CI pipeline with Node.js 20/22 matrix, type-check, coverage (≥85%), npm pack validation, and browser smoke build
 - **Performance optimizations**: markdown cache, memoized computed properties, optional highlight.js
 - **`ChatRunController`** for backend streaming integration
 - **Middleware & Plugin system** for extensibility
@@ -27,8 +27,8 @@ Total commits: **5** (one per implemented phase).
 
 | Item | Status | Details |
 |---|---|---|
-| 1.1 Unit tests for pure helpers | ✅ Done | 7 new test files, 24 total tests |
-| 1.2 Test infrastructure | ✅ Done | CI workflow, coverage script |
+| 1.1 Unit tests for pure helpers | ✅ Done | 16 test files, ~255 test blocks |
+| 1.2 Test infrastructure | ✅ Done | CI (typecheck → test 20/22 → coverage → pack → browser-smoke) |
 
 **Key files:**
 - `packages/chat-messages/test/message-part-state.test.ts`
@@ -124,7 +124,13 @@ Total commits: **5** (one per implemented phase).
 ```typescript
 // Middleware
 import type { ChatMiddleware } from '@bndynet/ichat';
-chat.use({ name: 'logger', beforeSend: (c) => c });
+chat.use({
+  name: 'logger',
+  beforeSend: (c) => c,
+  afterMessageAdded: (msg) => msg,
+  beforeAppendPart: (_mid, part) => part,
+  onError: (error) => { console.error(error); },
+});
 
 // Plugin
 import type { ChatPlugin } from '@bndynet/ichat';
@@ -152,23 +158,23 @@ import {
 | Risk | Severity | Mitigation |
 |---|---|---|
 | highlight.js removed from bundle | Medium | Consumers must pass `highlightJs` via config; fallback renders plain `<pre><code>` |
-| SSE client depends on `globalThis.fetch` | Low | Configurable via `options.fetch` for Node.js |
 | Markdown cache could serve stale content | Low | Cache keyed by raw content string; `invalidateMarkdownCache()` available |
-| Breaking changes in v3 | High | All planned in Phase 6; needs migration guide |
+| Breaking changes in v3 | High | All completed in v3; migration guide at `docs/migration-v2-to-v3.md` |
 
 ---
 
 ## Build Status
 
 ```
-✅ npm run test    — 24 tests, 0 failures
-✅ npm run build   — All packages + demo app build successfully
-✅ npm run test:coverage — Node.js coverage report
+✅ npm run test    — All 3 test suites pass, 0 failures
+✅ npm run build   — All 7 packages + demo app build successfully
+✅ npm run typecheck — 7 packages type-check clean
+✅ npm run test:coverage — Coverage ≥85% enforced in CI
 ```
 
 ---
 
 ## Next Steps
 
-1. **Virtual scrolling** (Phase 2.1) — Integrate `@lit-labs/virtualizer` for large message lists
-2. **Integration tests** — SSE + ChatRunController end-to-end tests
+1. **Virtual scrolling** (Phase 2.1) — Deferred until production measurements demonstrate need
+2. **Playwright E2E tests** — Automate browser test suite for CI

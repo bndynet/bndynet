@@ -6,7 +6,7 @@ Beyond plain `text`, a message body can carry reasoning blocks, tool-call cards,
 - [Tool calls](#tool-calls)
 - [Todos](#todos)
 - [File, source, and custom parts](#file-source-and-custom-parts)
-- [vs. `registerRenderer` (markdown fences)](#vs-registerrenderer-markdown-fences)
+- [vs. `registerCodeRenderer` (markdown fences)](#vs-registercoderenderer-markdown-fences)
 
 ## Reasoning
 
@@ -168,6 +168,10 @@ chat.addMessage({
 
 **Registering a renderer:** give `x-*` parts rich UI with **`registerPartRenderer`** (from `@bndynet/ichat`, or `partRendererRegistry` from `@bndynet/ichat` / `@bndynet/ichat-messages` for lower-level control). A `PartRenderer` matches a part `type` via `test(type)` and renders it in one of two modes:
 
+Part Renderers may be registered at startup or at runtime. A new renderer is
+used by subsequently added or updated parts; existing rendered parts are not
+refreshed automatically.
+
 - **Element mode** (`element`, recommended) — name a custom element; the library renders `<your-tag .data=${part.data} .part=${part}>`. The element instance is preserved across `updatePart`, so streaming updates patch properties without rebuilding the DOM (the same approach `tool-call` uses). You define the Web Component, so it works with any framework or vanilla HTML.
 - **String mode** (`render`) — return an HTML string; it is sanitised with DOMPurify and patched in place via morphdom (the same channel as `text` parts). Use inline `style="…"` rather than `<style>` blocks, which DOMPurify strips.
 
@@ -198,17 +202,17 @@ registerPartRenderer({
 
 The library ships only the `registerPartRenderer` capability — you define and register your own `x-*` renderers. The demo app includes a working example under **Custom part (x-\*)**.
 
-### vs. `registerRenderer` (markdown fences)
+### vs. `registerCodeRenderer` (markdown fences)
 
 These are **two different extension points**:
 
-| | **`parts[]` types** (`file`, `source`, `x-*`) | **`registerRenderer`** ([Custom renderers](./renderers.md#custom-renderers)) |
+| | **`parts[]` types** (`file`, `source`, `x-*`) | **`registerCodeRenderer`** ([Custom renderers](./renderers.md#custom-renderers)) |
 |--|--|--|
 | **Where it lives** | Top-level entries in `message.parts` | Inside a **`text`** part’s markdown (fenced code block) |
-| **Registration** | Built-in renderers for `file` / `source`; `x-*` via `registerPartRenderer({ name, test, element \| render })` (falls back to JSON when unregistered) | `registerRenderer({ name, test, render })` on the markdown pipeline |
+| **Registration** | Built-in renderers for `file` / `source`; `x-*` via `registerPartRenderer({ name, test, element \| render })` (falls back to JSON when unregistered) | `registerCodeRenderer({ name, test, render })` on the markdown pipeline |
 | **Streaming / updates** | Each part has its own `id` — patch with `updatePart` | Grows with the surrounding `text` part’s markdown stream |
 | **Good for** | Protocol-aligned blocks (files, citations, vendor parts), tool `resultParts` | Charts, KPI cards, forms, Mermaid — content authored as markdown |
 
-Use **`registerRenderer`** when the assistant’s answer is markdown and you want a fenced block (e.g. ` ```chart `). Use **`file` / `source` / `x-*` parts** when your backend already emits structured part arrays (Anthropic content blocks, Vercel AI SDK message parts, etc.) or when a block should update independently of the markdown body.
+Use **`registerCodeRenderer`** when the assistant’s answer is markdown and you want a fenced block (e.g. ` ```chart `). Use **`file` / `source` / `x-*` parts** when your backend already emits structured part arrays (Anthropic content blocks, Vercel AI SDK message parts, etc.) or when a block should update independently of the markdown body.
 
 The demo app includes a **Custom part (x-\*)** page under Renderers showing both modes plus the JSON fallback, and a **File & source** page for `file` / `source` parts.

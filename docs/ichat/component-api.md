@@ -17,14 +17,15 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `emptyText` | `string` | `''` | Plain text when there are no messages and no `empty` slot |
 | `placeholder` | `string` | `''` | Default `<i-chat-input>` placeholder (ignored when using `slot="input"`). Empty → localized default from `config.locale` / `config.labels.composer.placeholder` |
 | `disabled` | `boolean` | `false` | Disables the default composer |
+| `busy` | `boolean` (readonly) | `false` | `true` while a submission is passing through `beforeSend` middleware or an assistant message is streaming. Reflected as the `busy` and `aria-busy` host attributes; new sends are blocked while the textarea remains available for the next draft. |
 | `ready` | `Promise<void>` (readonly) | — | Resolves after the first render when child elements are queryable. Data methods are safe before `ready`; DOM methods may `await chat.ready`. |
-| `messageMode` | `'uncontrolled'` \| `'controlled'` | `'uncontrolled'` | Message ownership mode. `uncontrolled`: component owns messages (default). `controlled`: host owns messages — imperative methods emit `messages-change` with `committed: false`; host must synchronously write `event.detail.messages` back. |
+| `messageMode` | `'uncontrolled'` \| `'controlled'` | `'uncontrolled'` | Message ownership mode. `uncontrolled`: component owns messages (default). `controlled`: host owns messages — imperative methods emit a cancelable `messages-change` proposal with `committed: false`; host may write `event.detail.messages` back synchronously or asynchronously and may reject with `preventDefault()`. |
 | `showVoiceInput` | `boolean` | `true` | Enables/disables the default composer voice button; even when `true`, the button is rendered only if the browser supports speech recognition |
 | `voiceLang` | `string` | `''` | Forwarded to the default `<i-chat-input>` — BCP 47 tag for speech recognition (e.g. `zh-CN`; empty uses `navigator.language`) |
 | `voiceListeningLabel` | `string` | `''` | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening` |
 | `voiceDiagnostics` | `boolean` | `false` | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `scrollToMessage`, `scrollToPart`, `registerCodeRenderer`, `registerMarkdownPlugin`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `scrollToMessage`, `scrollToPart`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -32,8 +33,9 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 |-------|--------|--------|
 | `send` | `{ content: string }` | User submitted the default input (or your control inside `slot="input"` must dispatch the same event if you mimic the built-in) |
 | `cancel` | — | User cancelled during streaming (default input) |
-| `messages-change` | `MessagesChangeDetail` | Emitted after any imperative message-collection mutation commits. Direct external `messages = […]` does **not** emit this event. |
+| `messages-change` | `MessagesChangeDetail` | Emitted after an uncontrolled mutation commits or a controlled mutation is proposed. Controlled events are cancelable with `preventDefault()`. Direct external `messages = […]` does **not** emit this event. |
 | `streaming-change` | `{ streaming: boolean }` | Any assistant message is streaming |
+| `busy-change` | `{ busy: boolean }` | Effective busy state changed. Useful for disabling a custom `slot="input"` composer. |
 | `message-action` | `{ action: string, message: ChatMessage }` | From `message-actions` slot / `data-action` buttons |
 | `part-action` | `{ kind, action, messageId, message, partId?, partType?, part?, payload }` | Unified event for rendered part interactions. `kind` is `'form'`, `'todo'`, or `'tool-call'`. |
 | `link-click` | `{ href, rawHref, protocol, text, messageId, message, partId?, partType?, target, originalEvent }` | Cancelable event from rendered message links. Call `preventDefault()` to handle a link yourself |
@@ -62,12 +64,12 @@ registerMarkdownPlugin({
 ```
 
 - **Idempotent** — registering the same object reference with the same `id` is a no-op.
-- **Conflict detection** — registering a different object under an already-used `id` throws a clear error.
+- **Conflict detection** — registering a different object under an already-used `id` warns and keeps the first registration.
 - **CSS auto-injection** — the `styles` string is automatically injected into every `<i-chat-messages>`, `<i-chat-message>`, `<i-chat-reasoning>`, and `<i-chat-tool-call>` shadow root via a shared constructable stylesheet.
 - **Cache invalidation** — the markdown render cache is flushed so re-renders pick up the extension.
-- For fenced-code-block renderers (chart, Mermaid, form, etc.), use `registerRenderer` instead. See [Renderers](./renderers.md).
+- For fenced-code-block renderers (chart, Mermaid, form, etc.), use the module-level `registerCodeRenderer` function. See [Renderers](./renderers.md).
 
-> **⚠️ Important:** All Markdown extensions — both `registerMarkdownPlugin` and `registerCodeRenderer` — **must** be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM. Extensions registered after a component has already connected and rendered may not take effect on existing content. Always register extensions at module-init time, before any `<i-chat>` element is inserted into the document.
+> Block Renderers, Part Renderers, and Markdown Plugins use global module-level registries and may be registered at runtime. New registrations affect subsequent renders without automatically refreshing existing content. Re-registering the same object is an idempotent no-op; a different object with the same name/id produces a warning and keeps the first registration.
 
 ### Generic type support
 
@@ -238,7 +240,7 @@ Message-related slots are **forwarded** with declarative `<slot name="…" slot=
 | `reasoning-header` | Custom header for reasoning / “thinking” blocks |
 | `empty` | Content when there are no messages |
 | `actions` | Bottom-left toolbar **inside** the default `<i-chat-input>` (attach, model picker, etc.) |
-| `input` | **Replaces** the entire default `<i-chat-input>` — supply your own footer; dispatch `send` / handle streaming as needed |
+| `input` | **Replaces** the entire default `<i-chat-input>` — supply your own footer; dispatch `send` and mirror `busy-change` / `streaming-change` as needed |
 
 When a composer confirmation is active, the confirmation panel temporarily replaces both the default composer and any custom `slot="input"` content.
 

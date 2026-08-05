@@ -2,6 +2,14 @@
 
 > This document is an implementation runbook for future AI agents and developers. Execute the Changes in order. Do not combine work from different Changes unless a Change explicitly permits it.
 
+> **2026-08-05 follow-up:** The synchronous controlled write-back constraint
+> recorded in CHG-08 has been superseded. Controlled changes are now cancelable
+> proposals backed by one pending Store snapshot, so frameworks may propagate
+> `event.detail.messages` asynchronously; call `preventDefault()` to reject a
+> proposal. See `README.md`, `docs/component-api.md`, and `docs/roadmap.md` for
+> the current contract. The remainder of this document is retained as the
+> historical implementation record.
+
 ## 1. Document Status
 
 | Item | Value |
@@ -1249,6 +1257,5 @@ flowchart TD
   Chat -->|"freezeMessageAnimation (non-event)"| List
   Chat -->|"showError / replyMessage / ..."| List
 ```
-
 
 

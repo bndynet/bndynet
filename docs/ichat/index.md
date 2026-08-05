@@ -42,7 +42,7 @@ npm install @bndynet/ichat-messages
 
 ## Quick start (ES modules)
 
-Load **`@bndynet/ichat`** and, if you want chart / KPI / form / Mermaid fences, register **`@bndynet/ichat-renderers`** once **before** the first `<i-chat>` component connects to the DOM (see `apps/demo/bootstrap.ts` in this repo). All Markdown extensions — both `registerCodeRenderer` and `registerMarkdownPlugin` — must be registered at module-init time, before any `<i-chat>` or `<i-chat-messages>` element is inserted into the document:
+Load **`@bndynet/ichat`** and import optional renderer packages either at startup or lazily when their UI is needed. Block Renderers, Part Renderers, and Markdown Plugins can all be registered after components mount; new registrations affect subsequent renders:
 
 Custom fenced renderers are sanitised by default. The official renderer
 packages opt into the audited `trusted: true` streaming path internally, so no
@@ -92,10 +92,10 @@ extra security or performance configuration is required for normal use.
       timestamp: Date.now(),
     });
 
-    // Important: create the assistant placeholder before starting fetch/SSE,
-    // not after the first token arrives. The built-in composer uses
-    // `streaming: true` to switch Send -> Cancel and block duplicate sends
-    // while the network request is waiting for the first chunk.
+    // Important: create the assistant placeholder before the first network
+    // await, not after the first token arrives. `chat.busy` starts while the
+    // submission is preprocessed, then `streaming: true` keeps the composer
+    // locked and switches Send -> Cancel until the response finishes.
     chat.addMessage({
       id: assistantId,
       role: 'assistant',
@@ -135,7 +135,7 @@ extra security or performance configuration is required for normal use.
       }
     } finally {
       // Important: always release streaming, including success, error, and
-      // cancellation. If this is skipped, the composer will remain locked.
+      // cancellation. If this is skipped, new submissions remain blocked.
       chat.updateMessage(assistantId, { streaming: false });
       if (activeStream === stream) {
         activeStream = null;
@@ -153,8 +153,18 @@ extra security or performance configuration is required for normal use.
   chat.addEventListener('streaming-change', (e) => {
     // Optional: e.detail.streaming mirrors assistant streaming state
   });
+
+  chat.addEventListener('busy-change', (e) => {
+    // Optional: e.detail.busy mirrors the default composer's submission lock
+  });
 </script>
 ```
+
+Extension registration is global and remains available after components mount.
+New extensions affect newly added or subsequently updated content; existing
+rendered content is not refreshed automatically. Registering the same object
+again is a no-op; a different object with the same name/id produces a warning
+and keeps the first registration.
 
 A message body is an ordered array of typed **`parts`** (there is no plain `content` string — see [Message model](./message-model.md#message-body--parts)). Use **`addMessage`**, **`updateMessage`**, **`appendPart`**, **`updatePart`**, **`tryUpdateToolCall`**, **`tryUpdateTodoItem`**, **`removeMessage`**, **`replyMessage`**, **`clearReplyMessage`**, **`clear`**, and **`updateProgressStep`** on the same `<i-chat>` element (see the [`<i-chat>` API](./component-api.md)). **`createRunController()`** returns a helper that manages the full AI response lifecycle.
 
@@ -174,10 +184,18 @@ When you need a **single source of truth** shared across multiple components (e.
 // Vue example — messages lives in a reactive store
 chat.messageMode = 'controlled';
 chat.addEventListener('messages-change', (e) => {
-  if (e.detail.committed) return;          // skip external assignments
-  messages.value = e.detail.messages;       // one source, many consumers
+  if (e.detail.committed) return;
+  messages.value = e.detail.messages; // framework propagation may be async
 });
 ```
+
+Controlled `messages-change` events are cancelable proposals. Unless the host
+calls `e.preventDefault()`, sequential imperative updates continue from the
+latest proposal while Vue, React, or another framework propagates the new
+property asynchronously. Assign `e.detail.messages` directly when accepting a
+proposal; cloning an older queued proposal is treated as an intentional external
+history replacement. Call `e.preventDefault()` in the handler to reject a
+proposal.
 
 In uncontrolled mode `chat.messages` is immediately up-to-date after any mutation — just read it. Controlled mode is opt-in and only needed when an external framework must own the array.
 
@@ -281,7 +299,7 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 - **Structured `parts[]` body** — every message body is an ordered list of typed parts (`text`, `reasoning`, `tool-call`, `todo`, `file`, `source`, custom `x-*`); parts stream and update independently ([Message model](./message-model.md#message-body--parts))
 - **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](./parts.md#reasoning))
 - **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](./parts.md#tool-calls))
-- **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](./composer.md#streaming))
+- **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](./composer.md#busy-and-streaming))
 - **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`** ([Composer & interaction](./composer.md#reply-blocks))
 - **Slots** — avatars, actions, empty state ([`<i-chat>` API](./component-api.md#slots-on-i-chat))
 - **Progress** — `[status]` markdown lists rendered as vertical progress blocks ([Progress](./progress.md))

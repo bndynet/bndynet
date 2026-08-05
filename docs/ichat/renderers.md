@@ -5,11 +5,11 @@ Extend the markdown pipeline with custom fenced-code-block renderers, including 
 - [Custom renderers](#custom-renderers)
 - [Charts, KPI, form, and Mermaid (`@bndynet/ichat-renderers`)](#charts-kpi-form-and-mermaid-bndynetichat-renderers)
 
-> Looking for top-level `parts[]` types (`file`, `source`, `x-*`) instead of markdown fences? See [Parts](./parts.md#vs-registerrenderer-markdown-fences) for the difference between the two extension points.
+> Looking for top-level `parts[]` types (`file`, `source`, `x-*`) instead of markdown fences? See [Parts](./parts.md#vs-registercoderenderer-markdown-fences) for the difference between the two extension points.
 
 ## Custom renderers
 
-> **⚠️ Important:** All Markdown extensions — both `registerCodeRenderer` (fenced-code-block renderers) and `registerMarkdownPlugin` (markdown-it plugins) — **must** be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM. Extensions registered after a component has already connected and rendered may not take effect on existing content. Always register extensions at module-init time, before any `<i-chat>` element is inserted into the document.
+> `registerCodeRenderer` and `registerMarkdownPlugin` support runtime registration. A new extension affects subsequent renders, including newly added and updated messages, but does not automatically refresh content that is already displayed.
 
 Prefer **`registerCodeRenderer`** from **`@bndynet/ichat`** so your app does not need to import **`@bndynet/ichat-messages`** just to touch the registry:
 
@@ -41,14 +41,14 @@ const escapeHtml = (value: string) =>
 
 const trustedRenderer: BlockRenderer = {
   name: 'my-safe-widget',
-  trusted: true,
+  mode: 'trusted',
   test: (lang) => lang === 'my-safe-widget',
   render: (code) => `<my-safe-widget data-code="${escapeHtml(code)}"></my-safe-widget>`,
 };
 ```
 
-Only set `trusted: true` when every model-controlled value (`code`, `lang`, and
-`info`) is escaped for its HTML context. Trusted output bypasses DOMPurify. The
+Only set `mode: 'trusted'` (or the deprecated `trusted: true` for backward
+compatibility) when every model-controlled value (`code`, `lang`, and `info`) is escaped for its HTML context. Trusted output bypasses DOMPurify. The
 official chart, KPI, form, details, and Mermaid renderers are audited and opt in
 internally, so they continue to render live without user configuration. An
 untrusted async renderer is not started repeatedly during streaming; it starts
@@ -115,7 +115,7 @@ import '@bndynet/ichat-renderer-mermaid';   // auto-registers mermaid
 import '@bndynet/ichat-renderer-katex';     // auto-registers LaTeX math
 ```
 
-> **Must be imported before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM.
+> These packages may be imported at startup or lazy-loaded by a route before that route renders matching content.
 
 If you need custom options (e.g. disabling code toggles), use the manual API:
 
@@ -134,7 +134,7 @@ For plugins that operate at the **markdown-it** level (inline rules, block rules
 Markdown plugins execute as trusted application code. Renderer rules installed
 by a plugin must escape any model-controlled values they place into HTML.
 
-> **⚠️ Same constraint as above:** must be registered **before** the first `<i-chat>` or `<i-chat-messages>` component connects to the DOM.
+> Runtime registration is supported. The shared parser, Markdown cache, and plugin CSS are updated so subsequent renders use the new plugin, including inside components that are already mounted.
 
 ```typescript
 import { registerMarkdownPlugin } from '@bndynet/ichat';
@@ -150,7 +150,7 @@ registerMarkdownPlugin({
 });
 ```
 
-For simple markdown-it plugins that don't need CSS, `registerMarkdownPlugin` is still the recommended approach — it guarantees the shared `markdown-it` singleton is modified before any rendering occurs and flushes the markdown cache.
+For simple markdown-it plugins that don't need CSS, `registerMarkdownPlugin` is still the recommended approach — it updates the shared `markdown-it` singleton idempotently and flushes the Markdown cache for subsequent renders.
 
 > **Legacy**: Direct access to the `md` instance via `import { md } from '@bndynet/ichat-messages'` still works. For example, `@bndynet/ichat-renderers` ships a `chartPlugin` that you can register directly:
 >
@@ -160,7 +160,7 @@ For simple markdown-it plugins that don't need CSS, `registerMarkdownPlugin` is 
 > md.use(chartPlugin);
 > ```
 >
-> This is equivalent to `registerMarkdownPlugin({ id: 'chart', install: chartPlugin })`. The new API is preferred for idempotency and cache management.
+> Direct `md.use()` installs the parser rule but bypasses registration idempotency, cache invalidation, and plugin CSS management. Prefer `registerMarkdownPlugin()`.
 
 Fenced block in markdown:
 
