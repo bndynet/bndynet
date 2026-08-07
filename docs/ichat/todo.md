@@ -5,7 +5,7 @@ Use a structured `todo` message part for an ordered plan that must remain visibl
 ## Data model
 
 ```typescript
-type TodoItemStatus = 'pending' | 'active' | 'done' | 'error' | 'skipped';
+type TodoItemStatus = "pending" | "active" | "done" | "error" | "skipped";
 
 interface TodoItem {
   id: string;
@@ -16,35 +16,35 @@ interface TodoItem {
 
 interface TodoPart {
   id: string;
-  type: 'todo';
+  type: "todo";
   title?: string;
   items: TodoItem[];
   revision: number;
   defaultCollapsed?: boolean;
   interactive?: boolean;
-  status?: 'pending' | 'streaming' | 'complete' | 'error' | 'cancelled';
+  status?: "pending" | "streaming" | "complete" | "error" | "cancelled";
 }
 ```
 
-The header count and completed progress are derived from `items`. Expanded state is local to `<i-chat-todo>`, so `updateTodoItem()` does not reopen a panel the user collapsed.
+The header count and completed progress are derived from `items`. Expanded state is local to `<i-chat-todo>`, so `tryUpdateTodoItem()` does not reopen a panel the user collapsed.
 
 ## Create a todo
 
 ```javascript
-import { textPart, todoPart } from '@bndynet/ichat';
+import { textPart, todoPart } from "@bndynet/ichat";
 
 chat.addMessage({
-  id: 'assistant-42',
-  role: 'assistant',
+  id: "assistant-42",
+  role: "assistant",
   parts: [
-    textPart('I will follow this plan:'),
+    textPart("I will follow this plan:"),
     todoPart(
       [
-        { id: 'model', title: 'Define the data model', status: 'done' },
-        { id: 'panel', title: 'Build the panel', status: 'active' },
-        { id: 'verify', title: 'Verify the build', status: 'pending' },
+        { id: "model", title: "Define the data model", status: "done" },
+        { id: "panel", title: "Build the panel", status: "active" },
+        { id: "verify", title: "Verify the build", status: "pending" },
       ],
-      { id: 'plan', status: 'streaming' },
+      { id: "plan", status: "streaming" },
     ),
   ],
 });
@@ -54,17 +54,14 @@ Set `interactive: false` when the panel is display-only. `defaultCollapsed` affe
 
 ## Update an item
 
-`updateTodoItem(messageId, partId, itemId, patch, revision?)` replaces the item and `items` array immutably. It returns `false` when the message, part, or item is missing, when a status/revision is invalid, or when an explicit revision is stale. Use `tryUpdateTodoItem()` when you need the exact failure reason.
+`tryUpdateTodoItem(messageId, partId, itemId, patch, revision?)` replaces the item and `items` array immutably. It returns `{ ok, reason? }` — `ok: false` when the message, part, or item is missing, when a status/revision is invalid, or when an explicit revision is stale.
 
-```javascript
-chat.updateTodoItem('assistant-42', 'plan', 'panel', { status: 'done' }, 3);
-chat.updateTodoItem('assistant-42', 'plan', 'verify', { status: 'active' }, 4);
+````javascript
+const r1 = chat.tryUpdateTodoItem('assistant-42', 'plan', 'panel', { status: 'done' }, 3);
+if (!r1.ok) console.warn('Todo update ignored:', r1.reason);
 
-const result = chat.tryUpdateTodoItem('assistant-42', 'plan', 'verify', { status: 'done' }, 5);
-if (!result.ok) {
-  console.warn('Todo update ignored:', result.reason);
-}
-```
+const r2 = chat.tryUpdateTodoItem('assistant-42', 'plan', 'verify', { status: 'active' }, 4);
+if (!r2.ok) console.warn('Todo update ignored:', r2.reason);
 
 When every item is `done` or `skipped`, the part lifecycle status becomes `complete`. Updating a completed todo back to a non-terminal state changes the lifecycle to `streaming`.
 
@@ -80,7 +77,7 @@ For backend streaming, send stable IDs and a monotonic revision:
   "revision": 3,
   "sequence_number": 18
 }
-```
+````
 
 `sequence_number` orders the stream event itself. `revision` belongs to the todo
 part and is used to reject stale item updates; keep both monotonic, but do not
@@ -89,10 +86,10 @@ reuse one as the other.
 Then route the event through the same reducer as UI changes:
 
 ```javascript
-source.addEventListener('todo.item.updated', (event) => {
+source.addEventListener("todo.item.updated", (event) => {
   const result = chat.tryApplyTodoItemUpdateEvent(event);
   if (!result.ok) {
-    console.warn('Todo event ignored:', result.reason);
+    console.warn("Todo event ignored:", result.reason);
   }
 });
 ```
@@ -104,12 +101,15 @@ For custom adapters, `normalizeTodoItemUpdateEvent(event)` is exported separatel
 Clicking a status icon requests the next status but does not mutate the component's input. Handle the bubbling `part-action` event and apply the update locally, persist it remotely, or reject it.
 
 ```javascript
-chat.addEventListener('part-action', (event) => {
-  if (event.detail.kind !== 'todo') return;
+chat.addEventListener("part-action", (event) => {
+  if (event.detail.kind !== "todo") return;
   const { messageId, partId, payload } = event.detail;
-  chat.tryUpdateTodoItem(messageId, partId, payload.itemId, { status: payload.status });
+  chat.tryUpdateTodoItem(messageId, partId, payload.itemId, {
+    status: payload.status,
+  });
 });
 ```
+
 ```
 
 Event detail includes `action`, `itemId`, `previousStatus`, requested `status`, `part`, `messageId`, and `message`.
@@ -129,3 +129,4 @@ The panel derives from the shared `--chat-panel-*` tokens and then the normal `-
 | `--chat-todo-done` | Completed item icon |
 | `--chat-todo-error` | Failed item icon |
 | `--chat-todo-radius` | Panel corner radius |
+```

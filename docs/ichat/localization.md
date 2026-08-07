@@ -6,26 +6,33 @@ All user-facing strings flow from a single place: **`config.locale`** + **`confi
 - **`labels`** is a deep-partial override merged on top of the locale dictionary — supply only the strings you want to change.
 
 ```javascript
-const chat = document.querySelector('i-chat');
+const chat = document.querySelector("i-chat");
 
 // 1) Built-in Chinese (one line):
-chat.config = { locale: 'zh-CN' };
+chat.config = { locale: "zh-CN" };
 
 // 2) Any locale + your own translations (e.g. from vue-i18n / i18next):
 chat.config = {
-  locale: 'fr',
+  locale: "fr",
   labels: {
-    composer: { placeholder: 'Écrivez un message…', send: 'Envoyer' },
-    reasoning: { thinking: 'Réflexion…', reasoning: 'Raisonnement' },
-    toolCall: { running: 'En cours…', approve: 'Autoriser', reject: 'Refuser' },
-    todo: { title: 'Tâches', progress: (done, total) => `${done}/${total} terminées` },
-    confirmation: { required: 'Confirmation requise', confirm: 'Confirmer', cancel: 'Annuler' },
-    messages: { empty: 'Aucun message. Démarrez la conversation\u202f!' },
+    composer: { placeholder: "Écrivez un message…", send: "Envoyer" },
+    reasoning: { thinking: "Réflexion…", reasoning: "Raisonnement" },
+    toolCall: { running: "En cours…", approve: "Autoriser", reject: "Refuser" },
+    todo: {
+      title: "Tâches",
+      progress: (done, total) => `${done}/${total} terminées`,
+    },
+    confirmation: {
+      required: "Confirmation requise",
+      confirm: "Confirmer",
+      cancel: "Annuler",
+    },
+    messages: { empty: "Aucun message. Démarrez la conversation\u202f!" },
     dateSeparator: {
       today: "Aujourd'hui",
-      yesterday: 'Hier',
+      yesterday: "Hier",
       daysAgo: (n) => `il y a ${n} jours`,
-      older: 'Plus ancien',
+      older: "Plus ancien",
     },
   },
 };
@@ -40,16 +47,16 @@ The library intentionally ships **no i18n runtime** — translations come from y
 `dateSeparator.daysAgo(n)` is a function so you control grammar. For languages with several plural forms (Russian, Arabic, Polish, …) a single template is wrong. Use **`makeDaysAgo(locale, forms)`** — it picks the correct CLDR plural category via `Intl.PluralRules`. Provide a template per category (`one` / `two` / `few` / `many` / `other`); `other` is the required fallback:
 
 ```javascript
-import { makeDaysAgo } from '@bndynet/ichat';
+import { makeDaysAgo } from "@bndynet/ichat";
 
 chat.config = {
-  locale: 'ru',
+  locale: "ru",
   labels: {
     dateSeparator: {
-      today: 'сегодня',
-      yesterday: 'вчера',
-      older: 'ранее',
-      daysAgo: makeDaysAgo('ru', {
+      today: "сегодня",
+      yesterday: "вчера",
+      older: "ранее",
+      daysAgo: makeDaysAgo("ru", {
         one: (n) => `${n} день назад`,
         few: (n) => `${n} дня назад`,
         many: (n) => `${n} дней назад`,

@@ -2,11 +2,15 @@
 
 In-depth design and reference docs. For installation and a runnable quick start, see the [project README](../README.md).
 
+## Framework integration
+
+- [React](./react.md) — ref binding, props on React 19 vs 18, event listening, controlled mode, TypeScript declaration merging, Next.js / SSR.
+
 ## Core concepts
 
 - [Message model](./message-model.md) — message roles (`ChatMessageRole`), common `ChatMessage` fields, and the structured `parts[]` body (factories, streaming/updating).
 - [`<i-chat>` API](./component-api.md) — properties, methods, events, slots, and per-message avatars.
-- [Backend integration](./streaming-integration.md) — streaming patterns using `ChatRunController`: fetch, SSE, WebSocket, NDJSON.
+- [Backend integration](./component-api.md#chatruncontroller) — `ChatRunController`: run lifecycle, streaming deltas, `AbortSignal`, and rejected proposals.
 - [Project roadmap](./roadmap.md) — completed work, backlog, and deprecated compatibility surfaces across the project.
 - [Optimization plan](./optimization-plan.md) — phased plan for performance, DX, extensibility, accessibility, and architecture improvements.
 - [`<i-chat>` message-state refactor plan](./message-state-refactor-plan.md) — staged single-store migration, impact / breaking-change analysis, status, tests, and AI execution protocol.

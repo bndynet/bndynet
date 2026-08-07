@@ -16,12 +16,12 @@ Listen to `busy-change` when extra UI or a custom composer needs the same lock. 
 let busy = chatEl.busy;
 let streaming = false;
 
-chatEl.addEventListener('busy-change', (e) => {
+chatEl.addEventListener("busy-change", (e) => {
   busy = e.detail.busy;
   customSendButton.disabled = busy;
 });
 
-chatEl.addEventListener('streaming-change', (e) => {
+chatEl.addEventListener("streaming-change", (e) => {
   streaming = e.detail.streaming;
   customCancelButton.hidden = !streaming;
 });
@@ -34,20 +34,22 @@ function sendFromCustomInput(content) {
   const text = content.trim();
   if (!text || busy) return;
 
-  customInputEl.dispatchEvent(new CustomEvent('send', {
-    detail: { content: text },
-    bubbles: true,
-    composed: true,
-  }));
+  customInputEl.dispatchEvent(
+    new CustomEvent("send", {
+      detail: { content: text },
+      bubbles: true,
+      composed: true,
+    }),
+  );
 }
 ```
 
 In the host `send` listener, create the streaming assistant placeholder before the first network `await`. This hands the lock from submission preprocessing to streaming without briefly unlocking the composer:
 
 ```javascript
-chatEl.addEventListener('send', async (e) => {
+chatEl.addEventListener("send", async (e) => {
   const run = chatEl.createRunController();
-  run.start([textPart('', { id: 'body', status: 'streaming' })]);
+  run.start([textPart("", { id: "body", status: "streaming" })]);
 
   // Network work starts only after run.start().
   await streamReply(e.detail.content, run);
@@ -57,17 +59,17 @@ chatEl.addEventListener('send', async (e) => {
 Use the same lifecycle for a backend that returns one complete response. `start()` does not require initial parts; it keeps the chat busy while the request is pending, and `complete()` supplies the final message in one update:
 
 ```javascript
-chatEl.addEventListener('send', async (e) => {
+chatEl.addEventListener("send", async (e) => {
   const run = chatEl.createRunController();
   run.start();
 
   try {
     const answer = await fetchReply(e.detail.content);
     run.complete({
-      parts: [textPart(answer, { id: 'body', status: 'complete' })],
+      parts: [textPart(answer, { id: "body", status: "complete" })],
     });
   } catch {
-    run.fail('Request failed');
+    run.fail("Request failed");
   }
 });
 ```
@@ -78,19 +80,19 @@ The demo uses these same `ChatRunController` paths for complete and simulated st
 
 Show quoted content **under** an existing message (e.g. after the user taps Reply in `message-actions`). The component only **renders** these blocks; you still own the composer (`<i-chat-input>` or `slot="input"`).
 
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `replyMessage(id, info?)` | `string` (block key) | Adds a quote block under the message with `id`. Each call **stacks** another block on the same message. `info` is optional display fields (`parts`, `avatar`, `role`, …) — you can pass the `ChatMessage` being quoted. |
-| `clearReplyMessage(idOrKey?)` | — | Message `id` → remove **all** blocks under that message; block `key` from `replyMessage` → remove one block; omit → clear every reply block. No-op when nothing matches. **`removeMessage(id)`** also clears blocks for that `id`. |
+| Method                        | Returns              | Description                                                                                                                                                                                                                        |
+| ----------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `replyMessage(id, info?)`     | `string` (block key) | Adds a quote block under the message with `id`. Each call **stacks** another block on the same message. `info` is optional display fields (`parts`, `avatar`, `role`, …) — you can pass the `ChatMessage` being quoted.            |
+| `clearReplyMessage(idOrKey?)` | —                    | Message `id` → remove **all** blocks under that message; block `key` from `replyMessage` → remove one block; omit → clear every reply block. No-op when nothing matches. **`removeMessage(id)`** also clears blocks for that `id`. |
 
 Blocks reuse `<i-chat-message>` in quote mode (charts, forms, Mermaid fences, etc. still render). Style with `.message-replies`, `.message-reply`, and `.message--reply`.
 
 **`message-action` example** (listen on `<i-chat>`; `detail.message` is the row that was acted on):
 
 ```javascript
-chat.addEventListener('message-action', (e) => {
+chat.addEventListener("message-action", (e) => {
   const { action, message } = e.detail;
-  if (action === 'reply') {
+  if (action === "reply") {
     chat.replyMessage(message.id, {
       id: message.id,
       parts: message.parts,
@@ -98,7 +100,7 @@ chat.addEventListener('message-action', (e) => {
       avatar: message.avatar,
       timestamp: message.timestamp,
     });
-  } else if (action === 'clear-reply') {
+  } else if (action === "clear-reply") {
     chat.clearReplyMessage(message.id);
   }
 });
@@ -150,21 +152,21 @@ When using `<i-chat-input>` directly, the same properties are available:
 
 **If there is no transcript and no red errors in the console**, use **`voice-input` events** (they bubble with `composed: true`, so you can listen on `<i-chat>` or `document`). Expected order after clicking the mic:
 
-| `detail.kind` | Meaning |
-|---------------|---------|
-| `session-started` | `start()` succeeded (`lang` in `detail`). |
-| `recognition-started` | The recognition service actually began listening — if this never fires, the engine did not start. |
-| `result` | (Only if `voice-diagnostics` / `voiceDiagnostics` is on) partial stats while text updates. |
-| `error` | Always emitted for engine errors; check `detail.code` (`no-speech`, `network`, `not-allowed`, …). For `network`, `detail.hint` explains that Chrome needs outbound access to the speech backend. |
-| `session-stopped` | You clicked the button to stop dictation. |
-| `session-ended` | Dictation ended after a fatal error (e.g. `network`, `not-allowed`); the Listening overlay is cleared. |
+| `detail.kind`         | Meaning                                                                                                                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `session-started`     | `start()` succeeded (`lang` in `detail`).                                                                                                                                                        |
+| `recognition-started` | The recognition service actually began listening — if this never fires, the engine did not start.                                                                                                |
+| `result`              | (Only if `voice-diagnostics` / `voiceDiagnostics` is on) partial stats while text updates.                                                                                                       |
+| `error`               | Always emitted for engine errors; check `detail.code` (`no-speech`, `network`, `not-allowed`, …). For `network`, `detail.hint` explains that Chrome needs outbound access to the speech backend. |
+| `session-stopped`     | You clicked the button to stop dictation.                                                                                                                                                        |
+| `session-ended`       | Dictation ended after a fatal error (e.g. `network`, `not-allowed`); the Listening overlay is cleared.                                                                                           |
 
 **`detail.code === 'network'` (Chrome / Edge):** the browser could not reach the **remote speech recognition service** (not a bug in this component). Fix by: using a network that allows that traffic, disabling VPN/proxy that blocks it, trying another network, or using **server-side ASR** instead of Web Speech API for locked-down environments.
 
 Enable extra logging: set **`voice-diagnostics`** on `<i-chat>` or `<i-chat-input>` (property `voiceDiagnostics`). That turns on `console.debug` lines (in Chrome you may need **Default levels → Verbose** to see them).
 
 ```javascript
-document.querySelector('i-chat').addEventListener('voice-input', (e) => {
-  console.log('voice-input', e.detail);
+document.querySelector("i-chat").addEventListener("voice-input", (e) => {
+  console.log("voice-input", e.detail);
 });
 ```

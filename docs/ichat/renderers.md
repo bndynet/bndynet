@@ -14,12 +14,12 @@ Extend the markdown pipeline with custom fenced-code-block renderers, including 
 Prefer **`registerCodeRenderer`** from **`@bndynet/ichat`** so your app does not need to import **`@bndynet/ichat-messages`** just to touch the registry:
 
 ```typescript
-import { registerCodeRenderer } from '@bndynet/ichat';
-import type { BlockRenderer } from '@bndynet/ichat';
+import { registerCodeRenderer } from "@bndynet/ichat";
+import type { BlockRenderer } from "@bndynet/ichat";
 
 const myRenderer: BlockRenderer = {
-  name: 'mylang',
-  test: (lang) => lang === 'mylang',
+  name: "mylang",
+  test: (lang) => lang === "mylang",
   render: (code) => `<pre>${code}</pre>`,
 };
 
@@ -35,15 +35,24 @@ opt into the trusted fast path:
 
 ```typescript
 const escapeHtml = (value: string) =>
-  value.replace(/[&<>"']/g, (character) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-  })[character]!);
+  value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[character]!,
+  );
 
 const trustedRenderer: BlockRenderer = {
-  name: 'my-safe-widget',
-  mode: 'trusted',
-  test: (lang) => lang === 'my-safe-widget',
-  render: (code) => `<my-safe-widget data-code="${escapeHtml(code)}"></my-safe-widget>`,
+  name: "my-safe-widget",
+  mode: "trusted",
+  test: (lang) => lang === "my-safe-widget",
+  render: (code) =>
+    `<my-safe-widget data-code="${escapeHtml(code)}"></my-safe-widget>`,
 };
 ```
 
@@ -60,12 +69,15 @@ removed, so network work can stop without additional host bookkeeping:
 
 ```typescript
 const remoteRenderer: BlockRenderer = {
-  name: 'remote-card',
-  test: (lang) => lang === 'remote-card',
+  name: "remote-card",
+  test: (lang) => lang === "remote-card",
   renderAsync: async (code, _lang, _info, context) => {
-    const response = await fetch(`/api/cards/${encodeURIComponent(code.trim())}`, {
-      signal: context?.signal,
-    });
+    const response = await fetch(
+      `/api/cards/${encodeURIComponent(code.trim())}`,
+      {
+        signal: context?.signal,
+      },
+    );
     return response.text();
   },
 };
@@ -78,11 +90,12 @@ for the bubbling `chat-renderer-error` event on `<i-chat>` or
 `<i-chat-messages>`:
 
 ```typescript
-import type { RendererErrorDetail } from '@bndynet/ichat';
+import type { RendererErrorDetail } from "@bndynet/ichat";
 
-chat.addEventListener('chat-renderer-error', (event) => {
-  const { renderer, phase, error, partId } =
-    (event as CustomEvent<RendererErrorDetail>).detail;
+chat.addEventListener("chat-renderer-error", (event) => {
+  const { renderer, phase, error, partId } = (
+    event as CustomEvent<RendererErrorDetail>
+  ).detail;
   reportToObservability({ renderer, phase, error, partId });
 });
 ```
@@ -108,11 +121,11 @@ All third-party runtimes (`@bndynet/icharts`, `mermaid`, `katex`, `markdown-it`)
 **All renderer packages auto-register on import** — no `registerCodeRenderer` calls needed:
 
 ```typescript
-import '@bndynet/ichat';
-import '@bndynet/ichat-renderers';          // auto-registers kpi, kpis, form
-import '@bndynet/ichat-renderer-chart';     // auto-registers chart
-import '@bndynet/ichat-renderer-mermaid';   // auto-registers mermaid
-import '@bndynet/ichat-renderer-katex';     // auto-registers LaTeX math
+import "@bndynet/ichat";
+import "@bndynet/ichat-renderers"; // auto-registers kpi, kpis, form
+import "@bndynet/ichat-renderer-chart"; // auto-registers chart
+import "@bndynet/ichat-renderer-mermaid"; // auto-registers mermaid
+import "@bndynet/ichat-renderer-katex"; // auto-registers LaTeX math
 ```
 
 > These packages may be imported at startup or lazy-loaded by a route before that route renders matching content.
@@ -120,8 +133,8 @@ import '@bndynet/ichat-renderer-katex';     // auto-registers LaTeX math
 If you need custom options (e.g. disabling code toggles), use the manual API:
 
 ```typescript
-import { registerCodeRenderer } from '@bndynet/ichat';
-import { createChartRenderer } from '@bndynet/ichat-renderer-chart';
+import { registerCodeRenderer } from "@bndynet/ichat";
+import { createChartRenderer } from "@bndynet/ichat-renderer-chart";
 registerCodeRenderer(createChartRenderer({ codeToggle: false }));
 ```
 
@@ -155,8 +168,8 @@ For simple markdown-it plugins that don't need CSS, `registerMarkdownPlugin` is 
 > **Legacy**: Direct access to the `md` instance via `import { md } from '@bndynet/ichat-messages'` still works. For example, `@bndynet/ichat-renderers` ships a `chartPlugin` that you can register directly:
 >
 > ```typescript
-> import { md } from '@bndynet/ichat-messages';
-> import { chartPlugin } from '@bndynet/ichat-renderers';
+> import { md } from "@bndynet/ichat-messages";
+> import { chartPlugin } from "@bndynet/ichat-renderers";
 > md.use(chartPlugin);
 > ```
 >

@@ -55,10 +55,10 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] Plugin API foundation — `ChatPlugin` exposes `install(chat)` + optional teardown, and `chat.use()` accepts both middleware and plugins. Unified lifecycle ownership, duplicate-name handling, and disconnect cleanup remain P0 work below. (Phase 4.3 foundation)
 - [x] Async BlockRenderer — `renderAsync()` for fenced blocks. Placeholder on first render, swapped when promise resolves. `resolveAsyncBlocks()` exported. (Phase 4.2)
 - [x] Renderer runtime isolation — block and string-part renderer failures fall
-  back safely, async work is terminal-only and lifecycle-cancellable, stale
-  results cannot overwrite newer content, and `chat-renderer-error` provides
-  optional observability. Official Chart and Mermaid compatibility is covered
-  in the browser regression benchmark.
+      back safely, async work is terminal-only and lifecycle-cancellable, stale
+      results cannot overwrite newer content, and `chat-renderer-error` provides
+      optional observability. Official Chart and Mermaid compatibility is covered
+      in the browser regression benchmark.
 
 ### Accessibility
 
@@ -70,6 +70,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 - [x] Component tests for `<i-chat-input>` ✅ — Module import, custom element registration, constructor, default property values. (Phase 1.1)
 - [x] Component tests for `<i-chat>` ✅ — Module import, registration, constructor, default properties, method signatures, `ready` promise contract. (Phase 1.1)
+
 ### Documentation
 
 - [x] README updated — ChatRunController, highlight.js, middleware/plugin examples, test scripts. (Phase 7)
@@ -80,7 +81,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 - [x] 🟡 **Deduplicate renderer utils** ✅ (completed 2026-08-03) — Three identical copies of `utils.ts` (+ `icons.ts`/`version.ts`) across `chat-renderers`, `chat-renderer-chart`, `chat-renderer-mermaid` merged into single `renderer-utils.ts` in `chat-messages`. Net: ~540 lines removed.
 - [x] 🟡 **highlight.js → optional peerDep** ✅ (completed 2026-08-03) — Moved from hard dependency to optional peer. Added self-contained `HighlightJs` interface so consumers' TypeScript never needs the package. Without highlight.js: plain `<pre><code>`, no error. `chat-messages` hard deps: 5 → 4.
-- [x] 🟡 **Inline register-*.ts thin wrappers** ✅ (completed 2026-08-03) — Two 10-line files that merely delegated to `@bndynet/ichat-messages` merged into `chat/src/index.ts`. Public API unchanged.
+- [x] 🟡 **Inline register-\*.ts thin wrappers** ✅ (completed 2026-08-03) — Two 10-line files that merely delegated to `@bndynet/ichat-messages` merged into `chat/src/index.ts`. Public API unchanged.
 - [x] 🟡 **Extract confirmation dialog** ✅ (completed 2026-08-03) — `i-chat-confirmation` standalone Lit component with own shadow DOM, styles, and keyboard nav. `chat.ts`: 1088 → 966 lines (-122), `chat.scss`: 202 → 40 lines (-162).
 - [x] 🟡 **Split chat-message.scss** ✅ (completed 2026-08-03) — 707-line monolith split into 3 files: `_chat-message-content.scss` (248), `_chat-message-meta.scss` (211), main file (252). Each partial is self-contained.
 - [x] 🟡 **Extract buildMessagesChangeDetail** ✅ (completed 2026-08-03) — Pure helper in `messages-change-types.ts` shared by both `chat.ts` and `chat-messages.ts`. Eliminates ~25 lines of duplicated detail-building logic.
@@ -95,6 +96,8 @@ Initial review (2026-08-04): **7.2/10 overall**. Post-refactor verification (202
   - **Done when:** initial and runtime external `messages` assignments are immediately visible to every imperative method and `ChatRunController`; adding/updating/removing after an external assignment preserves the full history; parent and standalone child share the same mutation/commit rules; the state core emits plain change data and does not construct DOM `CustomEvent`s.
 - [x] 🔴 **[P0] Make controlled ownership and mode transitions framework-safe** ✅ (completed 2026-08-05) — Controlled changes use a deterministic pending-proposal contract. Sequential mutations and `ChatRunController` streaming build on the latest accepted proposal while framework state propagates asynchronously; exact host write-back reconciles queued versions, unrelated external history replaces them, and `preventDefault()` rejects a proposal. Mode is read live before connection and after runtime changes.
   - **Done when:** setting controlled mode before connection affects pre-`ready` data methods; runtime mode changes take effect on the next mutation; controlled write-back updates the store snapshot; sequential controlled updates remain correct with asynchronous host state propagation; controlled/uncontrolled behavior shares the same store tests.
+- [x] 🔴 **[P0] Keep `ChatRunController` consistent with rejected proposals** ✅ (completed 2026-08-06) — Store mutations report a `ChatMutationOutcome` (`changed` / `accepted`), and the run only advances its lifecycle on an accepted proposal: a rejected `start()` stays `idle` and a rejected `complete()` / `fail()` / `cancel()` stays `streaming` with the signal open and `onCancel` unfired. A no-op is explicitly not a rejection, so a run whose message was removed still reaches a terminal state.
+  - **Done when:** `start`, `complete`, `fail`, and `cancel` each have rejection coverage; a no-op regression test proves runs are never stranded in `streaming`; `run.signal` is aborted when first read after a terminal transition; ports written against the older `void` signature still work.
 - [x] 🟡 **[P1] Decompose components by responsibility** ✅ (completed 2026-08-04) — All three targets extracted: `ChatMessageStore` (state mutation boundary), `ChatFormElement` (521 lines from `form-renderer.ts`, which shrank 622→93), `ScrollController` (160 lines) + `ErrorBannerController` (67 lines) as Lit ReactiveControllers from `chat-messages.ts` (893→793).
 - [x] 🟡 **[P1] Make extracted ReactiveController state observable** ✅ (completed 2026-08-05) — `ScrollController` now uses a private `_applyState()` helper that diffs `autoScroll` / `hasNewContent` and calls `host.requestUpdate()` only when observable state actually changes. `handleScroll()`, `handleScrollToBottom()`, `scrollToBottom()`, `notifyContentChanged()`, `reset()`, and the `ResizeObserver` callback all route through `_applyState()`. The scroll-to-latest button and `hasNewContent` indicator now update immediately without waiting for an unrelated render. Browser tests verify initial defaults, idempotent reset, and public API surface.
   - **Done when:** scrolling back to the bottom, clicking the scroll button, clearing, and content-resize transitions update the button immediately; controller behavior is covered by browser/component tests rather than private-field assertions.
@@ -143,4 +146,4 @@ Initial review (2026-08-04): **7.2/10 overall**. Post-refactor verification (202
 
 ## Compatibility & Deprecation
 
-All deprecated APIs listed in prior versions have been removed in v3. See the [v2→v3 migration guide](./migration-v2-to-v3.md) for replacements.
+All deprecated APIs listed in prior versions have been removed in v3.

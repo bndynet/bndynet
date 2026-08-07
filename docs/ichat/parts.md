@@ -13,15 +13,15 @@ Beyond plain `text`, a message body can carry reasoning blocks, tool-call cards,
 Reasoning is a **`reasoning` part** rendered as a collapsible “thinking” block, separate from the answer `text` part — useful when your backend streams reasoning and answer on different tracks. To show the “Thinking…” state before the first reasoning token, add a streaming reasoning part with empty text. If you have tagged reasoning inside a single string, use `extractReasoning()` from `@bndynet/ichat-messages` to split it, then build the parts yourself.
 
 ```javascript
-import { textPart, reasoningPart } from '@bndynet/ichat';
+import { textPart, reasoningPart } from "@bndynet/ichat";
 
 // `chat` is your `<i-chat>` element
 chat.addMessage({
-  id: '1',
-  role: 'assistant',
+  id: "1",
+  role: "assistant",
   parts: [
-    reasoningPart('Let me calculate step by step…'),
-    textPart('The answer is 42.'),
+    reasoningPart("Let me calculate step by step…"),
+    textPart("The answer is 42."),
   ],
   streaming: true,
 });
@@ -36,48 +36,57 @@ Tool / function invocations are **`tool-call` parts**, rendered as an expandable
 `'input-streaming'` → `'input-available'` → `'executing'` → `'output-available'` \| `'output-error'`.
 
 ```javascript
-const msgId = 'a3';
-chat.addMessage({ id: msgId, role: 'assistant', parts: [], streaming: true, timestamp: Date.now() });
+const msgId = "a3";
+chat.addMessage({
+  id: msgId,
+  role: "assistant",
+  parts: [],
+  streaming: true,
+  timestamp: Date.now(),
+});
 
 // Add the call, then advance its state machine:
 chat.appendPart(msgId, {
-  id: 'tc-1',
-  type: 'tool-call',
-  toolCallId: 'call_1',
-  toolName: 'search_web',
-  args: { q: 'lit web components' },
-  state: 'input-available',
+  id: "tc-1",
+  type: "tool-call",
+  toolCallId: "call_1",
+  toolName: "search_web",
+  args: { q: "lit web components" },
+  state: "input-available",
 });
-chat.updateToolCall(msgId, 'tc-1', { state: 'executing' });
-chat.updateToolCall(msgId, 'tc-1', {
-  state: 'output-available',
+chat.tryUpdateToolCall(msgId, "tc-1", { state: "executing" });
+chat.tryUpdateToolCall(msgId, "tc-1", {
+  state: "output-available",
   durationMs: 1100,
   // `result` (string / JSON) renders as a code block, or use `resultParts`
   // for rich nested output (text + file + custom …):
-  resultParts: [{ id: 'r1', type: 'text', text: 'Found **3 results**.' }],
+  resultParts: [{ id: "r1", type: "text", text: "Found **3 results**." }],
 });
 ```
 
 Use `tryUpdateToolCall()` when the host needs a diagnostic failure reason instead of a boolean:
 
 ```javascript
-const result = chat.tryUpdateToolCall(msgId, 'tc-1', { state: 'executing' });
+const result = chat.tryUpdateToolCall(msgId, "tc-1", { state: "executing" });
 if (!result.ok) {
-  console.warn('Tool update ignored:', result.reason);
+  console.warn("Tool update ignored:", result.reason);
 }
 ```
 
 **Human-in-the-loop approval:** set `approval: 'required'` on a `tool-call` part to render Approve / Reject buttons. The card emits the unified `part-action` event (`kind: 'tool-call'`, `action: 'approve'` or `'reject'`); respond by patching the part:
 
 ```javascript
-chat.addEventListener('part-action', (e) => {
-  if (e.detail.kind !== 'tool-call') return;
+chat.addEventListener("part-action", (e) => {
+  if (e.detail.kind !== "tool-call") return;
   const { action, messageId, partId, payload } = e.detail;
-  if (action === 'approve') {
-    chat.tryUpdateToolCall(messageId, partId, { approval: 'approved', state: 'executing' });
+  if (action === "approve") {
+    chat.tryUpdateToolCall(messageId, partId, {
+      approval: "approved",
+      state: "executing",
+    });
     // …run the tool, then attach the result via tryUpdateToolCall(… { state: 'output-available', result })
   } else {
-    chat.tryUpdateToolCall(messageId, partId, { approval: 'rejected' });
+    chat.tryUpdateToolCall(messageId, partId, { approval: "rejected" });
   }
 });
 ```
@@ -95,26 +104,26 @@ Attachments, citations, and host-defined payloads are first-class **`parts[]` en
 Images (`mediaType` starts with `image/`) render inline as lightweight attachments outside the text bubble. Everything else becomes a download link (`name` or `url` as the label). Supply either **`url`** (HTTP(S) or `data:` URL) or raw **`data`** (base64 without the `data:` prefix).
 
 ```javascript
-import { textPart, nextPartId } from '@bndynet/ichat';
+import { textPart, nextPartId } from "@bndynet/ichat";
 
 chat.addMessage({
-  id: 'a4',
-  role: 'assistant',
+  id: "a4",
+  role: "assistant",
   parts: [
-    textPart('Here is the diagram and the spec:'),
+    textPart("Here is the diagram and the spec:"),
     {
-      id: nextPartId('file'),
-      type: 'file',
-      mediaType: 'image/png',
-      url: 'https://example.com/chart.png',
-      name: 'chart.png',
+      id: nextPartId("file"),
+      type: "file",
+      mediaType: "image/png",
+      url: "https://example.com/chart.png",
+      name: "chart.png",
     },
     {
-      id: nextPartId('file'),
-      type: 'file',
-      mediaType: 'application/pdf',
-      url: 'https://example.com/spec.pdf',
-      name: 'spec.pdf',
+      id: nextPartId("file"),
+      type: "file",
+      mediaType: "application/pdf",
+      url: "https://example.com/spec.pdf",
+      name: "spec.pdf",
       size: 245760,
     },
   ],
@@ -128,16 +137,17 @@ Each `source` part renders a lightweight citation row outside the text bubble, w
 
 ```javascript
 chat.addMessage({
-  id: 'a5',
-  role: 'assistant',
+  id: "a5",
+  role: "assistant",
   parts: [
-    textPart('Based on the docs:'),
+    textPart("Based on the docs:"),
     {
-      id: nextPartId('source'),
-      type: 'source',
-      url: 'https://lit.dev/docs/components/overview/',
-      title: 'Lit – Overview',
-      snippet: 'Lit is a library for building fast, lightweight web components.',
+      id: nextPartId("source"),
+      type: "source",
+      url: "https://lit.dev/docs/components/overview/",
+      title: "Lit – Overview",
+      snippet:
+        "Lit is a library for building fast, lightweight web components.",
     },
   ],
   timestamp: Date.now(),
@@ -150,14 +160,14 @@ When built-in part types are not enough — e.g. a vendor-specific block from yo
 
 ```javascript
 chat.addMessage({
-  id: 'a6',
-  role: 'assistant',
+  id: "a6",
+  role: "assistant",
   parts: [
-    textPart('Current conditions:'),
+    textPart("Current conditions:"),
     {
-      id: nextPartId('x'),
-      type: 'x-weather',
-      data: { city: 'Shanghai', temp: 22, unit: '°C', condition: 'Cloudy' },
+      id: nextPartId("x"),
+      type: "x-weather",
+      data: { city: "Shanghai", temp: 22, unit: "°C", condition: "Cloudy" },
     },
   ],
   timestamp: Date.now(),
@@ -178,25 +188,29 @@ refreshed automatically.
 Provide at least one of `element` / `render`; when both are present, `element` wins.
 
 ```javascript
-import { registerPartRenderer } from '@bndynet/ichat';
+import { registerPartRenderer } from "@bndynet/ichat";
 
 // Element mode: you own the Web Component, the library passes `data` as a property.
 class WeatherCard extends HTMLElement {
-  set data(v) { this._d = v; this.innerHTML = `<div class="wx">${v.city} ${v.temp}${v.unit}</div>`; }
+  set data(v) {
+    this._d = v;
+    this.innerHTML = `<div class="wx">${v.city} ${v.temp}${v.unit}</div>`;
+  }
 }
-customElements.define('x-weather-card', WeatherCard);
+customElements.define("x-weather-card", WeatherCard);
 
 registerPartRenderer({
-  name: 'weather',
-  test: (type) => type === 'x-weather',
-  element: 'x-weather-card',
+  name: "weather",
+  test: (type) => type === "x-weather",
+  element: "x-weather-card",
 });
 
 // String mode alternative:
 registerPartRenderer({
-  name: 'weather-html',
-  test: (type) => type === 'x-weather-html',
-  render: (part) => `<div style="font-weight:600">${part.data.city}: ${part.data.temp}${part.data.unit}</div>`,
+  name: "weather-html",
+  test: (type) => type === "x-weather-html",
+  render: (part) =>
+    `<div style="font-weight:600">${part.data.city}: ${part.data.temp}${part.data.unit}</div>`,
 });
 ```
 
@@ -206,12 +220,12 @@ The library ships only the `registerPartRenderer` capability — you define and 
 
 These are **two different extension points**:
 
-| | **`parts[]` types** (`file`, `source`, `x-*`) | **`registerCodeRenderer`** ([Custom renderers](./renderers.md#custom-renderers)) |
-|--|--|--|
-| **Where it lives** | Top-level entries in `message.parts` | Inside a **`text`** part’s markdown (fenced code block) |
-| **Registration** | Built-in renderers for `file` / `source`; `x-*` via `registerPartRenderer({ name, test, element \| render })` (falls back to JSON when unregistered) | `registerCodeRenderer({ name, test, render })` on the markdown pipeline |
-| **Streaming / updates** | Each part has its own `id` — patch with `updatePart` | Grows with the surrounding `text` part’s markdown stream |
-| **Good for** | Protocol-aligned blocks (files, citations, vendor parts), tool `resultParts` | Charts, KPI cards, forms, Mermaid — content authored as markdown |
+|                         | **`parts[]` types** (`file`, `source`, `x-*`)                                                                                                        | **`registerCodeRenderer`** ([Custom renderers](./renderers.md#custom-renderers)) |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Where it lives**      | Top-level entries in `message.parts`                                                                                                                 | Inside a **`text`** part’s markdown (fenced code block)                          |
+| **Registration**        | Built-in renderers for `file` / `source`; `x-*` via `registerPartRenderer({ name, test, element \| render })` (falls back to JSON when unregistered) | `registerCodeRenderer({ name, test, render })` on the markdown pipeline          |
+| **Streaming / updates** | Each part has its own `id` — patch with `updatePart`                                                                                                 | Grows with the surrounding `text` part’s markdown stream                         |
+| **Good for**            | Protocol-aligned blocks (files, citations, vendor parts), tool `resultParts`                                                                         | Charts, KPI cards, forms, Mermaid — content authored as markdown                 |
 
 Use **`registerCodeRenderer`** when the assistant’s answer is markdown and you want a fenced block (e.g. ` ```chart `). Use **`file` / `source` / `x-*` parts** when your backend already emits structured part arrays (Anthropic content blocks, Vercel AI SDK message parts, etc.) or when a block should update independently of the markdown body.
 

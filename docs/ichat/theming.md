@@ -14,9 +14,9 @@ All visual styles are driven by CSS custom properties. Override them on `:root`,
 
 Built-in pieces that must **track page light/dark** — fenced **`chart`** blocks (ECharts / `@bndynet/icharts`) and fenced **`mermaid`** blocks — all follow the **same** rules on the **document root** (`document.documentElement`, i.e. **`<html>`**):
 
-| Signal | Dark mode |
-|--------|-----------|
-| **`class`** | `<html class="…">` **includes** the token `dark` (e.g. Tailwind / Element Plus style `class="dark"`). |
+| Signal           | Dark mode                                                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **`class`**      | `<html class="…">` **includes** the token `dark` (e.g. Tailwind / Element Plus style `class="dark"`).              |
 | **`data-theme`** | The attribute value **contains the substring** `dark` (e.g. `dark`, `github-dark`, `preferred-color-scheme-dark`). |
 
 If **neither** applies, the page is treated as **light** for these integrations.
@@ -24,8 +24,8 @@ If **neither** applies, the page is treated as **light** for these integrations.
 **Set the contract on `<html>`** so chart and Mermaid stay aligned with your app chrome. Example (JS):
 
 ```js
-document.documentElement.setAttribute('data-theme', 'dark');
-document.documentElement.classList.add('dark');
+document.documentElement.setAttribute("data-theme", "dark");
+document.documentElement.classList.add("dark");
 ```
 
 Toggling **only** `<body>` or a nested wrapper without updating `<html>` may leave charts/Mermaid on the previous palette.
@@ -40,22 +40,22 @@ Toggling **only** `<body>` or a nested wrapper without updating `<html>` may lea
 
 Fenced **`mermaid`** blocks render inside **`<i-chat-mermaid>`**. The renderer uses Mermaid **`theme: 'base'`** and fills **`themeVariables`** from `getComputedStyle(host)` on that element: for each `--chat-mermaid-*` below, if the value is empty after `trim()`, the listed **`--chat-*`** fallbacks are read in order (still on the same host, so inherited `:root` tokens apply). You do **not** need to define `--chat-mermaid-*` unless you want diagram-only overrides.
 
-| Property | Derives from (read order) | Description |
-|----------|---------------------------|-------------|
-| `--chat-mermaid-background` | `--chat-bg` | Diagram canvas / outer background |
-| `--chat-mermaid-text` | `--chat-text` | Primary labels and node text |
-| `--chat-mermaid-text-secondary` | `--chat-text-secondary` | Secondary labels (loops, tertiary text) |
-| `--chat-mermaid-line` | `--chat-border` | Lines, borders, arrows, links |
-| `--chat-mermaid-node-fill` | `--chat-surface-alt` | Primary block fill (first in the shared `node-fill` → `main-fill` → `--chat-surface-alt` chain) |
-| `--chat-mermaid-cluster-fill` | `--chat-surface-alt` | Cluster / subgraph fill |
-| `--chat-mermaid-main-fill` | `--chat-surface` | Second choice in the **same** block-fill chain if `node-fill` is unset (not a separate layer for flowchart nodes) |
-| `--chat-mermaid-tertiary-fill` | `--chat-surface` | Tertiary fills |
-| `--chat-mermaid-primary` | `--chat-primary` | Accent (primary-colored elements) |
-| `--chat-mermaid-primary-contrast` | `--chat-self-text`, `--chat-user-text`, then `--chat-text` | Text on primary-colored shapes |
-| `--chat-mermaid-secondary-fill` | `--chat-primary-light` | Secondary fills (e.g. activation bars) |
-| `--chat-mermaid-note-fill` | `--chat-code-bg` | Note / callout background |
-| `--chat-mermaid-note-text` | `--chat-code-text` | Note / callout text |
-| `--chat-mermaid-edge-label-bg` | `--chat-surface` | Edge label background |
+| Property                          | Derives from (read order)                                  | Description                                                                                                       |
+| --------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `--chat-mermaid-background`       | `--chat-bg`                                                | Diagram canvas / outer background                                                                                 |
+| `--chat-mermaid-text`             | `--chat-text`                                              | Primary labels and node text                                                                                      |
+| `--chat-mermaid-text-secondary`   | `--chat-text-secondary`                                    | Secondary labels (loops, tertiary text)                                                                           |
+| `--chat-mermaid-line`             | `--chat-border`                                            | Lines, borders, arrows, links                                                                                     |
+| `--chat-mermaid-node-fill`        | `--chat-surface-alt`                                       | Primary block fill (first in the shared `node-fill` → `main-fill` → `--chat-surface-alt` chain)                   |
+| `--chat-mermaid-cluster-fill`     | `--chat-surface-alt`                                       | Cluster / subgraph fill                                                                                           |
+| `--chat-mermaid-main-fill`        | `--chat-surface`                                           | Second choice in the **same** block-fill chain if `node-fill` is unset (not a separate layer for flowchart nodes) |
+| `--chat-mermaid-tertiary-fill`    | `--chat-surface`                                           | Tertiary fills                                                                                                    |
+| `--chat-mermaid-primary`          | `--chat-primary`                                           | Accent (primary-colored elements)                                                                                 |
+| `--chat-mermaid-primary-contrast` | `--chat-self-text`, `--chat-user-text`, then `--chat-text` | Text on primary-colored shapes                                                                                    |
+| `--chat-mermaid-secondary-fill`   | `--chat-primary-light`                                     | Secondary fills (e.g. activation bars)                                                                            |
+| `--chat-mermaid-note-fill`        | `--chat-code-bg`                                           | Note / callout background                                                                                         |
+| `--chat-mermaid-note-text`        | `--chat-code-text`                                         | Note / callout text                                                                                               |
+| `--chat-mermaid-edge-label-bg`    | `--chat-surface`                                           | Edge label background                                                                                             |
 
 **Why `mainBkg` / `nodeBkg` / actors look the same:** Mermaid’s flowchart stylesheet uses `themeVariables.mainBkg` for `.node rect` fills, while sequence diagrams use `actorBkg`. The integration resolves one **block** color from `node-fill` → `main-fill` → `--chat-surface-alt`, assigns it to **both** `mainBkg` and `nodeBkg`, and sets `actorBkg` to that value so flowchart and sequence participant boxes stay aligned.
 
@@ -65,64 +65,64 @@ The TypeScript package also exports **`CHAT_MERMAID_TOKEN_NAMES`** from `@bndyne
 
 The library uses a **12 base token** system. Every component-specific token (user bubbles, reasoning, progress, form, input, etc.) automatically derives from these base tokens via `var()` chaining. Most apps only need to set these 12 properties to completely re-theme the UI:
 
-| Token | Light default | Description |
-|-------|---------------|-------------|
-| `--chat-bg` | ![#f7f7f8](https://placehold.co/14x14/f7f7f8/f7f7f8.png) `#f7f7f8` | Container background |
-| `--chat-surface` | ![#ffffff](https://placehold.co/14x14/ffffff/e5e7eb.png) `#ffffff` | Card / bubble surface |
-| `--chat-surface-alt` | ![#f0f2f5](https://placehold.co/14x14/f0f2f5/f0f2f5.png) `#f0f2f5` | Alternate surface (table headers, summaries) |
-| `--chat-border` | ![#e8e8e8](https://placehold.co/14x14/e8e8e8/e8e8e8.png) `#e8e8e8` | Borders and dividers |
-| `--chat-text` | ![#1a1a2e](https://placehold.co/14x14/1a1a2e/1a1a2e.png) `#1a1a2e` | Primary text |
-| `--chat-text-secondary` | ![#6b7280](https://placehold.co/14x14/6b7280/6b7280.png) `#6b7280` | Secondary text (labels) |
-| `--chat-text-muted` | ![#9ca3af](https://placehold.co/14x14/9ca3af/9ca3af.png) `#9ca3af` | Muted text (timestamps, placeholders) |
-| `--chat-primary` | ![#2563eb](https://placehold.co/14x14/2563eb/2563eb.png) `#2563eb` | Accent / brand color |
-| `--chat-primary-light` | ![#dbeafe](https://placehold.co/14x14/dbeafe/dbeafe.png) `#dbeafe` | Light tint of primary |
-| `--chat-error` | ![#ef4444](https://placehold.co/14x14/ef4444/ef4444.png) `#ef4444` | Error / danger color |
-| `--chat-success` | ![#10b981](https://placehold.co/14x14/10b981/10b981.png) `#10b981` | Success color |
-| `--chat-warning` | ![#f59e0b](https://placehold.co/14x14/f59e0b/f59e0b.png) `#f59e0b` | Warning color |
+| Token                   | Light default                                                      | Description                                  |
+| ----------------------- | ------------------------------------------------------------------ | -------------------------------------------- |
+| `--chat-bg`             | ![#f7f7f8](https://placehold.co/14x14/f7f7f8/f7f7f8.png) `#f7f7f8` | Container background                         |
+| `--chat-surface`        | ![#ffffff](https://placehold.co/14x14/ffffff/e5e7eb.png) `#ffffff` | Card / bubble surface                        |
+| `--chat-surface-alt`    | ![#f0f2f5](https://placehold.co/14x14/f0f2f5/f0f2f5.png) `#f0f2f5` | Alternate surface (table headers, summaries) |
+| `--chat-border`         | ![#e8e8e8](https://placehold.co/14x14/e8e8e8/e8e8e8.png) `#e8e8e8` | Borders and dividers                         |
+| `--chat-text`           | ![#1a1a2e](https://placehold.co/14x14/1a1a2e/1a1a2e.png) `#1a1a2e` | Primary text                                 |
+| `--chat-text-secondary` | ![#6b7280](https://placehold.co/14x14/6b7280/6b7280.png) `#6b7280` | Secondary text (labels)                      |
+| `--chat-text-muted`     | ![#9ca3af](https://placehold.co/14x14/9ca3af/9ca3af.png) `#9ca3af` | Muted text (timestamps, placeholders)        |
+| `--chat-primary`        | ![#2563eb](https://placehold.co/14x14/2563eb/2563eb.png) `#2563eb` | Accent / brand color                         |
+| `--chat-primary-light`  | ![#dbeafe](https://placehold.co/14x14/dbeafe/dbeafe.png) `#dbeafe` | Light tint of primary                        |
+| `--chat-error`          | ![#ef4444](https://placehold.co/14x14/ef4444/ef4444.png) `#ef4444` | Error / danger color                         |
+| `--chat-success`        | ![#10b981](https://placehold.co/14x14/10b981/10b981.png) `#10b981` | Success color                                |
+| `--chat-warning`        | ![#f59e0b](https://placehold.co/14x14/f59e0b/f59e0b.png) `#f59e0b` | Warning color                                |
 
 ## How derivation works
 
 Component-specific tokens chain to base tokens. You can override any component token for fine-grained control, but you don't have to:
 
-| Component token | Derives from |
-|----------------|--------------|
-| `--chat-user-bg` | `--chat-primary` |
-| `--chat-assistant-bg` | `--chat-surface` |
-| `--chat-assistant-text` | `--chat-text` |
-| `--chat-peer-bg` | `--chat-surface` |
-| `--chat-reasoning-bg` | `--chat-primary-light` |
-| `--chat-reasoning-text` | `--chat-primary` |
-| `--chat-reasoning-border` | `color-mix(--chat-primary, --chat-border)` |
-| `--chat-panel-bg` | `--chat-surface` |
-| `--chat-panel-border` | `color-mix(--chat-border, --chat-surface)` |
-| `--chat-panel-radius` | `--chat-radius` |
-| `--chat-panel-shadow` | component default |
-| `--chat-error-color` | `--chat-error` |
-| `--chat-error-bg` | `color-mix(--chat-error, --chat-surface)` |
-| `--chat-progress-done` | `--chat-success` |
-| `--chat-progress-error` | `--chat-error` |
-| `--chat-kpi-trend-up` | `--chat-success` |
-| `--chat-kpi-trend-down` | `--chat-error` |
-| `--chat-input-bg` | `--chat-surface` |
-| `--chat-input-border` | `--chat-border` |
-| `--chat-input-text` | `--chat-text` |
-| `--chat-input-primary` | `--chat-primary` |
-| `--chat-input-primary-hover` | `--chat-primary-hover`, then derived from `--chat-primary` |
-| `--chat-mermaid-background` | `--chat-bg` |
-| `--chat-mermaid-text` | `--chat-text` |
-| `--chat-mermaid-text-secondary` | `--chat-text-secondary` |
-| `--chat-mermaid-line` | `--chat-border` |
-| `--chat-mermaid-node-fill` | `--chat-surface-alt` |
-| `--chat-mermaid-cluster-fill` | `--chat-surface-alt` |
-| `--chat-mermaid-main-fill` | `--chat-surface`, then `--chat-surface-alt` (after `node-fill` in the shared block-fill chain) |
-| `--chat-mermaid-tertiary-fill` | `--chat-surface` |
-| `--chat-mermaid-primary` | `--chat-primary` |
-| `--chat-mermaid-primary-contrast` | `--chat-self-text`, `--chat-user-text`, `--chat-text` |
-| `--chat-mermaid-secondary-fill` | `--chat-primary-light` |
-| `--chat-mermaid-note-fill` | `--chat-code-bg` |
-| `--chat-mermaid-note-text` | `--chat-code-text` |
-| `--chat-mermaid-edge-label-bg` | `--chat-surface` |
-| `--chat-form-*` | Various `--chat-*` base tokens |
+| Component token                   | Derives from                                                                                   |
+| --------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `--chat-user-bg`                  | `--chat-primary`                                                                               |
+| `--chat-assistant-bg`             | `--chat-surface`                                                                               |
+| `--chat-assistant-text`           | `--chat-text`                                                                                  |
+| `--chat-peer-bg`                  | `--chat-surface`                                                                               |
+| `--chat-reasoning-bg`             | `--chat-primary-light`                                                                         |
+| `--chat-reasoning-text`           | `--chat-primary`                                                                               |
+| `--chat-reasoning-border`         | `color-mix(--chat-primary, --chat-border)`                                                     |
+| `--chat-panel-bg`                 | `--chat-surface`                                                                               |
+| `--chat-panel-border`             | `color-mix(--chat-border, --chat-surface)`                                                     |
+| `--chat-panel-radius`             | `--chat-radius`                                                                                |
+| `--chat-panel-shadow`             | component default                                                                              |
+| `--chat-error-color`              | `--chat-error`                                                                                 |
+| `--chat-error-bg`                 | `color-mix(--chat-error, --chat-surface)`                                                      |
+| `--chat-progress-done`            | `--chat-success`                                                                               |
+| `--chat-progress-error`           | `--chat-error`                                                                                 |
+| `--chat-kpi-trend-up`             | `--chat-success`                                                                               |
+| `--chat-kpi-trend-down`           | `--chat-error`                                                                                 |
+| `--chat-input-bg`                 | `--chat-surface`                                                                               |
+| `--chat-input-border`             | `--chat-border`                                                                                |
+| `--chat-input-text`               | `--chat-text`                                                                                  |
+| `--chat-input-primary`            | `--chat-primary`                                                                               |
+| `--chat-input-primary-hover`      | `--chat-primary-hover`, then derived from `--chat-primary`                                     |
+| `--chat-mermaid-background`       | `--chat-bg`                                                                                    |
+| `--chat-mermaid-text`             | `--chat-text`                                                                                  |
+| `--chat-mermaid-text-secondary`   | `--chat-text-secondary`                                                                        |
+| `--chat-mermaid-line`             | `--chat-border`                                                                                |
+| `--chat-mermaid-node-fill`        | `--chat-surface-alt`                                                                           |
+| `--chat-mermaid-cluster-fill`     | `--chat-surface-alt`                                                                           |
+| `--chat-mermaid-main-fill`        | `--chat-surface`, then `--chat-surface-alt` (after `node-fill` in the shared block-fill chain) |
+| `--chat-mermaid-tertiary-fill`    | `--chat-surface`                                                                               |
+| `--chat-mermaid-primary`          | `--chat-primary`                                                                               |
+| `--chat-mermaid-primary-contrast` | `--chat-self-text`, `--chat-user-text`, `--chat-text`                                          |
+| `--chat-mermaid-secondary-fill`   | `--chat-primary-light`                                                                         |
+| `--chat-mermaid-note-fill`        | `--chat-code-bg`                                                                               |
+| `--chat-mermaid-note-text`        | `--chat-code-text`                                                                             |
+| `--chat-mermaid-edge-label-bg`    | `--chat-surface`                                                                               |
+| `--chat-form-*`                   | Various `--chat-*` base tokens                                                                 |
 
 ## Quick example — dark theme
 
@@ -130,26 +130,27 @@ With the 12-token architecture, a dark theme only needs the base tokens plus any
 
 ```css
 :root[data-theme="dark"] {
-  --chat-bg:            #242526;
-  --chat-surface:       #1b1b1d;
-  --chat-surface-alt:   rgba(255, 255, 255, 0.07);
-  --chat-border:        #444950;
-  --chat-text:          #e3e3e3;
+  --chat-bg: #242526;
+  --chat-surface: #1b1b1d;
+  --chat-surface-alt: rgba(255, 255, 255, 0.07);
+  --chat-border: #444950;
+  --chat-text: #e3e3e3;
   --chat-text-secondary: #bec3c9;
-  --chat-text-muted:    #8d9295;
-  --chat-primary:       #3578e5;
+  --chat-text-muted: #8d9295;
+  --chat-primary: #3578e5;
   --chat-primary-light: rgba(53, 120, 229, 0.18);
-  --chat-error:         #f56c6c;
-  --chat-success:       #67c23a;
-  --chat-warning:       #e6a23c;
+  --chat-error: #f56c6c;
+  --chat-success: #67c23a;
+  --chat-warning: #e6a23c;
 
   /* Design constants (not derived from base) */
   --chat-primary-hover: #538ce9;
-  --chat-code-bg:       #1c1e21;
-  --chat-code-text:     #e3e3e3;
+  --chat-code-bg: #1c1e21;
+  --chat-code-text: #e3e3e3;
   --chat-code-inline-bg: rgba(255, 255, 255, 0.1);
-  --chat-shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.16);
-  --chat-shadow-md:     0 4px 12px rgba(0, 0, 0, 0.12), 0 12px 28px rgba(0, 0, 0, 0.1);
+  --chat-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.16);
+  --chat-shadow-md:
+    0 4px 12px rgba(0, 0, 0, 0.12), 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 ```
 
@@ -161,160 +162,160 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 
 ### Typography
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-font-family` | system stack | Primary font family |
-| `--chat-font-mono` | `SF Mono, Consolas, …` | Monospace font for code |
-| `--chat-font-size` | `0.9375rem` | Base font size |
-| `--chat-font-size-sm` | `0.8125rem` | Small text (timestamps, labels, code blocks) |
-| `--chat-font-size-lg` | `1rem` | Large text (empty state) |
-| `--chat-line-height` | `1.6` | Base line height for message text |
+| Property              | Default                | Description                                  |
+| --------------------- | ---------------------- | -------------------------------------------- |
+| `--chat-font-family`  | system stack           | Primary font family                          |
+| `--chat-font-mono`    | `SF Mono, Consolas, …` | Monospace font for code                      |
+| `--chat-font-size`    | `0.9375rem`            | Base font size                               |
+| `--chat-font-size-sm` | `0.8125rem`            | Small text (timestamps, labels, code blocks) |
+| `--chat-font-size-lg` | `1rem`                 | Large text (empty state)                     |
+| `--chat-line-height`  | `1.6`                  | Base line height for message text            |
 
 ### Colors — 12 Base Tokens
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-bg` | `#f7f7f8` | Container background |
-| `--chat-surface` | `#ffffff` | Elevated surface (bubbles, scroll button, cards) |
-| `--chat-surface-alt` | `#f0f2f5` | Alternative surface (table headers, charts, action hover) |
-| `--chat-border` | `#e8e8e8` | Borders, dividers, scrollbar thumb |
-| `--chat-text` | `#1a1a2e` | Primary text color |
-| `--chat-text-secondary` | `#6b7280` | Secondary text (labels, blockquote) |
-| `--chat-text-muted` | `#9ca3af` | Muted text (timestamps, placeholders) |
-| `--chat-primary` | `#2563eb` | Accent / link color, typing cursor |
-| `--chat-primary-light` | `#dbeafe` | Light tint of primary (reasoning bg, highlights) |
-| `--chat-error` | `#ef4444` | Error / danger color |
-| `--chat-success` | `#10b981` | Success color (progress done, KPI trend up) |
-| `--chat-warning` | `#f59e0b` | Warning color |
+| Property                | Default   | Description                                               |
+| ----------------------- | --------- | --------------------------------------------------------- |
+| `--chat-bg`             | `#f7f7f8` | Container background                                      |
+| `--chat-surface`        | `#ffffff` | Elevated surface (bubbles, scroll button, cards)          |
+| `--chat-surface-alt`    | `#f0f2f5` | Alternative surface (table headers, charts, action hover) |
+| `--chat-border`         | `#e8e8e8` | Borders, dividers, scrollbar thumb                        |
+| `--chat-text`           | `#1a1a2e` | Primary text color                                        |
+| `--chat-text-secondary` | `#6b7280` | Secondary text (labels, blockquote)                       |
+| `--chat-text-muted`     | `#9ca3af` | Muted text (timestamps, placeholders)                     |
+| `--chat-primary`        | `#2563eb` | Accent / link color, typing cursor                        |
+| `--chat-primary-light`  | `#dbeafe` | Light tint of primary (reasoning bg, highlights)          |
+| `--chat-error`          | `#ef4444` | Error / danger color                                      |
+| `--chat-success`        | `#10b981` | Success color (progress done, KPI trend up)               |
+| `--chat-warning`        | `#f59e0b` | Warning color                                             |
 
 ### Colors — Self bubble (`role: self`)
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-self-bg` | `= --chat-user-bg` | Self message background |
-| `--chat-self-text` | `= --chat-user-text` | Self message text |
-| `--chat-user-bg` | `= --chat-primary` | User bubble background (derives from primary) |
-| `--chat-user-text` | `#ffffff` | User bubble text (inverted) |
-| `--chat-avatar-user-bg` | chain | Self avatar ring (`--chat-avatar-bg` then default) |
-| `--chat-self-code-inline-bg` | chain | Inline code inside self bubble |
+| Property                     | Default              | Description                                        |
+| ---------------------------- | -------------------- | -------------------------------------------------- |
+| `--chat-self-bg`             | `= --chat-user-bg`   | Self message background                            |
+| `--chat-self-text`           | `= --chat-user-text` | Self message text                                  |
+| `--chat-user-bg`             | `= --chat-primary`   | User bubble background (derives from primary)      |
+| `--chat-user-text`           | `#ffffff`            | User bubble text (inverted)                        |
+| `--chat-avatar-user-bg`      | chain                | Self avatar ring (`--chat-avatar-bg` then default) |
+| `--chat-self-code-inline-bg` | chain                | Inline code inside self bubble                     |
 
 ### Colors — Peer bubble (`role: peer`)
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-peer-bg` | `= --chat-surface` | Peer message background (via `--chat-assistant-bg`) |
-| `--chat-peer-text` | `= --chat-text` | Peer message text (via `--chat-assistant-text`) |
-| `--chat-avatar-peer-bg` | chain | Peer avatar ring (`--chat-avatar-bg` then default) |
-| `--chat-peer-code-inline-bg` | `= --chat-code-inline-bg` | Inline code inside peer bubble |
+| Property                     | Default                   | Description                                         |
+| ---------------------------- | ------------------------- | --------------------------------------------------- |
+| `--chat-peer-bg`             | `= --chat-surface`        | Peer message background (via `--chat-assistant-bg`) |
+| `--chat-peer-text`           | `= --chat-text`           | Peer message text (via `--chat-assistant-text`)     |
+| `--chat-avatar-peer-bg`      | chain                     | Peer avatar ring (`--chat-avatar-bg` then default)  |
+| `--chat-peer-code-inline-bg` | `= --chat-code-inline-bg` | Inline code inside peer bubble                      |
 
 ### Colors — Assistant bubble
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-assistant-bg` | `= --chat-surface` | Assistant message background |
-| `--chat-assistant-text` | `= --chat-text` | Assistant message text |
-| `--chat-avatar-assistant-bg` | chain | Assistant avatar (`--chat-avatar-bg` then default) |
+| Property                     | Default            | Description                                        |
+| ---------------------------- | ------------------ | -------------------------------------------------- |
+| `--chat-assistant-bg`        | `= --chat-surface` | Assistant message background                       |
+| `--chat-assistant-text`      | `= --chat-text`    | Assistant message text                             |
+| `--chat-avatar-assistant-bg` | chain              | Assistant avatar (`--chat-avatar-bg` then default) |
 
 ### Colors — Avatars (system + shared)
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-avatar-system-bg` | chain | System message avatar (`--chat-avatar-bg` then default) |
-| `--chat-avatar-system-text` | chain | System avatar glyph color |
-| `--chat-avatar-bg` | `= --chat-surface-alt` | Shared avatar background when role token is unset |
-| `--chat-avatar-text` | `= --chat-text-secondary` | Shared avatar glyph color when role token is unset |
+| Property                    | Default                   | Description                                             |
+| --------------------------- | ------------------------- | ------------------------------------------------------- |
+| `--chat-avatar-system-bg`   | chain                     | System message avatar (`--chat-avatar-bg` then default) |
+| `--chat-avatar-system-text` | chain                     | System avatar glyph color                               |
+| `--chat-avatar-bg`          | `= --chat-surface-alt`    | Shared avatar background when role token is unset       |
+| `--chat-avatar-text`        | `= --chat-text-secondary` | Shared avatar glyph color when role token is unset      |
 
 ### Colors — Reasoning
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-reasoning-bg` | derived | Thought summary background (subtle mix of surface + primary) |
-| `--chat-reasoning-border` | derived | Thought summary border (mix of `--chat-border` and `--chat-primary`) |
-| `--chat-reasoning-text` | `= --chat-text-secondary` | Thought summary header text |
-| `--chat-reasoning-accent` | `= --chat-primary` | Left rail, icon, and thinking dots |
-| `--chat-reasoning-header-hover-bg` | derived | Reasoning header hover overlay |
-| `--chat-reasoning-content-max-height` | `260px` | Expanded reasoning body max height before internal scroll |
+| Property                              | Default                   | Description                                                          |
+| ------------------------------------- | ------------------------- | -------------------------------------------------------------------- |
+| `--chat-reasoning-bg`                 | derived                   | Thought summary background (subtle mix of surface + primary)         |
+| `--chat-reasoning-border`             | derived                   | Thought summary border (mix of `--chat-border` and `--chat-primary`) |
+| `--chat-reasoning-text`               | `= --chat-text-secondary` | Thought summary header text                                          |
+| `--chat-reasoning-accent`             | `= --chat-primary`        | Left rail, icon, and thinking dots                                   |
+| `--chat-reasoning-header-hover-bg`    | derived                   | Reasoning header hover overlay                                       |
+| `--chat-reasoning-content-max-height` | `260px`                   | Expanded reasoning body max height before internal scroll            |
 
 ### Colors — Code (design constant)
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-code-bg` | `#1e1e2e` | Code block background |
-| `--chat-code-text` | `#cdd6f4` | Code block text |
-| `--chat-code-inline-bg` | `rgba(0,0,0,0.06)` | Inline code background |
+| Property                     | Default                  | Description                    |
+| ---------------------------- | ------------------------ | ------------------------------ |
+| `--chat-code-bg`             | `#1e1e2e`                | Code block background          |
+| `--chat-code-text`           | `#cdd6f4`                | Code block text                |
+| `--chat-code-inline-bg`      | `rgba(0,0,0,0.06)`       | Inline code background         |
 | `--chat-user-code-inline-bg` | `rgba(255,255,255,0.15)` | Inline code inside self bubble |
 
 ### Colors — Status (derived from base)
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-error-color` | `= --chat-error` | Error text color |
-| `--chat-error-bg` | derived | Error background (mix of `--chat-error` and `--chat-surface`) |
-| `--chat-progress-done` | `= --chat-success` | Progress done step indicator |
-| `--chat-progress-active` | `= --chat-primary` | Progress active step indicator |
-| `--chat-progress-error` | `= --chat-error` | Progress error step indicator |
-| `--chat-kpi-trend-up` | `= --chat-success` | KPI positive trend color |
-| `--chat-kpi-trend-down` | `= --chat-error` | KPI negative trend color |
+| Property                 | Default            | Description                                                   |
+| ------------------------ | ------------------ | ------------------------------------------------------------- |
+| `--chat-error-color`     | `= --chat-error`   | Error text color                                              |
+| `--chat-error-bg`        | derived            | Error background (mix of `--chat-error` and `--chat-surface`) |
+| `--chat-progress-done`   | `= --chat-success` | Progress done step indicator                                  |
+| `--chat-progress-active` | `= --chat-primary` | Progress active step indicator                                |
+| `--chat-progress-error`  | `= --chat-error`   | Progress error step indicator                                 |
+| `--chat-kpi-trend-up`    | `= --chat-success` | KPI positive trend color                                      |
+| `--chat-kpi-trend-down`  | `= --chat-error`   | KPI negative trend color                                      |
 
 ### Colors — Misc
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-primary-hover` | derived | Primary action hover color |
-| `--chat-panel-bg` | `= --chat-surface` | Shared embedded panel background |
-| `--chat-panel-border` | derived | Shared embedded panel border (mix of `--chat-border` and `--chat-surface`) |
-| `--chat-disclosure-header-bg` | `= --chat-surface-alt` | Shared header background for collapsible panels |
-| `--chat-disclosure-header-hover-bg` | subtly derived | Shared hover background for collapsible panel headers |
-| `--chat-disclosure-body-bg` | `transparent` | Shared body background for collapsible panels |
-| `--chat-blockquote-bg` | `rgba(0,0,0,0.02)` | Blockquote background |
-| `--chat-chart-bar-track-bg` | `rgba(0,0,0,0.04)` | Chart bar track background |
+| Property                            | Default                | Description                                                                |
+| ----------------------------------- | ---------------------- | -------------------------------------------------------------------------- |
+| `--chat-primary-hover`              | derived                | Primary action hover color                                                 |
+| `--chat-panel-bg`                   | `= --chat-surface`     | Shared embedded panel background                                           |
+| `--chat-panel-border`               | derived                | Shared embedded panel border (mix of `--chat-border` and `--chat-surface`) |
+| `--chat-disclosure-header-bg`       | `= --chat-surface-alt` | Shared header background for collapsible panels                            |
+| `--chat-disclosure-header-hover-bg` | subtly derived         | Shared hover background for collapsible panel headers                      |
+| `--chat-disclosure-body-bg`         | `transparent`          | Shared body background for collapsible panels                              |
+| `--chat-blockquote-bg`              | `rgba(0,0,0,0.02)`     | Blockquote background                                                      |
+| `--chat-chart-bar-track-bg`         | `rgba(0,0,0,0.04)`     | Chart bar track background                                                 |
 
 ### Spacing
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-spacing-xs` | `4px` | Extra-small gap |
-| `--chat-spacing-sm` | `8px` | Small gap |
-| `--chat-spacing-md` | `16px` | Medium gap (default padding) |
-| `--chat-spacing-lg` | `24px` | Large gap (message list padding) |
-| `--chat-spacing-xl` | `32px` | Extra-large gap |
+| Property            | Default | Description                      |
+| ------------------- | ------- | -------------------------------- |
+| `--chat-spacing-xs` | `4px`   | Extra-small gap                  |
+| `--chat-spacing-sm` | `8px`   | Small gap                        |
+| `--chat-spacing-md` | `16px`  | Medium gap (default padding)     |
+| `--chat-spacing-lg` | `24px`  | Large gap (message list padding) |
+| `--chat-spacing-xl` | `32px`  | Extra-large gap                  |
 
 ### Border radius
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-radius-sm` | `6px` | Small radius (bubble tail, code, images) |
-| `--chat-radius` | `12px` | Medium radius (containers and larger panels) |
-| `--chat-radius-lg` | `18px` | Large radius (message bubbles) |
-| `--chat-panel-radius` | `= --chat-radius` | Shared embedded panel radius |
-| `--chat-disclosure-radius` | `6px` | Shared compact radius for collapsible panels |
+| Property                   | Default           | Description                                  |
+| -------------------------- | ----------------- | -------------------------------------------- |
+| `--chat-radius-sm`         | `6px`             | Small radius (bubble tail, code, images)     |
+| `--chat-radius`            | `12px`            | Medium radius (containers and larger panels) |
+| `--chat-radius-lg`         | `18px`            | Large radius (message bubbles)               |
+| `--chat-panel-radius`      | `= --chat-radius` | Shared embedded panel radius                 |
+| `--chat-disclosure-radius` | `6px`             | Shared compact radius for collapsible panels |
 
 ### Shadows
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Assistant bubble shadow |
-| `--chat-shadow-md` | `0 4px 12px rgba(0,0,0,0.08)` | Scroll-to-bottom button shadow |
-| `--chat-panel-shadow` | component default | Shared embedded panel shadow |
+| Property              | Default                       | Description                    |
+| --------------------- | ----------------------------- | ------------------------------ |
+| `--chat-shadow-sm`    | `0 1px 2px rgba(0,0,0,0.05)`  | Assistant bubble shadow        |
+| `--chat-shadow-md`    | `0 4px 12px rgba(0,0,0,0.08)` | Scroll-to-bottom button shadow |
+| `--chat-panel-shadow` | component default             | Shared embedded panel shadow   |
 
 ### Transitions
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-transition-fast` | `150ms ease` | Fast hover/press transitions |
+| Property                   | Default      | Description                                           |
+| -------------------------- | ------------ | ----------------------------------------------------- |
+| `--chat-transition-fast`   | `150ms ease` | Fast hover/press transitions                          |
 | `--chat-transition-normal` | `250ms ease` | Normal transitions (message appear, reasoning toggle) |
 
 ### Layout
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--chat-avatar-size` | `32px` | Avatar width & height |
-| `--chat-message-max-width` | `85%` | Max width of a single message row |
-| `--chat-messages-max-width` | `100%` | Max width of the message list inner area (fills host; override e.g. `800px` or `min(100%, 48rem)` for a centered reading column) |
-| `--chat-bubble-block-end-gap` | `= --chat-spacing-sm` | Extra space below a message bubble before following parts or footer metadata |
-| `--chat-disclosure-header-height` | `32px` | Shared compact header height for collapsible panels |
-| `--chat-todo-item-min-height` | `32px` | Compact minimum row height for each todo item |
-| `--chat-scrollbar-width` | `6px` | Scrollbar width (WebKit) |
+| Property                          | Default               | Description                                                                                                                      |
+| --------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--chat-avatar-size`              | `32px`                | Avatar width & height                                                                                                            |
+| `--chat-message-max-width`        | `85%`                 | Max width of a single message row                                                                                                |
+| `--chat-messages-max-width`       | `100%`                | Max width of the message list inner area (fills host; override e.g. `800px` or `min(100%, 48rem)` for a centered reading column) |
+| `--chat-bubble-block-end-gap`     | `= --chat-spacing-sm` | Extra space below a message bubble before following parts or footer metadata                                                     |
+| `--chat-disclosure-header-height` | `32px`                | Shared compact header height for collapsible panels                                                                              |
+| `--chat-todo-item-min-height`     | `32px`                | Compact minimum row height for each todo item                                                                                    |
+| `--chat-scrollbar-width`          | `6px`                 | Scrollbar width (WebKit)                                                                                                         |
 
 ## Minimal override set
 
