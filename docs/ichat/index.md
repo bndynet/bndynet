@@ -69,8 +69,8 @@ Drop in `<i-chat>` and wire one streaming response with **`createRunController()
     run.start([textPart("", { id: "body", status: "streaming" })]);
 
     try {
-      // TODO: replace with your fetch/SSE/WebSocket/SDK adapter — it yields
-      // text chunks and should pass `run.signal` to the request.
+      // Replace with your AI provider — paste-and-run quickstart:
+      // https://github.com/bndynet/ichat/blob/main/docs/backend-quickstart.md
       for await (const chunk of streamAssistantReply(e.detail.content, {
         signal: run.signal,
       })) {
@@ -361,18 +361,19 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 
 Detailed design and reference docs live in [`docs/`](./README.md):
 
-| Doc                                         | Covers                                                                                                       |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [React integration](./react.md)          | Ref binding, props (React 19 vs ≤ 18), event listening, controlled mode, TS declaration merging, Next.js/SSR |
-| [Message model](./message-model.md)      | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating           |
-| [`<i-chat>` API](./component-api.md)     | Properties, methods, events, slots, confirmations, highlight.js, ChatRunController, middleware               |
-| [Parts](./parts.md)                      | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts                                           |
-| [Custom renderers](./renderers.md)       | `registerCodeRenderer` + built-in chart / KPI / form / Mermaid renderers                                     |
-| [Progress](./progress.md)                | `[status]` lists, block IDs, programmatic updates                                                            |
-| [Todo panel](./todo.md)                  | Structured items, collapse behavior, status events, updates                                                  |
-| [Theming](./theming.md)                  | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference                          |
-| [Localization (i18n)](./localization.md) | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL                                              |
-| [Composer & interaction](./composer.md)  | Streaming, reply blocks, voice input                                                                         |
+| Doc                                              | Covers                                                                                                       |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| [React integration](./react.md)               | Ref binding, props (React 19 vs ≤ 18), event listening, controlled mode, TS declaration merging, Next.js/SSR |
+| [Backend quickstart](./backend-quickstart.md) | Copy-paste adapters for OpenAI, Anthropic, Ollama, and custom SSE/WebSocket backends                         |
+| [Message model](./message-model.md)           | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating           |
+| [`<i-chat>` API](./component-api.md)          | Properties, methods, events, slots, confirmations, highlight.js, ChatRunController, middleware               |
+| [Parts](./parts.md)                           | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts                                           |
+| [Custom renderers](./renderers.md)            | `registerCodeRenderer` + built-in chart / KPI / form / Mermaid renderers                                     |
+| [Progress](./progress.md)                     | `[status]` lists, block IDs, programmatic updates                                                            |
+| [Todo panel](./todo.md)                       | Structured items, collapse behavior, status events, updates                                                  |
+| [Theming](./theming.md)                       | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference                          |
+| [Localization (i18n)](./localization.md)      | `config.locale` / `config.labels`, plurals (`makeDaysAgo`), RTL                                              |
+| [Composer & interaction](./composer.md)       | Streaming, reply blocks, voice input                                                                         |
 
 ## Development
 

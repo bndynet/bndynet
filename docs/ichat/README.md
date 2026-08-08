@@ -11,6 +11,7 @@ In-depth design and reference docs. For installation and a runnable quick start,
 - [Message model](./message-model.md) — message roles (`ChatMessageRole`), common `ChatMessage` fields, and the structured `parts[]` body (factories, streaming/updating).
 - [`<i-chat>` API](./component-api.md) — properties, methods, events, slots, and per-message avatars.
 - [Backend integration](./component-api.md#chatruncontroller) — `ChatRunController`: run lifecycle, streaming deltas, `AbortSignal`, and rejected proposals.
+- [Backend quickstart](./backend-quickstart.md) — copy-paste adapters for OpenAI, Anthropic, Ollama, and custom SSE/WebSocket backends.
 - [Project roadmap](./roadmap.md) — completed work, backlog, and deprecated compatibility surfaces across the project.
 - [Optimization plan](./optimization-plan.md) — phased plan for performance, DX, extensibility, accessibility, and architecture improvements.
 - [`<i-chat>` message-state refactor plan](./message-state-refactor-plan.md) — staged single-store migration, impact / breaking-change analysis, status, tests, and AI execution protocol.
