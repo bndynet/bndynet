@@ -16,7 +16,7 @@ Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-bloc
 | [`@bndynet/ichat-renderer-katex`](packages/chat-renderer-katex)     | LaTeX math: `$inline$` and `$$display$$` via KaTeX.                                                                                                                                           |
 | [`@bndynet/ichat-renderer-mermaid`](packages/chat-renderer-mermaid) | Mermaid diagram fences with theme-aware dark/light mode.                                                                                                                                      |
 
-> **Zero-config install:** all third-party deps (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `katex`, `mermaid`, `@bndynet/icharts`) are auto-installed by npm — no manual peer-dependency hunting.
+> **Zero-config install:** all third-party deps (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `@lit-labs/virtualizer`, `katex`, `mermaid`, `@bndynet/icharts`) are auto-installed by npm — no manual peer-dependency hunting.
 
 ---
 
@@ -349,6 +349,7 @@ The demo app registers **`@bndynet/ichat-renderers`** in **`apps/demo/bootstrap.
 - **Reasoning parts** — collapsible “thinking” UI + streaming ([Parts](./parts.md#reasoning))
 - **Tool calls** — first-class `tool-call` parts with a state machine, rich nested results, and human-in-the-loop approval ([Parts](./parts.md#tool-calls))
 - **Streaming typewriter** — progressive reveal and cursor state on streaming `text` parts ([Composer & interaction](./composer.md#busy-and-streaming))
+- **Virtual scrolling** — `config.virtualScroll` keeps only visible rows in the DOM for long histories; `'auto'` by default (engages above 500 messages), lazily loaded with a regular-list fallback ([`<i-chat>` API](./component-api.md#optional-virtual-scrolling))
 - **Reply blocks** — quote previews under a message via **`replyMessage`** / **`clearReplyMessage`** ([Composer & interaction](./composer.md#reply-blocks))
 - **Slots** — avatars, actions, empty state ([`<i-chat>` API](./component-api.md#slots-on-i-chat))
 - **Progress** — `[status]` markdown lists rendered as vertical progress blocks ([Progress](./progress.md))

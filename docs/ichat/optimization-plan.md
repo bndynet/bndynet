@@ -8,18 +8,19 @@
 
 ### 2.1 Virtual scrolling
 
-- [ ] Integrate `@lit-labs/virtualizer` (Lit's official virtual scroller) into `<i-chat-messages>`
-  - Wrap `repeat` directive with `<lit-virtualizer>`
-  - Keep date-separator logic outside the virtual range (separators render unconditionally)
-  - Ensure `.scrollToBottom()` still works
-  - Ensure `ResizeObserver` auto-scroll still works with virtual items
-  - Add `virtualScroll` config option (default on, can disable)
-- [ ] Add perf benchmark: 100 / 1000 / 10000 messages render time
+- [x] Integrate `@lit-labs/virtualizer` (Lit's official virtual scroller) into `<i-chat-messages>`
+  - Keep the existing `repeat` path as the default fallback
+  - Virtualize date separators and messages in one ordered keyed sequence
+  - Preserve `.scrollToBottom()`, `scrollToMessage()`, and `scrollToPart()`
+  - Preserve automatic bottom anchoring for variable-height virtual items
+  - `virtualScroll` config: `true` (always on), `false` (always off), `'auto'` (default, enables at > 500 messages)
+- [x] Add perf benchmark: 100 / 1000 / 10000 messages render time
+- [x] Validate opt-in field usage and define the automatic activation threshold (500 messages)
 
 ---
 
 ## Current Priority
 
 ```
-🔴 Phase 2.1 Virtual scroll          (performance critical path)
+✅ Phase 2.1 Virtual scroll          (completed)
 ```

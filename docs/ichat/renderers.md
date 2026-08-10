@@ -3,7 +3,7 @@
 Extend the markdown pipeline with custom fenced-code-block renderers, including the built-in chart / KPI / form / Mermaid renderers from `@bndynet/ichat-renderers`.
 
 - [Custom renderers](#custom-renderers)
-- [Charts, KPI, form, and Mermaid (`@bndynet/ichat-renderers`)](#charts-kpi-form-and-mermaid-bndynetichat-renderers)
+- [Charts, KPI, form, and Mermaid (`@bndynet/ichat-renderers`)](#charts-kpi-form-and-mermaid)
 
 > Looking for top-level `parts[]` types (`file`, `source`, `x-*`) instead of markdown fences? See [Parts](./parts.md#vs-registercoderenderer-markdown-fences) for the difference between the two extension points.
 
@@ -104,6 +104,18 @@ The event is observational; consumers do not need to handle it for the fallback
 behavior to work.
 
 For **`unregister`**, **`list`**, or other registry methods, import **`rendererRegistry`** from **`@bndynet/ichat`** (re-exported from **`@bndynet/ichat-messages`**).
+
+### Renderer output is cached
+
+Rendered HTML is cached per message part, so a renderer is invoked once per
+distinct fence content rather than once per render. A row that leaves and
+re-enters the viewport under [virtual scrolling](component-api.md#optional-virtual-scrolling)
+reuses the cached HTML instead of calling the renderer again. Write renderers as
+pure functions of `code`, `lang`, and `info`: one that varies its output for
+identical input (a timestamp, a counter, a random id) will appear frozen.
+
+Registering a renderer or a Markdown plugin at runtime flushes the cache, so
+existing parts pick up the new renderer on their next render.
 
 ## Charts, KPI, form, and Mermaid
 

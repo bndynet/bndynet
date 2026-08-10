@@ -39,6 +39,11 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 - [x] highlight.js configurable — `ChatConfig.highlightJs` optional injection. When omitted, code blocks fall back to plain escaped `<pre><code>`. Threaded through full component chain. (Phase 2.3)
 - [x] Memoized computed properties — `_messageRenderItems()` cached by collection shape (length + first/last id + timestamp). `_labels` cached by locale + labels reference. (Phase 2.4)
 - [x] 🟡 **Markdown streaming light mode** — During active streaming in `i-chat-text-part`, skip DOMPurify and morphdom diff (use `innerHTML` — every token grows the full text, so incremental diff has zero reuse value). The light path disables raw HTML, validates URI protocols, and defers untrusted renderer output; the full pipeline (DOMPurify + morphdom) runs on terminal render. No user config is required. (Phase 2.2)
+- [x] 🟡 **Virtual scrolling** — `config.virtualScroll` defaults to `'auto'`
+      (enables at > 500 messages). Supports `true`/`false`/`'auto'`, lazily loads
+      `@lit-labs/virtualizer`, preserves the regular keyed-list fallback, supports
+      variable heights and off-screen message/part navigation, and includes
+      100/1,000/10,000-message browser benchmarks. (Phase 2.1)
 
 ### Backend Integration
 
@@ -131,7 +136,7 @@ Initial review (2026-08-04): **7.2/10 overall**. Post-refactor verification (202
 
 - [ ] 🔵 **[P2] Evaluate morphdom only with evidence** — Keep the current implementation unless a benchmarked Lit-native replacement improves size or maintainability without regressing cursor stability, async renderer replacement, or terminal rendering.
 - [x] 🟢 **[P2] Retain DOMPurify as the security boundary** ✅ (decision 2026-08-04) — Do not replace the audited sanitizer with a custom allow-list implementation merely to save bundle size. Revisit only if there is a measured blocker and equivalent security coverage.
-- [ ] ⏸️ **[Deferred] Virtual scrolling** — Deferred until the professional-library P0/P1 work is complete and production measurements demonstrate a real need. If resumed, require benchmarks for 100/1000/10000 messages and compatibility tests for date separators, auto-scroll, `ResizeObserver`, and imperative scroll APIs. (Former Phase 2.1)
+- [x] 🟢 **[Completed] Virtual scrolling** — Now defaults to `'auto'` (enables at > 500 messages). Full benchmarks for 100/1,000/10,000 messages, date separator, auto-scroll, `ResizeObserver`, and imperative scroll API compatibility verified. (Former Phase 2.1)
 
 ### Maintenance & Internal Consistency
 

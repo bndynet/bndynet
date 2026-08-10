@@ -79,9 +79,9 @@ For backend streaming, send stable IDs and a monotonic revision:
 }
 ````
 
-`sequence_number` orders the stream event itself. `revision` belongs to the todo
-part and is used to reject stale item updates; keep both monotonic, but do not
-reuse one as the other.
+`sequence_number` labels the stream event itself and is passed through, not acted
+on. `revision` belongs to the todo part and is used to reject stale item updates;
+keep both monotonic, but do not reuse one as the other.
 
 Then route the event through the same reducer as UI changes:
 
