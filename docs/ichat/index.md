@@ -16,13 +16,15 @@ Monorepo of npm packages for a **Lit 3** chat UI: markdown, optional fenced-bloc
 | [`@bndynet/ichat-renderer-katex`](packages/chat-renderer-katex)     | LaTeX math: `$inline$` and `$$display$$` via KaTeX.                                                                                                                                           |
 | [`@bndynet/ichat-renderer-mermaid`](packages/chat-renderer-mermaid) | Mermaid diagram fences with theme-aware dark/light mode.                                                                                                                                      |
 
+The first three packages are the **built-in** baseline — markdown, parts, tool calls, progress, to-dos, virtual scrolling and slots all work with no extra install. The last four are **extensions**: each adds fenced-block or math rendering and has to be installed and imported on its own. The demo sidebar is grouped along the same line.
+
 > **Zero-config install:** all third-party deps (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `@lit-labs/virtualizer`, `katex`, `mermaid`, `@bndynet/icharts`) are auto-installed by npm — no manual peer-dependency hunting.
 
 ---
 
 ## Install
 
-**Chat + all optional renderers:**
+**Chat + all extension renderers:**
 
 ```bash
 npm install @bndynet/ichat @bndynet/ichat-renderers @bndynet/ichat-renderer-chart @bndynet/ichat-renderer-katex @bndynet/ichat-renderer-mermaid
@@ -91,7 +93,7 @@ That is the whole integration. `run.signal` is aborted as soon as the run ends, 
 
 `<i-chat>` also emits `streaming-change` (`e.detail.streaming`) and `busy-change` (`e.detail.busy`) if another part of your UI needs to mirror the assistant streaming state or the composer's submission lock.
 
-### Optional renderers
+### Extension renderers
 
 Chart, KPI, form, Mermaid, and math fences live in separate packages. Import them at startup or lazily when their UI is first needed:
 
@@ -369,7 +371,7 @@ Detailed design and reference docs live in [`docs/`](./README.md):
 | [Message model](./message-model.md)           | Roles (`ChatMessageRole`), `ChatMessage` fields, the `parts[]` body, factories, streaming/updating           |
 | [`<i-chat>` API](./component-api.md)          | Properties, methods, events, slots, confirmations, highlight.js, ChatRunController, middleware               |
 | [Parts](./parts.md)                           | `reasoning`, `tool-call`, `file`, `source`, and `x-*` custom parts                                           |
-| [Custom renderers](./renderers.md)            | `registerCodeRenderer` + built-in chart / KPI / form / Mermaid renderers                                     |
+| [Custom renderers](./renderers.md)            | `registerCodeRenderer` + the chart / KPI / form / Mermaid extension renderers                                |
 | [Progress](./progress.md)                     | `[status]` lists, block IDs, programmatic updates                                                            |
 | [Todo panel](./todo.md)                       | Structured items, collapse behavior, status events, updates                                                  |
 | [Theming](./theming.md)                       | 12 base tokens, derivation, light/dark contract, Mermaid tokens, full CSS reference                          |
