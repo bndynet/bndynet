@@ -229,7 +229,6 @@ chat.addEventListener("send", async (e) => {
     })) {
       run.appendText("body", chunk);
     }
-    run.updatePart("body", { status: "complete" });
     run.complete();
   } catch (error) {
     // AbortError from run.cancel() / run.signal is expected — do not treat it

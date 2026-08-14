@@ -10,7 +10,7 @@
 Implemented 5 of 7 phases from the optimization plan, with a focus on the highest-impact items. The codebase now has:
 
 - Comprehensive test suite (~390+ test blocks across 16 test files) covering pure helpers, components, middleware, ownership, and browser rendering
-- CI pipeline with Node.js 20/22 matrix, type-check, coverage (≥85%), npm pack validation, and browser smoke build
+- CI pipeline with Node.js 20/22 matrix, type-check, coverage floors, npm pack validation, and browser smoke build
 - **Performance optimizations**: markdown cache, memoized computed properties, optional highlight.js
 - **`ChatRunController`** for backend streaming integration
 - **Middleware & Plugin system** for extensibility
@@ -162,11 +162,11 @@ import {
 
 ## Risk Assessment
 
-| Risk                                     | Severity | Mitigation                                                                         |
-| ---------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| highlight.js removed from bundle         | Medium   | Consumers must pass `highlightJs` via config; fallback renders plain `<pre><code>` |
-| Markdown cache could serve stale content | Low      | Cache keyed by raw content string; `invalidateMarkdownCache()` available           |
-| Breaking changes in v3                   | High     | All completed in v3; removed APIs documented in this file                          |
+| Risk                                     | Severity | Mitigation                                                                                                                                       |
+| ---------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| highlight.js removed from bundle         | Medium   | Consumers must pass `highlightJs` via config; fallback renders plain `<pre><code>`                                                               |
+| Markdown cache could serve stale content | Low      | Keyed by part id + raw content + output-affecting render options, LRU-capped by a character budget; `invalidateMarkdownCache(partId?)` available |
+| Breaking changes in v3                   | High     | All completed in v3; removed APIs documented in this file                                                                                        |
 
 ---
 
@@ -176,7 +176,10 @@ import {
 ✅ npm run test    — All 3 test suites pass, 0 failures
 ✅ npm run build   — All 7 packages + demo app build successfully
 ✅ npm run typecheck — 7 packages type-check clean
-✅ npm run test:coverage — Coverage ≥85% enforced in CI
+✅ npm run test:coverage — Per-package coverage floors enforced in CI.
+                          Node-only: the DOM paths of the components are
+                          covered by the browser tests, which these numbers
+                          exclude, so the floors are low by construction.
 ```
 
 ---

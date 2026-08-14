@@ -77,6 +77,14 @@ Set `virtualScroll: false` when these matter more than large-history performance
 
 `scrollToMessage(id)` and `scrollToPart(partId)` reach rows that are not mounted. When the target is already rendered they scroll immediately; otherwise they return `true` meaning _scheduled_, and the scroll completes over the next few frames as the virtualizer materializes the row and replaces its estimated height with a measured one. They return `false` only when the id does not exist, or when the row is unmounted and virtualization is not active.
 
+## Terminal part statuses
+
+A part carries its own lifecycle in `part.status` (`'pending' | 'streaming' | 'complete' | 'error' | 'cancelled'`), independent of the message-level `streaming` flag. Only `'streaming'` selects the light render path, which skips the terminal sanitization pass, leaves async block renderers unresolved, and bypasses the Markdown cache.
+
+`run.complete()`, `run.fail()`, `run.cancel()`, and `chat.cancelMessage()` therefore move every part still at `'pending'` or `'streaming'` to `'complete'`, `'error'`, and `'cancelled'` respectively, in the same mutation that clears the message flag — so a controlled host sees one `messages-change` proposal per terminal transition. Parts that already hold a terminal status are left untouched, array reference included.
+
+Driving the lifecycle by hand instead (`updatePart` / `updateMessage`) means doing this yourself; `normalizeHistoryMessages()` applies the same rule to histories loaded from a backend. `finalizeMessageParts(parts, status)` is exported if you need it directly.
+
 ## Markdown Extension API
 
 Register markdown-it plugins (inline rules, block rules, renderer overrides) with automatic CSS injection into the Shadow DOM.

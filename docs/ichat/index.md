@@ -78,7 +78,6 @@ Drop in `<i-chat>` and wire one streaming response with **`createRunController()
       })) {
         run.appendText("body", chunk);
       }
-      run.updatePart("body", { status: "complete" });
       run.complete();
     } catch (error) {
       run.fail(error instanceof Error ? error.message : String(error));
@@ -188,10 +187,11 @@ In uncontrolled mode `chat.messages` is immediately up-to-date after any mutatio
 
 #### Manual streaming without `ChatRunController`
 
-`ChatRunController` is a thin wrapper over the message store — you can drive the same lifecycle with `addMessage` / `updatePart` / `updateMessage` directly. Reach for this when you need something the controller deliberately keeps out of its terminal transitions, such as per-part `'cancelled'` / `'error'` statuses, or when your own object already owns the abort and cleanup logic. You then take over two rules the controller enforces for you:
+`ChatRunController` is a thin wrapper over the message store — you can drive the same lifecycle with `addMessage` / `updatePart` / `updateMessage` directly. Reach for this when your own object already owns the abort and cleanup logic, or when you need per-part statuses the controller does not infer. You then take over three rules the controller enforces for you:
 
 1. Create the assistant placeholder **before** the first network `await`, not after the first token arrives.
 2. Always clear `streaming` — on success, error, **and** cancellation. Skipping it in any branch leaves the composer locked for good.
+3. Move every part off `'streaming'` / `'pending'` in the same branches. A part left mid-stream keeps the text renderer on its streaming path: the terminal sanitized render never runs, async block renderers stay unresolved, and the Markdown cache is never populated — none of which is visible on screen.
 
 <details>
 <summary>Full hand-written streaming loop</summary>
