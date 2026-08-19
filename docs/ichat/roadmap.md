@@ -4,7 +4,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 > **For cross-cutting architecture, performance, and DX improvements see the [Optimization Plan](./optimization-plan.md).**
 >
-> **Current focus (2026-08-05): professional-library hardening without feature expansion.** Do not add new message types, renderers, or interaction features until the P0 contract and state-architecture work below is complete.
+> **Current focus (2026-08-18): finish the release gates for the Composer Interaction MVP.** The generic queue, public API, host-rendered slot, demo, and framework documentation are complete. A possible built-in composer form remains a separate, deferred change.
 
 ## Completed
 
@@ -57,6 +57,7 @@ Project-level follow-up work for `@bndynet/ichat`. Keep this checklist current: 
 
 ### Extensibility
 
+- [x] Generic Composer Interaction API ✅ (completed 2026-08-18) — Host applications can queue data-only `x-*` forms, selectors, and other temporary composer UI through a shared confirmation/custom FIFO, render recognized kinds through `slot="composer-interaction"`, and settle only the matching active request ID. Existing confirmation APIs and events remain compatible; interactions do not alter `busy`; default and custom composer drafts remain mounted and survive the queue. The message-level `<i-chat-form>` renderer and its submitted-summary lifecycle are unchanged.
 - [x] Plugin API foundation — `ChatPlugin` exposes `install(chat)` + optional teardown, and `chat.use()` accepts both middleware and plugins. Unified lifecycle ownership, duplicate-name handling, and disconnect cleanup remain P0 work below. (Phase 4.3 foundation)
 - [x] Async BlockRenderer — `renderAsync()` for fenced blocks. Placeholder on first render, swapped when promise resolves. `resolveAsyncBlocks()` exported. (Phase 4.2)
 - [x] Renderer runtime isolation — block and string-part renderer failures fall

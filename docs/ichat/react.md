@@ -10,6 +10,7 @@
 - [Controlled mode](#controlled-mode)
 - [TypeScript: declaration merging](#typescript-declaration-merging)
 - [Slots and children](#slots-and-children)
+- [Composer interactions](#composer-interactions)
 - [Next.js and SSR](#nextjs-and-ssr)
 - [Pitfalls](#pitfalls)
 
@@ -149,7 +150,7 @@ Two things to note. `<i-chat>` is `height: 100%` and `flex: 1 1 auto`, so it nee
 
 ## Ref binding
 
-Everything imperative goes through a ref to the element instance. The ref holds a real `Chat` instance, so all documented methods (`addMessage`, `updatePart`, `createRunController`, `requestConfirmation`, `scrollToMessage`, …) are available on it.
+Everything imperative goes through a ref to the element instance. The ref holds a real `Chat` instance, so all documented methods (`addMessage`, `updatePart`, `createRunController`, `requestConfirmation`, `requestComposerInteraction`, `scrollToMessage`, …) are available on it.
 
 ```tsx
 const chatRef = useRef<Chat>(null);
@@ -192,19 +193,19 @@ const attach = useCallback((el: Chat | null) => {
 
 ## Passing props
 
-| Property         | Type                             | React 19 as JSX prop       | React ≤ 18                  |
-| ---------------- | -------------------------------- | -------------------------- | --------------------------- |
-| `messages`       | `ChatMessage[]`                  | `messages={messages}`      | ref only                    |
-| `config`         | `ChatConfig`                     | `config={config}`          | ref only                    |
-| `emptyText`      | `string`                         | `emptyText="…"`            | `emptytext="…"`             |
-| `placeholder`    | `string`                         | `placeholder="…"`          | `placeholder="…"`           |
-| `disabled`       | `boolean`                        | `disabled={true}`          | ref only                    |
-| `messageMode`    | `'uncontrolled' \| 'controlled'` | `messageMode="controlled"` | `message-mode="controlled"` |
-| `showVoiceInput` | `boolean`                        | `showVoiceInput={false}`   | ref only                    |
-| `voiceLang`      | `string`                         | `voiceLang="zh-CN"`        | `voice-lang="zh-CN"`        |
-| `busy`, `ready`  | readonly                         | **never pass**             | **never pass**              |
+| Property                                     | Type                             | React 19 as JSX prop       | React ≤ 18                  |
+| -------------------------------------------- | -------------------------------- | -------------------------- | --------------------------- |
+| `messages`                                   | `ChatMessage[]`                  | `messages={messages}`      | ref only                    |
+| `config`                                     | `ChatConfig`                     | `config={config}`          | ref only                    |
+| `emptyText`                                  | `string`                         | `emptyText="…"`            | `emptytext="…"`             |
+| `placeholder`                                | `string`                         | `placeholder="…"`          | `placeholder="…"`           |
+| `disabled`                                   | `boolean`                        | `disabled={true}`          | ref only                    |
+| `messageMode`                                | `'uncontrolled' \| 'controlled'` | `messageMode="controlled"` | `message-mode="controlled"` |
+| `showVoiceInput`                             | `boolean`                        | `showVoiceInput={false}`   | ref only                    |
+| `voiceLang`                                  | `string`                         | `voiceLang="zh-CN"`        | `voice-lang="zh-CN"`        |
+| `busy`, `ready`, `activeComposerInteraction` | readonly                         | **never pass**             | **never pass**              |
 
-`busy` and `ready` are getter-only. Passing them as props makes React attempt `element.busy = …`, which throws in strict mode. Observe `busy` through the `busy-change` event instead.
+These properties are getter-only. Passing them as props makes React attempt to assign them, which throws in strict mode. Observe `busy` through `busy-change`, track the interaction queue through `composer-interaction-change`, and read `activeComposerInteraction` only as an initial snapshot through the ref.
 
 ### React ≤ 18: assign in an effect
 
@@ -255,19 +256,21 @@ React 19 registers a listener for any prop starting with `on` whose value is a f
 />
 ```
 
-| Event                   | React 19 prop             |
-| ----------------------- | ------------------------- |
-| `send`                  | `onsend`                  |
-| `cancel`                | `oncancel`                |
-| `messages-change`       | `onmessages-change`       |
-| `streaming-change`      | `onstreaming-change`      |
-| `busy-change`           | `onbusy-change`           |
-| `message-action`        | `onmessage-action`        |
-| `part-action`           | `onpart-action`           |
-| `link-click`            | `onlink-click`            |
-| `chat-renderer-error`   | `onchat-renderer-error`   |
-| `confirmation-change`   | `onconfirmation-change`   |
-| `confirmation-decision` | `onconfirmation-decision` |
+| Event                         | React 19 prop                   |
+| ----------------------------- | ------------------------------- |
+| `send`                        | `onsend`                        |
+| `cancel`                      | `oncancel`                      |
+| `messages-change`             | `onmessages-change`             |
+| `streaming-change`            | `onstreaming-change`            |
+| `busy-change`                 | `onbusy-change`                 |
+| `message-action`              | `onmessage-action`              |
+| `part-action`                 | `onpart-action`                 |
+| `link-click`                  | `onlink-click`                  |
+| `chat-renderer-error`         | `onchat-renderer-error`         |
+| `confirmation-change`         | `onconfirmation-change`         |
+| `confirmation-decision`       | `onconfirmation-decision`       |
+| `composer-interaction-change` | `oncomposer-interaction-change` |
+| `composer-interaction-result` | `oncomposer-interaction-result` |
 
 `onSend` (camelCase) silently listens for an event named `Send` and never fires — there is no warning, so this is worth a lint rule if your team uses this style. `onCancel` is worse: it is a _known_ React event name, so it goes through the synthetic event system and never reaches the custom element at all. When in doubt, use `addEventListener` with exact lowercase event names.
 
@@ -345,6 +348,8 @@ Create `src/ichat.ts` (a `.ts` module, not a `.d.ts` — it exports real types y
 // src/ichat.ts
 import type {
   Chat,
+  ChatComposerInteractionChangeDetail,
+  ChatComposerInteractionResult,
   ChatConfig,
   ChatConfirmationChangeDetail,
   ChatConfirmationResult,
@@ -379,6 +384,8 @@ export interface IChatEventMap {
   "chat-renderer-error": CustomEvent<RendererErrorDetail>;
   "confirmation-change": CustomEvent<ChatConfirmationChangeDetail>;
   "confirmation-decision": CustomEvent<ChatConfirmationResult>;
+  "composer-interaction-change": CustomEvent<ChatComposerInteractionChangeDetail>;
+  "composer-interaction-result": CustomEvent<ChatComposerInteractionResult>;
 }
 
 /**
@@ -608,6 +615,186 @@ Replacing the composer entirely with `slot="input"` works the same way, but your
 
 ---
 
+## Composer interactions
+
+Use `requestComposerInteraction()` when React needs to render a temporary form, selector, or other short workflow inside the composer area. Listen for the shared queue state, render `slot="composer-interaction"` only for a recognized and validated `x-*` request, and key the renderer by request ID so React discards the previous item's local form state.
+
+```tsx
+import { useEffect, useRef, useState } from "react";
+import type { ChatComposerInteractionResolvedRequest } from "@bndynet/ichat";
+import type { IChatElement, IChatEventMap } from "./ichat";
+
+interface AddressPayload {
+  title: string;
+  defaults?: { city?: string; country?: string };
+}
+
+interface AddressValue {
+  city: string;
+  country: string;
+}
+
+type AddressRequest = ChatComposerInteractionResolvedRequest & {
+  kind: "x-address-form";
+  payload: AddressPayload;
+};
+
+function isAddressPayload(value: unknown): value is AddressPayload {
+  if (!value || typeof value !== "object") return false;
+  const payload = value as {
+    title?: unknown;
+    defaults?: { city?: unknown; country?: unknown };
+  };
+  if (typeof payload.title !== "string") return false;
+  if (payload.defaults === undefined) return true;
+  if (!payload.defaults || typeof payload.defaults !== "object") return false;
+  return (
+    (payload.defaults.city === undefined ||
+      typeof payload.defaults.city === "string") &&
+    (payload.defaults.country === undefined ||
+      typeof payload.defaults.country === "string")
+  );
+}
+
+function isAddressRequest(
+  request: ChatComposerInteractionResolvedRequest | null,
+): request is AddressRequest {
+  return (
+    request?.kind === "x-address-form" && isAddressPayload(request.payload)
+  );
+}
+
+function isAddressValue(value: unknown): value is AddressValue {
+  if (!value || typeof value !== "object") return false;
+  const address = value as { city?: unknown; country?: unknown };
+  return (
+    typeof address.city === "string" && typeof address.country === "string"
+  );
+}
+
+function AddressInteraction({
+  request,
+  onComplete,
+  onCancel,
+}: {
+  request: AddressRequest;
+  onComplete: (value: AddressValue) => void;
+  onCancel: () => void;
+}) {
+  const [city, setCity] = useState(request.payload.defaults?.city ?? "");
+  const [country, setCountry] = useState(
+    request.payload.defaults?.country ?? "",
+  );
+
+  return (
+    <section
+      slot="composer-interaction"
+      role="group"
+      aria-label={request.ariaLabel ?? request.payload.title}
+    >
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          onComplete({ city, country });
+        }}
+      >
+        <h3>{request.payload.title}</h3>
+        <label>
+          City
+          <input
+            autoFocus
+            required
+            value={city}
+            onChange={(event) => setCity(event.currentTarget.value)}
+          />
+        </label>
+        <label>
+          Country
+          <input
+            required
+            value={country}
+            onChange={(event) => setCountry(event.currentTarget.value)}
+          />
+        </label>
+        <button type="submit">Continue</button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+      </form>
+    </section>
+  );
+}
+
+export function ChatWithAddressInteraction() {
+  const chatRef = useRef<IChatElement>(null);
+  const [active, setActive] =
+    useState<ChatComposerInteractionResolvedRequest | null>(null);
+
+  useEffect(() => {
+    const chat = chatRef.current;
+    if (!chat) return;
+
+    setActive(chat.activeComposerInteraction);
+    const onChange = (event: IChatEventMap["composer-interaction-change"]) => {
+      setActive(event.detail.active);
+    };
+
+    chat.addEventListener("composer-interaction-change", onChange);
+    return () =>
+      chat.removeEventListener("composer-interaction-change", onChange);
+  }, []);
+
+  async function requestAddress() {
+    const chat = chatRef.current;
+    if (!chat) return;
+
+    const result = await chat.requestComposerInteraction({
+      kind: "x-address-form",
+      ariaLabel: "Shipping address form",
+      payload: { title: "Shipping address" },
+    });
+
+    if (result.status === "completed" && isAddressValue(result.value)) {
+      // Persist the validated address in application code.
+      console.log(result.value.city, result.value.country);
+    }
+  }
+
+  const addressRequest = isAddressRequest(active) ? active : null;
+
+  return (
+    <>
+      <button type="button" onClick={() => void requestAddress()}>
+        Enter shipping address
+      </button>
+      <i-chat ref={chatRef}>
+        {addressRequest && (
+          <AddressInteraction
+            key={addressRequest.id}
+            request={addressRequest}
+            onComplete={(value) => {
+              chatRef.current?.completeComposerInteraction(
+                addressRequest.id,
+                value,
+              );
+            }}
+            onCancel={() => {
+              chatRef.current?.cancelComposerInteraction(addressRequest.id);
+            }}
+          />
+        )}
+      </i-chat>
+    </>
+  );
+}
+```
+
+If the active kind is unknown or its payload fails validation, leave the slot unassigned so `<i-chat>` can show its safe fallback. Do not render raw HTML from `payload`; keep secrets out of it and validate both the request payload and the completed `value` at your application boundary.
+
+`busy` remains independent of this queue. An active interaction blocks ordinary Send, but its Continue and Cancel actions must remain able to settle the matching active request. See [Custom composer interactions](./component-api.md#custom-composer-interactions) for mixed FIFO, stale-ID, AbortSignal, focus, and fallback contracts.
+
+---
+
 ## Next.js and SSR
 
 Importing `@bndynet/ichat` calls `customElements.define()` at module evaluation. `customElements` does not exist in Node, so a server-rendered import throws. Load the chat as a client-only component:
@@ -633,17 +820,18 @@ Keep the `import '@bndynet/ichat'` inside `ChatPanel.tsx` so it is only ever rea
 
 ## Pitfalls
 
-| Symptom                               | Cause                                                                        | Fix                                                                                       |
-| ------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Nothing renders / zero height         | `<i-chat>` is `height: 100%`; the parent has no resolved height              | Give the container an explicit height or a flex layout with `min-height: 0`               |
-| `config="[object Object]"` in the DOM | React ≤ 18 stringifies unknown props                                         | Assign objects through the ref                                                            |
-| Props land as attributes on React 19  | The element had not upgraded when React committed                            | Move `import '@bndynet/ichat'` to module scope                                            |
-| Handler never fires                   | `onSend` instead of `onsend`, or `onCancel` hitting React's synthetic system | Use `addEventListener` with exact lowercase names                                         |
-| Duplicate seed messages in dev        | StrictMode runs mount effects twice, and `addMessage` is additive            | Seed with `chat.messages = normalizeHistoryMessages(history)` — assignment is idempotent  |
-| Message list re-renders constantly    | A new `config` object literal each render                                    | `useMemo` the config, or hoist it to module scope                                         |
-| `TypeError: Cannot set property busy` | `busy` is a getter                                                           | Read it, or listen for `busy-change`                                                      |
-| Controlled UI freezes mid-stream      | The `messages-change` handler cloned or transformed the proposal             | Store `event.detail.messages` by reference                                                |
-| Composer stays locked after an error  | The run never reached a terminal state                                       | Always call `complete()`, `fail()`, or `cancel()` — a `finally` block is the safest place |
+| Symptom                                  | Cause                                                                        | Fix                                                                                       |
+| ---------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Nothing renders / zero height            | `<i-chat>` is `height: 100%`; the parent has no resolved height              | Give the container an explicit height or a flex layout with `min-height: 0`               |
+| `config="[object Object]"` in the DOM    | React ≤ 18 stringifies unknown props                                         | Assign objects through the ref                                                            |
+| Props land as attributes on React 19     | The element had not upgraded when React committed                            | Move `import '@bndynet/ichat'` to module scope                                            |
+| Handler never fires                      | `onSend` instead of `onsend`, or `onCancel` hitting React's synthetic system | Use `addEventListener` with exact lowercase names                                         |
+| Duplicate seed messages in dev           | StrictMode runs mount effects twice, and `addMessage` is additive            | Seed with `chat.messages = normalizeHistoryMessages(history)` — assignment is idempotent  |
+| Message list re-renders constantly       | A new `config` object literal each render                                    | `useMemo` the config, or hoist it to module scope                                         |
+| `TypeError: Cannot set property busy`    | `busy` is a getter                                                           | Read it, or listen for `busy-change`                                                      |
+| Controlled UI freezes mid-stream         | The `messages-change` handler cloned or transformed the proposal             | Store `event.detail.messages` by reference                                                |
+| Composer stays locked after an error     | The run never reached a terminal state                                       | Always call `complete()`, `fail()`, or `cancel()` — a `finally` block is the safest place |
+| An old form settles the next interaction | The renderer reused local state or a stale request ID after FIFO advanced    | Key it by `active.id` and settle with that exact ID                                       |
 
 ---
 
