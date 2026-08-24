@@ -324,6 +324,12 @@ chat.use({
 });
 ```
 
+Message/error hooks apply to both direct methods and `ChatRunController`.
+When `afterMessageAdded` rewrites a run placeholder ID, `run.messageId` and the
+`messageId` in the `start()` outcome expose the effective ID. If middleware
+drops the placeholder, `start()` returns
+`{ started: false, reason: "middleware-dropped" }` and the run remains `idle`.
+
 ## Script tag (global build)
 
 For pages without a bundler, use the **`@bndynet/ichat`** global IIFE build — it bundles all dependencies (`lit`, `markdown-it`, `dompurify`, `highlight.js`, `morphdom`, `ichat-messages`, `ichat-input`) into one self-contained file (~623KB). The global object is **`iChat`** (e.g. **`iChat.Chat`**, **`iChat.registerCodeRenderer`**, …).
