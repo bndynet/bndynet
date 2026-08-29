@@ -448,6 +448,7 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 |----------|-------------|
 | `configure(opts)` | Set global options (e.g. `{ consistentColors: true }` or `{ theme: { name, colors, palette } }`) |
 | `switchTheme(name)` | Switch all charts to a registered theme |
+| `syncThemeWithElementAttribute(attribute, options?)` | Watch a DOM element attribute (default `<html>`) and switch all charts whenever it changes |
 | `registerTheme(config)` | Register a custom theme |
 | `setColorMap(map, themeName?)` | Pre-register name → color mappings (all themes or one) |
 | `resetColorMap(themeName?)` | Clear accumulated color assignments (all themes or one) |
@@ -459,6 +460,43 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 | `hasAdapter(type)` | Whether an adapter is registered for `type` |
 | `listAdapters()` | Type strings of every registered adapter (built-in + custom) |
 | `unregisterAdapter(type)` | Remove a registered adapter; returns whether one existed |
+
+### Auto-sync theme from a DOM attribute
+
+When your site drives its theme through an attribute on a DOM element (the
+common `html[data-theme="dark"]` pattern, or a `class="dark"` toggle), call
+`syncThemeWithElementAttribute` once at app start — the library keeps every
+live chart in sync as the attribute changes:
+
+```ts
+import { syncThemeWithElementAttribute } from '@bndynet/icharts';
+
+const stop = syncThemeWithElementAttribute('data-theme');
+
+// Attribute value is not a theme name? Map it:
+const stop2 = syncThemeWithElementAttribute('data-color-mode', {
+  resolve: (value) => (value === 'dark' ? 'dark' : 'light'),
+});
+
+// Watch <body> instead of <html>:
+const stop3 = syncThemeWithElementAttribute('class', {
+  target: document.body,
+  resolve: (value) => (value?.includes('dark') ? 'dark' : 'light'),
+});
+
+// On unmount, disconnect the observer:
+stop();
+```
+
+Notes:
+
+- The current attribute value is applied **immediately** on start, so charts
+  created earlier (and the first paint) already match the document state.
+- The switch only fires when the resolved name differs from the active theme.
+- The resolved name must be a registered theme (`light` / `dark` built-in, or
+  one added via `registerTheme`).
+- Browser-only: in SSR / non-DOM environments it returns a no-op stop handle
+  instead of throwing, so it is safe to call from client entry code.
 
 ---
 

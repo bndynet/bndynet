@@ -33,12 +33,16 @@ Pass date strings or timestamps as `categories` — the axis switches to time mo
     dateFormat?: string;              // e.g. 'MM/DD', 'YYYY-MM-DD'
     cursorFormat?: string;            // axis-pointer label; falls back to dateFormat
     formatLabel?: (value: string | number, index: number) => string | RichTextSpec;
+    rotate?: number;                  // tick-label rotation in degrees (e.g. 45 / -45)
+    labelInterval?: number | 'auto';  // label density: 0 = all, N = every N+1, 'auto' = hide overlap
     min?: number | string;            // pin lower bound (value/time axes; also 'dataMin')
     max?: number | string;            // pin upper bound (value/time axes; also 'dataMax')
   };
   yAxis?: {
     name?: string;
     formatLabel?: (value: string | number, index: number) => string | RichTextSpec;
+    rotate?: number;                  // tick-label rotation in degrees
+    labelInterval?: number | 'auto';  // label density: 0 = all, N = every N+1, 'auto' = hide overlap
     min?: number | string;
     max?: number | string;
   };
