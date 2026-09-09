@@ -20,6 +20,40 @@ Line, bar, and area share the same runtime shape. The library exports `LineData`
 
 Pass date strings or timestamps as `categories` — the axis switches to time mode automatically. Supported formats: `YYYY-MM-DD`, `YYYY/MM/DD`, `YYYY-MM-DD HH:mm`, ISO 8601, Unix timestamps (ms or s).
 
+### Numeric value axis
+
+Set `xAxis.type: 'value'` when `categories` contains continuous numeric x
+coordinates such as seconds, milliseconds, or microseconds. Explicit axis
+types take precedence over the time-axis heuristic. The existing data shape is
+preserved: `categories[i]` is paired with `series[j].data[i]` and emitted to
+ECharts as `[x, y]`.
+
+```ts
+const waveform: LineData = {
+  categories: [0, 0.000001, 0.000002], // x coordinates, in seconds
+  series: [{ name: 'Vout', data: [0, 0.0032, 0.0033] }],
+};
+
+createChart(el, 'line', waveform, {
+  xAxis: {
+    type: 'value',
+    includeZero: false,
+    formatLabel: (value) => `${Number(value) * 1e6} µs`,
+  },
+  series: {
+    '*': { showPoints: false, lineWidth: 1.2 },
+  },
+});
+```
+
+`xAxis.formatLabel` is called at runtime for value-axis ticks. Rich-text
+segments are flattened to plain text on value/time axes because ECharts chooses
+their tick values at render time; plain string formatting works normally.
+
+For axis tooltips, `ctx.series[i].value` remains the y value for compatibility.
+`ctx.series[i].rawValue` preserves the original ECharts value; on a numeric
+value axis it is the `[x, y]` pair, which is useful for unit-aware formatting.
+
 ## Options
 
 ### `XYChartOptions` (shared by line / bar / area, extends `ChartOptions`)
@@ -29,6 +63,8 @@ Pass date strings or timestamps as `categories` — the axis switches to time mo
   stacked?: boolean;                 // stack series (line / bar / area)
 
   xAxis?: {
+    type?: 'category' | 'time' | 'value';
+    includeZero?: boolean;          // include 0 in automatic value-axis range
     name?: string;
     dateFormat?: string;              // e.g. 'MM/DD', 'YYYY-MM-DD'
     cursorFormat?: string;            // axis-pointer label; falls back to dateFormat
@@ -39,6 +75,8 @@ Pass date strings or timestamps as `categories` — the axis switches to time mo
     max?: number | string;            // pin upper bound (value/time axes; also 'dataMax')
   };
   yAxis?: {
+    type?: 'category' | 'time' | 'value';
+    includeZero?: boolean;
     name?: string;
     formatLabel?: (value: string | number, index: number) => string | RichTextSpec;
     rotate?: number;                  // tick-label rotation in degrees
@@ -56,12 +94,65 @@ Pass date strings or timestamps as `categories` — the axis switches to time mo
     showLabel?: boolean;
     labelPosition?: 'inside' | 'outside' | 'center';
     showPoints?: boolean;
+    progressive?: number | false;   // ECharts series progressive chunk size
+    progressiveThreshold?: number;  // enable progressive above this size
+    progressiveChunkMode?: 'mod';
     yAxisIndex?: number;              // dual-axis: 0 (left) or 1 (right)
     markLines?: ('average' | 'max' | 'min')[];
     markPoints?: ('max' | 'min')[];
   }>;
+  animation?: boolean;               // override the automatic large-data default
+  dataZoom?: boolean | DataZoomOptions | DataZoomOptions[];
+  toolbox?: ToolboxOptions;
 }
 ```
+
+`dataZoom` is opt-in. Set `dataZoom: true` to enable the standard XY setup:
+inside zoom/pan, a bottom X slider, and a right-side Y slider. The library
+automatically supplies the single-axis indexes and `filterMode: 'filter'`.
+Use an object or array when you need fine-grained control; an `inside` entry
+enables wheel zooming and panning, while a `slider` entry provides a visible
+axis slider. Use `xAxisIndex` for horizontal time/value navigation and
+`yAxisIndex` for vertical amplitude navigation.
+`toolbox.feature.dataZoom` enables rectangle selection and `restore` returns to
+the initial zoom window. The library does not enable these controls by default,
+and `dataZoom: false` explicitly disables them.
+ECharts button tooltip labels can be localized through `title.zoom`,
+`title.back`, and `restore.title`:
+
+```ts
+toolbox: {
+  feature: {
+    dataZoom: {
+      title: {
+        zoom: t('chart.zoom'),
+        back: t('chart.zoomBack'),
+      },
+    },
+    restore: { title: t('chart.restore') },
+  },
+}
+```
+
+These labels are used for the toolbox button tooltips; they do not change the
+icons themselves. Omitting them preserves ECharts' default labels.
+
+For an explicit numeric `value` x-axis, the library applies conservative
+performance defaults to line, area, and vertical bar charts based on the
+current payload size, without changing category/time chart defaults:
+
+- 20,000 total XY points or more: first-render `animation` defaults to `false`.
+- 100,000 points or more in one series: that series receives
+  `progressive: 20_000` and `progressiveThreshold: 100_000`.
+- A value-axis line series defaults to `showPoints: false`, as dense numeric
+  data rarely benefits from hundreds of thousands of point symbols.
+
+Every automatic value can still be overridden explicitly with `animation`,
+`showPoints`, `progressive`, or `progressiveThreshold`. `dataZoom` and
+`toolbox` remain opt-in because they change interaction and layout rather than
+just rendering cost. Progressive rendering is passed to ECharts as-is; its
+effectiveness depends on the ECharts series type and renderer. The library does
+not perform sampling or downsampling automatically.
 
 > **Axis tick rich-text** — `xAxis.formatLabel` / `yAxis.formatLabel` accept
 > the same `string | RichTextSpec` return as `legend.formatLabel`. Use
@@ -90,6 +181,7 @@ Pass date strings or timestamps as `categories` — the axis switches to time mo
     frameDuration?: number;   // override the auto-measured tick interval; clamped to [80, 3000] ms
     showValueLabel?: boolean; // animated end-of-line label, default: true
   };
+
 }
 ```
 
