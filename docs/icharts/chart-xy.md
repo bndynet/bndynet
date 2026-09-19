@@ -175,6 +175,11 @@ not perform sampling or downsampling automatically.
 ```ts
 {
   variant?: 'default' | 'spark' | 'race';
+  bands?: Array<{
+    between: [string, string];        // fill between two named series
+    color?: string;                   // defaults to the perceptual midpoint of both series colors
+    opacity?: number;                 // 0–1, default 0.18
+  }>;
 
   // Variant-specific sub-namespace — only consulted when `variant === 'race'`.
   race?: {
@@ -183,6 +188,19 @@ not perform sampling or downsampling automatically.
   };
 
 }
+```
+
+`bands` is an opt-in feature for the normal line / area view. It keeps the
+original lines and adds a hidden polygon layer; the fill layer is excluded
+from the legend and tooltip. The lower and upper boundary are resolved at
+every x position, so the fill also works when the two curves cross. Missing or
+non-finite values create a gap in the fill. It is compatible with numeric
+value axes and `dataZoom`, but is not added to the `spark` view.
+
+```ts
+createChart(el, 'line', waveform, {
+  bands: [{ between: ['Vout', 'Vref'], opacity: 0.18 }],
+});
 ```
 
 ### `BarChartOptions` (extends `XYChartOptions`)
@@ -213,6 +231,11 @@ not perform sampling or downsampling automatically.
 ```ts
 {
   variant?: 'default' | 'spark';
+  bands?: Array<{
+    between: [string, string];
+    color?: string;
+    opacity?: number;
+  }>;
 }
 ```
 
