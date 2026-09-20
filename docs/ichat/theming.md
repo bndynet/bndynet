@@ -307,16 +307,16 @@ For **avatar colors**, each role uses two CSS levels only: `--chat-avatar-<role>
 
 ### Layout
 
-| Property                          | Default               | Description                                                                                                                      |
-| --------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `--chat-avatar-size`              | `32px`                | Avatar width & height                                                                                                            |
-| `--chat-message-max-width`        | `85%`                 | Max width of a single message row                                                                                                |
+| Property                          | Default               | Description                                                                                                                                            |
+| --------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--chat-avatar-size`              | `32px`                | Avatar width & height                                                                                                                                  |
+| `--chat-message-max-width`        | `85%`                 | Max width of a single message row                                                                                                                      |
 | `--chat-max-width`                | `100%`                | Max width of the centered chat content column (messages + composer/input); the host and scrollbar stay full-width (e.g. `48rem` or `min(100%, 48rem)`) |
-| `--chat-messages-max-width`       | `100%`                | Fallback max width of the message column, used when `--chat-max-width` is not set |
-| `--chat-bubble-block-end-gap`     | `= --chat-spacing-sm` | Extra space below a message bubble before following parts or footer metadata                                                     |
-| `--chat-disclosure-header-height` | `32px`                | Shared compact header height for collapsible panels                                                                              |
-| `--chat-todo-item-min-height`     | `32px`                | Compact minimum row height for each todo item                                                                                    |
-| `--chat-scrollbar-width`          | `6px`                 | Scrollbar width (WebKit)                                                                                                         |
+| `--chat-messages-max-width`       | `100%`                | Fallback max width of the message column, used when `--chat-max-width` is not set                                                                      |
+| `--chat-bubble-block-end-gap`     | `= --chat-spacing-sm` | Extra space below a message bubble before following parts or footer metadata                                                                           |
+| `--chat-disclosure-header-height` | `32px`                | Shared compact header height for collapsible panels                                                                                                    |
+| `--chat-todo-item-min-height`     | `32px`                | Compact minimum row height for each todo item                                                                                                          |
+| `--chat-scrollbar-width`          | `6px`                 | Scrollbar width (WebKit)                                                                                                                               |
 
 ## Minimal override set
 
