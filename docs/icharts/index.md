@@ -514,6 +514,44 @@ Notes:
 | `highlight(target)` | Put data into the highlight (emphasis) state. `target` is a name string (shorthand for `{ name }`, matches across all series) or `{ name?, seriesName?, seriesIndex?, dataIndex? }`. Pair with `unhighlight` — see [Cross-chart linkage](#cross-chart-linkage). |
 | `unhighlight(target?)` | Clear a highlight (the counterpart to `highlight`; wraps ECharts' `downplay`). Call with no argument to clear every highlight on the chart. |
 
+### Legend selection
+
+Charts with a legend accept `legend.selection` for independent background
+highlights. Enabling it replaces native legend click behavior: clicking a label
+changes its background but leaves every series and slice visible. Its `mode`
+defaults to `'multiple'`; set `'single'` to highlight at most one entry.
+Names are original legend names, regardless of `formatLabel`:
+
+```ts
+import type { LegendSelectionChangeEvent } from '@bndynet/icharts';
+
+const onLegendChange = ({ selected }: LegendSelectionChangeEvent) => console.log(selected);
+const chart = createChart(el, 'line', data, {
+  legend: {
+    selection: {
+      selected: ['Revenue'],
+      onChange: onLegendChange,
+    },
+  },
+});
+
+// Click another name, then update data: background highlights are retained.
+chart.update(nextData);
+
+// Explicitly passing selected replaces the current highlights.
+chart.update(undefined, { legend: { selection: { selected: ['Revenue'], onChange: onLegendChange } } });
+
+// Single mode is also available.
+chart.update(undefined, { legend: { selection: { mode: 'single', onChange: onLegendChange } } });
+```
+
+Highlights survive data updates, theme switches, and resize. New names start
+unhighlighted; removed names are forgotten. Clicking an active item clears it,
+including in single mode. Without `legend.selection`, the native ECharts legend
+remains in use. The **Custom Legend** demo has interactive line and pie examples.
+The custom highlight view is an HTML overlay, so ECharts canvas/SVG exports and
+server-rendered SVGs do not include its background highlights.
+
 ---
 
 ## Events

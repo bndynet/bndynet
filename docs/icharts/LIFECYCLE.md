@@ -87,17 +87,19 @@ createChart(el, type, data, options)
      (try/finally — brackets the resolve in a color render session so the names
       it resolves under `consistentColors` become this chart's refcounted lease)
      → { option, onInit?, notMerge? }
-3. applyConfiguredFontFamilyToOption(option, fontFamily)
-4. _observeGridRight(option)                         (race grid.right high-water mark)
-5. ecInstance.setOption(option, notMerge ?? true)
-6. _rebindAsyncTooltipDismiss(option)   (off prev `hideTip` listener → on new)
-7. _rebindEvents()                       (off prev options.events wrappers → on new)
-8. _runApplyCleanup()        ← tear down the PREVIOUS pass's onInit effect
-9. cleanup = onInit?.(instance)
-10. _applyCleanup = (typeof cleanup === 'function') ? cleanup : null
+3. _legendSelection.prepare(option)    (hide native legend in custom selection mode)
+4. applyConfiguredFontFamilyToOption(option, fontFamily)
+5. _observeGridRight(option)            (race grid.right high-water mark)
+6. ecInstance.setOption(option, notMerge ?? true)
+7. _legendSelection.render(options)    (draw background-highlight legend overlay)
+8. _rebindAsyncTooltipDismiss(option)   (off prev `hideTip` listener → on new)
+9. _rebindEvents()                       (off prev options.events wrappers → on new)
+10. _runApplyCleanup()       ← tear down the PREVIOUS pass's onInit effect
+11. cleanup = onInit?.(instance)
+12. _applyCleanup = (typeof cleanup === 'function') ? cleanup : null
 ```
 
-Steps 8–10 are the cleanup lifecycle covered in [§4](#4-oninit-teardown-lifecycle).
+Steps 10–12 are the cleanup lifecycle covered in [§4](#4-oninit-teardown-lifecycle).
 
 Step 2's `beginColorRender` / `endColorRender` bracket is the engine half of
 the **consistentColors name lease**: the names an adapter resolves (via
@@ -109,15 +111,13 @@ restart at `palette[0]` without the disconnect-sentinel sweep — see
 session wraps **only** the resolve (not `onInit` / `setOption`), so a
 re-entrant render triggered from `onInit` can't nest sessions.
 
-Steps 6–7 are **engine-owned, type-agnostic** event wiring: the async-tooltip
-`hideTip` dismiss and the typed `options.events` handlers (`onClick` /
-`onDoubleClick` / `onMouseOver` / `onMouseOut`). Both follow the same
-detach-then-attach discipline — the previous pass's listeners are removed
-before the new ones bind, so re-renders never stack listeners. Event `params`
-are normalized into a `ChartEventContext` (reusing the tooltip item/edge
-shapes) via `buildChartEventContext`. **Adapters never wire interaction
-events** — they belong to the engine so every chart type gets them uniformly;
-an adapter that needs a bespoke listener uses its `onInit` teardown instead.
+Steps 7–9 are **engine-owned, type-agnostic** UI and event wiring: the custom
+legend view is redrawn when enabled, while the async-tooltip
+`hideTip` dismiss and typed `options.events` handlers (`onClick` /
+`onDoubleClick` / `onMouseOver` / `onMouseOut`) are rebound each pass. The
+typed mouse event `params` are normalized into a `ChartEventContext` via
+`buildChartEventContext`. An adapter that needs a bespoke listener uses its
+`onInit` teardown instead.
 
 ---
 

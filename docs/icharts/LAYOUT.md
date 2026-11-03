@@ -91,7 +91,7 @@ Exported from the package root (`@bndynet/icharts`):
 | Symbol | Type | Role |
 |---|---|---|
 | `TitleOptions` | type | `{ text; align?; fontSize?; padding? }` (in `src/types/shared.ts`). |
-| `LegendOptions` | type | `{ show?; position?: 'top' \| 'bottom' \| 'left' \| 'right' }`. |
+| `LegendOptions` | type | Legend layout, formatting, and optional independent `selection` background highlights. |
 | `EdgeReserves` | type | `{ top: number; bottom: number; left: number; right: number }` — the shared layout currency. |
 | `LEGEND_RESERVE` | const | Pixel slot per legend (height + gap to the plot area). Currently `36`. |
 | `getTitleReserve(options)` | function | Returns `EdgeReserves` with the title widget's pixel height on `top`, zeros elsewhere. All-zero when no title. |

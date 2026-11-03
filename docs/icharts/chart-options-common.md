@@ -212,6 +212,18 @@ Cross-cutting `ChartOptions` shared by every chart type. `legend` and `grid` liv
 > that actually render them expose the field. `legend` lives on `XYChartOptions`,
 > `PieChartOptions`, and `RadarChartOptions`; `grid` lives on `XYChartOptions`.
 > Gauge, sankey, and chord render neither.
+
+> Set `legend.selection` to enable independent background highlights. Clicking
+> a legend item then changes only its highlight, leaving chart data visible.
+> `mode` defaults to `'multiple'`; `'single'` highlights at most one name.
+> `selected?: string[]` supplies initial highlighted names (default `[]`), and
+> explicitly passing it in `update()` resets highlights. `onChange` receives
+> `{ name, active, selected }`. Names are original series, slice, or category
+> names, even when `formatLabel` changes the text. Highlights persist through
+> data updates, theme changes, and resize. Removed names are forgotten. Without
+> `legend.selection`, ECharts' native legend behavior applies.
+> The selection background is an HTML overlay and is not included in ECharts
+> image exports or server-rendered SVGs.
 >
 > The legend defaults to `type: 'scroll'` — long series lists paginate with
 > arrows instead of wrapping onto a second row. This keeps the chart-body
