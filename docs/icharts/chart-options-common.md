@@ -175,10 +175,26 @@ Cross-cutting `ChartOptions` shared by every chart type. `legend` and `grid` liv
     onMouseOut?: (ctx: ChartEventContext) => void;
   };
 
+  // Optional initial state + custom DOM presentation for loading/empty/error.
+  status?: { type: 'ready' | 'loading' | 'empty' | 'error'; message?: string; error?: unknown };
+  // Per-chart override; otherwise uses configure({ statusRenderer }) when set.
+  statusRenderer?: (status, layer: HTMLElement) => void | (() => void);
+
   // Advanced passthrough — for anything not covered above
   echarts?: Record<string, unknown>;
 }
 ```
+
+`configure({ statusRenderer })` sets a global default for charts created with
+`createChart()` and `<i-chart>`. It also updates mounted charts. A renderer in
+the individual chart options or a matching `<i-chart>` named slot takes
+precedence. The global renderer is used by `<i-chart>` even before its first
+data frame arrives.
+
+For text-only customization, set `configure({ statusMessages })` instead. It
+accepts optional `loading`, `empty`, and `error` strings and works with the
+built-in view. An individual `status.message` takes precedence over the
+configured message, which takes precedence over the library default.
 
 > **Events.** `options.events` gives you typed `onClick` / `onDoubleClick` /
 > `onMouseOver` / `onMouseOut` handlers without reaching into the raw ECharts
