@@ -53,12 +53,23 @@ const chart = createChart(
 chart.update(newData, newOptions);
 chart.resize();
 
+// Container changes are observed automatically by default. Set
+// { autoResize: false } in the initial options to manage resize() yourself.
+
 // Disposal is automatic — the chart releases itself the moment its
 // container leaves the DOM (e.g. when a Vue/React component unmounts).
 // Calling `chart.dispose()` explicitly is still supported and idempotent
 // for cases where you want to free resources eagerly.
 chart.dispose();
 ```
+
+`createChart()` and `<i-chart>` observe their chart container and resize
+automatically by default. The first non-zero layout and later size changes are
+handled after the browser reports them. A hidden container with zero width or
+height is skipped; when it becomes visible, the next size notification resizes
+the chart. Set `autoResize: false` in options to manage calls to `resize()`
+yourself. Browsers without `ResizeObserver` use a window-resize fallback, so
+call `chart.resize()` after a container-only layout change in those browsers.
 
 ### Loading, empty, and error states
 

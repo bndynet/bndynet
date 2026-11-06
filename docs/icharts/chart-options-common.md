@@ -4,8 +4,25 @@ Cross-cutting `ChartOptions` shared by every chart type. `legend` and `grid` liv
 
 ### `ChartOptions` (cross-cutting, base for every chart)
 
+`autoResize` is enabled by default for both `createChart()` and `<i-chart>`.
+The engine observes the chart container, coalesces notifications to one browser
+frame, and skips zero-sized layouts (such as `display: none` tabs or collapsed
+panels). Once the container reports a positive width and height, it resizes the
+ECharts instance and re-runs container-aware adapter sizing. Set
+`autoResize: false` to disable observation; you can also toggle it later with
+`chart.update(undefined, { autoResize: false })`. If `ResizeObserver` is not
+available, the engine listens for window resizes; call `chart.resize()` after
+container-only layout changes in that fallback environment.
+
 ```ts
 {
+  /**
+   * Automatically resize when the chart container changes size. Default: true.
+   * Set false to call chart.resize() manually. Hidden containers are skipped
+   * while they have zero size and resized when they become visible again.
+   */
+  autoResize?: boolean;
+
   // Appearance
   theme?: string;                    // 'light' (default) | 'dark' | custom
   /**
