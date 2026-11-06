@@ -24,7 +24,7 @@ container-only layout changes in that fallback environment.
   autoResize?: boolean;
 
   // Appearance
-  theme?: string;                    // 'light' (default) | 'dark' | custom
+  theme?: string;                    // 'light' (default) | 'dark' | custom; pinned
   /**
    * Chart title. Pass a plain string as shorthand, or a TitleOptions object
    * for full control over alignment, font size, and padding.

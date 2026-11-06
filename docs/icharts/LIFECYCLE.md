@@ -63,8 +63,12 @@ createChart(el, type, data, options)
   chart.update(data?, options?)    ── adapter.mergeData? folds data
         └──► _apply({ observedFrameMs, maxRaceGridRight })
 
-  chart.setTheme(name)             ── adapter.clearOnThemeChange? clears first
+  chart.setTheme(name)             ── pins name in options.theme; _applyThemeName
+        │                              (adapter.clearOnThemeChange? clears first)
         └──► _apply()
+
+  switchTheme(name, { force? })    ── unpinned charts only (force = all charts)
+        └──► chart.applyGlobalTheme() ── _applyThemeName + _apply, per chart
 
   chart.resize()                   ── ecInstance.resize(), then re-resolve so
         └──► _apply()                 container-aware sizing re-flows
@@ -77,6 +81,17 @@ createChart(el, type, data, options)
         ├── chartRegistry.delete(this)
         └── ecInstance.dispose()
 ```
+
+### Theme precedence
+
+`options.theme` (at creation or through `update`) and `chart.setTheme(name)`
+pin a chart (`_explicitTheme`). Global theme changes — `switchTheme()`,
+`configure({ theme })`, attribute / media-query sync — only repaint charts
+without a pin; `switchTheme(name, { force: true })` overrides them for one
+call, and `chart.clearTheme()` removes the pin. Unknown theme names resolve
+to the active theme (`switchTheme()` ignores them with a one-time warning),
+so the ECharts theme, palette and tokens can never come from two different
+definitions.
 
 ### What one `_apply()` does, in order
 
@@ -148,7 +163,7 @@ interface ChartSetupResult {
 | `onInit(instance)` | adapter | after `setOption`, **every** `_apply()` | Side effects on the live instance (listeners, observers, post-init `setOption` merges). May return a `ChartTeardown`. |
 | `notMerge` | adapter | step 5 of `_apply()` | `setOption(option, notMerge ?? true)`. Default `true` (full replace); set `false` to let ECharts animate across successive frames (bar/line `race`). |
 | `mergeData(prev, next)` | adapter | `update()` only, when **both** frames pass `validate` | Fold a partial patch into the prior frame (gauge / liquid-progress carry `max`/`label` forward). Omitted ⇒ replace wholesale. |
-| `clearOnThemeChange` | adapter | `setTheme()` only | When `true`, engine calls `instance.clear()` before repainting (wordcloud's custom-series renderer needs it). |
+| `clearOnThemeChange` | adapter | any effective theme change (`setTheme()`, `update({ theme })`, `switchTheme()`) | When `true`, engine calls `instance.clear()` before repainting (wordcloud's custom-series renderer needs it). |
 
 **Engine-vs-adapter boundary:**
 

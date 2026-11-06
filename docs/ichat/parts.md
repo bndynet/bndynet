@@ -27,7 +27,45 @@ chat.addMessage({
 });
 ```
 
-While streaming, grow the reasoning and answer parts independently via `updatePart` (give them fixed ids, e.g. `reasoning` / `body`), then set each part’s `status` to `'complete'` and clear `streaming` on the message when done.
+While streaming, grow the reasoning and answer parts independently via `updatePart` (give them fixed ids, e.g. `reasoning` / `body`). **Mark the reasoning part `'complete'` as soon as its stream ends** — typically when the first answer token arrives — so the thinking block auto-collapses and becomes expandable/collapsible while the answer is still streaming. If you wait until the whole message finishes, the reasoning block stays locked open for the entire response. While a reasoning part is still streaming it cannot be collapsed, so the collapse chevron is hidden until it completes. `run.complete()` then closes out any remaining streaming part.
+
+```javascript
+// Typical reasoning-then-answer SSE consumption.
+let reasoningText = "";
+let contentText = "";
+let reasoningDone = false;
+let contentStarted = false;
+const reasoningId = "reasoning";
+const bodyId = "body";
+
+// const run = chat.createRunController();
+// run.start([reasoningPart("", { id: reasoningId, status: "streaming" })]);
+
+for await (const delta of sse) {
+  if (delta.reasoning_content) {
+    reasoningText += delta.reasoning_content;
+    run.updatePart(reasoningId, { text: reasoningText, status: "streaming" });
+  }
+  if (delta.content) {
+    if (!reasoningDone) {
+      // First answer token ⇒ reasoning has finished ⇒ make it collapsible now.
+      run.updatePart(reasoningId, { status: "complete" });
+      reasoningDone = true;
+    }
+    contentText += delta.content;
+    if (!contentStarted) {
+      run.appendPart(
+        textPart(delta.content, { id: bodyId, status: "streaming" }),
+      );
+      contentStarted = true;
+    } else {
+      run.updatePart(bodyId, { text: contentText, status: "streaming" });
+    }
+  }
+}
+if (!reasoningDone) run.updatePart(reasoningId, { status: "complete" });
+run.complete();
+```
 
 ## Tool calls
 

@@ -213,7 +213,7 @@ const svg = renderChartToSVGString(
     ],
   },
   { width: 800, height: 400 },                                         // SSR options
-  { title: 'Quarterly Revenue', theme: 'default' },                    // chart options
+  { title: 'Quarterly Revenue', theme: 'dark' },                       // chart options
 );
 
 writeFileSync('chart.svg', svg);
@@ -455,6 +455,18 @@ createChart(el, 'bar', data, { theme: 'ocean' });
 
 Call `registerTheme` once at application start, before any charts are created.
 
+Restore a persisted preference safely and build a picker from the registry:
+
+```ts
+import { hasTheme, isDarkTheme, listThemes, switchTheme } from '@bndynet/icharts';
+
+// Unknown names are already a warned no-op — the check keeps it quiet.
+if (hasTheme(saved)) switchTheme(saved);
+
+// Built-ins first, then every theme you registered.
+const options = listThemes().map((name) => ({ name, dark: isDarkTheme(name) }));
+```
+
 ### Global Default Theme via `configure`
 
 You can also set a library-level default theme through `configure`. When a chart does not specify `options.theme`, this configured theme will be used.
@@ -476,6 +488,27 @@ configure({
 ```
 
 `options.theme` still takes precedence over the global config for that specific chart.
+
+### Per-chart theme precedence
+
+A chart created with `options.theme` — or pinned later via `chart.setTheme(name)`
+/ `chart.update(data, { theme })` — keeps that theme when the global theme
+changes. `switchTheme()`, `configure({ theme })`, and
+`syncThemeWithElementAttribute()` all skip pinned charts:
+
+```ts
+createChart(el, 'pie', revenue, { theme: 'ocean' });
+
+switchTheme('dark');              // every OTHER chart goes dark; this one stays ocean
+configure({ theme: darkConfig }); // same — the pinned chart is untouched
+
+chart.getTheme();                 // the theme this chart actually uses
+
+chart.clearTheme();               // stop pinning → follow global switches again
+chart.update(undefined, { theme: undefined }); // same effect
+
+switchTheme('dark', { force: true }); // escape hatch: override pinned charts too
+```
 
 ### Global Status Messages
 
@@ -585,26 +618,110 @@ Per-chart `colors` and `colorMap` options always take highest priority regardles
 | Function | Description |
 |----------|-------------|
 | `configure(opts)` | Set global options (e.g. `{ consistentColors: true }` or `{ theme: { name, colors, palette } }`) |
-| `switchTheme(name)` | Switch all charts to a registered theme |
-| `syncThemeWithElementAttribute(attribute, options?)` | Watch a DOM element attribute (default `<html>`) and switch all charts whenever it changes |
+| `switchTheme(name, options?)` | Switch every chart that does not pin its own theme. `{ force: true }` overrides pinned charts too. |
+| `syncThemeWithElementAttribute(attribute, options?)` | Watch a DOM element attribute (default `<html>`) and switch every unpinned chart whenever it changes |
+| `syncThemeWithMediaQuery(query?, options?)` | Follow the OS color scheme (`prefers-color-scheme`) and switch every unpinned chart |
+| `syncThemeWithPreference(options?)` | Combine an attribute and the OS preference with one precedence rule (attribute wins) |
+| `onThemeChange(listener)` | Subscribe to active-theme changes; returns an unsubscribe function |
+| `THEME_CHANGE_EVENT` | The DOM event name dispatched on `window` (`'icharts:themechange'`) |
 | `registerTheme(config)` | Register a custom theme |
+| `listThemes()` | Names of every registered theme (built-ins first) |
+| `hasTheme(name)` | Whether a theme name is registered |
 | `setColorMap(map, themeName?)` | Pre-register name → color mappings (all themes or one) |
 | `resetColorMap(themeName?)` | Clear accumulated color assignments (all themes or one) |
 | `getSeriesColor(name)` | Get the assigned color (with hover/active/disabled states) for a name |
-| `getCurrentTheme()` | Get the active theme object |
-| `getThemeColors()` | Get the active theme's UI color tokens |
+| `getCurrentTheme()` | Get the active **application** theme object (set by `switchTheme` / `configure`) |
+| `getTheme(name?)` | Get a theme definition (defaults to the active theme) |
+| `getThemeMode(name?)` | Resolved `'light'` / `'dark'` mode of a theme |
+| `isDarkTheme(name?)` | `true` when a theme's mode is dark |
+| `getThemeColors(name?)` | Get a theme's UI color tokens (defaults to the active theme) |
 | `registerAdapter(type, adapter)` | Register a custom chart type adapter (warns when shadowing a built-in type) |
 | `getAdapter(type)` | Look up the registered adapter for a type (or `undefined`) |
 | `hasAdapter(type)` | Whether an adapter is registered for `type` |
 | `listAdapters()` | Type strings of every registered adapter (built-in + custom) |
 | `unregisterAdapter(type)` | Remove a registered adapter; returns whether one existed |
 
+### Reading the active theme (light / dark)
+
+```ts
+import { getThemeMode, isDarkTheme } from '@bndynet/icharts';
+
+isDarkTheme();                  // active theme
+getThemeMode('dark');           // any registered theme, no switching
+isDarkTheme(options.theme);     // the theme this chart is painting with
+```
+
+`getTheme(name?)` returns the theme definition, `getThemeMode(name?)` and
+`isDarkTheme(name?)` resolve its mode. With no argument they read the active
+theme; with a name they answer for that theme without switching to it.
+Registered themes always have a mode — a custom theme defaults to `'light'`
+when `colorMode` is omitted. `ChartTheme`, `ChartThemeColors` and `ColorMode`
+are exported for typing.
+
+`getCurrentTheme()` / `getThemeColors()` describe the **application** theme —
+the one selected by `switchTheme()`, `configure({ theme })`, or
+`syncThemeWithElementAttribute()`. Rendering never changes it: a chart with
+`options.theme: 'ocean'` paints with ocean without affecting
+`getCurrentTheme()`, the default theme of charts created afterwards, or a
+subsequent server-side render.
+
+That also means an adapter should ask for the theme it is actually painting
+with instead of the active one:
+
+```ts
+import { getThemeColors } from '@bndynet/icharts';
+
+const tokens = getThemeColors(options.theme); // undefined → active theme
+```
+
+Custom themes default to `colorMode: 'light'` when omitted; declare it
+explicitly for dark themes so the stored theme reports the right mode:
+
+```ts
+registerTheme({ name: 'ocean', colorMode: 'dark', colors: { ... } });
+```
+
+Unregistered theme names never mix two themes: `switchTheme('typo')` is a
+no-op, while a per-chart `theme: 'typo'` renders with the **active** theme —
+both log a one-time console warning pointing at `registerTheme`.
+
+### Auto-sync theme from the OS preference
+
+When the app should follow the system color scheme instead of (or in addition
+to) a DOM attribute, call `syncThemeWithMediaQuery` once at app start. It
+watches `(prefers-color-scheme: dark)` — matching switches to `dark`, the
+rest to `light`:
+
+```ts
+import { syncThemeWithMediaQuery } from '@bndynet/icharts';
+
+const stop = syncThemeWithMediaQuery();
+
+// Custom themes:
+const stopCustom = syncThemeWithMediaQuery('(prefers-color-scheme: dark)', {
+  resolve: (isDark) => (isDark ? 'ocean-dark' : 'ocean-light'),
+});
+
+// On unmount:
+stop();
+```
+
+Notes:
+
+- The current preference is applied **immediately** on start.
+- The listener fires on every OS / browser color-scheme change; `resolve`
+  returning `undefined` keeps the current theme.
+- Charts that pin their own theme (`options.theme` / `chart.setTheme()`) are
+  left untouched — same precedence as `switchTheme()`.
+- Browser-only: without `window.matchMedia` (SSR, older environments) it
+  returns a no-op stop handle instead of throwing.
+
 ### Auto-sync theme from a DOM attribute
 
 When your site drives its theme through an attribute on a DOM element (the
 common `html[data-theme="dark"]` pattern, or a `class="dark"` toggle), call
 `syncThemeWithElementAttribute` once at app start — the library keeps every
-live chart in sync as the attribute changes:
+unpinned chart in sync as the attribute changes:
 
 ```ts
 import { syncThemeWithElementAttribute } from '@bndynet/icharts';
@@ -636,6 +753,67 @@ Notes:
 - Browser-only: in SSR / non-DOM environments it returns a no-op stop handle
   instead of throwing, so it is safe to call from client entry code.
 
+### Combining the attribute and the OS preference
+
+If the app has a site-level toggle **and** should follow the OS as a fallback,
+call one helper instead of both — running `syncThemeWithElementAttribute` and
+`syncThemeWithMediaQuery` together would let them overwrite each other.
+`syncThemeWithPreference()` applies a single rule: **the attribute wins
+whenever it maps to a theme; otherwise the media query decides.**
+
+```ts
+import { syncThemeWithPreference } from '@bndynet/icharts';
+
+const stop = syncThemeWithPreference(); // data-theme + prefers-color-scheme
+
+// Custom mapping:
+const stop2 = syncThemeWithPreference({
+  attribute: 'data-mode',
+  resolveAttribute: (value) =>
+    value === 'day' ? 'light' : value === 'night' ? 'dark' : undefined,
+  resolveMedia: (isDark) => (isDark ? 'dark' : 'light'),
+});
+```
+
+- Defaults: attribute `data-theme` on `<html>`, query
+  `(prefers-color-scheme: dark)`.
+- `null`, `'auto'` and `'system'` attribute values defer to the media query.
+- Applies the current combination **immediately**, then on attribute changes
+  and media `change` events; `stop()` tears down both watchers.
+- Unknown names resolve through the normal theme fallback (warned once), and
+  pinned per-chart themes are still left untouched.
+
+### Theme change notifications
+
+React to an active-theme change with the callback API, or with the DOM event
+when the listener is not part of the icharts consumer (e.g. a stylesheet
+manager). `switchTheme()`, `configure({ theme })` and both auto-sync helpers
+notify; per-chart `setTheme()` / `update(_, { theme })` do not.
+
+```ts
+import { onThemeChange, THEME_CHANGE_EVENT } from '@bndynet/icharts';
+
+const off = onThemeChange(({ name, previous, colorMode }) => {
+  document.documentElement.dataset.theme = name;
+});
+
+// Or, for non-icharts code:
+window.addEventListener(THEME_CHANGE_EVENT, (event) => {
+  event.detail; // { name, previous, colorMode }
+});
+
+off(); // unsubscribe
+```
+
+- Fires only when the active theme **name** changes — re-switching the same
+  theme, or re-registering a theme's tokens under the same name, does not fire.
+- Unknown theme names are a no-op (no event).
+- Fires after the switch, once every unpinned chart has been repainted.
+- A throwing listener is isolated and cannot abort `switchTheme()`.
+- SSR-safe: the callback works, the DOM event is skipped without `window`.
+- `WindowEventMap` is augmented, so `addEventListener('icharts:themechange',
+  …)` types `event.detail` as `ThemeChangeDetail`.
+
 ---
 
 ## Instance API
@@ -646,7 +824,9 @@ Notes:
 |--------|-------------|
 | `update(data?, options?)` | Re-render with new data / options |
 | `setStatus(status)` | Show a loading, empty, error, or ready state without replacing chart data |
-| `setTheme(name)` | Switch to a registered theme without re-creating the instance |
+| `setTheme(name)` | Pin this chart to a registered theme (survives global theme switches) |
+| `getTheme()` | The theme this chart is currently rendering with |
+| `clearTheme()` | Stop pinning a per-chart theme and follow global switches again |
 | `resize()` | Trigger resize (e.g. after container size change) |
 | `dispose()` | Destroy the chart and free memory. Called automatically when the container leaves the DOM (idempotent — safe to call again). |
 | `getEChartsInstance()` | Access the underlying ECharts instance |

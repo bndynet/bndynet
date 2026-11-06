@@ -323,7 +323,8 @@ createChart(el, 'bar', data, { theme: 'ocean' });
 
 > ⚠️ Call `registerTheme` **before** creating any chart. Existing
 > charts will not pick up a newly registered theme until you call
-> `switchTheme(name)` or per-instance `chart.setTheme(name)`.
+> `switchTheme(name)` or per-instance `chart.setTheme(name)`. Pinned charts
+> are skipped by `switchTheme` — use `switchTheme(name, { force: true })`.
 
 ### Switching themes globally
 
@@ -332,8 +333,22 @@ import { switchTheme } from '@bndynet/icharts';
 switchTheme('dark');
 ```
 
-`switchTheme` syncs ColorHub's current theme and calls `setTheme` on
-every live chart in `chartRegistry` — no recreation needed.
+`switchTheme` syncs ColorHub's current theme and calls `applyGlobalTheme` on
+every live chart in `chartRegistry` — no recreation needed. Charts that pin
+their own theme (`options.theme` at creation, `chart.setTheme(name)`, or
+`update(data, { theme })`) are skipped; pass `switchTheme(name, { force: true })`
+to override them.
+
+Per-chart precedence is deliberate: `options.theme` wins over global switches,
+`configure({ theme })`, and DOM-attribute sync. `chart.clearTheme()` (or
+`update(undefined, { theme: undefined })`) unpins a chart; `chart.getTheme()`
+reports the theme it is actually rendering with.
+
+Unregistered theme names never mix two themes: `switchTheme('typo')` is a
+no-op (no state change, one console warning), and an unknown per-chart
+`theme` resolves to the **active** theme — so the ECharts theme, the palette
+and the UI tokens always come from the same definition. Register custom
+themes with `registerTheme()` first.
 
 ---
 
@@ -482,17 +497,26 @@ From `src/index.ts`:
 | `configure({ consistentColors })` | Global flag for cross-chart same-name-same-color. |
 | `getConfig()` | Read current global config. |
 | `registerTheme(config)` | Register a custom theme (palette + UI tokens). |
-| `switchTheme(name)` | Switch every live chart to a registered theme. |
-| `getCurrentTheme()`, `getThemeColors()` | Inspect the active theme. |
+| `listThemes()`, `hasTheme(name)` | Theme-registry introspection: registered names (built-ins first) / availability check. |
+| `switchTheme(name, options?)` | Switch every live chart that does not pin its own theme. `{ force: true }` overrides pinned charts too. |
+| `getCurrentTheme()`, `getTheme(name?)`, `getThemeColors(name?)` | Inspect the active theme, or any registered theme's definition / tokens by name. Reading never switches the active theme. |
+| `onThemeChange(listener)` | Subscribe to active-theme changes (also dispatched as `icharts:themechange` on `window`). |
+| `getThemeMode(name?)`, `isDarkTheme(name?)` | Resolved `'light'` / `'dark'` mode — for the active theme or any registered one. |
 | `getSeriesColor(name)` | Hex set `{ default, hover, active, disabled }` for a given name. |
 | `setColorMap(map, themeName?)` | Pre-bind `name → color` (effective only with `consistentColors: true`). |
 | `resetColorMap(themeName?)` | Clear ColorHub's accumulated map. |
+
+Rendering is side-effect free with respect to the active theme: `resolveColors`
+passes `resolveThemeName(options.theme)` down to `resolveSeriesColors` /
+`resolveColorsByPosition` as an explicit trailing argument, so a per-chart
+theme never changes what `getCurrentTheme()` reports, the default theme of
+charts created afterwards, or a subsequent SSR render.
 
 `ChartOptions` fields:
 
 | Field | Scope | Priority |
 |-------|-------|----------|
-| `options.theme` | single chart | selects which theme to use |
+| `options.theme` | single chart | selects which theme to use; pinned — global switches skip it |
 | `options.colors` | single chart | positional override; needs `length >= names.length` |
 | `options.colorMap` | single chart | per-name override |
 | `node.color` (in data) | single node | highest — graph charts only |
@@ -630,7 +654,8 @@ document.addEventListener('toggle-theme', () => {
   ColorHub's name map, which that code path does not read.
 - ❌ Call `registerTheme` *after* creating charts and expect them to
   pick it up automatically. Charts switch themes only via
-  `switchTheme(name)` or per-instance `chart.setTheme(name)`.
+  `switchTheme(name)` or per-instance `chart.setTheme(name)`; pinned charts
+  are skipped unless you pass `{ force: true }`.
 
 ---
 
