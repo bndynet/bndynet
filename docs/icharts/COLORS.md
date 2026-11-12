@@ -123,6 +123,12 @@ Internally `resolveColors` switches from `resolveColorsByPosition` to
 itself is now a read-only theme / palette / token repository — it no
 longer accumulates the name → color map as a render side effect.)
 
+When a theme's series palette is exhausted (more distinct names than
+palette entries), overflow names are assigned from a fixed, deterministic
+extension palette (`EXTENSION_PALETTE` in `src/themes/palette-registry.ts`)
+instead of a `Math.random`-based hue — so the same name keeps the same color
+on every render/refresh rather than shuffling.
+
 ```ts
 configure({ consistentColors: true });
 
