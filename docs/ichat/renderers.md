@@ -150,6 +150,19 @@ import { createChartRenderer } from "@bndynet/ichat-renderer-chart";
 registerCodeRenderer(createChartRenderer({ codeToggle: false }));
 ```
 
+Mermaid defaults to `theme: "auto"` — the unified `redux-dark` palette on dark hosts, `redux` on light hosts. Pass `"base"` to use the `--chat-mermaid-*` tokens, or any official theme name to pin a palette:
+
+```typescript
+import {
+  createMermaidRenderer,
+  setDefaultMermaidTheme,
+} from "@bndynet/ichat-renderer-mermaid";
+
+setDefaultMermaidTheme("base"); // token-driven colors for every diagram
+
+registerCodeRenderer(createMermaidRenderer({ theme: "forest" })); // or pin one
+```
+
 If you use **`@bndynet/ichat-messages`** without **`@bndynet/ichat`**, the same auto-registration works — just `import` the renderer packages.
 
 ## Markdown-it Extensions (Inline / Block Plugins)

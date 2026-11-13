@@ -30,6 +30,8 @@ The first three packages are the **built-in** baseline — markdown, parts, tool
 npm install @bndynet/ichat @bndynet/ichat-renderers @bndynet/ichat-renderer-chart @bndynet/ichat-renderer-katex @bndynet/ichat-renderer-mermaid
 ```
 
+> The Mermaid renderer depends on Mermaid 12, which requires **Node.js >= 22.12** at install time and an **ES2024-capable browser** (Safari 17.4+). Mermaid is loaded on demand; when it cannot load, diagrams fall back to their source code block.
+
 **Chat only** (markdown + highlighting, no chart/KPI/form/Mermaid):
 
 ```bash
