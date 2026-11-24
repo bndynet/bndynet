@@ -9,7 +9,7 @@ notion_url: 'https://app.notion.com/p/LangGraph-3211a3b433fe80019b62d5bd52b9e979
 [Open in Notion](https://app.notion.com/p/LangGraph-3211a3b433fe80019b62d5bd52b9e979)
 
 
-![image.png](/notion/2026-03-12-langgraph/49096f43b9a2c9be.png)
+![image.png](/notion/2026-03-12-langgraph/e22b74d19d80c4cc.png)
 
 
 # LangGraph 架构原理与适用场景详解
