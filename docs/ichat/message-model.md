@@ -3,6 +3,7 @@
 How messages are shaped: roles, the common `ChatMessage` fields, and the structured `parts[]` body.
 
 - [Message roles (`ChatMessageRole`)](#message-roles-chatmessagerole)
+- [Borderless messages (`bubble: false`)](#borderless-messages-bubble-false)
 - [Message body — `parts[]`](#message-body--parts)
 
 ## Message roles (`ChatMessageRole`)
@@ -28,6 +29,22 @@ Each `ChatMessage` has `role: 'self' | 'peer' | 'assistant' | 'system'`.
 | `avatar`                                      | Per-row avatar override (see [Per-message `avatar`](./component-api.md#per-message-avatar))                                                                                                                                                                                                                                                            |
 | `streaming`, `error`, `cancelled`, `duration` | Assistant streaming / errors / timing                                                                                                                                                                                                                                                                                                                  |
 | `parentId`                                    | When set on a message in `messages[]`, that row renders as a **compact quote** (avatar + body only; no footer or `message-actions`). Use for reply rows you store in the thread. Distinct from **`replyMessage`**, which renders quote blocks **under** a parent without adding them to `messages[]` (see [Reply blocks](./composer.md#reply-blocks)). |
+| `bubble`                                      | Set `false` to render `text` parts without the bubble background, padding, corners, and shadow. Defaults to `true` (see [Borderless messages](#borderless-messages-bubble-false)).                                                                                                                                                                     |
+
+## Borderless messages (`bubble: false`)
+
+Set `bubble: false` on a message to render its markdown body directly on the surrounding surface. Layout, typography, streaming, and inter-part spacing are unchanged — only the bubble chrome is removed, and `self` messages keep readable (non-inverted) text, link, and inline-code colors.
+
+```javascript
+chat.addMessage({
+  id: "note-1",
+  role: "assistant",
+  bubble: false,
+  parts: [textPart("Rendered without a bubble.")],
+});
+```
+
+Only `text` parts are affected. The error bubble (when `error` is set) and the other part types (reasoning, tool calls, todos, files, sources, custom parts) keep their own surfaces. Borderless rows still use `--chat-message-max-width` (85% by default); raise it when the content should span more of the thread.
 
 ## Message body — `parts[]`
 

@@ -76,6 +76,29 @@ chatEl.addEventListener("send", async (e) => {
 
 The demo uses these same `ChatRunController` paths for complete and simulated streaming responses, so its busy, completion, and cancellation behavior exercises the public integration API.
 
+## Attachments and pending files
+
+The library does not own draft attachments. Keep the pending file list in host state, render the picker and removable chips in `slot="actions"`, and add `file` parts to the self message when `send` fires:
+
+```javascript
+chat.addEventListener("send", (event) => {
+  const parts = [textPart(event.detail.content)];
+  for (const file of pendingFiles) {
+    parts.push({
+      id: nextPartId("file"),
+      type: "file",
+      mediaType: file.type,
+      name: file.name,
+      size: file.size,
+      url: uploadedUrl(file), // or a `data:` URL / raw base64 via `data`
+    });
+  }
+  chat.addMessage({ id: nextId(), role: "self", parts, timestamp: Date.now() });
+});
+```
+
+`<i-chat>` renders image `file` parts inline and other MIME types as download links (see [File parts](./parts.md#file--attachments)). Removing a pending file before send is only a host-state update; no library API is involved. The demo's **Input actions** page implements the full picker → preview chip → remove → send flow with `slot="actions"`.
+
 ## Reply blocks
 
 Show quoted content **under** an existing message (e.g. after the user taps Reply in `message-actions`). The component only **renders** these blocks; you still own the composer (`<i-chat-input>` or `slot="input"`).

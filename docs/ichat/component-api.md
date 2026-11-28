@@ -28,7 +28,7 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `voiceListeningLabel`       | `string`                                                          | `''`             | Forwarded to the default `<i-chat-input>` — text on the listening overlay. Empty → localized default from `config.locale` / `config.labels.composer.voiceListening`                                                                                                                                                                                           |
 | `voiceDiagnostics`          | `boolean`                                                         | `false`          | Forwarded to the default `<i-chat-input>` — enables `console.debug` for speech-recognition steps                                                                                                                                                                                                                                                              |
 
-**Methods:** `requestConfirmation`, `clearConfirmations`, `requestComposerInteraction`, `completeComposerInteraction`, `cancelComposerInteraction`, `clearComposerInteractions`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `scrollToMessage`, `scrollToPart`, `focusInput`
+**Methods:** `requestConfirmation`, `clearConfirmations`, `requestOptions`, `clearOptions`, `requestComposerInteraction`, `completeComposerInteraction`, `cancelComposerInteraction`, `clearComposerInteractions`, `addMessage`, `updateMessage`, `appendPart`, `tryUpdatePart`, `updatePart`, `tryUpdateToolCall`, `tryUpdateTodoItem`, `tryApplyMessagePartUpdateEvent`, `tryApplyTodoItemUpdateEvent`, `removeMessage`, `replyMessage`, `clearReplyMessage`, `clear`, `cancel`, `cancelMessage`, `showError`, `dismissError`, `updateProgressStep`, `addErrorMessage`, `scrollToMessage`, `scrollToPart`, `focusInput`
 
 **Events on `<i-chat>`:**
 
@@ -45,8 +45,10 @@ Properties, methods, and events of the `<i-chat>` shell, plus slots and per-mess
 | `chat-renderer-error`         | `RendererErrorDetail`                                                                              | A block or string-part renderer failed during matching, sync rendering, or async rendering. The message has already fallen back safely; use this event for logging/observability.                             |
 | `confirmation-change`         | `{ active, queue, queueLength }`                                                                   | Confirmation-only view changed. A custom active item is reported as `active: null`; custom items are omitted from this event's queue.                                                                         |
 | `confirmation-decision`       | `ChatConfirmationResult`                                                                           | User confirmed or cancelled the active composer confirmation                                                                                                                                                  |
-| `composer-interaction-change` | `ChatComposerInteractionChangeDetail`                                                              | Active item or waiting queue changed in the shared confirmation/custom FIFO. `queueLength` excludes `active`.                                                                                                 |
-| `composer-interaction-result` | `ChatComposerInteractionResult`                                                                    | Any shared interaction completed or was cancelled, including `kind: 'confirmation'`.                                                                                                                          |
+| `options-change`              | `{ active, queue, queueLength }`                                                                   | Option-form-only view changed. A non-option active item is reported as `active: null`; non-option items are omitted from this event's queue.                                                                  |
+| `options-decision`            | `ChatOptionsResult`                                                                                | User confirmed or cancelled the active composer option form                                                                                                                                                   |
+| `composer-interaction-change` | `ChatComposerInteractionChangeDetail`                                                              | Active item or waiting queue changed in the shared confirmation/options/custom FIFO. `queueLength` excludes `active`.                                                                                         |
+| `composer-interaction-result` | `ChatComposerInteractionResult`                                                                    | Any shared interaction completed or was cancelled, including `kind: 'confirmation'` and `kind: 'options'`.                                                                                                    |
 
 Events that originate on inner rows (e.g. `message-complete` on `<i-chat-message>`) use `bubbles` + `composed` so you can listen on `<i-chat>` or `document`.
 
@@ -277,22 +279,66 @@ if (result.confirmed) {
 
 `ChatConfirmationRequest` fields:
 
-| Field                          | Type                    | Description                                                                  |
-| ------------------------------ | ----------------------- | ---------------------------------------------------------------------------- |
-| `id`                           | `string?`               | Optional stable id. Generated when omitted                                   |
-| `title`                        | `string`                | Main prompt shown to the user                                                |
-| `description`                  | `string?`               | Short supporting text                                                        |
-| `details`                      | `unknown?`              | String or structured data; objects render in a collapsible details block     |
-| `requiredLabel`                | `string?`               | Per-request eyebrow above the title. Set to `''` to hide it for this request |
-| `confirmLabel` / `cancelLabel` | `string?`               | Per-request button labels                                                    |
-| `variant`                      | `'default' \| 'danger'` | Use `danger` for destructive or high-impact actions                          |
-| `payload`                      | `unknown?`              | Host data returned in `result.request`; not rendered by default              |
+| Field                          | Type                    | Description                                                              |
+| ------------------------------ | ----------------------- | ------------------------------------------------------------------------ |
+| `id`                           | `string?`               | Optional stable id. Generated when omitted                               |
+| `title`                        | `string`                | Main prompt shown to the user                                            |
+| `description`                  | `string?`               | Short supporting text                                                    |
+| `details`                      | `unknown?`              | String or structured data; objects render in a collapsible details block |
+| `confirmLabel` / `cancelLabel` | `string?`               | Per-request button labels                                                |
+| `variant`                      | `'default' \| 'danger'` | Use `danger` for destructive or high-impact actions                      |
+| `payload`                      | `unknown?`              | Host data returned in `result.request`; not rendered by default          |
 
 Multiple calls are queued FIFO and shown one at a time. `clearConfirmations()` resolves the active and queued confirmations as `{ confirmed: false, action: 'cancel' }`.
 
 Generate `title` / `description` in your application from validated action or tool schemas. Model-provided text can be included as supporting context, but the primary confirmation copy should come from trusted business logic.
 
-The small eyebrow above the title comes from `config.labels.confirmation.required`. Set that label to an empty string to hide it globally, or set `request.requiredLabel = ''` to hide it for one confirmation.
+## Composer option forms
+
+Use `requestOptions(request)` when an action needs structured input — a single-select list, a multi-select list, and/or an optional free-text answer. Like a confirmation, the option form is a composer state: while active, it replaces the default `<i-chat-input>` (or a custom `slot="input"`), and the composer stays mounted behind `hidden` / `inert`.
+
+```javascript
+const result = await chat.requestOptions({
+  title: "Which report do you want?",
+  description: "Choose one, or type your own.",
+  options: [
+    {
+      label: "Quarterly summary",
+      value: "quarterly",
+      description: "Q3 metrics",
+    },
+    { label: "Weekly digest", value: "weekly" },
+  ],
+  allowCustomInput: true,
+  customInputPlaceholder: "Or name a custom report…",
+});
+
+if (result.confirmed) {
+  console.log(result.selected); // e.g. ["quarterly"]
+  console.log(result.custom); // free-text, when typed
+}
+```
+
+`ChatOptionsRequest` fields:
+
+| Field                          | Type                   | Description                                                                         |
+| ------------------------------ | ---------------------- | ----------------------------------------------------------------------------------- |
+| `id`                           | `string?`              | Optional stable id. Generated when omitted                                          |
+| `title`                        | `string`               | Main prompt shown to the user                                                       |
+| `description`                  | `string?`              | Short supporting text                                                               |
+| `options`                      | `ChatOptionsOption[]?` | Choices rendered as a list. Omit to present a free-input-only form                  |
+| `multiSelect`                  | `boolean?`             | Allow more than one selection. Defaults to single-select                            |
+| `allowCustomInput`             | `boolean?`             | Enable the free-text "custom answer" input. Defaults to `false`                     |
+| `customInputPlaceholder`       | `string?`              | Placeholder for the free-text input                                                 |
+| `required`                     | `boolean?`             | Require at least one selection or custom text before confirming. Defaults to `true` |
+| `confirmLabel` / `cancelLabel` | `string?`              | Per-request button labels                                                           |
+| `payload`                      | `unknown?`             | Host data returned in `result.request`; not rendered by default                     |
+
+`ChatOptionsOption` fields: `label` (required), `value` (defaults to `label`), and `description`.
+
+`ChatOptionsResult` reports `action` (`'confirm' | 'cancel'`), `confirmed`, `selected` (option values), `custom` (trimmed free text, when typed), and the resolved `request`. Multiple calls are queued FIFO alongside confirmations and custom interactions and shown one at a time. `clearOptions()` resolves active and queued option forms as `{ confirmed: false, action: 'cancel' }`.
+
+The free-text placeholder defaults to `config.labels.options.customInput`.
 
 ## Custom composer interactions
 
